@@ -13,6 +13,4 @@ public class Reservation {
     private Moto moto;
     private ReservationStatut statut;
     
-    
-    
 }
