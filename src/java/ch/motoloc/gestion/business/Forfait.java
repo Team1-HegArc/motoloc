@@ -13,5 +13,7 @@ public class Forfait {
     private MotoModele motoModele;
     private Set<Reservation> reservations;
     private Date date;
+    private double prix;
+    private Set<Facture> factures;
   
 }
