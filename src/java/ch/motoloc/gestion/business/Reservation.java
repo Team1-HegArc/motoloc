@@ -12,7 +12,7 @@ public class Reservation {
     private Date dateFin;
     private Moto moto;
     private ReservationStatut statut;
-    private Facture factureReservation;
+    private FactureReservation facture;
     private Forfait forfait;
     
 }
