@@ -1,7 +1,6 @@
 package ch.motoloc.gestion.business;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 /**
