@@ -9,5 +9,4 @@ public class Supplement {
     private String libelle;
     private double prix;
 
-    
 }
