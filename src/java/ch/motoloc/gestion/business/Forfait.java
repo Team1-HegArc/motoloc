@@ -14,6 +14,6 @@ public class Forfait {
     private Set<Reservation> reservations;
     private Date date;
     private double prix;
-    private Set<Facture> factures;
+    private Set<FactureForfait> factures;
   
 }
