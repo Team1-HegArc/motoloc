@@ -1,6 +1,7 @@
 package ch.motoloc.gestion.business;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Classe Reservation
@@ -14,5 +15,6 @@ public class Reservation {
     private ReservationStatut statut;
     private FactureReservation facture;
     private Forfait forfait;
+    private List<Supplement> supplements;
     
 }
