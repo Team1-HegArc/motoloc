@@ -6,7 +6,7 @@
  <application>
         <!--indique le package avec les fichiers de langue (chargement global)-->
         <resource-bundle>
-            <base-name>ch.hearc.ig.jsf.presentation.bundle.Resources</base-name>
+            <base-name>ch.motoloc.gestion.presentation.bundle.Resources</base-name>
             <!--variable qui permet d'accéder aux couples clé/valeur des fichiers de langue-->
             <var>resrc</var>
         </resource-bundle>
