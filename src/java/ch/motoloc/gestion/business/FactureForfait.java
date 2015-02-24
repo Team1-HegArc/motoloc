@@ -7,5 +7,6 @@ package ch.motoloc.gestion.business;
 public class FactureForfait extends Facture {
    
     private Forfait forfait;
+    private Paiement paiement;
     
 }

@@ -20,10 +20,6 @@ public class Client {
     private String remarque;
     private List<Forfait> forfaits;
     private String numeroPermis;
-
-    public Client() {
-    }
-    
     
 
 }

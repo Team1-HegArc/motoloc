@@ -9,6 +9,7 @@ import java.util.List;
 public class FactureReservation extends Facture {
     
     private Reservation reservation;
-    private List<Supplement> supplements;
+    private List<Facturation> facturations;
+    private List<Paiement> paiements;
     
 }
