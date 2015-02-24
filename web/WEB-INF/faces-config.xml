@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ <application>
+        <!--indique le package avec les fichiers de langue (chargement global)-->
+        <resource-bundle>
+            <base-name>ch.hearc.ig.jsf.presentation.bundle.Resources</base-name>
+            <!--variable qui permet d'accéder aux couples clé/valeur des fichiers de langue-->
+            <var>resrc</var>
+        </resource-bundle>
+        
+        <!--indique la langue par défaut et les langues supportées par l'application-->
+        <locale-config>
+            <default-locale>fr</default-locale>
+            <supported-locale>fr</supported-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+    </application>
+    
+    <navigation-rule>
+        <from-view-id>/accueil.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>ajout</from-outcome>
+            <to-view-id>/ajoutClient.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+   
+</faces-config>
