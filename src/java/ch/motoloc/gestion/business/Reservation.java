@@ -15,6 +15,5 @@ public class Reservation {
     private ReservationStatut statut;
     private FactureReservation facture;
     private Forfait forfait;
-    private List<Supplement> supplements;
-    
+    private List<Supplement> supplements;  
 }
