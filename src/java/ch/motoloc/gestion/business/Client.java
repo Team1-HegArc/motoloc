@@ -9,7 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Classe Client
@@ -40,6 +41,7 @@ public class Client implements Serializable {
     private String ville;
     
     @Column(name = "BIRTHDATE")
+    @Temporal(TemporalType.DATE)
     private Date dateDeNaissance;
     
     @Column(name = "EMAIL")

@@ -12,6 +12,7 @@ import javax.persistence.Table;
  * Classe FactureForfait
  * @author irina.fessemaz
  */
+
 @Entity
 @Table(name="INVOICE_RENTAL")
 public class FactureForfait extends Facture {
@@ -19,9 +20,12 @@ public class FactureForfait extends Facture {
     @Id
     @Column(name="PK_INVOICE_RENTRAL")
     private Long id;
+    
+    // A vérifier
     @OneToOne
     @PrimaryKeyJoinColumn
     private Forfait forfait;
+    
     @OneToOne
     @JoinColumn(name="FK_PAYMENT")
     private Paiement paiement;

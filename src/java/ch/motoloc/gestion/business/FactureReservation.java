@@ -14,6 +14,7 @@ import javax.persistence.Table;
  * Classe FactureReservation
  * @author irina.fessemaz
  */
+
 @Entity
 @Table(name="INVOICE_BOOKING")
 public class FactureReservation extends Facture {
@@ -21,11 +22,16 @@ public class FactureReservation extends Facture {
     @Id
     @Column(name="PK_INVOICE_BOOKING")
     private Long id;
+    
     @OneToOne
     @JoinColumn(name="FK_BOOKING")
     private Reservation reservation;
+    
+    //A vérifier
     @OneToMany
     private List<Supplement> supplements;
+    
+    //A vérifier
     @OneToMany
     private List<Paiement> paiements;
     
