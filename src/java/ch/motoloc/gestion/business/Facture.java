@@ -7,6 +7,5 @@ package ch.motoloc.gestion.business;
 public abstract class Facture {
     
     private String numero;
-    private Boolean estPaye;
 
 }
