@@ -16,10 +16,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="INVOICE_RENTAL")
 public class FactureForfait extends Facture {
-   
-    @Id
-    @Column(name="PK_INVOICE_RENTRAL")
-    private Long id;
     
     // A vérifier
     @OneToOne

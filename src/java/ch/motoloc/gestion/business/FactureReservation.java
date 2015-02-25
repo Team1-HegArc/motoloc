@@ -18,10 +18,6 @@ import javax.persistence.Table;
 @Table(name="INVOICE_BOOKING")
 public class FactureReservation extends Facture {
     
-    @Id
-    @Column(name="PK_INVOICE_BOOKING")
-    private Long id;
-    
     @OneToOne
     @JoinColumn(name="FK_BOOKING")
     private Reservation reservation;
