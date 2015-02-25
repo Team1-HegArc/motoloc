@@ -27,10 +27,6 @@ public class Forfait implements Serializable {
     @Column(name = "ORDER_DATE")
     @Temporal(TemporalType.DATE)
     private Date date;
-    
-    @Column(name = "NB_DAYS")
-    private int nbJours;
-    
    
     @OneToMany
     @JoinColumn(name="FK_BOOKING")

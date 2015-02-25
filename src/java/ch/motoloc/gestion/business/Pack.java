@@ -26,6 +26,8 @@ public class Pack extends Forfait {
     private MotoModele motoModele;
     
     // TABLE PACK_TYPE
+    @Column(name = "NB_DAYS")
+    private int nbJours;
     @Column(name="NB_WEEKENDS")
     private int nbWeekends;
     
