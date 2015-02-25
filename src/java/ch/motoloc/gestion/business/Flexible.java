@@ -5,31 +5,31 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 /**
- * Classe Pack
+ * Classe Flexible
  * @author irina.fessemaz
  */
 
 @Entity
-@Table(name="RENTAL_PACK")
-public class Pack extends Forfait {
+@Table(name="RENTAL_FLEXIBLE")
+public class Flexible extends Forfait {
     
     @Id
-    @Column(name="PK_RENTAL_PACK")
+    @Column(name="PK_RENTAL_FLEXIBLE")
     private Long id;
     
     @Column(name = "NB_DAYS")
     private int nbJours;
     
-    @Column(name="NB_WEEKENDS")
-    private int nbWeekends;
-    
-    @Column(name="BASIC_PRICE")
-    private Double prix_base;
+    @Column(name="DAY_PRICE")
+    private Double prix_jour;
     
     @Column(name="KM_PRICE")
     private Double prix_km;
-
-   
+    
+    @Column(name="DEGRESSION_PRICE")
+    private Double prix_degression;
+    
+    
+    
 }
