@@ -15,12 +15,13 @@ public class ClientService {
 
     private static List<Client> listClients = new ArrayList();
 
-    public static Client ajouterClient(String nom, String prenom, String rue, String npa,
+    public static boolean ajouterClient(String nom, String prenom, String rue, String npa,
             String ville, Date dateDeNaissance, String email, String telephone, String remarque, String numeroPermis) {
 
         Client client = new Client(nom, prenom, rue, npa, ville, dateDeNaissance, email, telephone, remarque, numeroPermis);
         listClients.add(client);
-        return client;
+        boolean b = true;
+        return b;
     }  
            
                
