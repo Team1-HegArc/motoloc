@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTmL 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -10,32 +10,25 @@
         <ui:composition>
 
             <h:form>
+                <div class="brand">#{resrc.titre}</div>
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="container">
-                        <div class="navbar-header">
-cacca
-                            <a class="navbar-brand" href="index.jsp">#{resrc.titre}</a>
-                        </div>
-                        <div class="navbar-brand"></div>
                         <div class="navbar"> 
                             <ul class="nav nav-pills">
-                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.accueilMenu}">
-                                        <f:param name="pageId" value="1" />
+                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.accueilMenu}">
+                                        <f:param name="pageId" value="accueil" />
                                     </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutClient}">
-                                        <f:param name="pageId" value="2" />
+                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.ajoutClient}">
+                                        <f:param name="pageId" value="ajoutClient" />
                                     </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutClient}">
-                                        <f:param name="pageId" value="2" />
+                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.ajoutMoto}">
+                                        <f:param name="pageId" value="ajoutMoto" />
                                     </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutMoto}">
-                                        <f:param name="pageId" value="3" />
+                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.listeClients}">
+                                        <f:param name="pageId" value="listeClients" />
                                     </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.listeClients}">
-                                        <f:param name="pageId" value="4" />
-                                    </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.listeMotos}">
-                                        <f:param name="pageId" value="5" />
+                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.listeMotos}">
+                                        <f:param name="pageId" value="listeMotos" />
                                     </h:commandLink></li>
                             </ul>
                         </div>
