@@ -10,29 +10,37 @@
         <ui:composition>
 
             <h:form>
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
 
-                <div class="navbar"> 
-                <ul class="nav nav-pills">
-                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.accueilMenu}">
-                            <f:param name="pageId" value="1" />
-                        </h:commandLink></li>
-                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutClient}">
-                            <f:param name="pageId" value="2" />
-                        </h:commandLink></li>
-                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutClient}">
-                            <f:param name="pageId" value="2" />
-                        </h:commandLink>></li>
-                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutMoto}">
-                            <f:param name="pageId" value="3" />
-                        </h:commandLink></li>
-                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.listeClients}">
-                            <f:param name="pageId" value="4" />
-                        </h:commandLink></li>
-                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.listeMotos}">
-                            <f:param name="pageId" value="5" />
-                        </h:commandLink></li>
-                </ul>
-                </div>
+                            <a class="navbar-brand" href="index.jsp">#{resrc.titre}</a>
+                        </div>
+                        <div class="navbar-brand"></div>
+                        <div class="navbar"> 
+                            <ul class="nav nav-pills">
+                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.accueilMenu}">
+                                        <f:param name="pageId" value="1" />
+                                    </h:commandLink></li>
+                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutClient}">
+                                        <f:param name="pageId" value="2" />
+                                    </h:commandLink></li>
+                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutClient}">
+                                        <f:param name="pageId" value="2" />
+                                    </h:commandLink></li>
+                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutMoto}">
+                                        <f:param name="pageId" value="3" />
+                                    </h:commandLink></li>
+                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.listeClients}">
+                                        <f:param name="pageId" value="4" />
+                                    </h:commandLink></li>
+                                <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.listeMotos}">
+                                        <f:param name="pageId" value="5" />
+                                    </h:commandLink></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </h:form>
         </ui:composition>
     </body>
