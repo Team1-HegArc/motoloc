@@ -21,12 +21,11 @@ public class Flexible extends Forfait {
     @Column(name = "NB_DAYS")
     private int nbJours;
     
+    // TABLE FLEXIBLE
     @Column(name="DAY_PRICE")
     private Double prix_jour;
-    
     @Column(name="KM_PRICE")
     private Double prix_km;
-    
     @Column(name="DEGRESSION_PRICE")
     private Double prix_degression;
     
