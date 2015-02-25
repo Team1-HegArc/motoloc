@@ -21,7 +21,7 @@
     <navigation-rule>
         <from-view-id>/accueil.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>ajout</from-outcome>
+            <from-outcome>ajoutClient</from-outcome>
             <to-view-id>/ajoutClient.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
