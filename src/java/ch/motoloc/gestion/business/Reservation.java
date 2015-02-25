@@ -42,8 +42,9 @@ public class Reservation implements Serializable {
     private Moto moto;
     
     //A vérifier, enum derrière...
-    @ManyToOne
-    @JoinColumn(name="FK_BOOKING_STATE")
+    /*@ManyToOne
+    @JoinColumn(name="FK_BOOKING_STATE")*/
+    @Transient
     private ReservationStatut statut;
     
     // A vérifier
