@@ -22,7 +22,7 @@ public class FactureReservation extends Facture {
     
     //A vérifier
     @OneToMany
-    private List<Supplement> supplements;
+    private List<Facturation> facturations;
     
     //A vérifier
     @OneToMany
