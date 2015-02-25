@@ -43,7 +43,7 @@
             out.println(client);
 
             em.close();
-            emf.close();;
+            emf.close();
         %>
     </body>
 </html>
