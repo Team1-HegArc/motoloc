@@ -76,7 +76,6 @@ public class Client implements Serializable {
         this.remarque = remarque;
         this.numeroPermis = numeroPermis;
     }
-s
     
     public Long getId() {
         return id;
