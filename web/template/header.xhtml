@@ -4,19 +4,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <body>
         <ui:composition>
-            <div class="brand">Application Web Banque</div>
+
             <h:form>
-                <h:commandLink action="ajout" value="Ajouter client"/>
-                <h:commandLink action="ajout" value="Ajouter moto"/>
-                <h:commandLink action="ajout" value="Liste des clients"/>
-                <h:commandLink action="ajout" value="Liste des motos"/>
-                
+
+                <div class="navbar"> 
+                <ul class="nav nav-pills">
+                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.accueilMenu}">
+                            <f:param name="pageId" value="1" />
+                        </h:commandLink></li>
+                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutClient}">
+                            <f:param name="pageId" value="2" />
+                        </h:commandLink></li>
+                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutClient}">
+                            <f:param name="pageId" value="2" />
+                        </h:commandLink>></li>
+                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.ajoutMoto}">
+                            <f:param name="pageId" value="3" />
+                        </h:commandLink></li>
+                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.listeClients}">
+                            <f:param name="pageId" value="4" />
+                        </h:commandLink></li>
+                    <li role="presentation"><h:commandLink action="#{MenuBean.affichePage}" value="#{resrc.listeMotos}">
+                            <f:param name="pageId" value="5" />
+                        </h:commandLink></li>
+                </ul>
+                </div>
             </h:form>
-
-
         </ui:composition>
     </body>
 </html>
