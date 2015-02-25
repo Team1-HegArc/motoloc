@@ -28,10 +28,10 @@ public class Forfait implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date date;
     
-    @ManyToOne
-    @JoinColumn(name="FK_MOTORBIKE_MODEL")
-    private MotoModele motoModele;
+    @Column(name = "NB_DAYS")
+    private int nbJours;
     
+   
     @OneToMany
     @JoinColumn(name="FK_BOOKING")
     private Set<Reservation> reservations;
