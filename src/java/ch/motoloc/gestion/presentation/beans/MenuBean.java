@@ -18,14 +18,25 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "menuBean")
 @RequestScoped
 public class MenuBean {
-
+    /**
+     * équivalement a un request.parametre
+     * 
+     */
     @ManagedProperty("#{param.pageId}")
     String pageId;
 
+    /**
+     *
+     * @return
+     */
     public String getPageId() {
         return pageId;
     }
 
+    /**
+     *
+     * @param pageId
+     */
     public void setPageId(String pageId) {
         this.pageId = pageId;
     }
@@ -36,14 +47,17 @@ public class MenuBean {
     public MenuBean() {
     }
 
+    /**
+     *
+     * @throws IOException
+     * 
+     */
     public void affichePage() throws IOException {
 
         switch (pageId) {
 
             case "accueil":
-
                 FacesContext.getCurrentInstance().getExternalContext().redirect("accueil.xhtml");
-
                 break;
             case "ajoutClient":
                 FacesContext.getCurrentInstance().getExternalContext().redirect("ajoutClient.xhtml");
@@ -57,10 +71,8 @@ public class MenuBean {
             case "listeMotos":
                 FacesContext.getCurrentInstance().getExternalContext().redirect("listeMotos.xhtml");
                 break;
-
             default:
                 FacesContext.getCurrentInstance().getExternalContext().redirect("accueil.xhtml");
-
         }
     }
 
