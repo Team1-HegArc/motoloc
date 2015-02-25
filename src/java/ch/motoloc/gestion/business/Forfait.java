@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,11 +22,13 @@ import javax.persistence.TemporalType;
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class Forfait implements Serializable {
     
-    //Manque ID, mettre le même nom de PK pour Pack et Flexible ?!?!
+    @Id
+    @Column(name = "PK_RENTAL")
+    private Long id;
     
-    @Column(name = "ORDER_DATE")
     @Temporal(TemporalType.DATE)
-    private Date date;
+    @Column(name = "ORDER_DATE")
+    private Date dateCommande;
    
     @OneToMany
     @JoinColumn(name="FK_BOOKING")

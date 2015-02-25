@@ -20,12 +20,11 @@ public class ClientService {
 
         Client client = new Client(nom, prenom, rue, npa, ville, dateDeNaissance, email, telephone, remarque, numeroPermis);
         listClients.add(client);
-        boolean b = true;
+        boolean b = true; //y
         return b;
     }  
            
-               
-
+ 
     public static void sauverClient(Long id, String nom, String prenom, String rue, String npa, 
             String ville, Date dateDeNaissance, String email, String telephone, String remarque, String numeroPermis){
         for (Client c : listClients) {

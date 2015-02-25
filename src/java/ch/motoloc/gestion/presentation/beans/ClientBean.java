@@ -25,6 +25,9 @@ public class ClientBean {
     
     public ClientBean() {
     }
+    
+    public void ajouterClient (){
+    }
 
     private Long id;
     private String nom;
