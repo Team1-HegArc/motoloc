@@ -2,9 +2,9 @@ package ch.motoloc.gestion.business;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 
 /**
@@ -14,27 +14,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="RENTAL_FLEXIBLE")
-public class Flexible extends Forfait {
-    
-    @Id
-    @Column(name="PK_RENTAL_FLEXIBLE")
-    private Long id;
+public class Flexible extends Forfait{
     
     @Column(name = "NB_DAYS")
-    private int nbJours;
+    private Integer nbJour;
     
-    @ManyToOne
-    @JoinColumn(name="FK_MOTORBIKE_MODEL")
-    private MotoModele motoModele;
-    
-    // TABLE FLEXIBLE
-    @Column(name="DAY_PRICE")
-    private Double prix_jour;
-    @Column(name="KM_PRICE")
-    private Double prix_km;
-    @Column(name="DEGRESSION_PRICE")
-    private Double prix_degression;
-    
-    
-    
+    @OneToOne
+    @JoinColumn(name="FK_FLEXIBLE", unique=true)
+    private TarificationFlexible tarificationFlexible;
 }
