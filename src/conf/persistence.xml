@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="motolocPU" transaction-type="RESOURCE_LOCAL">
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <class>ch.motoloc.gestion.business.Client</class>
+    <class>ch.motoloc.gestion.business.Facture</class>
+    <class>ch.motoloc.gestion.business.FactureForfait</class>
+    <class>ch.motoloc.gestion.business.FactureReservation</class>
+    <class>ch.motoloc.gestion.business.Flexible</class>
+    <class>ch.motoloc.gestion.business.Forfait</class>
+    <class>ch.motoloc.gestion.business.Moto</class>
+    <class>ch.motoloc.gestion.business.MotoModele</class>
+    <class>ch.motoloc.gestion.business.Pack</class>
+    <class>ch.motoloc.gestion.business.Paiement</class>
+    <class>ch.motoloc.gestion.business.Reservation</class>
+    <class>ch.motoloc.gestion.business.Supplement</class>
+    <class>ch.motoloc.gestion.business.TarificationFlexible</class>
+    <class>ch.motoloc.gestion.business.TarificationPack</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@ne-ege-leto.ig.he-arc.ch:1521:ens2"/>
