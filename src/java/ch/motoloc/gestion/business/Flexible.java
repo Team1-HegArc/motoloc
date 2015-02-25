@@ -20,6 +20,9 @@ public class Flexible extends Forfait {
     @Column(name="PK_RENTAL_FLEXIBLE")
     private Long id;
     
+    @Column(name = "NB_DAYS")
+    private int nbJours;
+    
     @ManyToOne
     @JoinColumn(name="FK_MOTORBIKE_MODEL")
     private MotoModele motoModele;
