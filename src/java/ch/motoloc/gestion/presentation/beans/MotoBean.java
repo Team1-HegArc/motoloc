@@ -7,6 +7,7 @@
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.MotoModele;
+import ch.motoloc.gestion.services.MotoService;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;

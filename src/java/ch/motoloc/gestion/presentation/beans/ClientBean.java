@@ -163,7 +163,7 @@ public class ClientBean implements Serializable{
 
     public ListDataModel<Client> getClients() {
         clients = new ListDataModel();
-        clients.setWrappedData(ClientService.getClients());
+        clients.setWrappedData(ClientService.getAllClients());
         return clients;
     }
 

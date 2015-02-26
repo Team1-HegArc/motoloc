@@ -27,18 +27,16 @@
                                             <div class="form-group">
                                                 <h:outputLabel class="col-sm-4" value="#{resrc.reference}"/>
                                                 <div class="controls col-sm-8">
-                                                    <h:inputText id="nom"  class="form-control input-md" maxlength="100" required="true">
-                                                        <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
+                                                    <h:inputText id="reference" value="#{motoBean.reference}" class="form-control input-md" maxlength="100" required="true">
+                                                        <f:validateRegex pattern="^[A-Za-zיטאצפ0-9 -]{1,100}$" />
                                                     </h:inputText>
                                                 </div>
 
                                             </div>
                                             <div class="form-group">      
-                                                <h:outputLabel class="col-sm-4"  value="#{resrc.note}"/>
+                                                <h:outputLabel class="col-sm-4"  value="#{resrc.remarque}"/>
                                                 <div class="controls col-sm-8">
-                                                    <h:inputText id="prenom"  class="form-control input-md" maxlength="50" required="true">
-                                                        <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
-                                                    </h:inputText>
+                                                    <h:inputText id="remarque" value="#{motoBean.remarque}" class="form-control input-md" maxlength="500"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">

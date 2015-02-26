@@ -47,6 +47,10 @@ public class ClientService {
         }
     }
 
-
+   public static List<Client> getAllClients(){  
+        return ClientDAO.findAll();     
+    }
+       
+   
 
 }

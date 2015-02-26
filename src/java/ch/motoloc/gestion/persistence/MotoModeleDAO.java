@@ -6,23 +6,24 @@
 
 package ch.motoloc.gestion.persistence;
 
-import ch.motoloc.gestion.business.Client;
+import ch.motoloc.gestion.business.MotoModele;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 /**
  *
  * @author lucas.hornisbe
  */
-public class ClientDAO {
-        
-        public static void create(Client client) {
-        JpaConnection.getEntityManager().persist(client);
-    }
-        
-       public static List<Client> findAll(){ 
-        return new ArrayList<Client>();
+public class MotoModeleDAO {
     
-} 
+public static MotoModele find(Long id){
+    return null;
+}
     
+public static List<MotoModele> findAll(){ 
+    return new ArrayList<MotoModele>();
+    
+}    
 }
