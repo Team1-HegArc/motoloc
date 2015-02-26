@@ -56,11 +56,13 @@
                                                 <h:commandButton value="#{resrc.editionBouton}" action="#{customerBean.edit(customer.number)}"/>
                                             </h:column>               
                                         </h:dataTable>
+                                        <div class="box">
                                         <h:commandButton value="#{resrc.ajoutBouton}" action="#{customerBean.add()}"/>
 
                                         <h:outputLink value="accueil.xhtml">
                                             <h:outputText value="#{resrc.retourAccueil}" />
                                         </h:outputLink>
+                                        </div>
                                     </h:form>
                                 </div>
                             </div>
