@@ -21,7 +21,7 @@ public class JpaConnection {
     
     public static EntityManager getEntityManager(){
         if(emf == null){
-                emf = Persistence.createEntityManagerFactory("motolocPersistenceUnit");
+                emf = Persistence.createEntityManagerFactory("motolocPU");
             }
         if(em == null){
             em = emf.createEntityManager();
