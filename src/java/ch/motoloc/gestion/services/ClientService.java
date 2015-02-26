@@ -6,6 +6,8 @@
 package ch.motoloc.gestion.services;
 
 import ch.motoloc.gestion.business.Client;
+import ch.motoloc.gestion.persistence.ClientDAO;
+import ch.motoloc.gestion.persistence.JpaConnection;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,11 +19,18 @@ public class ClientService {
 
     public static boolean ajouterClient(String nom, String prenom, String rue, String npa,
             String ville, Date dateDeNaissance, String email, String telephone, String remarque, String numeroPermis) {
+        try {
+                Client client = new Client(nom, prenom, rue, npa, ville, dateDeNaissance, email, telephone, remarque, numeroPermis);
+                listClients.add(client);
+                JpaConnection.getEntityManager().getTransaction().begin();
+                ClientDAO.create(client);
+                JpaConnection.getEntityManager().getTransaction().commit();
+                return true;
+                
+        } catch (Exception e) {
+            return false;
+        }
 
-        Client client = new Client(nom, prenom, rue, npa, ville, dateDeNaissance, email, telephone, remarque, numeroPermis);
-        listClients.add(client);
-        boolean b = true; //y
-        return b;
     }  
            
  
