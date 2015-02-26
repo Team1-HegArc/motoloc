@@ -100,11 +100,11 @@ public class ClientBean implements Serializable{
         this.ville = ville;
     }
 
-    public Date getDateDeNaissance() {
+    public String getDateDeNaissance() {
         return dateDeNaissance;
     }
 
-    public void setDateDeNaissance(Date dateDeNaissance) {
+    public void setDateDeNaissance(String dateDeNaissance) {
         this.dateDeNaissance = dateDeNaissance;
     }
 
