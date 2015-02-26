@@ -24,7 +24,7 @@
                                         <h1><h:outputText value="#{resrc.listeClients}"/></h1>
 
                 
-                                        <h:dataTable var="client" value="#{ClientBean.clients}"
+                                        <h:dataTable value="#{clientBean.clients}" var="client"
                                                      styleClass="employeeTable"
                                                      headerClass="employeeTableHeader"
                                                      rowClasses="employeeTableOddRow,employeeTableEvenRow">
@@ -55,7 +55,13 @@
                                             
                                             <h:column>
                                                 <h:commandButton value="#{resrc.editionBouton}" action="#{ClientBean.edit(client.number)}" styleClass="btn btn-primary"/>
-                                            </h:column>               
+                                            </h:column>
+                                            <h:column>
+                                                <h:commandButton value="#{resrc.supprimerBouton}" action="#{ClientBean.supp(client.number)}" styleClass="btn btn-primary"/>
+                                            </h:column> 
+                                            <h:column>
+                                                <h:commandButton value="#{resrc.visualisation}" action="#{ClientBean.detail(client.number)}" styleClass="btn btn-primary"/>
+                                            </h:column> 
                                         </h:dataTable>
                                         <div class="box">
                                             <h:commandButton value="#{resrc.ajoutBouton}" action="ajoutClient" styleClass="btn btn-success"/>
