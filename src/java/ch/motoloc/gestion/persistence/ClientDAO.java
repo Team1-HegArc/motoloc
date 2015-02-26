@@ -7,6 +7,8 @@
 package ch.motoloc.gestion.persistence;
 
 import ch.motoloc.gestion.business.Client;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,5 +19,10 @@ public class ClientDAO {
         public static void create(Client client) {
         JpaConnection.getEntityManager().persist(client);
     }
+        
+       public static List<Client> findAll(){ 
+        return new ArrayList<Client>();
+    
+} 
     
 }
