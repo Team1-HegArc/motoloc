@@ -11,7 +11,7 @@ import java.util.List;
 public class ClientService {
 
     private static List<Client> listClients = new ArrayList();
-
+    
     public static boolean ajouterClient(String nom, String prenom, String rue, String npa,
             String ville, String dateDeNaissance, String email, String telephone, String remarque, String numeroPermis) {
         try {
@@ -47,9 +47,17 @@ public class ClientService {
         }
     }
 
-   public static List<Client> getAllClients(){  
-        return ClientDAO.findAll();     
-    }
+   public static List<Client> getAllClients(){ 
+       /*
+       ajoute en dur pour test
+       */
+        ArrayList list = new ArrayList<Client>();
+        list.add(new Client("bibien", "bibien", "bibien", "bibien", "bibien", null, "dsa@sd.com","0798976767", null, null));
+        list.add(new Client("bibien", "bibien", "bibien", "bibien", "bibien", null, "dsa@sd.com","0798976767", null, null));
+        
+//return ClientDAO.findAll();     
+        return list;
+   }
        
    
 
