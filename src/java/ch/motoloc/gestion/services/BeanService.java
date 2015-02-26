@@ -13,6 +13,13 @@ import javax.faces.context.FacesContext;
  */
 public class BeanService {
 
+    /**
+     *
+     * @param <T>
+     * @param managedBeanName
+     * @param beanClass
+     * @return
+     */
     public static <T> T findBean(String managedBeanName, Class<T> beanClass) {
         FacesContext context = FacesContext.getCurrentInstance();
         return beanClass.cast(context.getApplication().evaluateExpressionGet(context, "#{" + managedBeanName + "}", beanClass));

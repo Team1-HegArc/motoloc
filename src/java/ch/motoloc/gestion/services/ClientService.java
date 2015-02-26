@@ -49,12 +49,12 @@ public class ClientService {
        /*
        ajoute en dur pour test
        */
-        ArrayList list = new ArrayList<Client>();
-        list.add(new Client("bibien", "bibien", "bibien", "bibien", "bibien", null, "dsa@sd.com","0798976767", null, null));
-        list.add(new Client("bibien", "bibien", "bibien", "bibien", "bibien", null, "dsa@sd.com","0798976767", null, null));
+        
+        listClients.add(new Client("bibien", "bibien", "bibien", "bibien", "bibien", null, "dsa@sd.com","0798976767", null, null));
+        listClients.add(new Client("bibien", "bibien", "bibien", "bibien", "bibien", null, "dsa@sd.com","0798976767", null, null));
         
 //return ClientDAO.findAll();     
-        return list;
+        return listClients;
    }
        
    
@@ -77,5 +77,9 @@ public class ClientService {
             return success;
         }
 
+    }
+
+    public static Client getClientId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

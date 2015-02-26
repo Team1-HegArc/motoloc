@@ -38,13 +38,19 @@ public class ClientBean implements Serializable{
     private String numeroPermis;
     private boolean erreur = false;
     /*
-    Liste de clients
+    pour tester pour afficher le client dans la modification A supprimer quand la persistance de merde marchera ! 
     */
-    private ListDataModel<Client> clients;
+    private Client cli = new Client("bibien", "bibien", "bibien", "bibien", "bibien", null, "dsa@sd.com","0798976767", null, null);
     
+    /*
+    Constructeur par defaut
+    */
     public ClientBean() {
     }
-    
+    /*
+    Ajoute un client dans le referenciel 
+    + redirection
+    */
     public String ajouterClient (){
         boolean checkAjout = ClientService.ajouterClient(nom, prenom, rue, npa, ville, dateDeNaissance, email, telephone, remarque, numeroPermis);
         if(!checkAjout) {
@@ -55,7 +61,9 @@ public class ClientBean implements Serializable{
             return "succes";
         }
     }
-    
+    /*
+    Suppression du client dans le référenciel + redirection
+    */
     public String supprimerClient (Long id){
         boolean checkSuppression = ClientService.supprimerClient(id);
         if(!checkSuppression) {
@@ -65,6 +73,14 @@ public class ClientBean implements Serializable{
             erreur = false;
             return "succes";
         }
+    }
+    /*
+    récupération du client dans la liste + redirection
+    */
+    public String editionBouton(long id)
+    {
+        
+        return "edition";
     }
     
     public Long getId() {
@@ -170,15 +186,15 @@ public class ClientBean implements Serializable{
     public void setErreur(boolean erreur) {
         this.erreur = erreur;
     }
-
-    public ListDataModel<Client> getClients() {
-        clients = new ListDataModel();
-        clients.setWrappedData(ClientService.getAllClients());
-        return clients;
+/*
+    pour test
+*/
+    public Client getCli() {
+        return cli;
     }
 
-    public void setClients(ListDataModel<Client> clients) {
-        this.clients = clients;
+    public void setCli(Client cli) {
+        this.cli = cli;
     }
     
     

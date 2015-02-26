@@ -21,29 +21,29 @@ import javax.faces.model.ListDataModel;
 @SessionScoped
 public class ListeClientBean {
 
-    private ListDataModel<Client> customers;
-    private ClientBean customerBean;
+    private ListDataModel<Client> clients;
+    private ClientBean clientBean;
 
     public ListeClientBean() {
     }
 
-    public ListDataModel<Client> getCustomers() {
-        customers = new ListDataModel();
-        customers.setWrappedData(ClientService.getAllClients());
-        return customers;
+    public ListDataModel<Client> getClients() {
+        clients = new ListDataModel();
+        clients.setWrappedData(ClientService.getAllClients());
+        return clients;
     }
 
-    public void setCustomers(ListDataModel<Client> customers) {
-        this.customers = customers;
+    public void setClients(ListDataModel<Client> clients) {
+        this.clients = clients;
     }
 
-    public ClientBean getCustomerBean() {
-        customerBean = BeanService.findBean("customerEDIBean", ClientBean.class);
-        return customerBean;
+    public ClientBean getClientBean() {
+        clientBean = BeanService.findBean("clientEDIBean", ClientBean.class);
+        return clientBean;
     }
 
-    public void setCustomerBean(ClientBean customerBean) {
-        this.customerBean = customerBean;
+    public void setClientBean(ClientBean clientBean) {
+        this.clientBean = clientBean;
     }
 
 }

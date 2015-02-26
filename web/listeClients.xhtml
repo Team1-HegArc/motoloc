@@ -25,7 +25,7 @@
 
                                         <h:outputText rendered="#{clientBean.erreur}" value="#{resrc.erreurSupressionClient}" styleClass="text-danger" />
                 
-                                        <h:dataTable value="#{clientBean.clients}" var="client"
+                                        <h:dataTable value="#{ListeClientBean.clients}" var="client"
                                                      styleClass="employeeTable"
                                                      headerClass="employeeTableHeader"
                                                      rowClasses="employeeTableOddRow,employeeTableEvenRow">
@@ -55,7 +55,7 @@
                                             </h:column>
                                             
                                             <h:column>
-                                                <h:commandButton value="#{resrc.editionBouton}" action="#{clientBean.edit(client.id)}" styleClass="btn btn-primary"/>
+                                                <h:commandButton value="#{resrc.editionBouton}" action="#{clientBean.editionBouton(client.id)}" styleClass="btn btn-primary"/>
                                             </h:column>
                                             <h:column>
                                                 <h:commandButton value="#{resrc.supprimerBouton}" action="#{clientBean.supprimerClient(client.id)}" styleClass="btn btn-primary"/>

@@ -73,6 +73,19 @@
             <from-outcome>erreur</from-outcome>
             <to-view-id>/listeClients.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>edition</from-outcome>
+            <to-view-id>/editClient.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!--Cas de navigation pour un annuler 
+    a voir si on fait un truc spécial-->
+    <navigation-rule>
+        <from-view-id>/editClient.xhtml</from-view-id>
+    <navigation-case>
+            <from-outcome>annuler</from-outcome>
+            <to-view-id>/listeClients.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     
