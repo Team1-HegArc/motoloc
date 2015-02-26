@@ -18,13 +18,6 @@
         </locale-config>
     </application>
     
-    <navigation-rule>
-        <from-view-id>/accueil.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>ajoutClient</from-outcome>
-            <to-view-id>/ajoutClient.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
     
     <navigation-rule>
         <from-view-id>/ajoutClient.xhtml</from-view-id>
@@ -46,6 +39,8 @@
             <to-view-id>/accueil.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <!-- Cas de navigation : ajout client depuis liste clients  -->
     <navigation-rule>
         <from-view-id>/listeClients</from-view-id>
         <navigation-case>
