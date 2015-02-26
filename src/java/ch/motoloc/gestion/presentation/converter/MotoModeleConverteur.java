@@ -7,6 +7,7 @@
 package ch.motoloc.gestion.presentation.converter;
 
 import ch.motoloc.gestion.business.MotoModele;
+import ch.motoloc.gestion.services.MotoService;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -25,7 +26,7 @@ public class MotoModeleConverteur implements Converter{
         }
         else{
             //On recupère un modele via son string
-            MotoModele mModele = MotoService.getModeleById(Long.parseLong(value));
+            MotoModele mModele = MotoService.getMotoModeleById(Long.parseLong(value));
             return mModele;
         }
     }
