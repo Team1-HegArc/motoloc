@@ -64,6 +64,15 @@
             <from-outcome>ajoutClient</from-outcome>
             <to-view-id>/ajoutClient.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/accueil.xhtml</to-view-id>
+        </navigation-case>
+        <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
+        <navigation-case>
+            <from-outcome>erreur</from-outcome>
+            <to-view-id>/listeClients.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     
