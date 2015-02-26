@@ -29,7 +29,7 @@ public class ClientBean implements Serializable{
     private String rue;
     private String npa;
     private String ville;
-    private Date dateDeNaissance;
+    private String dateDeNaissance;
     private String email;
     private String telephone;
     private String remarque;
@@ -100,11 +100,11 @@ public class ClientBean implements Serializable{
         this.ville = ville;
     }
 
-    public Date getDateDeNaissance() {
+    public String getDateDeNaissance() {
         return dateDeNaissance;
     }
 
-    public void setDateDeNaissance(Date dateDeNaissance) {
+    public void setDateDeNaissance(String dateDeNaissance) {
         this.dateDeNaissance = dateDeNaissance;
     }
 
