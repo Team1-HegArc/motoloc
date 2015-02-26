@@ -10,7 +10,6 @@ import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.services.ClientService;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;

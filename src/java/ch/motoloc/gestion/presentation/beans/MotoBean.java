@@ -16,7 +16,7 @@ import javax.faces.bean.RequestScoped;
  *
  * @author cyril.briguet
  */
-@ManagedBean(name = "motobean")
+@ManagedBean(name = "motoBean")
 @RequestScoped
 public class MotoBean implements Serializable{
 
