@@ -7,6 +7,7 @@
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Forfait;
+import ch.motoloc.gestion.services.ClientService;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -21,14 +22,6 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class ClientBean {
 
-    
-    
-    public ClientBean() {
-    }
-    
-    public void ajouterClient (){
-    }
-
     private Long id;
     private String nom;
     private String prenom;
@@ -41,8 +34,23 @@ public class ClientBean {
     private String remarque;
     private List<Forfait> forfaits;
     private String numeroPermis;
-
-
+    
+    private boolean erreurAjout = false;
+    
+    public ClientBean() {
+    }
+    
+    public String ajouterClient (){
+        boolean checkAjout = ClientService.ajouterClient(nom, prenom, rue, npa, ville, dateDeNaissance, email, telephone, remarque, numeroPermis);
+        if(!checkAjout) {
+            erreurAjout = true;
+            return "erreur"; 
+        } else {
+            erreurAjout = false;
+            return "succes";
+        }
+    }
+    
     public Long getId() {
         return id;
     }
