@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.motoloc.gestion.services;
 
 import ch.motoloc.gestion.business.Client;
@@ -18,9 +13,9 @@ public class ClientService {
     private static List<Client> listClients = new ArrayList();
 
     public static boolean ajouterClient(String nom, String prenom, String rue, String npa,
-            String ville, Date dateDeNaissance, String email, String telephone, String remarque, String numeroPermis) {
+            String ville, String dateDeNaissance, String email, String telephone, String remarque, String numeroPermis) {
         try {
-                Client client = new Client(nom, prenom, rue, npa, ville, dateDeNaissance, email, telephone, remarque, numeroPermis);
+                Client client = new Client(nom, prenom, rue, npa, ville, ConvertisseurDate.formatterDate(dateDeNaissance), email, telephone, remarque, numeroPermis);
                 listClients.add(client);
                 JpaConnection.getEntityManager().getTransaction().begin();
                 ClientDAO.create(client);
