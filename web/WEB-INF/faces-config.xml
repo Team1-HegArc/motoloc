@@ -20,7 +20,7 @@
     
     
     <navigation-rule>
-        <from-view-id>/ajoutClient.xhtml</from-view-id>
+        <from-view-id>/ajoutClient</from-view-id>
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-action>#{clientBean.ajouterClient()}</from-action>
