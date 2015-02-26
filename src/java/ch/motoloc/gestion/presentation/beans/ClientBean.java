@@ -36,7 +36,7 @@ public class ClientBean implements Serializable{
     private String remarque;
     private List<Forfait> forfaits;
     private String numeroPermis;
-    private boolean erreurAjout = false;
+    private boolean erreur = false;
     /*
     Liste de clients
     */
@@ -48,10 +48,21 @@ public class ClientBean implements Serializable{
     public String ajouterClient (){
         boolean checkAjout = ClientService.ajouterClient(nom, prenom, rue, npa, ville, dateDeNaissance, email, telephone, remarque, numeroPermis);
         if(!checkAjout) {
-            erreurAjout = true;
+            erreur = true;
             return "erreur"; 
         } else {
-            erreurAjout = false;
+            erreur = false;
+            return "succes";
+        }
+    }
+    
+    public String supprimerClient (Long id){
+        boolean checkSuppression = ClientService.supprimerClient(id);
+        if(!checkSuppression) {
+            erreur = true;
+            return "erreur"; 
+        } else {
+            erreur = false;
             return "succes";
         }
     }
@@ -152,12 +163,12 @@ public class ClientBean implements Serializable{
         this.numeroPermis = numeroPermis;
     }
 
-    public boolean isErreurAjout() {
-        return erreurAjout;
+    public boolean isErreur() {
+        return erreur;
     }
 
-    public void setErreurAjout(boolean erreurAjout) {
-        this.erreurAjout = erreurAjout;
+    public void setErreur(boolean erreur) {
+        this.erreur = erreur;
     }
 
     public ListDataModel<Client> getClients() {

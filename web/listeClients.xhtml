@@ -23,6 +23,7 @@
                                     <h:form class="form-horizontal">
                                         <h1><h:outputText value="#{resrc.listeClients}"/></h1>
 
+                                        <h:outputText rendered="#{clientBean.erreur}" value="#{resrc.erreurSupressionClient}" styleClass="text-danger" />
                 
                                         <h:dataTable value="#{clientBean.clients}" var="client"
                                                      styleClass="employeeTable"
@@ -54,13 +55,13 @@
                                             </h:column>
                                             
                                             <h:column>
-                                                <h:commandButton value="#{resrc.editionBouton}" action="#{ClientBean.edit(client.number)}" styleClass="btn btn-primary"/>
+                                                <h:commandButton value="#{resrc.editionBouton}" action="#{clientBean.edit(client.id)}" styleClass="btn btn-primary"/>
                                             </h:column>
                                             <h:column>
-                                                <h:commandButton value="#{resrc.supprimerBouton}" action="#{ClientBean.supp(client.number)}" styleClass="btn btn-primary"/>
+                                                <h:commandButton value="#{resrc.supprimerBouton}" action="#{clientBean.supprimerClient(client.id)}" styleClass="btn btn-primary"/>
                                             </h:column> 
                                             <h:column>
-                                                <h:commandButton value="#{resrc.visualisation}" action="#{ClientBean.detail(client.number)}" styleClass="btn btn-primary"/>
+                                                <h:commandButton value="#{resrc.visualisation}" action="#{clientBean.detail(client.number)}" styleClass="btn btn-primary"/>
                                             </h:column> 
                                         </h:dataTable>
                                         <div class="box">
