@@ -22,6 +22,7 @@ public class MotoBean implements Serializable{
     private Long id;
     private String reference;
     private MotoModele modele;
+    private String remarque;
     private boolean erreurAjout = false;
     
     
@@ -29,7 +30,7 @@ public class MotoBean implements Serializable{
     }
     
     public String ajouterMoto(){
-        boolean checkAjout = MotoService.ajouterMoto(reference, modele);
+        boolean checkAjout = MotoService.ajouterMoto(reference, modele, remarque);
         if(!checkAjout) {
             erreurAjout = true;
             return "erreur"; 
@@ -61,6 +62,14 @@ public class MotoBean implements Serializable{
 
     public void setModele(MotoModele modele) {
         this.modele = modele;
+    }
+
+    public String getRemarque() {
+        return remarque;
+    }
+
+    public void setRemarque(String remarque) {
+        this.remarque = remarque;
     }
 
     public boolean isErreurAjout() {
