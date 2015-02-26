@@ -6,6 +6,7 @@
 
 package ch.motoloc.gestion.presentation.beans;
 
+import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.services.ClientService;
 import java.io.Serializable;
@@ -13,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.model.ListDataModel;
 
 
 /**
@@ -35,8 +37,11 @@ public class ClientBean implements Serializable{
     private String remarque;
     private List<Forfait> forfaits;
     private String numeroPermis;
-    
     private boolean erreurAjout = false;
+    /*
+    Liste de clients
+    */
+    private ListDataModel<Client> clients;
     
     public ClientBean() {
     }
@@ -154,6 +159,16 @@ public class ClientBean implements Serializable{
 
     public void setErreurAjout(boolean erreurAjout) {
         this.erreurAjout = erreurAjout;
+    }
+
+    public ListDataModel<Client> getClients() {
+        clients = new ListDataModel();
+        clients.setWrappedData(ClientService.getClients());
+        return clients;
+    }
+
+    public void setClients(ListDataModel<Client> clients) {
+        this.clients = clients;
     }
     
     
