@@ -29,7 +29,7 @@ public class ClientBean implements Serializable{
     private String rue;
     private String npa;
     private String ville;
-    private Date dateDeNaissance;
+    private String dateDeNaissance;
     private String email;
     private String telephone;
     private String remarque;
