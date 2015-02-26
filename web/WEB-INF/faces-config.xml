@@ -38,6 +38,25 @@
         </navigation-case>
     </navigation-rule>
     
+    <navigation-rule>
+        <from-view-id>/ajoutMoto.xhtml</from-view-id>
+        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
+        <navigation-case>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/listeMoto.xhtml</to-view-id>
+        </navigation-case>
+        <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
+        <navigation-case>
+            <from-outcome>erreur</from-outcome>
+            <to-view-id>/ajoutMoto.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>annuler</from-outcome>
+            <to-view-id>/accueil.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
     <!-- Cas de navigation : ajout client depuis liste clients  -->
     <navigation-rule>
         <from-view-id>/listeClients.xhtml</from-view-id>

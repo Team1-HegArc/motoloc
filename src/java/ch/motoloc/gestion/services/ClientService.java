@@ -17,9 +17,9 @@ public class ClientService {
         try {
                 Client client = new Client(nom, prenom, rue, npa, ville, ConvertisseurDate.formatterDate(dateDeNaissance), email, telephone, remarque, numeroPermis);
                 listClients.add(client);
-                JpaConnection.getEntityManager().getTransaction().begin();
-                ClientDAO.create(client);
-                JpaConnection.getEntityManager().getTransaction().commit();
+//                JpaConnection.getEntityManager().getTransaction().begin();
+//                ClientDAO.create(client);
+//                JpaConnection.getEntityManager().getTransaction().commit();
                 return true;
                 
         } catch (Exception e) {

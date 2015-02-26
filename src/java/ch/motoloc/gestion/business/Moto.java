@@ -31,5 +31,39 @@ public class Moto implements Serializable {
     @Column(name="NOTE")
     private String remarque;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public MotoModele getModele() {
+        return modele;
+    }
+
+    public void setModele(MotoModele modele) {
+        this.modele = modele;
+    }
+
+    public String getRemarque() {
+        return remarque;
+    }
+
+    public void setRemarque(String remarque) {
+        this.remarque = remarque;
+    }
+
+    
+    
    
 }
