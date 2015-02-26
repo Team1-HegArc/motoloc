@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 public class ClientService {
 
     private static List<Client> listClients = new ArrayList();
@@ -15,22 +14,21 @@ public class ClientService {
     public static boolean ajouterClient(String nom, String prenom, String rue, String npa,
             String ville, String dateDeNaissance, String email, String telephone, String remarque, String numeroPermis) {
         try {
-                Client client = new Client(nom, prenom, rue, npa, ville, ConvertisseurDate.formatterDate(dateDeNaissance), email, telephone, remarque, numeroPermis);
-                listClients.add(client);
+            Client client = new Client(nom, prenom, rue, npa, ville, ConvertisseurDate.formatterDate(dateDeNaissance), email, telephone, remarque, numeroPermis);
+            listClients.add(client);
 //                JpaConnection.getEntityManager().getTransaction().begin();
 //                ClientDAO.create(client);
 //                JpaConnection.getEntityManager().getTransaction().commit();
-                return true;
-                
+            return true;
+
         } catch (Exception e) {
             return false;
         }
 
-    }  
-           
- 
-    public static void sauverClient(Long id, String nom, String prenom, String rue, String npa, 
-            String ville, Date dateDeNaissance, String email, String telephone, String remarque, String numeroPermis){
+    }
+
+    public static void sauverClient(Long id, String nom, String prenom, String rue, String npa,
+            String ville, Date dateDeNaissance, String email, String telephone, String remarque, String numeroPermis) {
         for (Client c : listClients) {
             if (c.getId().equals(id)) {
                 c.setPrenom(prenom);
@@ -61,4 +59,23 @@ public class ClientService {
        
    
 
+    public static boolean supprimerClient(Long id) {
+        boolean success = false;
+
+        try {
+            for (int i = 0; i < listClients.size(); i++) {
+                if (listClients.get(i).getId().equals(id)) {
+                    listClients.remove(i);
+                    success = true;
+                }
+            }
+//                JpaConnection.getEntityManager().getTransaction().begin();
+//                ClientDAO.create(client);
+//                JpaConnection.getEntityManager().getTransaction().commit();
+            return success;
+        } catch (Exception e) {
+            return success;
+        }
+
+    }
 }
