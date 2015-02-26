@@ -16,19 +16,57 @@
 
             <ui:define name="content">
                 <f:view>
-                    <h:form>
-                        <div class="container">
-                            <div class="row">
-                                <div class="box">
-                                    <div class="col-lg-12">
-                                        <h1>Ceci est la page d'accueil</h1> 
-                                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="box">
+                                <div class="col-lg-12">
+                                    <h:form>
+                                        <h1><h:outputText value="#{resrc.listeClients}"/></h1>
+
+                                        <h:dataTable var="client" value="#{customerListBean.customers}"
+                                                     styleClass="employeeTable"
+                                                     headerClass="employeeTableHeader"
+                                                     rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{resrc.nom}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{customer.nom}"/>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{resrc.prenom}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{customer.prenom}"/>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{resrc.telephone}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{customer.telephone}"/>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{resrc.email}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{customer.email}"/>
+                                            </h:column>
+                                            
+                                            <h:column>
+                                                <h:commandButton value="#{resrc.editionBouton}" action="#{customerBean.edit(customer.number)}"/>
+                                            </h:column>               
+                                        </h:dataTable>
+                                        <h:commandButton value="#{resrc.ajoutBouton}" action="#{customerBean.add()}"/>
+
+                                        <h:outputLink value="accueil.xhtml">
+                                            <h:outputText value="#{resrc.retourAccueil}" />
+                                        </h:outputLink>
+                                    </h:form>
                                 </div>
                             </div>
                         </div>
-                    </h:form>
+                    </div>
                 </f:view>
-
             </ui:define>
         </ui:composition>
     </body>
