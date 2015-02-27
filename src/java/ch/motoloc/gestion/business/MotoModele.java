@@ -1,44 +1,62 @@
 package ch.motoloc.gestion.business;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
  * Classe MotoModele
+ *
  * @author irina.fessemaz
  */
-
 @Entity
-@Table(name="MOTORBIKE_MODEL")
+@Table(name = "GM_MOTORBIKE_MODEL")
 public class MotoModele implements Serializable {
-    
+
     @Id
-    @Column(name="PK_MOTORBIKE_MODEL")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_MOMO")
+    @SequenceGenerator(name = "SEQ_MOMO", sequenceName = "SEQ_MOTORBIKE_MODEL", initialValue = 1, allocationSize = 100)
+    @Column(name = "PK_MOTORBIKE_MODEL")
     private Long id;
-    
-    @Column(name="LABEL")
+
+    @Column(name = "LABEL")
     private String libelle;
-    
-    @Column(name="POWER_KW")
+
+    @Column(name = "POWER_KW")
     private int puissance;
-    
-    // CONVERTER
-    @Column(name="HAS_ABS")
+
+    @Column(name = "HAS_ABS")
     private Boolean abs;
-    
-    @Column(name="NB_CASES")
+
+    @Column(name = "NB_CASES")
     private int nbCoffres;
-    
-    @Column(name="DESCRIPTION")
+
+    @Column(name = "DESCRIPTION")
     private String description;
-    
-    @OneToMany
-    private Set<Moto> motos;
+
+    @OneToMany(mappedBy = "motoModele")
+    private List<Moto> motos;
+
+    public MotoModele() {
+        motos = new ArrayList<>();
+    }
+
+    public MotoModele(String libelle, int puissance, Boolean abs, int nbCoffres, String description) {
+        this.libelle = libelle;
+        this.puissance = puissance;
+        this.abs = abs;
+        this.nbCoffres = nbCoffres;
+        this.description = description;
+        motos = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;
@@ -88,14 +106,18 @@ public class MotoModele implements Serializable {
         this.description = description;
     }
 
-    public Set<Moto> getMotos() {
+    public List<Moto> getMotos() {
         return motos;
     }
 
-    public void setMotos(Set<Moto> motos) {
+    public void setMotos(List<Moto> motos) {
         this.motos = motos;
     }
 
+    @Override
+    public String toString() {
+        return "MotoModele{" + "id=" + id + ", libelle=" + libelle + ", puissance=" + puissance + ", abs=" + abs + ", nbCoffres=" + nbCoffres + ", description=" + description + ", motos=" + motos + '}';
+    }
     
-    
+
 }

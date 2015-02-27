@@ -3,44 +3,48 @@ package ch.motoloc.gestion.business;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
  * Classe Moto
+ *
  * @author irina.fessemaz
  */
-
 @Entity
-@Table(name="MOTORBIKE")
+@Table(name = "GM_MOTORBIKE")
 public class Moto implements Serializable {
-    
-    @Id
-    @Column(name="PK_MOTORBIKE")
-    private Long id;
-    
-    @Column(name="REFERENCE")
-    private String reference;
-    
-    @ManyToOne
-    @JoinColumn(name="FK_MOTORBIKE_MODEL")
-    private MotoModele modele;
-    
-    @Column(name="NOTE")
-    private String remarque;
 
-    public Moto(String reference, MotoModele modele, String remarque) {
-        this.reference = reference;
-        this.modele = modele;
-        this.remarque = remarque;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_MOTO")
+    @SequenceGenerator(name = "SEQ_MOTO", sequenceName = "SEQ_MOTORBIKE", initialValue = 1, allocationSize = 100)
+    @Column(name = "PK_MOTORBIKE")
+    private Long id;
+
+    @Column(name = "REFERENCE")
+    private String reference;
+
+    @ManyToOne
+    @JoinColumn(name = "FK_MOTORBIKE_MODEL", referencedColumnName = "PK_MOTORBIKE_MODEL")
+    private MotoModele motoModele;
+
+    @Column(name = "NOTE")
+    private String remarque;
 
     public Moto() {
     }
-  
-    
+
+    public Moto(String reference, MotoModele motoModele, String remarque) {
+        this.reference = reference;
+        this.motoModele = motoModele;
+        this.remarque = remarque;
+    }
+
     public Long getId() {
         return id;
     }
@@ -57,12 +61,12 @@ public class Moto implements Serializable {
         this.reference = reference;
     }
 
-    public MotoModele getModele() {
-        return modele;
+    public MotoModele getMotoModele() {
+        return motoModele;
     }
 
-    public void setModele(MotoModele modele) {
-        this.modele = modele;
+    public void setMotoModele(MotoModele motoModele) {
+        this.motoModele = motoModele;
     }
 
     public String getRemarque() {
@@ -73,7 +77,11 @@ public class Moto implements Serializable {
         this.remarque = remarque;
     }
 
+    @Override
+    public String toString() {
+        return "Moto{" + "id=" + id + ", reference=" + reference + ", motoModele=" + motoModele + ", remarque=" + remarque + '}';
+    }
+
     
-    
-   
+
 }

@@ -1,28 +1,32 @@
 package ch.motoloc.gestion.business;
 
-import ch.motoloc.gestion.services.ConvertisseurDate;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
  * Classe Client
+ *
  * @author irina.fessemaz
  */
-
 @Entity
-@Table(name = "CUSTOMER")
+@Table(name = "GM_CUSTOMER")
 public class Client implements Serializable {
-    
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_CUST")
+    @SequenceGenerator(name = "SEQ_CUST", sequenceName = "SEQ_CUSTOMER", initialValue = 1, allocationSize = 100)
     @Column(name = "PK_CUSTOMER")
     private Long id;
     
@@ -54,15 +58,14 @@ public class Client implements Serializable {
     @Column(name = "NOTE")
     private String remarque;
     
-    //A VERIFIER
-    @OneToMany
-    @JoinColumn(name="FK_CUSTOMER")
-    private List<Forfait> forfaits;
-    
     @Column(name = "NUM_LICENSE")
     private String numeroPermis;
+    
+    @OneToMany(mappedBy = "client")
+    private List<Forfait> forfaits;
 
     public Client() {
+        forfaits = new ArrayList<>();
     }
 
     public Client(String nom, String prenom, String rue, String npa, String ville, Date dateDeNaissance, String email, String telephone, String remarque, String numeroPermis) {
@@ -76,8 +79,9 @@ public class Client implements Serializable {
         this.telephone = telephone;
         this.remarque = remarque;
         this.numeroPermis = numeroPermis;
+        forfaits = new ArrayList<>();
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -85,7 +89,7 @@ public class Client implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     public String getNom() {
         return nom;
     }
@@ -126,12 +130,12 @@ public class Client implements Serializable {
         this.ville = ville;
     }
 
-    public String getDateDeNaissance() {
-        return ConvertisseurDate.displayDate(dateDeNaissance);
+    public Date getDateDeNaissance() {
+        return dateDeNaissance;
     }
 
-    public void setDateDeNaissance(String dateDeNaissance) {
-        this.dateDeNaissance = ConvertisseurDate.formatterDate(dateDeNaissance);
+    public void setDateDeNaissance(Date dateDeNaissance) {
+        this.dateDeNaissance = dateDeNaissance;
     }
 
     public String getEmail() {
@@ -158,6 +162,14 @@ public class Client implements Serializable {
         this.remarque = remarque;
     }
 
+    public String getNumeroPermis() {
+        return numeroPermis;
+    }
+
+    public void setNumeroPermis(String numeroPermis) {
+        this.numeroPermis = numeroPermis;
+    }
+
     public List<Forfait> getForfaits() {
         return forfaits;
     }
@@ -166,14 +178,9 @@ public class Client implements Serializable {
         this.forfaits = forfaits;
     }
 
-    public String getNumeroPermis() {
-        return numeroPermis;
+    @Override
+    public String toString() {
+        return "Client{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", rue=" + rue + ", npa=" + npa + ", ville=" + ville + ", dateDeNaissance=" + dateDeNaissance + ", email=" + email + ", telephone=" + telephone + ", remarque=" + remarque + ", numeroPermis=" + numeroPermis + ", forfaits=" + forfaits + '}';
     }
-
-    public void setNumeroPermis(String numeroPermis) {
-        this.numeroPermis = numeroPermis;
-    }
-    
-    
 
 }

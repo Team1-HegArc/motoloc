@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.motoloc.gestion.business;
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -18,27 +16,36 @@ import javax.persistence.Table;
  * @author Vincent Robatel
  */
 @Entity
-@Table(name="FLEXIBLE")
+@Table(name = "GM_FLEXIBLE_PRICE")
 public class TarificationFlexible implements Serializable {
-    
+
     @Id
-    @Column(name = "PK_FLEXIBLE")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_FLPR")
+    @SequenceGenerator(name = "SEQ_FLPR", sequenceName = "SEQ_FLEXIBLE_PRICE", initialValue = 1, allocationSize = 100)
+    @Column(name = "PK_FLEXIBLE_PRICE")
     private Long id;
     
-    @Column(name="DAY_PRICE")
+    @Column(name = "DAY_PRICE")
     private Double prix_jour;
     
-    @Column(name="KM_PRICE")
+    @Column(name = "KM_PRICE")
     private Double prix_km;
     
-    @Column(name="DEGRESSION_PRICE")
+    @Column(name = "DEGRESSION_PRICE")
     private Double prix_degression;
     
     @OneToOne
-    @JoinColumn(name="FK_MOTORBIKE_MODEL", unique = true)
-    private MotoModele motoModele;
+    @JoinColumn(name = "FK_MOTORBIKE_MODEL", referencedColumnName = "PK_MOTORBIKE_MODEL")
+    private MotoModele motoModl;
 
     public TarificationFlexible() {
+    }
+
+    public TarificationFlexible(Double prix_jour, Double prix_km, Double prix_degression, MotoModele motoModl) {
+        this.prix_jour = prix_jour;
+        this.prix_km = prix_km;
+        this.prix_degression = prix_degression;
+        this.motoModl = motoModl;
     }
 
     public Long getId() {
@@ -73,13 +80,17 @@ public class TarificationFlexible implements Serializable {
         this.prix_degression = prix_degression;
     }
 
-    public MotoModele getMotoModele() {
-        return motoModele;
+    public MotoModele getMotoModl() {
+        return motoModl;
     }
 
-    public void setMotoModele(MotoModele motoModele) {
-        this.motoModele = motoModele;
+    public void setMotoModl(MotoModele motoModl) {
+        this.motoModl = motoModl;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "TarificationFlexible{" + "id=" + id + ", prix_jour=" + prix_jour + ", prix_km=" + prix_km + ", prix_degression=" + prix_degression + ", motoModl=" + motoModl + '}';
+    }
+
 }
