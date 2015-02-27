@@ -67,6 +67,7 @@ public class ClientBean implements Serializable{
         }
     }
 
+
     public Client getClient() {
         return client;
     }
