@@ -59,8 +59,8 @@ public class ClientBean implements Serializable{
     /*
     Suppression du client dans le référenciel + redirection
     */
-    public String supprimerClient (Long id){
-        boolean checkSuppression = ClientService.supprimerClient(id);
+    public String supprimerClient (Client client){
+        boolean checkSuppression = ClientService.supprimerClient(client);
         if(!checkSuppression) {
             erreur = true;
             return "erreur"; 
