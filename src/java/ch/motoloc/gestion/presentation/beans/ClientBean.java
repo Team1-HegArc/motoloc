@@ -24,23 +24,8 @@ import javax.faces.model.ListDataModel;
 @RequestScoped
 public class ClientBean implements Serializable{
 
-    private Long id;
-    private String nom;
-    private String prenom;
-    private String rue;
-    private String npa;
-    private String ville;
-    private String dateDeNaissance;
-    private String email;
-    private String telephone;
-    private String remarque;
-    private List<Forfait> forfaits;
-    private String numeroPermis;
+    private Client client;
     private boolean erreur = false;
-    /*
-    pour tester pour afficher le client dans la modification A supprimer quand la persistance de merde marchera ! 
-    */
-    private Client cli = new Client("bibien", "bibien", "bibien", "bibien", "bibien", null, "dsa@sd.com","0798976767", null, null);
     
     /*
     Constructeur par defaut
@@ -52,7 +37,17 @@ public class ClientBean implements Serializable{
     + redirection
     */
     public String ajouterClient (){
-        boolean checkAjout = ClientService.ajouterClient(nom, prenom, rue, npa, ville, dateDeNaissance, email, telephone, remarque, numeroPermis);
+        this.client = new Client();
+        return "editClient";
+    }
+    
+    public String editerClient (Client client){
+        this.client = client;
+        return "editClient";
+    }
+    
+    public String sauverClient(){
+        boolean checkAjout = ClientService.sauverClient(client);
         if(!checkAjout) {
             erreur = true;
             return "erreur"; 
@@ -74,111 +69,7 @@ public class ClientBean implements Serializable{
             return "succes";
         }
     }
-    /*
-    récupération du client dans la liste + redirection
-    */
-    public String editionBouton(long id)
-    {
-        
-        return "edition";
-    }
     
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getRue() {
-        return rue;
-    }
-
-    public void setRue(String rue) {
-        this.rue = rue;
-    }
-
-    public String getNpa() {
-        return npa;
-    }
-
-    public void setNpa(String npa) {
-        this.npa = npa;
-    }
-
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public String getDateDeNaissance() {
-        return dateDeNaissance;
-    }
-
-    public void setDateDeNaissance(String dateDeNaissance) {
-        this.dateDeNaissance = dateDeNaissance;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getRemarque() {
-        return remarque;
-    }
-
-    public void setRemarque(String remarque) {
-        this.remarque = remarque;
-    }
-
-    public List<Forfait> getForfaits() {
-        return forfaits;
-    }
-
-    public void setForfaits(List<Forfait> forfaits) {
-        this.forfaits = forfaits;
-    }
-
-    public String getNumeroPermis() {
-        return numeroPermis;
-    }
-
-    public void setNumeroPermis(String numeroPermis) {
-        this.numeroPermis = numeroPermis;
-    }
-
     public boolean isErreur() {
         return erreur;
     }
@@ -186,16 +77,4 @@ public class ClientBean implements Serializable{
     public void setErreur(boolean erreur) {
         this.erreur = erreur;
     }
-/*
-    pour test
-*/
-    public Client getCli() {
-        return cli;
-    }
-
-    public void setCli(Client cli) {
-        this.cli = cli;
-    }
-    
-    
 }
