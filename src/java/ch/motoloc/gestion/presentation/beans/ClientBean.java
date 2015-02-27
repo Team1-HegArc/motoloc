@@ -69,6 +69,14 @@ public class ClientBean implements Serializable{
             return "succes";
         }
     }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
     
     public boolean isErreur() {
         return erreur;

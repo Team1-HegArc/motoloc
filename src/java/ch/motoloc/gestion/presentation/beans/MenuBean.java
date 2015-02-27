@@ -60,7 +60,7 @@ public class MenuBean {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("accueil.xhtml");
                 break;
             case "ajoutClient":
-                FacesContext.getCurrentInstance().getExternalContext().redirect("ajoutClient.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("editClient.xhtml");
                 break;
             case "ajoutMoto":
                 FacesContext.getCurrentInstance().getExternalContext().redirect("ajoutMoto.xhtml");
