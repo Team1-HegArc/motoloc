@@ -5,24 +5,22 @@
  */
 package ch.motoloc.gestion.persistence.dao;
 
-import ch.motoloc.gestion.business.Client;
-import ch.motoloc.gestion.business.FactureForfait;
+import ch.motoloc.gestion.business.FactureLigneSupplement;
 import ch.motoloc.gestion.persistence.AbstractDAO;
-import java.util.List;
 
 /**
  *
  * @author vincentrobatel
  */
-public class FactureForfaitDAO extends AbstractDAO<FactureForfait>{
+public class FactureLigneSupplementDAO extends AbstractDAO<FactureLigneSupplement>{
 
-    public FactureForfaitDAO() {
-        super(FactureForfait.class);
+    public FactureLigneSupplementDAO() {
+        super(FactureLigneSupplement.class);
     }
-    
+
     @Override
     protected String findAllStatement() {
-        return "SELECT factF FROM FactureForfait factF";
+        return "SELECT facLigS FROM FactureLigneSupplement facLigS";
     }
     
 }
