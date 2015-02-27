@@ -35,10 +35,16 @@ public class ClientService {
                 for (Client c : listClients) {
                     if (c.getId().equals(client.getId())) {
                         c = client;
+                JpaConnection.getEntityManager().getTransaction().begin();
+                JpaConnection.getEntityManager().getTransaction().commit();
                         success = true;
+
                     }
                 }
             } else {
+                 JpaConnection.getEntityManager().getTransaction().begin();
+                 ClientDAO.create(client);
+                 JpaConnection.getEntityManager().getTransaction().commit();
                 listClients.add(client);
                 success = true;
             }
@@ -47,7 +53,6 @@ public class ClientService {
         }
         return success;
     }
-
 
     public static List<Client> getAllClients() {
         /*
@@ -67,13 +72,14 @@ public class ClientService {
         try {
             for (int i = 0; i < listClients.size(); i++) {
                 if (listClients.get(i).getId().equals(client.getId())) {
+                    JpaConnection.getEntityManager().getTransaction().begin();
+                    JpaConnection.getEntityManager().remove(client);
+                    JpaConnection.getEntityManager().getTransaction().commit();
                     listClients.remove(i);
                     success = true;
                 }
             }
-//                JpaConnection.getEntityManager().getTransaction().begin();
-//                ClientDAO.create(client);
-//                JpaConnection.getEntityManager().getTransaction().commit();
+
             return success;
         } catch (Exception e) {
             return success;
@@ -87,12 +93,8 @@ public class ClientService {
 
     public static Client rechercherClient(String prenom, String nom, String email) {
         Client cli = new Client();
-        cli.setPrenom(prenom);
-        cli.setNom(nom);
-        cli.setEmail(email);
         return cli;
 
     }
 
 }
-

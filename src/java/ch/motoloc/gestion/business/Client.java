@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
 
 /**
  * Classe Client
- * 123
+ * 
  * @author irina.fessemaz
  */
 @Entity
