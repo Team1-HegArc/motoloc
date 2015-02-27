@@ -24,10 +24,19 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class ManagerLovBean implements Serializable{
 
-   public List<MotoModele> getModeles() {
+    /**
+     *
+     * @return
+     */
+    public List<MotoModele> getModeles() {
         return MotoService.getAllMotoModele();
     }
-   public List<ForfaitPack> getPacks() {
+
+    /**
+     *
+     * @return
+     */
+    public List<ForfaitPack> getPacks() {
         return ForfaitService.getAllForfaitPack();
     }
 }
