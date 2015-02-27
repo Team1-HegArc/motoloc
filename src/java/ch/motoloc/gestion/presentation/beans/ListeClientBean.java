@@ -24,29 +24,53 @@ public class ListeClientBean {
     private ListDataModel<Client> clients;
     private ClientBean clientBean;
 
+    /**
+     *
+     */
     public ListeClientBean() {
     }
 
-       
+    /**
+     *
+     * @param nom
+     * @param prenom
+     * @param email
+     */
     public void rechercherClient(String nom, String prenom, String email ){
         ClientService.rechercherClient(nom, prenom, email);
     }
     
+    /**
+     *
+     * @return
+     */
     public ListDataModel<Client> getClients() {
         clients = new ListDataModel();
         clients.setWrappedData(ClientService.getAllClients());
         return clients;
     }
 
+    /**
+     *
+     * @param clients
+     */
     public void setClients(ListDataModel<Client> clients) {
         this.clients = clients;
     }
 
+    /**
+     *
+     * @return
+     */
     public ClientBean getClientBean() {
         clientBean = BeanService.findBean("clientEDIBean", ClientBean.class);
         return clientBean;
     }
 
+    /**
+     *
+     * @param clientBean
+     */
     public void setClientBean(ClientBean clientBean) {
         this.clientBean = clientBean;
     }
