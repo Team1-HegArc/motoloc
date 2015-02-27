@@ -15,20 +15,15 @@
                     <div class="container">
                         <div class="navbar"> 
                             <ul class="nav nav-pills">
-                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.accueilMenu}">
-                                        <f:param name="pageId" value="accueil" />
+                                <li role="presentation"><h:commandLink action="accueilMenu" value="#{resrc.accueilMenu}">
                                     </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.ajoutClient}">
-                                        <f:param name="pageId" value="ajoutClient" />
+                                <li role="presentation"><h:commandLink action="#{clientBean.ajouterClient()}" value="#{resrc.ajoutClient}">
                                     </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.ajoutMoto}">
-                                        <f:param name="pageId" value="ajoutMoto" />
+                                <li role="presentation"><h:commandLink action="editMotoMenu" value="#{resrc.ajoutMoto}">
                                     </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.listeClients}">
-                                        <f:param name="pageId" value="listeClients" />
+                                <li role="presentation"><h:commandLink action="listeClientsMenu" value="#{resrc.listeClients}">
                                     </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{menuBean.affichePage}" value="#{resrc.listeMotos}">
-                                        <f:param name="pageId" value="listeMotos" />
+                                <li role="presentation"><h:commandLink action="listeMotosMenu" value="#{resrc.listeMotos}">
                                     </h:commandLink></li>
                             </ul>
                         </div>

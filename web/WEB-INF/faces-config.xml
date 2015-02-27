@@ -18,9 +18,34 @@
         </locale-config>
     </application>
     
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>accueilMenu</from-outcome>
+            <to-view-id>/accueil.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{clientBean.ajouterClient()}</from-action>
+            <from-outcome>editClient</from-outcome>
+            <to-view-id>/editClient.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editMotoMenu</from-outcome>
+            <to-view-id>/editMoto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>listeClientsMenu</from-outcome>
+            <to-view-id>/filtreClient.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>listeMotosMenu</from-outcome>
+            <to-view-id>/filtreClient.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
     
     <navigation-rule>
-        <from-view-id>/ajoutClient.xhtml</from-view-id>
+        <from-view-id>/editClient.xhtml</from-view-id>
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-outcome>succes</from-outcome>
@@ -29,7 +54,7 @@
         <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
         <navigation-case>
             <from-outcome>erreur</from-outcome>
-            <to-view-id>/ajoutClient.xhtml</to-view-id>
+            <to-view-id>/editClient.xhtml</to-view-id>
         </navigation-case>
         
         <navigation-case>
@@ -39,16 +64,16 @@
     </navigation-rule>
     
     <navigation-rule>
-        <from-view-id>/ajoutMoto.xhtml</from-view-id>
+        <from-view-id>/editMoto.xhtml</from-view-id>
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-outcome>succes</from-outcome>
-            <to-view-id>/listeMoto.xhtml</to-view-id>
+            <to-view-id>/listeMotos.xhtml</to-view-id>
         </navigation-case>
         <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
         <navigation-case>
             <from-outcome>erreur</from-outcome>
-            <to-view-id>/ajoutMoto.xhtml</to-view-id>
+            <to-view-id>/editMoto.xhtml</to-view-id>
         </navigation-case>
         
         <navigation-case>
@@ -75,12 +100,12 @@
             <to-view-id>/editClient.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{clientBean.editerClient(client.id)}</from-action>
+            <from-action>#{clientBean.editerClient(client)}</from-action>
             <from-outcome>editClient</from-outcome>
             <to-view-id>/editClient.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{clientBean.supprimerClient(client.id)}</from-action>
+            <from-action>#{clientBean.supprimerClient(client)}</from-action>
             <from-outcome>suppression</from-outcome>
             <to-view-id>/listeClients.xhtml</to-view-id>
         </navigation-case>

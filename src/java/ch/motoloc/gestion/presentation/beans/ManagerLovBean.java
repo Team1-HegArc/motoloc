@@ -12,13 +12,14 @@ import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author cyril.briguet
  */
 @ManagedBean(name="ManagerLovBean")
-@RequestScoped
+@SessionScoped
 public class ManagerLovBean implements Serializable{
 
    public List<MotoModele> getModeles() {

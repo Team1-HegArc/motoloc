@@ -11,6 +11,7 @@ import ch.motoloc.gestion.services.ClientService;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 
 /**
@@ -18,7 +19,7 @@ import javax.faces.bean.RequestScoped;
  * @author cyril.briguet
  */
 @ManagedBean(name = "clientBean")
-@RequestScoped
+@SessionScoped
 public class ClientBean implements Serializable{
 
     private Client client;
@@ -30,7 +31,7 @@ public class ClientBean implements Serializable{
     public ClientBean() {
     }
     /*
-    Ajoute un client dans le referenciel 
+    Ajoute un client dans le referentiel 
     + redirection
     */
     public String ajouterClient (){

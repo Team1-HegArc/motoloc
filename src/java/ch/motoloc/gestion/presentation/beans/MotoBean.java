@@ -11,13 +11,14 @@ import ch.motoloc.gestion.services.MotoService;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author cyril.briguet
  */
 @ManagedBean(name = "motoBean")
-@RequestScoped
+@SessionScoped
 public class MotoBean implements Serializable{
 
     private Long id;
