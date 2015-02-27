@@ -29,4 +29,16 @@ public class ConvertisseurDate {
 	}
       
        }
+        
+        public static String displayDate(Date date){
+            SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+             String dateString =null;
+            
+            try {
+            dateString = formatter.format(date);
+            
+            } catch (Exception e) {
+            }
+            return dateString;
+        }
 }

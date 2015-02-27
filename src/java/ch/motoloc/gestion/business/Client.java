@@ -1,5 +1,6 @@
 package ch.motoloc.gestion.business;
 
+import ch.motoloc.gestion.services.ConvertisseurDate;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -125,12 +126,12 @@ public class Client implements Serializable {
         this.ville = ville;
     }
 
-    public Date getDateDeNaissance() {
-        return dateDeNaissance;
+    public String getDateDeNaissance() {
+        return ConvertisseurDate.displayDate(dateDeNaissance);
     }
 
-    public void setDateDeNaissance(Date dateDeNaissance) {
-        this.dateDeNaissance = dateDeNaissance;
+    public void setDateDeNaissance(String dateDeNaissance) {
+        this.dateDeNaissance = ConvertisseurDate.formatterDate(dateDeNaissance);
     }
 
     public String getEmail() {
