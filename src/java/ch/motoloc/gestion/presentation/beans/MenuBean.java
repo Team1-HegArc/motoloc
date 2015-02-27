@@ -66,7 +66,7 @@ public class MenuBean {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("ajoutMoto.xhtml");
                 break;
             case "listeClients":
-                FacesContext.getCurrentInstance().getExternalContext().redirect("listeClients.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("filtreClient.xhtml");
                 break;
             case "listeMotos":
                 FacesContext.getCurrentInstance().getExternalContext().redirect("listeMotos.xhtml");
