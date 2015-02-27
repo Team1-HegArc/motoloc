@@ -15,11 +15,15 @@ import java.util.List;
  * @author bibien.limido
  */
 public class ForfaitDAO {
-
+/*
+retourne la liste des Packs   
+*/
     public static List<ForfaitPack> findAllPack() {
-        return new ArrayList<ForfaitPack>();
+        return new ArrayList<>();
     }
-
+/*
+retourne un pack par son id    
+*/
     public static ForfaitPack findPack(long id) {
         return null;
     }
