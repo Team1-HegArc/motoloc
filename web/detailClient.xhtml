@@ -77,8 +77,10 @@
                                         <div class="form-group">
                                             <h:commandLink class="btn-link col-sm-4" value="#{resrc.reservationCourante}" action="#{clientBean.reservationCourant()}"/>
                                         </div>
-
-                                        <h:outputText class="panel-heading text-center col-lg-12" value="#{resrc.listePacks}"/>
+                                        <div class="form-group col-lg-12">
+                                        <h:outputText class="panel-heading text-left col-sm-10" value="#{resrc.listePacks}"/>
+                                        <h:commandButton type="submit" value="#{resrc.boutonPack}" action="#{clientBean.ajouterPack()}" class="btn-sm btn-primary col-sm-2"/>
+                                        </div>
 
                                         <!--ClientBean depend de la persistance ! ! !-->
                                         <h:dataTable value="#{ClientBean.clients}" var="forfaits"
@@ -98,8 +100,10 @@
                                                 <h:outputText value="#{forfaits.prenom}"/>
                                             </h:column>
                                         </h:dataTable>
-                                        <h:outputText class="panel-heading text-center col-lg-12" value="#{resrc.listeForfait}"/>
-
+                                        <div class="form-group col-lg-12">
+                                        <h:outputText class="panel-heading text-left col-sm-10" value="#{resrc.listeForfait}"/>
+                                        <h:commandButton type="submit" value="#{resrc.boutonForfait}" action="#{clientBean.ajouterForfait()}" class="btn-sm btn-primary col-sm-2"/>                                      
+                                        </div>
                                         <!--ClientBean depend de la persistance ! ! !-->
                                         <h:dataTable value="#{ClientBean.clients}" var="forfaits"
                                                      styleClass="employeeTable"
