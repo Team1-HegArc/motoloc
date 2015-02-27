@@ -7,13 +7,10 @@
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Client;
-import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.services.ClientService;
 import java.io.Serializable;
-import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.model.ListDataModel;
 
 
 /**
@@ -57,7 +54,7 @@ public class ClientBean implements Serializable{
         }
     }
     /*
-    Suppression du client dans le référenciel + redirection
+    Suppression du client
     */
     public String supprimerClient (Client client){
         boolean checkSuppression = ClientService.supprimerClient(client);
