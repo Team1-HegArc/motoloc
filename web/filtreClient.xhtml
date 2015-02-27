@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>#{resrc.filtreClient}</title>
+    </h:head>
+
+    <h:body>
+        <!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
+        <ui:composition template="/template/layout.xhtml">
+
+
+            <ui:define name="content">
+                <f:view>
+                    <div class="container">
+                        <div class="row">
+                            <div class="box">
+                                <h:form>
+                                    <div class="panel-heading text-center text-capitalize">
+                                        <h:outputText   value="#{resrc.filtreClient}"/>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="col-sm-11"></div>
+                                        <h:commandButton value="#{resrc.boutonAjouter}" immediate="true" action="ajoutClient" class="btn-sm btn-toolbar col-sm-1"  />
+                                        <br/>
+                                        <br/>
+                                    </div>
+                                </h:form>
+                                <div class="col-lg-12">
+
+                                    <h:form class="form-horizontal">
+
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-4" value="#{resrc.nom}"/>
+                                            <div class="controls col-sm-8">
+                                                <h:inputText id="nom"  class="form-control input-md" maxlength="100" required="true">
+                                                    <f:validateRegex pattern="^[A-Za-zéèàöô -]{1,100}$" />
+                                                </h:inputText>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">      
+                                            <h:outputLabel class="col-sm-4"  value="#{resrc.prenom}"/>
+                                            <div class="controls col-sm-8">
+                                                <h:inputText id="prenom"  class="form-control input-md" maxlength="50" required="true">
+                                                    <f:validateRegex pattern="^[A-Za-zéèàöô -]{1,100}$" />
+                                                </h:inputText>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-4" value="#{resrc.email}"/>
+                                            <div class="controls col-sm-8">
+                                                <h:inputText id="email"  class="form-control input-md" maxlength="100">
+                                                    <f:validateRegex pattern="^[\.\_:A-Za-z0-9éèàö-]{1,50}@[\.\_A-Za-z0-9éèàö-]{1,30}\.[a-z]{2,3}$" />
+                                                </h:inputText>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <div class="controls text-center">
+                                                <h:commandButton type="submit" value="#{resrc.boutonRecherche}" action="#{clientBean.rechercheClient()}" class="btn btn-primary"  />
+
+                                            </div>
+                                        </div>
+
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </f:view>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
