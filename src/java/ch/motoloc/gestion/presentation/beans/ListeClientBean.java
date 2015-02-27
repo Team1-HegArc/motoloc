@@ -27,6 +27,11 @@ public class ListeClientBean {
     public ListeClientBean() {
     }
 
+       
+    public void rechercherClient(String nom, String prenom, String email ){
+        ClientService.rechercherClient(nom, prenom, email);
+    }
+    
     public ListDataModel<Client> getClients() {
         clients = new ListDataModel();
         clients.setWrappedData(ClientService.getAllClients());
