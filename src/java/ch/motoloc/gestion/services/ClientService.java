@@ -51,7 +51,7 @@ public class ClientService {
     }
 
     public static List<Client> rechercherClient(String nom, String prenom, String email) {
-        return new ClientDAO().findByParameter(nom, prenom, email);
+        return new ClientDAO().findByFiltre(nom, prenom, email);
 
     }
 

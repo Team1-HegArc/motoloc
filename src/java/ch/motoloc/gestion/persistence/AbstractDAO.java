@@ -18,7 +18,6 @@ public abstract class AbstractDAO<T> {
 
     private Class<T> clazz;
     
-    protected abstract String findByParameterStatement();
     protected abstract String findAllStatement();
 
     public AbstractDAO(Class<T> clazz) {
@@ -29,8 +28,8 @@ public abstract class AbstractDAO<T> {
         return (T) JpaConnection.getEntityManager().find(clazz, id);
     }
     
-    public List<T> findByParameter(String... arguements){
-        TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(findByParameterStatement(), clazz);
+    protected List<T> findByParameter(String request, String... arguements){
+        TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(request, clazz);
         for (int i = 0; i < arguements.length; i++) {
             query.setParameter(i+1, '%' + arguements[i]+ '%');
         }

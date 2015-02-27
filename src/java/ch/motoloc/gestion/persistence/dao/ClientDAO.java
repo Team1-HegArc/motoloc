@@ -20,10 +20,9 @@ public class ClientDAO extends AbstractDAO<Client>{
         super(Client.class);
     }
     
-    @Override
-    protected String findByParameterStatement() {
-        String s = "SELECT cli FROM Client cli WHERE cli.nom LIKE ?1 AND cli.prenom LIKE ?2 AND cli.email LIKE ?3";
-        return s;
+    public List<Client> findByFiltre(final String nom, final String prenom, final String email){
+        String request = "SELECT cli FROM Client cli WHERE cli.nom LIKE ?1 AND cli.prenom LIKE ?2 AND cli.email LIKE ?3";
+        return super.findByParameter(request, nom, prenom, email);
     }
                 
 
