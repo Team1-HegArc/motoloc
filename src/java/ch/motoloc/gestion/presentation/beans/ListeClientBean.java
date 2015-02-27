@@ -36,8 +36,10 @@ public class ListeClientBean {
      * @param prenom
      * @param email
      */
-    public void rechercherClient(String nom, String prenom, String email ){
-        ClientService.rechercherClient(nom, prenom, email);
+    public String rechercherClient(String nom, String prenom, String email ){
+        clients = new ListDataModel();
+        clients.setWrappedData(ClientService.rechercherClient(nom, prenom, email));
+        return "succes";
     }
     
     /**
@@ -45,8 +47,6 @@ public class ListeClientBean {
      * @return
      */
     public ListDataModel<Client> getClients() {
-        clients = new ListDataModel();
-        clients.setWrappedData(ClientService.getAllClients());
         return clients;
     }
 

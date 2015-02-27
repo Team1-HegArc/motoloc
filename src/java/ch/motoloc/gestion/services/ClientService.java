@@ -50,7 +50,7 @@ public class ClientService {
         return new ClientDAO().findById(id);
     }
 
-    public static List<Client> rechercherClient(String prenom, String nom, String email) {
+    public static List<Client> rechercherClient(String nom, String prenom, String email) {
         return new ClientDAO().findByParameter(nom, prenom, email);
 
     }
