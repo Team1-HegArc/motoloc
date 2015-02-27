@@ -6,8 +6,11 @@
 
 package ch.motoloc.gestion.presentation.beans;
 
+
+import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.services.MotoService;
+import ch.motoloc.gestion.services.ForfaitService;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -22,7 +25,19 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ManagerLovBean implements Serializable{
 
-   public List<MotoModele> getModeles() {
+    /**
+     *
+     * @return
+     */
+    public List<MotoModele> getModeles() {
         return MotoService.getAllMotoModele();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<ForfaitPack> getPacks() {
+        return ForfaitService.getAllForfaitPack();
     }
 }

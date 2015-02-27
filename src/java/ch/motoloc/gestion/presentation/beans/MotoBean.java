@@ -26,11 +26,17 @@ public class MotoBean implements Serializable{
     private MotoModele modele;
     private String remarque;
     private boolean erreurAjout = false;
-    
-    
+
+    /**
+     *
+     */
     public MotoBean() {
     }
     
+    /**
+     *
+     * @return
+     */
     public String ajouterMoto(){
         boolean checkAjout = MotoService.ajouterMoto(reference, modele, remarque);
         if(!checkAjout) {
@@ -42,42 +48,82 @@ public class MotoBean implements Serializable{
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getReference() {
         return reference;
     }
 
+    /**
+     *
+     * @param reference
+     */
     public void setReference(String reference) {
         this.reference = reference;
     }
 
+    /**
+     *
+     * @return
+     */
     public MotoModele getModele() {
         return modele;
     }
 
+    /**
+     *
+     * @param modele
+     */
     public void setModele(MotoModele modele) {
         this.modele = modele;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRemarque() {
         return remarque;
     }
 
+    /**
+     *
+     * @param remarque
+     */
     public void setRemarque(String remarque) {
         this.remarque = remarque;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isErreurAjout() {
         return erreurAjout;
     }
 
+    /**
+     *
+     * @param erreurAjout
+     */
     public void setErreurAjout(boolean erreurAjout) {
         this.erreurAjout = erreurAjout;
     }

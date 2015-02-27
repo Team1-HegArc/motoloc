@@ -28,22 +28,42 @@ public class ClientBean implements Serializable{
     /*
     Constructeur par defaut
     */
+
+    /**
+     *
+     */
+    
     public ClientBean() {
     }
     /*
     Ajoute un client dans le referentiel 
     + redirection
     */
+
+    /**
+     *
+     * @return
+     */
+    
     public String ajouterClient (){
         this.client = new Client();
         return "editClient";
     }
     
+    /**
+     *
+     * @param client
+     * @return
+     */
     public String editerClient (Client client){
         this.client = client;
         return "editClient";
     }
     
+    /**
+     *
+     * @return
+     */
     public String sauverClient(){
         boolean checkAjout = ClientService.sauverClient(client);
         if(!checkAjout) {
@@ -57,6 +77,13 @@ public class ClientBean implements Serializable{
     /*
     Suppression du client
     */
+
+    /**
+     *
+     * @param client
+     * @return
+     */
+    
     public String supprimerClient (Client client){
         boolean checkSuppression = ClientService.supprimerClient(client);
         if(!checkSuppression) {
@@ -68,19 +95,34 @@ public class ClientBean implements Serializable{
         }
     }
 
-
+    /**
+     *
+     * @return
+     */
     public Client getClient() {
         return client;
     }
 
+    /**
+     *
+     * @param client
+     */
     public void setClient(Client client) {
         this.client = client;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean isErreur() {
         return erreur;
     }
 
+    /**
+     *
+     * @param erreur
+     */
     public void setErreur(boolean erreur) {
         this.erreur = erreur;
     }
