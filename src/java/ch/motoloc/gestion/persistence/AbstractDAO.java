@@ -20,7 +20,7 @@ public abstract class AbstractDAO<T> {
     private Class<T> clazz;
     //private static AbstractDAO instance;
     
-    protected abstract String findByParameterStatement(String... argument);
+    protected abstract String findByParameterStatement();
     protected abstract String findAllStatement();
 
     public AbstractDAO(Class<T> clazz) {
@@ -40,8 +40,11 @@ public abstract class AbstractDAO<T> {
         return (T) JpaConnection.getEntityManager().find(clazz, id);
     }
     
-    public List<T> findByParameter(String... arguement){
-        TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(findByParameterStatement(arguement), clazz);
+    public List<T> findByParameter(String... arguements){
+        TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(findByParameterStatement(), clazz);
+        for (int i = 1; i < arguements.length; i++) {
+            query.setParameter(i, arguements[i-1]);
+        }
         return new ArrayList<T>(query.getResultList());
     }
     

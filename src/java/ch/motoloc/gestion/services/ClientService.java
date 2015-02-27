@@ -3,8 +3,6 @@ package ch.motoloc.gestion.services;
 import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.persistence.JpaConnection;
 import ch.motoloc.gestion.persistence.dao.ClientDAO;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -16,7 +14,7 @@ public class ClientService {
         try {
             em.getTransaction().begin();
             if (client.getId() != null) {
-                Client clientToUpdate = ClientDAO.getInstance().findById(client.getId());
+                Client clientToUpdate = new ClientDAO().findById(client.getId());
                 clientToUpdate.setNom(client.getNom());
             } else {
                 em.persist(client);
@@ -30,7 +28,7 @@ public class ClientService {
     }
 
     public static List<Client> getAllClients() {     
-        return ClientDAO.getInstance().findAll();
+        return new ClientDAO().findAll();
     }
 
     public static boolean supprimerClient(Client client) {
@@ -49,12 +47,11 @@ public class ClientService {
     }
 
     public static Client getClientId(Long id) {
-        return ClientDAO.getInstance().findById(id);
+        return new ClientDAO().findById(id);
     }
 
-    public static Client rechercherClient(String prenom, String nom, String email) {
-        Client cli = new Client();
-        return cli;
+    public static List<Client> rechercherClient(String prenom, String nom, String email) {
+        return new ClientDAO().findByParameter(nom, prenom, email);
 
     }
 
