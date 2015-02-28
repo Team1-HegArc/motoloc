@@ -94,7 +94,7 @@ public class ClientBean implements Serializable{
             return "succes";
         }
     }
-
+    
     /**
      *
      * @return

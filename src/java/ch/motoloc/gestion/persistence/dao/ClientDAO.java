@@ -15,24 +15,15 @@ import java.util.List;
  */
 public class ClientDAO extends AbstractDAO<Client>{
 
-    private static ClientDAO instance;
     
-    private ClientDAO() {
+    public ClientDAO() {
         super(Client.class);
     }
     
-    public static ClientDAO getInstance(){
-        if(instance==null){
-            instance = new ClientDAO();
-        }
-        return instance;
+    public List<Client> findByFiltre(final String nom, final String prenom, final String email){
+        String request = "SELECT cli FROM Client cli WHERE cli.nom LIKE ?1 AND cli.prenom LIKE ?2 AND cli.email LIKE ?3";
+        return super.findByParameter(request, nom, prenom, email);
     }
-    
-    
-    @Override
-    protected String findByParameterStatement(String... argument) {
-        String s = "SELECT cli FROM Client cli WHERE cli.nom LIKE %:nom% AND cli.prenom LIKE %:prenom% AND cli.email LIKE %:email%";
-        return s;}
                 
 
     @Override

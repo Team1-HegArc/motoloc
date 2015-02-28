@@ -33,8 +33,8 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.nom}"/>
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="nom"  class="form-control input-md" maxlength="100" required="true">
-                                                    <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
+                                                <h:inputText id="nom"  class="form-control input-md" maxlength="100" value="#{nom}">
+                                                    <f:validateRegex pattern="^[A-Za-zיטאצפ -]{0,100}$" />
                                                 </h:inputText>
 
                                             </div>
@@ -44,23 +44,23 @@
                                         <div class="form-group">      
                                             <h:outputLabel class="col-sm-4"  value="#{resrc.prenom}"/>
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="prenom"  class="form-control input-md" maxlength="50" required="true">
-                                                    <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
+                                                <h:inputText id="prenom"  class="form-control input-md" maxlength="50" value="#{prenom}">
+                                                    <f:validateRegex pattern="^[A-Za-zיטאצפ -]{0,100}$" />
                                                 </h:inputText>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.email}"/>
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="email"  class="form-control input-md" maxlength="100">
-                                                    <f:validateRegex pattern="^[\.\_:A-Za-z0-9יטאצ-]{1,50}@[\.\_A-Za-z0-9יטאצ-]{1,30}\.[a-z]{2,3}$" />
+                                                <h:inputText id="email"  class="form-control input-md" value="#{email}">
+                                                    <f:validateRegex pattern="^[A-Za-zיטאצפ -@\.\_]{0,100}$" />
                                                 </h:inputText>
                                             </div>
                                         </div>
 
                                         <div class="form-group col-sm-12">
                                             <div class="controls text-center">
-                                                <h:commandButton type="submit" value="#{resrc.boutonRecherche}" action="#{clientBean.rechercheClient()}" class="btn btn-primary"  />
+                                                <h:commandButton type="submit" value="#{resrc.boutonRecherche}" action="#{ListeClientBean.rechercherClient(nom, prenom, email)}" class="btn btn-primary"  />
 
                                             </div>
                                         </div>

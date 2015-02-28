@@ -5,7 +5,6 @@
  */
 package ch.motoloc.gestion.persistence;
 
-import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.TypedQuery;
@@ -18,30 +17,22 @@ public abstract class AbstractDAO<T> {
     
 
     private Class<T> clazz;
-    //private static AbstractDAO instance;
     
-    protected abstract String findByParameterStatement(String... argument);
     protected abstract String findAllStatement();
 
     public AbstractDAO(Class<T> clazz) {
         this.clazz = clazz;
     }
-
-    
-    /*
-    public static AbstractDAO getInstance(){
-        if(instance==null){
-            instance = new AbstractDAO();
-        }
-        return instance;
-    }*/
     
     public T findById(final Long id){
         return (T) JpaConnection.getEntityManager().find(clazz, id);
     }
     
-    public List<T> findByParameter(String... arguement){
-        TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(findByParameterStatement(arguement), clazz);
+    protected List<T> findByParameter(String request, String... arguements){
+        TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(request, clazz);
+        for (int i = 0; i < arguements.length; i++) {
+            query.setParameter(i+1, '%' + arguements[i]+ '%');
+        }
         return new ArrayList<T>(query.getResultList());
     }
     
