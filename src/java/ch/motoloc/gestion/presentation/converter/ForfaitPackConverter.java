@@ -27,7 +27,7 @@ public class ForfaitPackConverter implements Converter{
             return null;
         }
         else{
-            //On recupère un modele via son string
+            //On recupère un pack via son string
             ForfaitPack fPack = ForfaitService.getForfaitPackById(Long.parseLong(value));
             return fPack;
         }
@@ -39,8 +39,8 @@ public class ForfaitPackConverter implements Converter{
             return "";
         }
         //on retourne un string via son Object
-        else if(value instanceof MotoModele){
-            return String.valueOf(((MotoModele)value).getId());
+        else if(value instanceof ForfaitPack){
+            return String.valueOf(((ForfaitPack)value).getId());
         }
         else{
             return "";
