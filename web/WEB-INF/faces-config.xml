@@ -133,6 +133,15 @@
             <from-outcome>detailClient</from-outcome>
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>    
+    </navigation-rule>  
+     <navigation-rule>
+        <from-view-id>/ajoutPack.xhtml</from-view-id>
+        <!-- Cas de navigation :  retour a l'accueil  -->
+                
+        <navigation-case>
+            <from-outcome>annuler</from-outcome>
+            <to-view-id>/accueil.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>  
     
 </faces-config>
