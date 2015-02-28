@@ -75,7 +75,7 @@
 
                                         <!--Reservation courante -->
                                         <div class="form-group">
-                                            <h:commandLink class="btn-link col-sm-4" value="#{resrc.reservationCourante}" action="#{clientBean.reservationCourant()}"/>
+                                            <h:commandLink class="btn-link col-sm-4" value="#{resrc.reservationCourante}" action="#{clientBean.reservationCourante()}"/>
                                         </div>
                                         <div class="form-group col-lg-12">
                                         <h:outputText class="panel-heading text-left col-sm-10" value="#{resrc.listePacks}"/>
@@ -83,41 +83,41 @@
                                         </div>
 
                                         <!--ClientBean depend de la persistance ! ! !-->
-                                        <h:dataTable value="#{ClientBean.clients}" var="forfaits"
+                                        <h:dataTable value="#{ClientBean.clients.forfais}" var="forfaits"
                                                      styleClass="employeeTable"
                                                      headerClass="employeeTableHeader"
                                                      rowClasses="employeeTableOddRow,employeeTableEvenRow">
                                             <h:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="#{resrc.forfaitnom}"/>
+                                                    <h:outputText value="#{resrc.forfaitDate}"/>
                                                 </f:facet>
-                                                <h:outputText value="#{forfaits.nom}"/>
+                                                <h:outputText value="#{forfaits.dateCommande}"/>
                                             </h:column>
                                             <h:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="#{resrc.forfaitprenom}"/>
+                                                    <h:outputText value="#{resrc.forfaitPrenom}"/>
                                                 </f:facet>
                                                 <h:outputText value="#{forfaits.prenom}"/>
                                             </h:column>
                                         </h:dataTable>
                                         <div class="form-group col-lg-12">
-                                        <h:outputText class="panel-heading text-left col-sm-10" value="#{resrc.listeForfait}"/>
-                                        <h:commandButton type="submit" value="#{resrc.boutonForfait}" action="#{clientBean.ajouterForfait()}" class="btn-sm btn-primary col-sm-2"/>                                      
+                                        <h:outputText class="panel-heading text-left col-sm-10" value="#{resrc.listeFlexible}"/>
+                                        <h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{clientBean.ajouterFlexible()}" class="btn-sm btn-primary col-sm-2"/>                                      
                                         </div>
                                         <!--ClientBean depend de la persistance ! ! !-->
-                                        <h:dataTable value="#{ClientBean.clients}" var="forfaits"
+                                        <h:dataTable value="#{ClientBean.clients.forfaits}" var="forfaits"
                                                      styleClass="employeeTable"
                                                      headerClass="employeeTableHeader"
                                                      rowClasses="employeeTableOddRow,employeeTableEvenRow">
                                             <h:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="#{resrc.forfaitnom}"/>
+                                                    <h:outputText value="#{resrc.forfaitDate}"/>
                                                 </f:facet>
-                                                <h:outputText value="#{forfaits.nom}"/>
+                                                <h:outputText value="#{client.forfaits}"/>
                                             </h:column>
                                             <h:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="#{resrc.forfaitprenom}"/>
+                                                    <h:outputText value="#{resrc.forfaitPrenom}"/>
                                                 </f:facet>
                                                 <h:outputText value="#{forfaits.prenom}"/>
                                             </h:column>
