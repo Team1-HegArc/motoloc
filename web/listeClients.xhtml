@@ -55,14 +55,15 @@
                                             </h:column>
                                             
                                             <h:column>
+                                                <h:commandButton value="#{resrc.visualisationBouton}" action="#{clientBean.detailClient(client)}" styleClass="btn btn-info"/>
+                                            </h:column> 
+                                            <h:column>
                                                 <h:commandButton value="#{resrc.editionBouton}" action="#{clientBean.editerClient(client)}" styleClass="btn btn-primary"/>
                                             </h:column>
                                             <h:column>
                                                 <h:commandButton value="#{resrc.supprimerBouton}" action="#{clientBean.supprimerClient(client)}" styleClass="btn btn-primary"/>
                                             </h:column> 
-                                            <h:column>
-                                                <h:commandButton value="#{resrc.visualisationBouton}" action="#{clientBean.detailClient(client)}" styleClass="btn btn-primary"/>
-                                            </h:column> 
+                                            
                                         </h:dataTable>
                                         <div class="box">
                                             <h:commandButton value="#{resrc.ajoutBouton}" action="#{clientBean.ajouterClient()}" styleClass="btn btn-success"/>
