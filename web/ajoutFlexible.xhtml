@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>#{resrc.ajoutFlexible}</title>
+    </h:head>
+
+    <h:body>
+        <!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
+        <ui:composition template="/template/layout.xhtml">
+
+
+            <ui:define name="content">
+                <f:view>
+                    <div class="container">
+                        <div class="row">
+                            <div class="box">
+                                <div class="col-lg-12">
+                                    <h:form>
+                                        <div class="panel-heading text-center text-capitalize">
+                                            <h:outputText   value="#{resrc.ajoutFlexible}"/>
+                                        </div> 
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-2" value="#{resrc.nbJour}" />
+                                            <div class="controls col-sm-1">
+                                                <h:inputText id="nbJour"  class="form-control input-md" maxlength="2" size="2" value="#{clientBean.client.telephone}">
+                                                    <f:validateRegex pattern="^[0-9]{2}$" />
+                                                </h:inputText>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <div class="controls">
+                                                <h:commandButton class="btn btn-primary" type="submit" action="#{clientBean.sauverClient()}" styleClass="btn-primary" value="#{resrc.boutonValider}" />
+
+                                                <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
+                                            </div>
+                                        </div>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </f:view>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
