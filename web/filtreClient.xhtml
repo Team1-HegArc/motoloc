@@ -20,6 +20,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="box">
+                                
+                                <h:outputText rendered="#{ListeClientBean.erreur}" value="#{resrc.erreurFiltreClient}" styleClass="text-danger" />
+                                
                                 <h:form>
                                     <div class="panel-heading text-center text-capitalize">
                                         <h:outputText   value="#{resrc.filtreClient}"/>

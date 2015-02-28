@@ -23,6 +23,7 @@ public class ListeClientBean {
 
     private ListDataModel<Client> clients;
     private ClientBean clientBean;
+    private boolean erreur;
 
     /**
      *
@@ -37,9 +38,18 @@ public class ListeClientBean {
      * @param email
      */
     public String rechercherClient(String nom, String prenom, String email ){
+        String retour;
         clients = new ListDataModel();
         clients.setWrappedData(ClientService.rechercherClient(nom, prenom, email));
-        return "succes";
+        if(clients.isRowAvailable()){
+            retour = "succes";
+            erreur = false;
+        }
+        else{
+            retour = "erreur";
+            erreur = true;
+        }
+        return retour;
     }
     
     /**
@@ -75,4 +85,14 @@ public class ListeClientBean {
         this.clientBean = clientBean;
     }
 
+    public boolean isErreur() {
+        return erreur;
+    }
+
+    public void setErreur(boolean erreur) {
+        this.erreur = erreur;
+    }
+
+    
+    
 }

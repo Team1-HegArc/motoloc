@@ -21,7 +21,7 @@ public class ClientDAO extends AbstractDAO<Client>{
     }
     
     public List<Client> findByFiltre(final String nom, final String prenom, final String email){
-        String request = "SELECT cli FROM Client cli WHERE cli.nom LIKE ?1 AND cli.prenom LIKE ?2 AND cli.email LIKE ?3";
+        String request = "SELECT cli FROM Client cli WHERE LOWER(cli.nom) LIKE LOWER(?1) AND LOWER(cli.prenom) LIKE LOWER(?2) AND LOWER(cli.email) LIKE LOWER(?3)";
         return super.findByParameter(request, nom, prenom, email);
     }
                 

@@ -51,7 +51,8 @@
             <to-view-id>/listeClients.xhtml</to-view-id>
         </navigation-case>
         <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
-        <navigation-case>
+         <navigation-case>
+            <from-action>#{ListeClientBean.rechercherClient(nom, prenom, email)}</from-action>
             <from-outcome>erreur</from-outcome>
             <to-view-id>/filtreClient.xhtml</to-view-id>
         </navigation-case>
