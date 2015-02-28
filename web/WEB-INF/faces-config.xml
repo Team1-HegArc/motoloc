@@ -137,11 +137,18 @@
      <navigation-rule>
         <from-view-id>/ajoutPack.xhtml</from-view-id>
         <!-- Cas de navigation :  retour a l'accueil  -->
-                
         <navigation-case>
             <from-outcome>annuler</from-outcome>
             <to-view-id>/accueil.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>  
     
+     <navigation-rule>
+        <from-view-id>/detailClient.xhtml</from-view-id>
+        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
+        <navigation-case>
+            <from-outcome>ajoutPack</from-outcome>
+            <to-view-id>/ajoutPack.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
