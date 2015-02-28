@@ -7,9 +7,7 @@
 package ch.motoloc.gestion.presentation.converter;
 
 import ch.motoloc.gestion.business.ForfaitPack;
-import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.services.ForfaitService;
-import ch.motoloc.gestion.services.MotoService;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
