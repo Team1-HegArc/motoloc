@@ -30,46 +30,43 @@
                                     <h:form class="form-horizontal">
 
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.nom}"/>
-                                            <h:outputLabel class="col-sm-8" value="#{clientBean.client.nom}"/> <!-- Celon le bean ! -->
-
-                                            <h:outputLabel class="col-sm-4"  value="#{resrc.prenom}"/>
-                                            <h:outputLabel class="col-sm-8" value="#{clientBean.client.prenom}"/>
-
-                                        </div>
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-2"  value="#{resrc.adresse}"/>
-                                            <h:outputLabel class="col-sm-4" value="#{clientBean.client.rue}"/>
-
-
-                                            <h:outputLabel class="col-sm-2"  value="#{resrc.ville}"/>
-                                            <h:outputLabel class="col-sm-4" value="#{clientBean.client.ville}"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-2"  value="#{resrc.npa}"/>
-                                            <h:outputLabel class="col-sm-4" value="#{clientBean.client.npa}"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-2"  value="#{resrc.telephone}"/>
-                                            <h:outputLabel class="col-sm-4" value="#{clientBean.client.telephone}"/>
-
-                                        
-                                            <h:outputLabel class="col-sm-2"  value="#{resrc.email}"/>
-                                            <h:outputLabel class="col-sm-4" value="#{clientBean.client.email}"/>
-
-                                        </div>
-                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-1" value="#{resrc.nom}"/>
+                                            <h:outputLabel class="col-sm-2" value="#{clientBean.client.nom}"/> <!-- Celon le bean ! -->
                                             <h:outputLabel class="col-sm-2"  value="#{resrc.dateNaissance}"/>
-                                            <h:outputLabel class="col-sm-4" value="#{clientBean.client.dateDeNaissance}"/>
-
+                                            <h:outputLabel class="col-sm-7" value="#{clientBean.client.dateDeNaissance}"/>
                                         
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.prenom}"/>
+                                            <h:outputLabel class="col-sm-2" value="#{clientBean.client.prenom}"/>
                                             <h:outputLabel class="col-sm-2"  value="#{resrc.noPermis}"/>
-                                            <h:outputLabel class="col-sm-4" value="#{clientBean.client.numeroPermis}"/>
+                                            <h:outputLabel class="col-sm-7" value="#{clientBean.client.numeroPermis}"/>
+
 
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-2"  value="#{resrc.remarque}"/>
-                                            <h:outputLabel class="col-sm-4" value="#{clientBean.client.remarque}"/>
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.adresse}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.rue}"/>
+
+
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.ville}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.ville}"/>
+                                      
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.npa}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.npa}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.telephone}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.telephone}"/>
+
+                                        
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.email}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.email}"/>
+
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.remarque}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.remarque}"/>
 
                                         </div>
 
@@ -77,14 +74,16 @@
                                         <div class="form-group">
                                             <h:commandLink class="btn-link col-sm-4" value="#{resrc.reservationCourante}" action="#{clientBean.reservationCourante()}"/>
                                         </div>
-                                        <div class="form-group col-lg-12">
-                                        <h:outputText class="panel-heading text-left col-sm-10" value="#{resrc.listePacks}"/>
-                                        <h:commandButton type="submit" value="#{resrc.boutonPack}" action="#{clientBean.ajouterPack()}" class="btn-sm btn-primary col-sm-2"/>
-                                        </div>
+                                        
+                                        <!--Historique des packs et forfais-->
+                                        <div class="panel-heading form-group col-lg-12">
+                                        <h:outputText class="text-left col-sm-12" value="#{resrc.listePacks}"/>
+                                        
+                                        
 
                                         <!--ClientBean depend de la persistance ! ! !-->
                                         <h:dataTable value="#{ClientBean.clients.forfais}" var="forfaits"
-                                                     styleClass="employeeTable"
+                                                     styleClass="employeeTable col-sm-4"
                                                      headerClass="employeeTableHeader"
                                                      rowClasses="employeeTableOddRow,employeeTableEvenRow">
                                             <h:column>
@@ -95,13 +94,19 @@
                                             </h:column>
                                             
                                         </h:dataTable>
-                                        <div class="form-group col-lg-12">
-                                        <h:outputText class="panel-heading text-left col-sm-10" value="#{resrc.listeFlexible}"/>
-                                        <h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{clientBean.ajouterFlexible()}" class="btn-sm btn-primary col-sm-2"/>                                      
+                                        <div class="col-sm-6"><span/></div>
+                                           
+                                        <h:commandButton type="submit" value="#{resrc.boutonPack}" action="#{clientBean.ajouterPack()}" class="btn-sm btn-primary col-sm-2"/>
                                         </div>
+                                        
+                                        
+                                        <div class="panel-heading form-group col-lg-12">
+                                        <h:outputText class="text-left col-sm-12" value="#{resrc.listeFlexible}"/>
+                                        
+                                                                        
                                         <!--ClientBean depend de la persistance ! ! !-->
                                         <h:dataTable value="#{ClientBean.clients.forfaits}" var="forfaits"
-                                                     styleClass="employeeTable"
+                                                     styleClass="employeeTable col-sm-4"
                                                      headerClass="employeeTableHeader"
                                                      rowClasses="employeeTableOddRow,employeeTableEvenRow">
                                             <h:column>
@@ -112,6 +117,9 @@
                                             </h:column>
                                             
                                         </h:dataTable>
+                                        <div class="col-sm-6"><span/></div>
+                                        <h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{clientBean.ajouterFlexible()}" class="btn-sm btn-primary col-sm-2"/>                                      
+                                        </div>
                                     </h:form>
                                 </div>
                             </div>
