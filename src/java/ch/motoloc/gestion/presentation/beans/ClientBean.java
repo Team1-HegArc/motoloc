@@ -95,6 +95,11 @@ public class ClientBean implements Serializable{
         }
     }
     
+    public String detailClient (Client client){
+        this.client=client;
+        return "detailClient";
+    }
+    
     /**
      *
      * @return
