@@ -8,8 +8,10 @@ package ch.motoloc.gestion.services;
 
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
+import ch.motoloc.gestion.business.TarificationPack;
 import ch.motoloc.gestion.persistence.dao.ForfaitFlexibleDAO;
 import ch.motoloc.gestion.persistence.dao.ForfaitPackDAO;
+import ch.motoloc.gestion.persistence.dao.TarificationPackDAO;
 import java.util.List;
 
 /**
@@ -34,4 +36,11 @@ public class ForfaitService {
         return new ForfaitFlexibleDAO().findById(id);
     }
     
+    public static List<TarificationPack> getAllTarifiactionPack() {
+        return new TarificationPackDAO().findAll();
+    }
+
+    public static TarificationPack getTarificationPackById(long id) {
+        return new TarificationPackDAO().findById(id);
+    }
 }
