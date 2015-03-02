@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>#{resrc.factureForfait}</title>
+    </h:head>
+
+    <h:body>
+        <!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
+        <ui:composition template="/template/layout.xhtml">
+
+
+            <ui:define name="content">
+                <f:view>
+                    <div class="container">
+                        <div class="row">
+                            <div class="box">
+
+                                <div class="panel-heading text-center text-capitalize">
+                                    <h:outputText   value="#{resrc.factureForfait}"/>
+                                </div>
+
+                                <div class="col-lg-12">
+
+                                    <h:form class="form-horizontal">
+
+                                        <div class="form-group box">
+                                            <h:outputLabel class="col-sm-1" value="#{resrc.nom}"/>
+                                            <h:outputLabel class="col-sm-2" value="#{clientBean.client.nom}"/> <!-- Celon le bean ! -->
+                                            <h:outputLabel class="col-sm-2"  value="#{resrc.dateNaissance}"/>
+                                            <h:outputLabel class="col-sm-7" value="#{clientBean.client.dateDeNaissance}"/>
+                                        
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.prenom}"/>
+                                            <h:outputLabel class="col-sm-2" value="#{clientBean.client.prenom}"/>
+                                            <h:outputLabel class="col-sm-2"  value="#{resrc.noPermis}"/>
+                                            <h:outputLabel class="col-sm-7" value="#{clientBean.client.numeroPermis}"/>
+
+
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.adresse}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.rue}"/>
+
+
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.ville}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.ville}"/>
+                                      
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.npa}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.npa}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.telephone}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.telephone}"/>
+
+                                        
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.email}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.email}"/>
+
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-1"  value="#{resrc.remarque}"/>
+                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.remarque}"/>
+
+                                        </div>
+
+                                        <!--Reservation courante -->
+                                        <div class="form-group">
+                                            <h:commandLink class="btn-link col-sm-4" value="#{resrc.reservationCourante}" action="#{clientBean.reservationCourante()}"/>
+                                        </div>
+                                        
+                                        <!--Historique des packs et forfais-->
+                                        <div class="panel-heading form-group col-lg-12">
+                                        <h:outputText class="text-left col-sm-12" value="#{resrc.listePacks}"/>
+                                        
+                                        
+
+                                        <!--ClientBean depend de la persistance ! ! !-->
+                                        <h:dataTable value="#{ClientBean.clients.forfais}" var="forfaits"
+                                                     styleClass="employeeTable col-sm-4"
+                                                     headerClass="employeeTableHeader"
+                                                     rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{resrc.forfaitDate}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{forfaits.dateCommande}"/>
+                                            </h:column>
+                                            
+                                        </h:dataTable>
+                                        <div class="col-sm-6"><span/></div>
+                                           
+                                        <h:commandButton type="submit" value="#{resrc.boutonPack}" action="ajoutPack" class="btn-sm btn-primary col-sm-2"/>
+                                        </div>
+                                        
+                                        
+                                        <div class="panel-heading form-group col-lg-12">
+                                        <h:outputText class="text-left col-sm-12" value="#{resrc.listeFlexible}"/>
+                                        
+                                                                        
+                                        <!--ClientBean depend de la persistance ! ! !-->
+                                        <h:dataTable value="#{ClientBean.clients.forfaits}" var="forfaits"
+                                                     styleClass="employeeTable col-sm-4"
+                                                     headerClass="employeeTableHeader"
+                                                     rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{resrc.forfaitDate}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{client.forfaits}"/>
+                                            </h:column>
+                                            
+                                        </h:dataTable>
+                                        <div class="col-sm-6"><span/></div>
+                                        <h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{clientBean.ajouterFlexible()}" class="btn-sm btn-primary col-sm-2"/>                                      
+                                        </div>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </f:view>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
