@@ -6,11 +6,16 @@
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.ForfaitFlexible;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 /**
  *
  * @author vincentrobatel
  */
+
+@ManagedBean(name = "forfaitFlexBean")
+@RequestScoped
 public class ForfaitFlexibleBean {
     
     private ForfaitFlexible forfaitFlexible;
