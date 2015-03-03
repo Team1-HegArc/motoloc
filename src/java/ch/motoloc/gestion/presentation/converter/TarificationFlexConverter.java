@@ -39,7 +39,7 @@ public class TarificationFlexConverter implements Converter{
         }
         //on retourne un string via son Object
         else if(value instanceof TarificationFlexible){
-            return String.valueOf(((TarificationPack)value).getId());
+            return String.valueOf(((TarificationFlexible)value).getId());
         }
         else{
             return "";

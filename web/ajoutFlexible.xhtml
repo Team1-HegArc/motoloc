@@ -38,7 +38,7 @@
                                                     <!--On récupère la valeur du Bean pour alimenté la lov-->                             
                                                     <h:selectOneMenu id="lovModele" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible}">
                                                         <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
-                                                        <f:converter converterId="modeleConverteur"/>
+                                                        <f:converter converterId="tarificationFlexConverteur"/>
                                                         <f:selectItems var="tarif" value="#{ManagerLovBean.tarificationFlexibles}"  itemLabel="#{tarif.motoModl.libelle}"/>
                                                     </h:selectOneMenu>
                                                 </div>
