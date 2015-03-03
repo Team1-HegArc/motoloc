@@ -22,7 +22,7 @@
                             <div class="box">
 
                                 <div class="panel-heading text-center text-capitalize">
-                                    <h:outputText   value="#{resrc.ajoutPack}"/>
+                                    <h:outputText value="#{resrc.ajoutPack}"/>
                                 </div>
 
                                 <div class="col-lg-12">
@@ -30,8 +30,8 @@
                                     <h:form class="form-horizontal">
 
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.duree}"/>
-                                            <div class="controls col-sm-12">
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.duree}"/>
+                                            <div class="controls col-sm-3">
                                                 <!--On récupère la valeur du Bean pour alimenté la lov-->    
                                                 <!--value jsuis pas sur a voir avec chef lov -->
                                                 <h:selectOneRadio id="lovModele" value="#{forfaitPackBean.duree}" layout="pageDirection">
@@ -43,8 +43,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                                <h:outputLabel class="col-sm-4" value="#{resrc.modele}"/>
-                                                <div class="controls col-sm-8">
+                                                <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.modele}"/>
+                                                <div class="controls col-sm-3">
                                                     <!--On récupère la valeur du Bean pour alimenté la lov-->                             
                                                     <h:selectOneRadio id="lovModelePack" value="#{forfaitPackBean.modele}" layout="pageDirection">
                                                         <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
@@ -55,8 +55,7 @@
                                         </div>
                                         <div class="form-group col-sm-12">
                                                 <div class="controls text-center">
-                                                    <h:commandButton type="submit" value="#{resrc.boutonAjouter}" action="#{clientBean.ajouterClient()}" class="btn btn-primary" styleClass="btn-primary" />
-
+                                                    <h:commandButton type="submit" value="#{resrc.boutonAjouter}" action="#{clientBean.ajouterClient()}" class="btn btn-primary" styleClass="btn-primary" />&nbsp;
                                                     <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
                                                 </div>
                                             </div>
