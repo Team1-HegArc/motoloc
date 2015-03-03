@@ -99,6 +99,11 @@ public class ClientBean implements Serializable{
         return "detailClient";
     }
     
+        public String detailForfaitPack(Client client){
+        this.client=client;
+        return "detailForfaitPack";
+    }
+    
     /**
      *
      * @return

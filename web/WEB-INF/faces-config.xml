@@ -176,6 +176,11 @@
             <from-outcome>succes</from-outcome>
             <to-view-id>/ajoutFlexible.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>#{clientBean.detailForfaitPack(client)}</from-action>
+            <from-outcome>detailForfaitPack</from-outcome>
+            <to-view-id>/detailForfaitPack.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -201,6 +206,20 @@
         <navigation-case>
             <from-outcome>erreur</from-outcome>
             <to-view-id>/ajoutFlexible.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/detailForfaitPack.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{reservationBean.ajouterReservation(forfaitPackBean.fPack)}</from-action>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/choixDate.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{forfaitPackBean.detailReservation(forfaitPackBean.getfPack)}</from-action>
+            <from-outcome>detailResrvation</from-outcome>
+            <to-view-id>/detailReservation.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
