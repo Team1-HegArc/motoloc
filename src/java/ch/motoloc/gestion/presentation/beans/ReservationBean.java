@@ -24,5 +24,13 @@ public class ReservationBean {
         forfait.addReservation(reservation);
         return "succes";
     }
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
     
 }
