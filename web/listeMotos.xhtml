@@ -26,9 +26,7 @@
                                         <h:outputText rendered="#{motoBean.erreur}" value="#{resrc.erreurSuppressionMoto}" styleClass="text-danger" />
                                         <!--Modifier en fonction-->
                                         <h:dataTable value="#{ListeMotoBean.motos}" var="moto"
-                                                     styleClass="employeeTable"
-                                                     headerClass="employeeTableHeader"
-                                                     rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                                     styleClass="table table-striped">
                                             <h:column>
                                                 <f:facet name="header">
                                                     <h:outputText value="#{resrc.modele}"/>

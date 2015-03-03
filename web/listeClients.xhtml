@@ -26,9 +26,7 @@
                                         <h:outputText rendered="#{clientBean.erreur}" value="#{resrc.erreurSuppressionClient}" styleClass="text-danger" />
                 
                                         <h:dataTable value="#{ListeClientBean.clients}" var="client"
-                                                     styleClass="employeeTable"
-                                                     headerClass="employeeTableHeader"
-                                                     rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                                     styleClass="table table-striped">
                                             <h:column>
                                                 <f:facet name="header">
                                                     <h:outputText value="#{resrc.nom}"/>
