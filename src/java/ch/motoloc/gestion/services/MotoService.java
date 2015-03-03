@@ -7,9 +7,12 @@ package ch.motoloc.gestion.services;
 
 import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.MotoModele;
+import ch.motoloc.gestion.persistence.JpaConnection;
 import ch.motoloc.gestion.persistence.MotoModeleDAO;
+import ch.motoloc.gestion.persistence.dao.MotoDAO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -20,21 +23,6 @@ public class MotoService {
     private static List<Moto> listeMotos = new ArrayList();
     private static List<MotoModele> listeModeles = new ArrayList();
 
-    public static boolean ajouterMoto(Moto moto) {
-        try {
-            Moto moto = new Moto(reference, motoModele, remarque);
-            listeMotos.add(moto);
-                //JpaConnection.getEntityManager().getTransaction().begin();
-            //ClientDAO.create(client);
-            //JpaConnection.getEntityManager().getTransaction().commit();
-            return true;
-
-        } catch (Exception e) {
-            return false;
-        }
-
-    }
-
     public static List<MotoModele> getAllMotoModele() {
         return MotoModeleDAO.findAll();
     }
@@ -43,21 +31,24 @@ public class MotoService {
         return MotoModeleDAO.find(id);
     }
 
-//    public static void sauverClient(Long id, String nom, String prenom, String rue, String npa, 
-//            String ville, Date dateDeNaissance, String email, String telephone, String remarque, String numeroPermis){
-//        for (Client c : listClients) {
-//            if (c.getId().equals(id)) {
-//                c.setPrenom(prenom);
-//                c.setNom(nom);
-//                c.setRue(rue);
-//                c.setNpa(npa);
-//                c.setVille(ville);
-//                c.setDateDeNaissance(dateDeNaissance);
-//                c.setEmail(email);
-//                c.setTelephone(telephone);
-//                c.setRemarque(remarque);
-//                c.setNumeroPermis(numeroPermis);
-//            }
-//        }
-//    }
+    public static boolean sauverMoto(Moto moto) {
+        boolean success = false;
+        EntityManager em = JpaConnection.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            if (moto.getId() != null) {
+                Moto motoMAJ = new MotoDAO().findById(moto.getId());
+                motoMAJ.setReference(moto.getReference());
+                motoMAJ.setRemarque(moto.getRemarque());
+                motoMAJ.setMotoModele(moto.getMotoModele());
+            } else {
+                em.persist(moto);
+            }
+            em.getTransaction().commit();
+            success = true;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        }
+        return success;
+    }
 }
