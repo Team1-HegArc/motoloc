@@ -20,7 +20,7 @@ public class MotoService {
     private static List<Moto> listeMotos = new ArrayList();
     private static List<MotoModele> listeModeles = new ArrayList();
 
-    public static boolean ajouterMoto(String reference, MotoModele motoModele, String remarque) {
+    public static boolean ajouterMoto(Moto moto) {
         try {
             Moto moto = new Moto(reference, motoModele, remarque);
             listeMotos.add(moto);

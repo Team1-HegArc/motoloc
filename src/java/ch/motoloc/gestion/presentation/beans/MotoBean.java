@@ -6,6 +6,7 @@
 
 package ch.motoloc.gestion.presentation.beans;
 
+import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.services.MotoService;
 import java.io.Serializable;
@@ -21,10 +22,8 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class MotoBean implements Serializable{
 
-    private Long id;
-    private String reference;
+    private Moto moto;
     private MotoModele modele;
-    private String remarque;
     private boolean erreurAjout = false;
 
     /**
@@ -38,7 +37,7 @@ public class MotoBean implements Serializable{
      * @return
      */
     public String ajouterMoto(){
-        boolean checkAjout = MotoService.ajouterMoto(reference, modele, remarque);
+        boolean checkAjout = MotoService.ajouterMoto(moto);
         if(!checkAjout) {
             erreurAjout = true;
             return "erreur"; 
