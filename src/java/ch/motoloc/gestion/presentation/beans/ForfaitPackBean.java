@@ -12,13 +12,14 @@ import ch.motoloc.gestion.business.PackDuree;
 import ch.motoloc.gestion.services.ForfaitService;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author bibien.limido
  */
 @ManagedBean(name = "forfaitPackBean")
-@RequestScoped
+@SessionScoped
 public class ForfaitPackBean {
     private ForfaitPack fPack ;
     private PackDuree duree;
