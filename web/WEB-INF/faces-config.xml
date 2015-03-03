@@ -29,7 +29,8 @@
             <to-view-id>/editClient.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>editMotoMenu</from-outcome>
+            <from-action>#{motoBean.ajouterMoto()}</from-action>
+            <from-outcome>editMoto</from-outcome>
             <to-view-id>/editMoto.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
