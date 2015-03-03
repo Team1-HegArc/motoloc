@@ -2,6 +2,7 @@ package ch.motoloc.gestion.business;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "PK_RENTAL")
 public class ForfaitPack extends Forfait {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_RENTAL_PACK", nullable = false)
     private TarificationPack tarificationPack;
 

@@ -3,6 +3,7 @@ package ch.motoloc.gestion.business;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -22,7 +23,7 @@ public class ForfaitFlexible extends Forfait {
     @Column(name = "NB_DAYS", nullable = false)
     private Integer nbJour;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_FLEXIBLE_PRICE", nullable = false)
     private TarificationFlexible tarificationFlexible;
 

@@ -3,6 +3,7 @@ package ch.motoloc.gestion.business;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,11 +34,11 @@ public class FactureLigneSupplement implements Serializable {
     @Column(name = "PK_LINE_CHARGE")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_CHARGE", nullable = false)
     private Supplement supplement;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_INVOICE_BOOKING", nullable = false)
     private FactureReservation factureRes;
 

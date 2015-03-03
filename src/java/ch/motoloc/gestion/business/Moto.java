@@ -3,6 +3,7 @@ package ch.motoloc.gestion.business;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +36,7 @@ public class Moto implements Serializable {
     @Column(name = "REFERENCE", nullable = false, length = 50)
     private String reference;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_MOTORBIKE_MODEL", referencedColumnName = "PK_MOTORBIKE_MODEL", nullable = false)
     private MotoModele motoModele;
 

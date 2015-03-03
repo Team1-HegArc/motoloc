@@ -3,6 +3,7 @@ package ch.motoloc.gestion.business;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,7 +41,7 @@ public class TarificationFlexible implements Serializable {
     @Column(name = "DEGRESSION_PRICE", nullable = false)
     private Double prix_degression;
     
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_MOTORBIKE_MODEL", referencedColumnName = "PK_MOTORBIKE_MODEL", nullable = false)
     private MotoModele motoModl;
 

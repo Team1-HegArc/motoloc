@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,7 +46,7 @@ public class TarificationPack implements Serializable {
     @JoinColumn(name = "FK_MOTORBIKE_MODEL", nullable = false)
     private MotoModele motoMod;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_PACK_DURATION", nullable = false)
     private PackDuree packDuree;
 
