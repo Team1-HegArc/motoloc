@@ -31,35 +31,35 @@ public class Client implements Serializable {
     @Column(name = "PK_CUSTOMER")
     private Long id;
     
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false, length = 100)
     private String nom;
     
-    @Column(name = "FIRSTNAME")
+    @Column(name = "FIRSTNAME", nullable = false, length = 100)
     private String prenom;
     
-    @Column(name = "STREET")
+    @Column(name = "STREET", nullable = false, length = 300)
     private String rue;
     
-    @Column(name = "ZIPCODE")
+    @Column(name = "ZIPCODE", nullable = false, length = 50)
     private String npa;
     
-    @Column(name = "CITY")
+    @Column(name = "CITY", nullable = false, length = 100)
     private String ville;
     
-    @Column(name = "BIRTHDATE")
+    @Column(name = "BIRTHDATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateDeNaissance;
     
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", nullable = false, length = 200)
     private String email;
     
-    @Column(name = "PHONE")
+    @Column(name = "PHONE", nullable = true, length = 50)
     private String telephone;
     
-    @Column(name = "NOTE")
+    @Column(name = "NOTE", nullable = true, length = 500)
     private String remarque;
     
-    @Column(name = "NUM_LICENSE")
+    @Column(name = "NUM_LICENSE", nullable = true, length = 50)
     private String numeroPermis;
     
     @OneToMany(mappedBy = "client")

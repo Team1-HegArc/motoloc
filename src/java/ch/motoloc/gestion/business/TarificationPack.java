@@ -25,20 +25,20 @@ public class TarificationPack implements Serializable {
     @Column(name = "PK_PACK_PRICE")
     private Long id;
 
-    @Column(name = "BASIC_PRICE")
+    @Column(name = "BASIC_PRICE", nullable = false)
     private Double prix_base;
 
-    @Column(name = "KM_PRICE")
+    @Column(name = "KM_PRICE", nullable = false)
     private Double prix_km;
 
-    @Column(name = "NB_DAYS")
+    @Column(name = "NB_DAYS", nullable = false)
     private int nbJours;
 
-    @Column(name = "NB_WEEKENDS")
+    @Column(name = "NB_WEEKENDS", nullable = false)
     private int nbWeekends;
 
     @ManyToOne
-    @JoinColumn(name = "FK_MOTORBIKE_MODEL")
+    @JoinColumn(name = "FK_MOTORBIKE_MODEL", nullable = false)
     private MotoModele motoMod;
 
     public TarificationPack() {

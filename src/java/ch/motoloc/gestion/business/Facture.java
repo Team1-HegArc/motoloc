@@ -25,7 +25,7 @@ public abstract class Facture implements Serializable {
     @Column(name = "PK_INVOICE")
     private Long id;
 
-    @Column(name = "REFERENCE")
+    @Column(name = "REFERENCE", nullable = false, length = 50)
     private String reference;
 
     protected Facture() {

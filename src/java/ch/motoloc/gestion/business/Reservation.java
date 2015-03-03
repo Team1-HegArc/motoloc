@@ -35,36 +35,36 @@ public class Reservation implements Serializable {
     @Column(name = "PK_BOOKING")
     private Long id;
 
-    @Column(name = "START_DATE")
+    @Column(name = "START_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateDebut;
 
-    @Column(name = "END_DATE")
+    @Column(name = "END_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateFin;
 
     @ManyToOne
-    @JoinColumn(name = "FK_MOTORBIKE")
+    @JoinColumn(name = "FK_MOTORBIKE", nullable = false)
     private Moto moto;
 
-    @Column(name = "IS_CANCELLED")
+    @Column(name = "IS_CANCELLED", nullable = true)
     private Boolean estAnnule;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "FK_INVOICE_BOOKING", referencedColumnName = "PK_INVOICE")
+    @JoinColumn(name = "FK_INVOICE_BOOKING", referencedColumnName = "PK_INVOICE", nullable = true)
     private FactureReservation facture;
 
     @ManyToOne
-    @JoinColumn(name = "FK_RENTAL")
+    @JoinColumn(name = "FK_RENTAL", nullable = false)
     private Forfait forfait;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "GM_BOOKING_CHARGE",
             joinColumns = {
-                @JoinColumn(name = "FK_BOOKING", referencedColumnName = "PK_BOOKING")},
+                @JoinColumn(name = "FK_BOOKING", referencedColumnName = "PK_BOOKING", nullable = false)},
             inverseJoinColumns = {
-                @JoinColumn(name = "FK_CHARGE", referencedColumnName = "PK_CHARGE")})
+                @JoinColumn(name = "FK_CHARGE", referencedColumnName = "PK_CHARGE", nullable = false)})
     private List<Supplement> supplements;
 
     

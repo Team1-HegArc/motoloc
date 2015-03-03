@@ -28,14 +28,14 @@ public class FactureLigneSupplement implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "FK_CHARGE")
+    @JoinColumn(name = "FK_CHARGE", nullable = false)
     private Supplement supplement;
 
     @OneToOne
-    @JoinColumn(name = "FK_INVOICE_BOOKING")
+    @JoinColumn(name = "FK_INVOICE_BOOKING", nullable = false)
     private FactureReservation factureRes;
 
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = false)
     private Double prix;
 
     public FactureLigneSupplement() {

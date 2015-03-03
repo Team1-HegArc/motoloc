@@ -26,14 +26,14 @@ public class Moto implements Serializable {
     @Column(name = "PK_MOTORBIKE")
     private Long id;
 
-    @Column(name = "REFERENCE")
+    @Column(name = "REFERENCE", nullable = false, length = 50)
     private String reference;
 
     @ManyToOne
-    @JoinColumn(name = "FK_MOTORBIKE_MODEL", referencedColumnName = "PK_MOTORBIKE_MODEL")
+    @JoinColumn(name = "FK_MOTORBIKE_MODEL", referencedColumnName = "PK_MOTORBIKE_MODEL", nullable = false)
     private MotoModele motoModele;
 
-    @Column(name = "NOTE")
+    @Column(name = "NOTE", nullable = true, length = 500)
     private String remarque;
 
     public Moto() {
