@@ -7,11 +7,15 @@ package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.FactureForfait;
 import ch.motoloc.gestion.business.Forfait;
+import ch.motoloc.gestion.business.ForfaitFlexible;
+import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.services.FactureService;
 import ch.motoloc.gestion.services.ForfaitService;
 import java.util.Date;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
@@ -19,26 +23,26 @@ import javax.faces.bean.RequestScoped;
  */
 
 @ManagedBean(name = "factureForfaitBean")
-@RequestScoped
+@SessionScoped
 public class FactureForfaitBean {
     private FactureForfait factureForfait;
 
     public FactureForfaitBean() {
     }
-
-    public String ajoutFacture(Forfait forfait){
+    public String ajoutFacture(){
         factureForfait = new FactureForfait();
+        String typeForfait = null;
         factureForfait.setReference(Long.toString(new Date().getTime()));
+        return typeForfait;
+    }
+    
+    public String sauveFacture(Forfait forfait){
         forfait.setFacture(factureForfait);
         FactureService.sauverFacture(factureForfait);
         ForfaitService.sauverForfait(forfait);
         return "succes";
     }
-    
-    public String confirmer(){
-        return null;
-    }
-    
+
     public FactureForfait getFactureForfait() {
         return factureForfait;
     }
@@ -46,5 +50,6 @@ public class FactureForfaitBean {
     public void setFactureForfait(FactureForfait factureForfait) {
         this.factureForfait = factureForfait;
     }
+
     
 }

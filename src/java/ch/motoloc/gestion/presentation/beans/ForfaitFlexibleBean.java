@@ -7,6 +7,7 @@ package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.ForfaitFlexible;
+import ch.motoloc.gestion.services.BeanService;
 import ch.motoloc.gestion.services.ForfaitService;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
@@ -21,6 +22,7 @@ import javax.faces.bean.SessionScoped;
 public class ForfaitFlexibleBean {
 
     private ForfaitFlexible forfaitFlexible;
+    private FactureForfaitBean factureForfaitBean = BeanService.findBean("factureForfaitBean", FactureForfaitBean.class);
 
     public ForfaitFlexibleBean() {
     }
@@ -33,7 +35,7 @@ public class ForfaitFlexibleBean {
     }
 
     public String sauverFlexible() {
-
+        factureForfaitBean.ajoutFacture();
         return "succes";
     }
 
@@ -50,4 +52,11 @@ public class ForfaitFlexibleBean {
         this.forfaitFlexible = forfaitFlexible;
     }
 
+    public FactureForfaitBean getFactureForfaitBean() {
+        return factureForfaitBean;
+    }
+
+    public void setFactureForfaitBean(FactureForfaitBean factureForfaitBean) {
+        this.factureForfaitBean = factureForfaitBean;
+    }
 }

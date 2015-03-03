@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>#{resrc.factureForfait}</title>
+    </h:head>
+
+    <h:body>
+        <!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
+        <ui:composition template="/template/layout.xhtml">
+
+
+            <ui:define name="content">
+                <f:view>
+                    <div class="container">
+                        <div class="row">
+                            <div class="box">
+
+                                <div class="panel-heading text-center text-capitalize">
+                                    <h:outputText   value="#{resrc.factureForfait}"/>
+                                </div>
+
+                                <div class="col-lg-12">
+
+                                    <h:form class="form-horizontal box">
+                                        <div class="form-group col-sm-12">
+                                            <h:outputLabel value="#{resrc.factureNumero}"/>
+                                            <!--Facture numero-->
+                                            <h:outputLabel  value="#{factureForfaitBean.factureForfait.reference}"/> <!-- selon le bean ! -->
+                                          
+                                            
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <!--Nom-->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.nom}"/> <!-- selon le bean ! -->
+                                            <!--prénom-->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.prenom}"/> <!-- selon le bean ! -->
+                                            
+                                        </div><div class="form-group col-sm-12">
+                                            <!--Nom-->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.rue}"/> <!-- selon le bean ! -->
+                                            
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <!--NPA-->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.npa}"/> <!-- selon le bean ! -->
+                                            <!--Ville-->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.ville}"/> <!-- selon le bean ! -->
+                                            
+                                        </div>
+                                        
+                                    </h:form>
+                                    <h:form class="box form-horizontal">
+                                       <div class="form-group col-sm-12">
+                                            <!--NPA-->
+                                            <h:outputLabel  value="#{resrc.recapitulatif}"/> <!-- selon le bean ! -->
+                                            
+                                            
+                                        </div>  
+                                        <div class="form-group col-sm-12">
+                                            <!--pack débutant-->
+                                            <h:outputLabel class="col-xs-3"  value="Forfait Pavk"/> <!-- selon le bean ! -->
+                                        </div>
+                                        <div class="form-group col-lg-12">
+                                            <!--catégorie-->
+                                            <h:outputLabel class="col-xs-3"  value="#{forfaitPackBean.getfPack.tarificationPack.motoMod.libelle}"/> <!-- selon le bean ! -->
+                                      
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <!--catégorie-->
+                                            <h:outputLabel   value="#{resrc.prixFacture}"/>
+                                            <h:outputLabel   value="1000"/> <!-- A CALCULER !! ! -->
+                                            <h:outputLabel   value="#{resrc.deviseCHF}"/> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <h:commandButton class="btn btn-primary" type="submit" action="#{factureForfaitBean.sauveFacture(forfaitPackBean.getfPack)}" styleClass="btn-primary" value="#{resrc.boutonValider}" />
+
+                                                <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
+                                            </div>
+                                        </div>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </f:view>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
