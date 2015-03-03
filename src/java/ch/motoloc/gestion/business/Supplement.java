@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Classe Supplement
@@ -15,7 +16,12 @@ import javax.persistence.Table;
  * @author Administrateur
  */
 @Entity
-@Table(name = "GM_CHARGE")
+@Table(
+        name = "GM_CHARGE",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_CHARGE",
+                    columnNames = {"LABEL"})})
 public class Supplement implements Serializable {
 
     @Id

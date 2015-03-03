@@ -20,6 +20,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Classe Forfait
@@ -27,7 +28,12 @@ import javax.persistence.TemporalType;
  * @author irina.fessemaz
  */
 @Entity
-@Table(name = "GM_RENTAL")
+@Table(
+        name = "GM_RENTAL",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_RENTAL",
+                    columnNames = {"FK_CUSTOMER", "ORDER_DATE"})})
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Forfait implements Serializable {
 
@@ -101,6 +107,11 @@ public abstract class Forfait implements Serializable {
 
     public void setFacture(FactureForfait facture) {
         this.facture = facture;
+    }
+    
+    public void addReservation(Reservation reservation) {
+        this.getReservations().add(reservation);
+        reservation.setForfait(this);
     }
 
     @Override

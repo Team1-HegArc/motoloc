@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Classe Moto
@@ -17,7 +18,12 @@ import javax.persistence.Table;
  * @author irina.fessemaz
  */
 @Entity
-@Table(name = "GM_MOTORBIKE")
+@Table(
+        name = "GM_MOTORBIKE",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_MOTORBIKE",
+                    columnNames = {"REFERENCE"})})
 public class Moto implements Serializable {
 
     @Id

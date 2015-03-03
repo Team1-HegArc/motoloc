@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Classe FactureLignePaiement
@@ -18,7 +19,12 @@ import javax.persistence.Table;
  * @author irina.fessemaz
  */
 @Entity
-@Table(name = "GM_LINE_PAYMENT")
+@Table(
+        name = "GM_LINE_PAYMENT",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_LINE_PAYMENT",
+                    columnNames = {"FK_INVOICE_BOOKING", "FK_PAYMENT"})})
 public class FactureLignePaiement implements Serializable {
 
     @Id

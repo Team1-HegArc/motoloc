@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Classe MotoModele
@@ -18,7 +19,12 @@ import javax.persistence.Table;
  * @author irina.fessemaz
  */
 @Entity
-@Table(name = "GM_MOTORBIKE_MODEL")
+@Table(
+        name = "GM_MOTORBIKE_MODEL",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_MOTORBIKE_MODEL",
+                    columnNames = {"LABEL"})})
 public class MotoModele implements Serializable {
 
     @Id
@@ -112,6 +118,11 @@ public class MotoModele implements Serializable {
 
     public void setMotos(List<Moto> motos) {
         this.motos = motos;
+    }
+    
+    public void addMoto(Moto moto) {
+        this.getMotos().add(moto);
+        moto.setMotoModele(this);
     }
 
     @Override

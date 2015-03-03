@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Classe FactureReservation
@@ -13,7 +14,12 @@ import javax.persistence.Table;
  * @author irina.fessemaz
  */
 @Entity
-@Table(name = "GM_INVOICE_BOOKING")
+@Table(
+        name = "GM_INVOICE_BOOKING",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_INVOICE_BOOKING",
+                    columnNames = {"REFERENCE"})})
 public class FactureReservation extends Facture {
 
     @OneToMany(mappedBy = "factureRes", cascade = CascadeType.ALL)
@@ -47,6 +53,16 @@ public class FactureReservation extends Facture {
 
     public void setLignesPaiements(List<FactureLignePaiement> lignesPaiements) {
         this.lignesPaiements = lignesPaiements;
+    }
+    
+    public void addFactureLigneSupplement(FactureLigneSupplement ligneSupplement) {
+        this.getLignesSupplements().add(ligneSupplement);
+        ligneSupplement.setFactureRes(this);
+    }
+    
+    public void addFactureLignePaiement(FactureLignePaiement lignePaiement) {
+        this.getLignesPaiements().add(lignePaiement);
+        lignePaiement.setFactureRes(this);
     }
 
     @Override

@@ -15,14 +15,20 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Classe Client
- * 
+ *
  * @author irina.fessemaz
  */
 @Entity
-@Table(name = "GM_CUSTOMER")
+@Table(
+        name = "GM_CUSTOMER",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_CUSTOMER",
+                    columnNames = {"EMAIL"})})
 public class Client implements Serializable {
 
     @Id
@@ -30,38 +36,38 @@ public class Client implements Serializable {
     @SequenceGenerator(name = "SEQ_CUST", sequenceName = "SEQ_CUSTOMER", initialValue = 1, allocationSize = 100)
     @Column(name = "PK_CUSTOMER")
     private Long id;
-    
+
     @Column(name = "NAME", nullable = false, length = 100)
     private String nom;
-    
+
     @Column(name = "FIRSTNAME", nullable = false, length = 100)
     private String prenom;
-    
+
     @Column(name = "STREET", nullable = false, length = 300)
     private String rue;
-    
+
     @Column(name = "ZIPCODE", nullable = false, length = 50)
     private String npa;
-    
+
     @Column(name = "CITY", nullable = false, length = 100)
     private String ville;
-    
+
     @Column(name = "BIRTHDATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateDeNaissance;
-    
+
     @Column(name = "EMAIL", nullable = false, length = 200)
     private String email;
-    
+
     @Column(name = "PHONE", nullable = true, length = 50)
     private String telephone;
-    
+
     @Column(name = "NOTE", nullable = true, length = 500)
     private String remarque;
-    
+
     @Column(name = "NUM_LICENSE", nullable = true, length = 50)
     private String numeroPermis;
-    
+
     @OneToMany(mappedBy = "client")
     private List<Forfait> forfaits;
 
@@ -178,7 +184,7 @@ public class Client implements Serializable {
     public void setForfaits(List<Forfait> forfaits) {
         this.forfaits = forfaits;
     }
-    
+
     public void addForfait(Forfait forfait) {
         this.getForfaits().add(forfait);
         forfait.setClient(this);

@@ -19,6 +19,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Classe Reservation
@@ -26,7 +27,12 @@ import javax.persistence.TemporalType;
  * @author irina.fessemaz
  */
 @Entity
-@Table(name = "GM_BOOKING")
+@Table(
+        name = "GM_BOOKING",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_BOOKING",
+                    columnNames = {"START_DATE", "END_DATE", "FK_MOTORBIKE"})})
 public class Reservation implements Serializable {
 
     @Id

@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Classe Paiement
@@ -15,7 +16,12 @@ import javax.persistence.Table;
  * @author irina.fessemaz
  */
 @Entity
-@Table(name = "GM_PAYMENT")
+@Table(
+        name = "GM_PAYMENT",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_PAYMENT",
+                    columnNames = {"LABEL"})})
 public class Paiement implements Serializable {
 
     @Id

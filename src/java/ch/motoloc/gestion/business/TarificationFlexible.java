@@ -10,13 +10,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author Vincent Robatel
  */
 @Entity
-@Table(name = "GM_FLEXIBLE_PRICE")
+@Table(
+        name = "GM_FLEXIBLE_PRICE",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "UK_FLEXIBLE_PRICE",
+                    columnNames = {"FK_MOTORBIKE_MODEL"})})
 public class TarificationFlexible implements Serializable {
 
     @Id

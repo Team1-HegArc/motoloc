@@ -13,6 +13,7 @@
     <class>ch.motoloc.gestion.business.ForfaitPack</class>
     <class>ch.motoloc.gestion.business.Moto</class>
     <class>ch.motoloc.gestion.business.MotoModele</class>
+    <class>ch.motoloc.gestion.business.PackDuree</class>
     <class>ch.motoloc.gestion.business.Paiement</class>
     <class>ch.motoloc.gestion.business.Reservation</class>
     <class>ch.motoloc.gestion.business.Supplement</class>
@@ -26,6 +27,7 @@
       <property name="javax.persistence.jdbc.password" value="PROJETDEV_GROUPE1"/>
       <property name="eclipselink.logging.level" value="SEVERE"/>
       <property name="eclipselink.logging.parameters" value="false"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
 </persistence>
