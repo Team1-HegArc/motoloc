@@ -30,21 +30,21 @@ public class MotoBean implements Serializable {
     public MotoBean() {
     }
 
-        public String ajouterMoto (){
+    public String ajouterMoto() {
         this.moto = new Moto();
         return "editMoto";
     }
-    
+
     /**
      *
      * @param moto
      * @return
      */
-    public String editerClient (Moto moto){
+    public String editerMoto(Moto moto) {
         this.moto = moto;
         return "editMoto";
     }
-    
+
     /**
      *
      * @return
@@ -59,16 +59,21 @@ public class MotoBean implements Serializable {
             return "succes";
         }
     }
-    
-        public String supprimerClient (Moto moto){
+
+    public String supprimerMoto(Moto moto) {
         boolean checkSuppression = MotoService.supprimerMoto(moto);
-        if(!checkSuppression) {
+        if (!checkSuppression) {
             erreur = true;
-            return "erreur"; 
+            return "erreur";
         } else {
             erreur = false;
             return "succes";
         }
+    }
+
+    public String detailMoto(Moto moto) {
+        this.moto = moto;
+        return "detailMoto";
     }
 
     /**
