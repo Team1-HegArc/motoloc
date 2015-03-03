@@ -54,6 +54,16 @@
                                                 <h:message for="adresse" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
+                                         <div class="form-group">
+                                            <h:outputLabel class="col-sm-4" value="#{resrc.npa}"/>
+                                            <div class="controls col-sm-8">
+                                                <h:inputText id="npa"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.npa}" validatorMessage="#{resrc.msgNPAInvalide}">
+                                                    <f:validateRegex pattern="^[0-9]{4}$" />
+                                                </h:inputText>
+                                                <h:message for="npa" showSummary="true" showDetail="false"/>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.ville}"/>
                                             <div class="controls col-sm-8">
@@ -63,22 +73,7 @@
                                                 <h:message for="ville" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.npa}"/>
-                                            <div class="controls col-sm-8">
-                                                <h:inputText id="npa"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.npa}" validatorMessage="#{resrc.msgNPAInvalide}">
-                                                    <f:validateRegex pattern="^[0-9]{4}$" />
-                                                </h:inputText>
-                                                <h:message for="npa" showSummary="true" showDetail="false"/>
-                                            </div>
-                                        </div>
-                                        <!--non obligatoire-->
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.remarque}" />
-                                            <div class="controls col-sm-8">
-                                                <h:inputText id="remarque"  class="form-control input-md" maxlength="500" value="#{clientBean.client.remarque}"/>                                                  
-                                            </div>
-                                        </div>
+                                       
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.noPermis}"/>
                                             <div class="controls col-sm-8">
@@ -106,7 +101,7 @@
                                                 <h:message for="email" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
-                                        <!--non obligatoire-->
+                                       
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.telephone}" />
                                             <div class="controls col-sm-8">
@@ -114,6 +109,13 @@
                                                     <f:validateRegex pattern="^([0-9]{10})?$" />
                                                 </h:inputText>
                                                 <h:message for="telephone" showSummary="true" showDetail="false"/>
+                                            </div>
+                                        </div>
+                                        <!--non obligatoire-->
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-4" value="#{resrc.remarque}" />
+                                            <div class="controls col-sm-8">
+                                                <h:inputText id="remarque"  class="form-control input-md" maxlength="500" value="#{clientBean.client.remarque}"/>                                                  
                                             </div>
                                         </div>
                                         <div class="form-group">
