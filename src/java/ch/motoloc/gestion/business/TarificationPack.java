@@ -92,6 +92,14 @@ public class TarificationPack implements Serializable {
         this.motoMod = motoMod;
     }
 
+    public PackDuree getPackDuree() {
+        return packDuree;
+    }
+
+    public void setPackDuree(PackDuree packDuree) {
+        this.packDuree = packDuree;
+    }
+    
     @Override
     public String toString() {
         return "TarificationPack{" + "id=" + id + ", prix_base=" + prix_base + ", prix_km=" + prix_km + ", motoMod=" + motoMod + ", packDuree=" + packDuree + '}';
