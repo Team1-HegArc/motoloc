@@ -14,9 +14,18 @@ public class ClientService {
         try {
             em.getTransaction().begin();
             if (client.getId() != null) {
-                Client clientToUpdate = new ClientDAO().findById(client.getId());
-                clientToUpdate.setNom(client.getNom());
-            } else {
+                Client clientMAJ = new ClientDAO().findById(client.getId());
+                clientMAJ.setNom(client.getNom());
+                clientMAJ.setPrenom(client.getPrenom());
+                clientMAJ.setEmail(client.getEmail());
+                clientMAJ.setNpa(client.getVille());
+                clientMAJ.setTelephone(client.getTelephone());
+                clientMAJ.setRemarque(client.getRemarque());
+                clientMAJ.setDateDeNaissance(client.getDateDeNaissance());
+                clientMAJ.setRue(client.getRue());
+                clientMAJ.setNpa(client.getNpa());
+                clientMAJ.setNumeroPermis(client.getNumeroPermis());
+           } else {
                 em.persist(client);
             }
             em.getTransaction().commit();
