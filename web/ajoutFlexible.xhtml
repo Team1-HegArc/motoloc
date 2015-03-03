@@ -20,11 +20,14 @@
                     <div class="container">
                         <div class="row">
                             <div class="box">
+                                
+                                <!-- Titre -->
+                                <div class="col-lg-12 text-center">
+                                    <hr/><h4><h:outputText value="Ajout d'un forfait flexible"/></h4><hr/>
+                                </div>
+                                
                                 <div class="col-lg-12">
                                     <h:form>
-                                        <div class="panel-heading text-center text-capitalize">
-                                            <h:outputText value="#{resrc.ajoutFlexible}"/>
-                                        </div> 
                                         <div class="form-group col-sm-12">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.nbJour}" />
                                             <div class="controls col-sm-3">
@@ -33,16 +36,16 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-12">
-                                                <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.modele}"/>
-                                                <div class="controls col-sm-3">
-                                                    <!--On récupère la valeur du Bean pour alimenté la lov-->                             
-                                                    <h:selectOneMenu id="lovModele" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible}">
-                                                        <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
-                                                        <f:converter converterId="tarificationFlexConverteur"/>
-                                                        <f:selectItems var="tarif" value="#{ManagerLovBean.tarificationFlexibles}"  itemLabel="#{tarif.motoModl.libelle}"/>
-                                                    </h:selectOneMenu>
-                                                </div>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.modele}"/>
+                                            <div class="controls col-sm-3">
+                                                <!--On récupère la valeur du Bean pour alimenté la lov-->                             
+                                                <h:selectOneMenu id="lovModele" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible}">
+                                                    <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
+                                                    <f:converter converterId="tarificationFlexConverteur"/>
+                                                    <f:selectItems var="tarif" value="#{ManagerLovBean.tarificationFlexibles}"  itemLabel="#{tarif.motoModl.libelle}"/>
+                                                </h:selectOneMenu>
                                             </div>
+                                        </div>
                                         <div class="form-group col-sm-12">
                                             <div class="controls text-center">
                                                 <h:commandButton class="btn btn-primary" type="submit" action="#{forfaitFlexBean.sauverFlexible()}" styleClass="btn-primary" value="#{resrc.boutonValider}" />&nbsp;
