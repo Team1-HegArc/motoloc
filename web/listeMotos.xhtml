@@ -24,7 +24,9 @@
                                         <h1><h:outputText value="#{resrc.listeMotos}"/></h1>
 
                                         <h:outputText rendered="#{motoBean.erreur}" value="#{resrc.erreurSuppressionMoto}" styleClass="text-danger" />
+                                        
                                         <!--Modifier en fonction-->
+                                        <div class="col-sm-10">
                                         <h:dataTable value="#{ListeMotoBean.motos}" var="moto"
                                                      styleClass="table table-striped">
                                             <h:column>
@@ -39,19 +41,14 @@
                                                 </f:facet>
                                                 <h:outputText value="#{moto.reference}"/>
                                             </h:column>
-                                                                                   
-<!--                                            <h:column>
-                                                <h:commandButton value="#{resrc.visualisationBouton}" action="#{motoBean.detailMoto(moto)}" styleClass="btn btn-info"/>
-                                            </h:column> -->
+                                            
                                             <h:column>
-                                                <h:commandButton value="#{resrc.editionBouton}" action="#{motoBean.editerMoto(moto)}" styleClass="btn btn-primary"/>
-                                            </h:column>
-                                            <h:column>
+                                                <h:commandButton value="#{resrc.editionBouton}" action="#{motoBean.editerMoto(moto)}" styleClass="btn btn-info"/> &nbsp;
                                                 <h:commandButton value="#{resrc.supprimerBouton}" action="#{motoBean.supprimerMoto(moto)}" styleClass="btn btn-primary"/>
                                             </h:column> 
-                                            
                                         </h:dataTable>
-                                        <div class="box">
+                                        </div>
+                                        <div class="col-sm-2">
                                             <h:commandButton value="#{resrc.ajoutBouton}" action="#{motoBean.ajouterMoto()}" styleClass="btn btn-success"/>
                                         </div>
                                     </h:form>
