@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class ForfaitPack extends Forfait {
 
     @ManyToOne
-    @JoinColumn(name = "FK_RENTAL_PACK")
+    @JoinColumn(name = "FK_RENTAL_PACK", nullable = false)
     private TarificationPack tarificationPack;
 
     public ForfaitPack() {

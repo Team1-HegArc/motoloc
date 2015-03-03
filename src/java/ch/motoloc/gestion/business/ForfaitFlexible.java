@@ -19,11 +19,11 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "PK_RENTAL")
 public class ForfaitFlexible extends Forfait {
 
-    @Column(name = "NB_DAYS")
+    @Column(name = "NB_DAYS", nullable = false)
     private Integer nbJour;
 
     @ManyToOne
-    @JoinColumn(name = "FK_FLEXIBLE_PRICE")
+    @JoinColumn(name = "FK_FLEXIBLE_PRICE", nullable = false)
     private TarificationFlexible tarificationFlexible;
 
     public ForfaitFlexible() {

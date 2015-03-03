@@ -28,14 +28,14 @@ public class FactureLignePaiement implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "FK_PAYMENT")
+    @JoinColumn(name = "FK_PAYMENT", nullable = false)
     private Paiement paiement;
 
     @OneToOne
-    @JoinColumn(name = "FK_INVOICE_BOOKING")
+    @JoinColumn(name = "FK_INVOICE_BOOKING", nullable = false)
     private FactureReservation factureRes;
 
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = false)
     private Double prix;
 
     public FactureLignePaiement() {
