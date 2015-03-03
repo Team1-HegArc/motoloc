@@ -9,6 +9,7 @@ package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
+import ch.motoloc.gestion.business.TarificationFlexible;
 import ch.motoloc.gestion.business.TarificationPack;
 import ch.motoloc.gestion.services.MotoService;
 import ch.motoloc.gestion.services.ForfaitService;
@@ -40,5 +41,9 @@ public class ManagerLovBean implements Serializable{
      */
     public List<TarificationPack> getTarifiactionPacks() {
         return ForfaitService.getAllTarifiactionPack();
+    }
+    
+    public List<TarificationFlexible> getTarificationFlexibles(){
+        return ForfaitService.getAllTarifiactionFlex();
     }
 }
