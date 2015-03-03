@@ -168,7 +168,7 @@
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-action>#{forfaitPackBean.ajouterPack()}</from-action>
-            <from-outcome>ajoutPack</from-outcome>
+            <from-outcome>succes</from-outcome>
             <to-view-id>/ajoutPack.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
