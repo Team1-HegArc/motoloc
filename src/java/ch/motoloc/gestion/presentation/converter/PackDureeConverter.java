@@ -20,7 +20,7 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter(forClass = PackDureeConverter.class, value="packDureeConverter")
 public class PackDureeConverter implements Converter{
     
-        @Override
+    @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         if (value == null){
             return null;
