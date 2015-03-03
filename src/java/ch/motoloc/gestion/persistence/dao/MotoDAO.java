@@ -6,7 +6,9 @@
 package ch.motoloc.gestion.persistence.dao;
 
 import ch.motoloc.gestion.business.Moto;
+import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.persistence.AbstractDAO;
+import java.util.List;
 
 /**
  *
@@ -21,6 +23,12 @@ public class MotoDAO extends AbstractDAO<Moto>{
     @Override
     protected String findAllStatement() {
         return "SELECT mot FROM Moto mot";
+    }
+
+    
+    public List<Moto> findByFiltre(MotoModele motoModele, String numeroChassis) {
+        String request = "SELECT mot FROM Moto mot WHERE LOWER(mot.MotoModele.libelle) LIKE LOWER (?1) AND LOWER(mot.reference) LIKE LOWER(?2)";
+        return super.findByParameter(request, motoModele.getLibelle(), numeroChassis);
     }
     
 }

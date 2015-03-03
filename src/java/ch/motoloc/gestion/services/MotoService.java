@@ -51,4 +51,8 @@ public class MotoService {
         }
         return success;
     }
+    
+    public static List<Moto> rechercherMoto(MotoModele motoModele, String numeroChassis) {
+        return new MotoDAO().findByFiltre(motoModele, numeroChassis);
+    }
 }
