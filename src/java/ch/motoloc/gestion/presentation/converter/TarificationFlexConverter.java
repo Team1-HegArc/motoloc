@@ -6,6 +6,7 @@
 package ch.motoloc.gestion.presentation.converter;
 
 
+import ch.motoloc.gestion.business.TarificationFlexible;
 import ch.motoloc.gestion.business.TarificationPack;
 import ch.motoloc.gestion.services.ForfaitService;
 import javax.faces.component.UIComponent;
@@ -17,8 +18,8 @@ import javax.faces.convert.FacesConverter;
  *
  * @author vincentrobatel
  */
-@FacesConverter(forClass = TarificationPackConverter.class, value="tarificationPackConverteur")
-public class TarificationPackConverter implements Converter{
+@FacesConverter(forClass = TarificationFlexConverter.class, value="tarificationFlexConverteur")
+public class TarificationFlexConverter implements Converter{
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         if (value == null){
@@ -26,8 +27,8 @@ public class TarificationPackConverter implements Converter{
         }
         else{
             //On recupère un pack via son string
-            TarificationPack tPack = ForfaitService.getTarificationPackById(Long.parseLong(value));
-            return tPack;
+            TarificationFlexible tFlex = ForfaitService.getTarificationFlexById(Long.parseLong(value));
+            return tFlex;
         }
     }
 
@@ -37,7 +38,7 @@ public class TarificationPackConverter implements Converter{
             return "";
         }
         //on retourne un string via son Object
-        else if(value instanceof TarificationPack){
+        else if(value instanceof TarificationFlexible){
             return String.valueOf(((TarificationPack)value).getId());
         }
         else{

@@ -46,7 +46,7 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.numeroChassis}"/>
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="numerpChassis"  class="form-control input-md" maxlength="100" value="#{numeroChassis}">
+                                                <h:inputText id="numerpChassis"  class="form-control input-md" maxlength="100" value="#{numeroChassis}" validatorMessage="Veuillez entrer un numero de chassis valide">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ -]{0,100}$" />
                                                 </h:inputText>
 
