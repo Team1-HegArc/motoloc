@@ -150,5 +150,9 @@
             <from-outcome>ajoutPack</from-outcome>
             <to-view-id>/ajoutPack.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>ajoutFlexible</from-outcome>
+            <to-view-id>/ajoutFlexible.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>
