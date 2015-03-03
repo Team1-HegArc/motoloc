@@ -97,7 +97,7 @@
                                                 <h:outputLabel class="col-sm-4" value="#{resrc.email}"  />
                                                 <div class="controls col-sm-8">
                                                     <h:inputText id="email"  class="form-control input-md" maxlength="100" value="#{clientBean.client.email}" validatorMessage="Veuillez entrer un email au format valide (xxx@xxx.xxx)">
-                                                    <f:validateRegex pattern="^([\.\_:A-Za-z0-9יטאצ-]{1,50}@[\.\_A-Za-z0-9יטאצ-]{1,30}\.[a-z]{2,3})?$" />
+                                                    <f:validateRegex pattern="^[\.\_:A-Za-z0-9יטאצ-]{1,50}@[\.\_A-Za-z0-9יטאצ-]{1,30}\.[a-z]{2,3}$" />
                                                     </h:inputText>
                                                 </div>
                                             </div>
