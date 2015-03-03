@@ -42,7 +42,7 @@ public class ForfaitPackBean {
     
     public String sauverPack(){
         this.getfPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
-        ForfaitService.sauverForfaitPack(fPack);
+        ForfaitService.sauverForfait(fPack);
         return "succes";
     }
     
