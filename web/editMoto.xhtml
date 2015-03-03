@@ -27,7 +27,7 @@
                                             <div class="form-group">
                                                 <h:outputLabel class="col-sm-4" value="#{resrc.reference}"/>
                                                 <div class="controls col-sm-8">
-                                                    <h:inputText id="reference" value="#{motoBean.reference}" class="form-control input-md" maxlength="100" required="true">
+                                                    <h:inputText id="reference" value="#{motoBean.reference}" class="form-control input-md" maxlength="100" required="true" validatorMessage="Veuillez entrer une référence valide">
                                                         <f:validateRegex pattern="^[A-Za-zéèàöô0-9 -]{1,100}$" />
                                                     </h:inputText>
                                                 </div>
