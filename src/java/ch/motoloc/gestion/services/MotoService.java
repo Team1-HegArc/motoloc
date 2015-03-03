@@ -8,8 +8,8 @@ package ch.motoloc.gestion.services;
 import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.persistence.JpaConnection;
-import ch.motoloc.gestion.persistence.MotoModeleDAO;
 import ch.motoloc.gestion.persistence.dao.MotoDAO;
+import ch.motoloc.gestion.persistence.dao.MotoModeleDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -24,11 +24,11 @@ public class MotoService {
     private static List<MotoModele> listeModeles = new ArrayList();
 
     public static List<MotoModele> getAllMotoModele() {
-        return MotoModeleDAO.findAll();
+        return new MotoModeleDAO().findAll();
     }
 
     public static MotoModele getMotoModeleById(Long id) {
-        return MotoModeleDAO.find(id);
+        return new MotoModeleDAO().findById(id);
     }
 
     public static boolean sauverMoto(Moto moto) {
