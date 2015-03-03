@@ -35,12 +35,12 @@ public class ForfaitFlexible extends Forfait {
         this.tarificationFlexible = tarificationFlexible;
     }
 
-    public Integer getNbJour() {
-        return nbJour;
+    public String getNbJour() {
+        return nbJour.toString();
     }
 
-    public void setNbJour(Integer nbJour) {
-        this.nbJour = nbJour;
+    public void setNbJour(String nbJour) {
+        this.nbJour = Integer.parseInt(nbJour);
     }
 
     public TarificationFlexible getTarificationFlexible() {
