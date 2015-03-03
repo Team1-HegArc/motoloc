@@ -33,8 +33,8 @@
 
                                     <h:form class="form-horizontal">
                                         <div class="form-group">
-                                                <h:outputLabel class="col-sm-4" value="#{resrc.modele}"/>
-                                                <div class="controls col-sm-8">
+                                                <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.modele}"/>
+                                                <div class="controls col-sm-3">
                                                     <!--On récupère la valeur du Bean pour alimenté la lov-->                             
                                                     <h:selectOneMenu id="lovModele" value="#{motoBean.modele}">
                                                         <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
@@ -44,8 +44,8 @@
                                                 </div>
                                             </div>
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.numeroChassis}"/>
-                                            <div class="controls col-sm-8">
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.numeroChassis}"/>
+                                            <div class="controls col-sm-3">
                                                 <h:inputText id="numerpChassis"  class="form-control input-md" maxlength="100" value="#{numeroChassis}" validatorMessage="Veuillez entrer un numero de chassis valide">
                                                     <f:validateRegex pattern="^[A-Za-z0-9éèàöô -]{0,100}$" />
                                                 </h:inputText>
