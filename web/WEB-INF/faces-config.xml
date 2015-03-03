@@ -10,6 +10,9 @@
             <!--variable qui permet d'accéder aux couples clé/valeur des fichiers de langue-->
             <var>resrc</var>
         </resource-bundle>
+        <message-bundle>
+            <base-name>ch.motoloc.gestion.presentation.bundle.Messages</base-name>
+        </message-bundle>
         
         <!--indique la langue par défaut et les langues supportées par l'application-->
         <locale-config>
