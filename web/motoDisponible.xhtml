@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>#{resrc.diponibilite}</title>
+    </h:head>
+
+    <h:body>
+        <!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
+        <ui:composition template="/template/layout.xhtml">
+
+
+            <ui:define name="content">
+                <f:view>
+                    <div class="container">
+                        <div class="row">
+                            <div class="box">
+
+                                
+
+                                <div class="col-lg-12">
+                                    <h:form class="form-horizontal">
+                                        <h1><h:outputText value="#{resrc.motoDisponibleListe}"/></h1>
+
+                                        <h:dataTable value="#{ListeMotoBean.motos}" var="moto"
+                                                     styleClass="employeeTable"
+                                                     headerClass="employeeTableHeader"
+                                                     rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{resrc.motoReference}"/>
+                                                </f:facet>
+                                                <h:outputText value="Labelle moto"/>
+                                            </h:column>
+                                            <h:column>
+                                                <h:commandButton value="#{resrc.boutonValider}" action="reservationSuite" styleClass="btn btn-info"/>
+                                            </h:column> 
+                                             
+
+                                        </h:dataTable>
+
+                                        <div class="form-group col-sm-6 box">
+                                         <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
+                                        </div>    
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </f:view>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
