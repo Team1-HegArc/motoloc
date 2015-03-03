@@ -80,7 +80,7 @@ public class ForfaitService {
         return tarif;
     }
 
-    public static boolean sauverForfaitPack(ForfaitPack fPack) {
+    public static boolean sauverForfait(ForfaitPack fPack) {
         boolean success = false;
         EntityManager em = JpaConnection.getEntityManager();
         
@@ -93,6 +93,10 @@ public class ForfaitService {
             em.getTransaction().rollback();
         }
         return success;     
+    }
+
+    public static void sauverForfait(ForfaitFlexible forfaitFlexible) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

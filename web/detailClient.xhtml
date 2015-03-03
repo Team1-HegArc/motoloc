@@ -78,7 +78,7 @@
                                                         <f:facet name="header">
                                                             <h:outputText value="#{resrc.listePacks}"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfait.toString}"/>
+                                                        <h:outputText value="#{forfait.toString()}"/>
                                                     </h:column>
                                                 </h:dataTable>
                                             </div>
@@ -94,11 +94,11 @@
                                                         <f:facet name="header">
                                                             <h:outputText value="#{resrc.listeFlexible}"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfait.toString}"/>
+                                                        <h:outputText value="#{forfait.toString()}"/>
                                                     </h:column>
                                                 </h:dataTable>
                                             </div>
-                                            <br/><h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{forfaitPackBean.ajouterFlexible()}" class="btn-sm btn-primary col-sm-2"/>                                      
+                                            <br/><h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{forfaitFlexBean.ajouterFlexible(clientBean.client)}" class="btn-sm btn-primary col-sm-2"/>                                      
                                         </div>
                                     </h:form>
                                 </div>

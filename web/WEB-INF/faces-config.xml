@@ -172,7 +172,8 @@
             <to-view-id>/ajoutPack.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>ajoutFlexible</from-outcome>
+            <from-action>#{forfaitFlexBean.ajouterFlexible(clientBean.client)}</from-action>
+            <from-outcome>succes</from-outcome>
             <to-view-id>/ajoutFlexible.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
