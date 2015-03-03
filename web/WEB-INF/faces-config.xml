@@ -188,11 +188,7 @@
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-outcome>succes</from-outcome>
-            <to-view-id>/resumerForfait.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>erreur</from-outcome>
-            <to-view-id>/ajoutPack.xhtml</to-view-id>
+            <to-view-id>/resumerForfaitFlex.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -201,11 +197,23 @@
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-outcome>succes</from-outcome>
-            <to-view-id>/resumerForfait.xhtml</to-view-id>
+            <to-view-id>/resumerForfaitFlex.xhtml</to-view-id>
         </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/resumerForfaitPack.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>erreur</from-outcome>
-            <to-view-id>/ajoutFlexible.xhtml</to-view-id>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/detailClient.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/resumerForfaitFlex.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     

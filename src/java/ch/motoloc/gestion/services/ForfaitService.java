@@ -80,7 +80,6 @@ public class ForfaitService {
         }
         return tarif;
     }
-
     public static boolean sauverForfait(Forfait forfait) {
         boolean success = false;
         EntityManager em = JpaConnection.getEntityManager();
@@ -94,7 +93,7 @@ public class ForfaitService {
             em.getTransaction().rollback();
         }
         return success;     
-    }   
+    }
     
     public static boolean sauverForfait(ForfaitPack fPack) {
         boolean success = false;
