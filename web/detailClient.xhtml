@@ -75,13 +75,12 @@
                                             <h:commandLink class="btn-link" value="#{resrc.reservationCourante}" action="#{clientBean.reservationCourante()}"/>
                                         </div>
                                         
-                                        <!--Historique des packs et forfais-->
+                                        <!-- Historique des packs -->
                                         <div class="panel-heading form-group col-sm-12">
                                         <h:outputText class="text-left col-sm-12" value="#{resrc.listePacks}"/>
                                         
-                                        <!--ClientBean depend de la persistance ! ! !-->
                                         <h:dataTable value="#{clientBean.client.forfaits}" var="forfait"
-                                                     styleClass="table table-striped">
+                                                     styleClass="table table-striped col-sm-10">
                                             <h:column>
                                                 <f:facet name="header">
                                                     <h:outputText value="#{resrc.packs}"/>
@@ -93,14 +92,13 @@
                                         <h:commandButton type="submit" value="#{resrc.boutonPack}" action="#{forfaitPackBean.ajouterPack()}" class="btn-sm btn-primary col-sm-2"/>
                                         </div>
                                         
-                                        
-                                        <div class="panel-heading form-group col-lg-12">
+                                        <!-- Historique des flexibles -->
+                                        <div class="panel-heading form-group col-sm-12">
                                         <h:outputText class="text-left col-sm-12" value="#{resrc.listeFlexible}"/>
                                         
                                                                         
-                                        <!--ClientBean depend de la persistance ! ! !-->
                                         <h:dataTable value="#{clientBean.client.forfaits}" var="forfait"
-                                                     styleClass="table table-striped">
+                                                     styleClass="table table-striped col-sm-10">
                                             <h:column>
                                                 <f:facet name="header">
                                                     <h:outputText value="#{resrc.flexibles}"/>
@@ -109,7 +107,6 @@
                                             </h:column>
                                             
                                         </h:dataTable>
-                                        <div class="col-sm-6"><span/></div>
                                         <h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{forfaitPackBean.ajouterFlexible()}" class="btn-sm btn-primary col-sm-2"/>                                      
                                         </div>
                                     </h:form>
