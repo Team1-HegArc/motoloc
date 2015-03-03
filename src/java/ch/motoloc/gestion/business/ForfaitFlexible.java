@@ -39,7 +39,7 @@ public class ForfaitFlexible extends Forfait {
         return nbJour;
     }
 
-    public void setNbJour(Integer nbJour) {
+    public void setNbJour(int nbJour) {
         this.nbJour = nbJour;
     }
 

@@ -80,7 +80,7 @@ public class ForfaitService {
         return tarif;
     }
 
-    public static boolean sauverForfaitPack(ForfaitPack fPack) {
+    public static boolean sauverForfait(ForfaitPack fPack) {
         boolean success = false;
         EntityManager em = JpaConnection.getEntityManager();
         
@@ -93,6 +93,23 @@ public class ForfaitService {
             em.getTransaction().rollback();
         }
         return success;     
+    }
+
+    public static boolean sauverForfait(ForfaitFlexible forfaitFlexible) {
+        
+        boolean success = false;
+        EntityManager em = JpaConnection.getEntityManager();
+        
+        try {
+             em.getTransaction().begin();
+             em.persist(forfaitFlexible);
+             em.getTransaction().commit();
+             success = true;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        }
+        return success;   
+        
     }
     
 }

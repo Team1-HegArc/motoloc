@@ -28,7 +28,7 @@
                                         <div class="form-group col-sm-12">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.nbJour}" />
                                             <div class="controls col-sm-3">
-                                                <h:inputText id="nbJour"  class="form-control input-md" maxlength="3" size="3" value="#{forfaitFlexBean.forfaitFlexible.nbJour}" validatorMessage="veuillez entrer un chiffre entre 0 et 360">
+                                                <h:inputText id="nbJour"  class="form-control input-md" maxlength="3" size="3" value="#{forfaitFlexBean.forfaitFlexible.nbJour}" validatorMessage="veuillez entrer un chiffre entre 0 et 360"> 
                                                     <f:validateRegex pattern="^[0-9]{0,3}$" />
                                                 </h:inputText>
                                             </div>
@@ -46,7 +46,7 @@
                                             </div>
                                         <div class="form-group col-sm-12">
                                             <div class="controls text-center">
-                                                <h:commandButton class="btn btn-primary" type="submit" action="mesCouillesMickey" styleClass="btn-primary" value="#{resrc.boutonValider}" />&nbsp;
+                                                <h:commandButton class="btn btn-primary" type="submit" action="#{forfaitFlexBean.sauverFlexible()}" styleClass="btn-primary" value="#{resrc.boutonValider}" />&nbsp;
                                                 <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
                                             </div>
                                         </div>
