@@ -16,28 +16,32 @@ import javax.faces.bean.SessionScoped;
  *
  * @author vincentrobatel
  */
-
 @ManagedBean(name = "forfaitFlexBean")
 @SessionScoped
 public class ForfaitFlexibleBean {
-    
+
     private ForfaitFlexible forfaitFlexible;
 
     public ForfaitFlexibleBean() {
     }
 
-    public String ajouterFlexible(Client client){
+    public String ajouterFlexible(Client client) {
         forfaitFlexible = new ForfaitFlexible();
         client.addForfait(forfaitFlexible);
         forfaitFlexible.setDateCommande(new Date());
         return "succes";
     }
-    
-    public String sauverFlexible(){
-        
+
+    public String sauverFlexible() {
+
         return "succes";
     }
-    
+
+    public String detailReservation(ForfaitFlexible forfaitFlexible) {
+        this.forfaitFlexible = forfaitFlexible;
+        return "detailReservation";
+    }
+
     public ForfaitFlexible getForfaitFlexible() {
         return forfaitFlexible;
     }
@@ -45,6 +49,5 @@ public class ForfaitFlexibleBean {
     public void setForfaitFlexible(ForfaitFlexible forfaitFlexible) {
         this.forfaitFlexible = forfaitFlexible;
     }
-    
-   
+
 }
