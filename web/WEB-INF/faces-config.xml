@@ -167,7 +167,7 @@
         <from-view-id>/detailClient.xhtml</from-view-id>
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
-            <from-action>#{forfaitPackBean.ajouterPack()}</from-action>
+            <from-action>#{forfaitPackBean.ajouterPack(clientBean.client)}</from-action>
             <from-outcome>succes</from-outcome>
             <to-view-id>/ajoutPack.xhtml</to-view-id>
         </navigation-case>

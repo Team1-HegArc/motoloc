@@ -6,10 +6,12 @@
 
 package ch.motoloc.gestion.presentation.beans;
 
+import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.business.PackDuree;
 import ch.motoloc.gestion.services.ForfaitService;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
@@ -31,8 +33,10 @@ public class ForfaitPackBean {
     public ForfaitPackBean() {
     }
 
-    public String ajouterPack(){
+    public String ajouterPack(Client client){
         this.fPack = new ForfaitPack();
+        client.addForfait(fPack);
+        fPack.setDateCommande(new Date());
         return "succes";
     }
     
