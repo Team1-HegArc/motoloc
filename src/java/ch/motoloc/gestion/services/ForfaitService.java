@@ -95,8 +95,21 @@ public class ForfaitService {
         return success;     
     }
 
-    public static void sauverForfait(ForfaitFlexible forfaitFlexible) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static boolean sauverForfait(ForfaitFlexible forfaitFlexible) {
+        
+        boolean success = false;
+        EntityManager em = JpaConnection.getEntityManager();
+        
+        try {
+             em.getTransaction().begin();
+             em.persist(forfaitFlexible);
+             em.getTransaction().commit();
+             success = true;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        }
+        return success;   
+        
     }
     
 }
