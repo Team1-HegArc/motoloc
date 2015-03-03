@@ -28,7 +28,7 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.nom}"/>
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="nom"  class="form-control input-md" maxlength="100" value="#{clientBean.client.nom}" validatorMessage="#{resrc.msgNomInvalide}">
+                                                <h:inputText id="nom"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.nom}" validatorMessage="#{resrc.msgNomInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
                                                 </h:inputText>
                                                 <h:message for="nom" showSummary="true" showDetail="false"/>
@@ -39,49 +39,48 @@
                                         <div class="form-group">      
                                             <h:outputLabel class="col-sm-4"  value="#{resrc.prenom}"/>
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="prenom"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.prenom}" validatorMessage="#{resrc.msgNomInvalide}">
+                                                <h:inputText id="prenom"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.prenom}" validatorMessage="#{resrc.msgPrenomInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
-                                                    <h:message for="prenom" showSummary="true" showDetail="false"/>
                                                 </h:inputText>
+                                                <h:message for="prenom" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.adresse}"/>
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="adresse"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.rue}" validatorMessage="#{resrc.msgNomInvalide}">
+                                                <h:inputText id="adresse"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.rue}" validatorMessage="#{resrc.msgRueInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ0-9 -]{1,100}$" />
                                                 </h:inputText>
+                                                <h:message for="adresse" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
+                                         <div class="form-group">
+                                            <h:outputLabel class="col-sm-4" value="#{resrc.npa}"/>
+                                            <div class="controls col-sm-8">
+                                                <h:inputText id="npa"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.npa}" validatorMessage="#{resrc.msgNPAInvalide}">
+                                                    <f:validateRegex pattern="^[0-9]{4}$" />
+                                                </h:inputText>
+                                                <h:message for="npa" showSummary="true" showDetail="false"/>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.ville}"/>
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="ville"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.ville}" validatorMessage="#{resrc.msgNomInvalide}">
+                                                <h:inputText id="ville"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.ville}" validatorMessage="#{resrc.msgVilleInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
                                                 </h:inputText>
+                                                <h:message for="ville" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.npa}"/>
-                                            <div class="controls col-sm-8">
-                                                <h:inputText id="npa"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.npa}" validatorMessage="#{resrc.msgNomInvalide}">
-                                                    <f:validateRegex pattern="^[0-9]{4}$" />
-                                                </h:inputText>
-                                            </div>
-                                        </div>
-                                        <!--non obligatoire-->
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.remarque}" />
-                                            <div class="controls col-sm-8">
-                                                <h:inputText id="remarque"  class="form-control input-md" maxlength="500" value="#{clientBean.client.remarque}"/>                                                  
-                                            </div>
-                                        </div>
+                                       
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.noPermis}"/>
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="nopermis"  class="form-control input-md" maxlength="50" value="#{clientBean.client.numeroPermis}" validatorMessage="#{resrc.msgNomInvalide}">
+                                                <h:inputText id="nopermis"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.numeroPermis}" validatorMessage="#{resrc.msgNoPermisInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ0-9 -]{0,50}$" />
                                                 </h:inputText>
+                                                <h:message for="nopermis" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -90,23 +89,33 @@
                                                 <h:inputText id="datenaissance"  class="form-control input-md" maxlength="10" required="true" value="#{clientBean.client.dateDeNaissance}" validatorMessage="#{resrc.msgDateNaissanceInvalide}">
                                                     <f:validateRegex pattern="^((0[1-9])||(([1-2][0-9])||30||31))\.((0[1-9])||(1[0-2]))\.((19[0-9]{2})||(20[0-9]{2}))$" />
                                                 </h:inputText>
+                                                <h:message for="datenaissance" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-4" value="#{resrc.email}"  />
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="email"  class="form-control input-md" maxlength="100" value="#{clientBean.client.email}" validatorMessage="#{resrc.msgEmailInvalide}">
+                                                <h:inputText id="email"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.email}" validatorMessage="#{resrc.msgEmailInvalide}">
                                                     <f:validateRegex pattern="^([\.\_:A-Za-z0-9יטאצ-]{1,50}@[\.\_A-Za-z0-9יטאצ-]{1,30}\.[a-z]{2,3})?$" />
                                                 </h:inputText>
+                                                <h:message for="email" showSummary="true" showDetail="false"/>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-4" value="#{resrc.telephone}" />
+                                            <div class="controls col-sm-8">
+                                                <h:inputText id="telephone"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.telephone}" validatorMessage="#{resrc.msgTelephoneInvalide}">
+                                                    <f:validateRegex pattern="^([0-9]{10})?$" />
+                                                </h:inputText>
+                                                <h:message for="telephone" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
                                         <!--non obligatoire-->
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.telephone}" />
+                                            <h:outputLabel class="col-sm-4" value="#{resrc.remarque}" />
                                             <div class="controls col-sm-8">
-                                                <h:inputText id="telephone"  class="form-control input-md" maxlength="50" value="#{clientBean.client.telephone}" validatorMessage="#{resrc.msgTelephoneInvalide}">
-                                                    <f:validateRegex pattern="^([0-9]{10})?$" />
-                                                </h:inputText>
+                                                <h:inputText id="remarque"  class="form-control input-md" maxlength="500" value="#{clientBean.client.remarque}"/>                                                  
                                             </div>
                                         </div>
                                         <div class="form-group">
