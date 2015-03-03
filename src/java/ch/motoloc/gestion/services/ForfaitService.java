@@ -6,6 +6,7 @@
 
 package ch.motoloc.gestion.services;
 
+import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
@@ -80,6 +81,21 @@ public class ForfaitService {
         return tarif;
     }
 
+    public static boolean sauverForfait(Forfait forfait) {
+        boolean success = false;
+        EntityManager em = JpaConnection.getEntityManager();
+        
+        try {
+             em.getTransaction().begin();
+             em.persist(forfait);
+             em.getTransaction().commit();
+             success = true;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        }
+        return success;     
+    }   
+    
     public static boolean sauverForfait(ForfaitPack fPack) {
         boolean success = false;
         EntityManager em = JpaConnection.getEntityManager();

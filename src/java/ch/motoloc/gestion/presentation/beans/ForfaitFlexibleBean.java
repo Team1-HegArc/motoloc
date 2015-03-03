@@ -34,7 +34,7 @@ public class ForfaitFlexibleBean {
     }
     
     public String sauverFlexible(){
-        ForfaitService.sauverForfait(forfaitFlexible);
+        
         return "succes";
     }
     
