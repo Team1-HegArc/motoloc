@@ -175,4 +175,17 @@
             <to-view-id>/ajoutFlexible.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/ajoutPack.xhtml</from-view-id>
+        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
+        <navigation-case>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/resumerForfait.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>erreur</from-outcome>
+            <to-view-id>/ajoutPack.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
