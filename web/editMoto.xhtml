@@ -26,8 +26,8 @@
                                         <h:outputText rendered="#{motoBean.erreur}" value="#{resrc.erreurAjoutMoto}" styleClass="text-danger" />
 
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.reference}"/>
-                                            <div class="controls col-sm-8">
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.reference}"/>
+                                            <div class="controls col-sm-3">
                                                 <h:inputText id="reference" value="#{motoBean.moto.reference}" class="form-control input-md" maxlength="100" required="true" validatorMessage="Veuillez entrer une référence valide">
                                                     <f:validateRegex pattern="^[A-Za-zéèàöô0-9 -]{1,100}$" />
                                                 </h:inputText>
@@ -35,14 +35,14 @@
 
                                         </div>
                                         <div class="form-group">      
-                                            <h:outputLabel class="col-sm-4"  value="#{resrc.remarque}"/>
-                                            <div class="controls col-sm-8">
+                                            <h:outputLabel class="col-sm-3  col-sm-offset-3"  value="#{resrc.remarque}"/>
+                                            <div class="controls col-sm-3">
                                                 <h:inputText id="remarque" value="#{motoBean.moto.remarque}" class="form-control input-md" maxlength="500"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-4" value="#{resrc.modele}"/>
-                                            <div class="controls col-sm-8">
+                                            <h:outputLabel class="col-sm-3  col-sm-offset-3" value="#{resrc.modele}"/>
+                                            <div class="controls col-sm-3">
                                                 <!--On récupère la valeur du Bean pour alimenté la lov-->                             
                                                 <h:selectOneMenu id="lovModele" value="#{motoBean.moto.motoModele}">
                                                     <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="form-group ">
                                             <div class="controls text-center">
-                                                <h:commandButton  value="#{resrc.boutonAjouter}" type="submit" action="#{motoBean.sauverMoto()}" class="btn btn-primary" styleClass="btn-primary" />                                                
+                                                <h:commandButton  value="#{resrc.boutonAjouter}" type="submit" action="#{motoBean.sauverMoto()}" class="btn btn-primary" styleClass="btn-primary" />  &nbsp;                                              
                                                 <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
                                             </div>
                                         </div>
