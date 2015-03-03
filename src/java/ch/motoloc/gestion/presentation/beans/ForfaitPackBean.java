@@ -31,6 +31,11 @@ public class ForfaitPackBean {
     }
 
     public String ajouterPack(){
+        this.fPack = new ForfaitPack();
+        return "succes";
+    }
+    
+    public String sauverPack(){
         this.getfPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
         ForfaitService.sauverForfaitPack(fPack);
         return "succes";

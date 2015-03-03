@@ -30,7 +30,7 @@ public class TarificationPackDAO extends AbstractDAO<TarificationPack>{
     }
 
     public List<MotoModele> findAllMotoModel() {
-        String request = "SELECT DISTINCT tarPack.motoMod FROM TarificationPack tarPack ORDER BY tarPack.motoMod.libelle";
+        String request = "SELECT DISTINCT tarPack.motoMod FROM TarificationPack tarPack ORDER BY tarPack.motoMod.id";
         TypedQuery<MotoModele> query = JpaConnection.getEntityManager().createQuery(request, MotoModele.class);
         return new ArrayList(query.getResultList());
     }
