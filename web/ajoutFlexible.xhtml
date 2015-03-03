@@ -28,8 +28,8 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-2" value="#{resrc.nbJour}" />
                                             <div class="controls col-sm-1">
-                                                <h:inputText id="nbJour"  class="form-control input-md" maxlength="2" size="2" value="">
-                                                    <f:validateRegex pattern="^[0-9]{3}$" />
+                                                <h:inputText id="nbJour"  class="form-control input-md" maxlength="3" size="3" value="#{forfaitFlexBean.forfaitFlexible.nbJour}" validatorMessage="veuillez entrer un chiffre entre 0 et 360">
+                                                    <f:validateRegex pattern="^[0-9]{0,3}$" />
                                                 </h:inputText>
                                             </div>
                                         </div>
@@ -37,7 +37,7 @@
                                                 <h:outputLabel class="col-sm-4" value="#{resrc.modele}"/>
                                                 <div class="controls col-sm-8">
                                                     <!--On récupère la valeur du Bean pour alimenté la lov-->                             
-                                                    <h:selectOneMenu id="lovModele" value="#{motoBean.modele.libelle}">
+                                                    <h:selectOneMenu id="lovModele" value="">
                                                         <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
                                                         <f:converter converterId="modeleConverteur"/>
                                                         <f:selectItems var="modele" value="#{ManagerLovBean.modeles}"  itemLabel="#{modele.libelle}"/>
