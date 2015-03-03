@@ -68,6 +68,27 @@
     </navigation-rule>
     
     <navigation-rule>
+        <from-view-id>/filtreMoto.xhtml</from-view-id>
+        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
+        <navigation-case>
+            <from-action>#{ListeMotoBean.rechercherMoto(motoBean.modele,numeroChassis)}</from-action>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/listeMotos.xhtml</to-view-id>
+        </navigation-case>
+        <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
+         <navigation-case>
+            <from-action>#{ListeMotoBean.rechercherMoto(motoBean.modele,numeroChassis)}</from-action>
+            <from-outcome>erreur</from-outcome>
+            <to-view-id>/filtreMoto.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>annuler</from-outcome>
+            <to-view-id>/accueil.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
         <from-view-id>/editClient.xhtml</from-view-id>
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
