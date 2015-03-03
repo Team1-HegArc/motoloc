@@ -28,7 +28,7 @@
                                         <div class="form-group col-sm-12">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.nbJour}" />
                                             <div class="controls col-sm-3">
-                                                <h:inputText id="nbJour"  class="form-control input-md" maxlength="3" size="3" value="#{forfaitFlexBean.forfaitFlexible.nbJour}" validatorMessage="veuillez entrer un chiffre entre 0 et 360">
+                                                <h:inputText id="nbJour"  class="form-control input-md" maxlength="3" size="3" value="#{forfaitFlexBean.forfaitFlexible.nbJour}" validatorMessage="veuillez entrer un chiffre entre 0 et 360"> 
                                                     <f:validateRegex pattern="^[0-9]{0,3}$" />
                                                 </h:inputText>
                                             </div>
