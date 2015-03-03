@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Moto;
@@ -20,7 +19,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name = "motoBean")
 @SessionScoped
-public class MotoBean implements Serializable{
+public class MotoBean implements Serializable {
 
     private Moto moto;
     private MotoModele modele;
@@ -31,52 +30,20 @@ public class MotoBean implements Serializable{
      */
     public MotoBean() {
     }
-    
+
     /**
      *
      * @return
      */
-    public String ajouterMoto(){
+    public String ajouterMoto() {
         boolean checkAjout = MotoService.ajouterMoto(moto);
-        if(!checkAjout) {
+        if (!checkAjout) {
             erreurAjout = true;
-            return "erreur"; 
+            return "erreur";
         } else {
             erreurAjout = false;
             return "succes";
         }
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     *
-     * @param id
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getReference() {
-        return reference;
-    }
-
-    /**
-     *
-     * @param reference
-     */
-    public void setReference(String reference) {
-        this.reference = reference;
     }
 
     /**
@@ -95,20 +62,12 @@ public class MotoBean implements Serializable{
         this.modele = modele;
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getRemarque() {
-        return remarque;
+    public Moto getMoto() {
+        return moto;
     }
 
-    /**
-     *
-     * @param remarque
-     */
-    public void setRemarque(String remarque) {
-        this.remarque = remarque;
+    public void setMoto(Moto moto) {
+        this.moto = moto;
     }
 
     /**
@@ -126,8 +85,5 @@ public class MotoBean implements Serializable{
     public void setErreurAjout(boolean erreurAjout) {
         this.erreurAjout = erreurAjout;
     }
-    
-    
-    
-    
+
 }
