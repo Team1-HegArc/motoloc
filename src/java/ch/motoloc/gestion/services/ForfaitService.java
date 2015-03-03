@@ -12,12 +12,14 @@ import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.business.PackDuree;
 import ch.motoloc.gestion.business.TarificationFlexible;
 import ch.motoloc.gestion.business.TarificationPack;
+import ch.motoloc.gestion.persistence.JpaConnection;
 import ch.motoloc.gestion.persistence.dao.ForfaitFlexibleDAO;
 import ch.motoloc.gestion.persistence.dao.ForfaitPackDAO;
 import ch.motoloc.gestion.persistence.dao.PackDureeDAO;
 import ch.motoloc.gestion.persistence.dao.TarificationFlexibleDAO;
 import ch.motoloc.gestion.persistence.dao.TarificationPackDAO;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -78,7 +80,19 @@ public class ForfaitService {
         return tarif;
     }
 
-    public static void sauverForfaitPack(ForfaitPack fPack) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static boolean sauverForfaitPack(ForfaitPack fPack) {
+        boolean success = false;
+        EntityManager em = JpaConnection.getEntityManager();
+        
+        try {
+             em.getTransaction().begin();
+             em.persist(fPack);
+             em.getTransaction().commit();
+             success = true;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        }
+        return success;     
     }
+    
 }
