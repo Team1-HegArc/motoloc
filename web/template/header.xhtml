@@ -12,10 +12,9 @@
                 <div class="brand">#{resrc.titre}</div>
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="container">
-                        <div class="navbar"> 
-                            <ul class="nav nav-pills">
-                                <li role="presentation"><h:commandLink action="accueilMenu" value="#{resrc.accueilMenu}">
-                                    </h:commandLink></li>
+                            <ul class="nav navbar-nav">
+                                <li role="presentation">
+                                    <h:commandLink action="accueilMenu" value="#{resrc.accueilMenu}"> </h:commandLink></li>
                                 <li role="presentation"><h:commandLink action="#{clientBean.ajouterClient()}" value="#{resrc.ajoutClient}">
                                     </h:commandLink></li>
                                 <li role="presentation"><h:commandLink action="#{motoBean.ajouterMoto()}" value="#{resrc.ajoutMoto}">
@@ -26,8 +25,9 @@
                                     </h:commandLink></li>
                             </ul>
                         </div>
-                    </div>
                 </nav>
+                
+                
             </h:form>
         </ui:composition>
     </body>
