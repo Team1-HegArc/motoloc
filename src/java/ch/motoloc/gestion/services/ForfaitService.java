@@ -8,6 +8,7 @@ package ch.motoloc.gestion.services;
 
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
+import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.business.PackDuree;
 import ch.motoloc.gestion.business.TarificationFlexible;
 import ch.motoloc.gestion.business.TarificationPack;
@@ -62,5 +63,9 @@ public class ForfaitService {
     
     public static List<PackDuree> getAllPackDuree(){
         return new PackDureeDAO().findAll();
+    }
+
+    public static List<MotoModele> getAllModelesPacks() {
+        return new TarificationPackDAO().findAllMotoModel();
     }
 }

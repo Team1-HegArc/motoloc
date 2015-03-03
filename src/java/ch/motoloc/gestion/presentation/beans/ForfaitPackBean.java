@@ -7,6 +7,8 @@
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.ForfaitPack;
+import ch.motoloc.gestion.business.MotoModele;
+import ch.motoloc.gestion.business.PackDuree;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -18,6 +20,9 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class ForfaitPackBean {
     private ForfaitPack fPack ;
+    private PackDuree duree;
+    private MotoModele modele;
+    
     /**
      * Creates a new instance of forfaitPack
      */
@@ -30,6 +35,22 @@ public class ForfaitPackBean {
 
     public void setfPack(ForfaitPack fPack) {
         this.fPack = fPack;
+    }
+
+    public PackDuree getDuree() {
+        return duree;
+    }
+
+    public void setDuree(PackDuree duree) {
+        this.duree = duree;
+    }
+
+    public MotoModele getModele() {
+        return modele;
+    }
+
+    public void setModele(MotoModele modele) {
+        this.modele = modele;
     }
     
 }

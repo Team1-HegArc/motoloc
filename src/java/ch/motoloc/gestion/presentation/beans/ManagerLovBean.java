@@ -52,4 +52,8 @@ public class ManagerLovBean implements Serializable{
     public List<PackDuree> getPackDuree(){
         return ForfaitService.getAllPackDuree();
     }
+    
+    public List<MotoModele> getModelesPacks(){
+        return ForfaitService.getAllModelesPacks();
+    }
 }
