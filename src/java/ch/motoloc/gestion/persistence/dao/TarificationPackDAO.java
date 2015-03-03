@@ -6,6 +6,7 @@
 package ch.motoloc.gestion.persistence.dao;
 
 import ch.motoloc.gestion.business.MotoModele;
+import ch.motoloc.gestion.business.PackDuree;
 import ch.motoloc.gestion.business.TarificationPack;
 import ch.motoloc.gestion.persistence.AbstractDAO;
 import ch.motoloc.gestion.persistence.JpaConnection;
@@ -34,4 +35,8 @@ public class TarificationPackDAO extends AbstractDAO<TarificationPack>{
         return new ArrayList(query.getResultList());
     }
     
+    public List<TarificationPack> findByAjout(PackDuree packDuree, MotoModele motoModele){
+        String request = "SELECT tarPack FROM TarificationPack tarPack WHERE tarPack.packDuree=?1 AND tarPack.motoMod=?2";
+        return super.findByParameter(request, packDuree, motoModele);
+    }
 }

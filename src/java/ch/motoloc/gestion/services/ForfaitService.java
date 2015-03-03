@@ -68,4 +68,17 @@ public class ForfaitService {
     public static List<MotoModele> getAllModelesPacks() {
         return new TarificationPackDAO().findAllMotoModel();
     }
+
+    public static TarificationPack getForfaitPackByAjout(PackDuree duree, MotoModele modele) {
+        List<TarificationPack> listeTarif = new TarificationPackDAO().findByAjout(duree, modele);
+        TarificationPack tarif = null;
+        if(listeTarif.size() == 1) {
+            tarif = listeTarif.get(0);
+        }
+        return tarif;
+    }
+
+    public static void sauverForfaitPack(ForfaitPack fPack) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

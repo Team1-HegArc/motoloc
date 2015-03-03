@@ -33,12 +33,20 @@ public abstract class AbstractDAO<T> {
         for (int i = 0; i < arguements.length; i++) {
             query.setParameter(i+1, '%' + arguements[i]+ '%');
         }
-        return new ArrayList<T>(query.getResultList());
+        return new ArrayList(query.getResultList());
+    }
+    
+    protected List<T> findByParameter(String request, Object... arguements){
+        TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(request, clazz);
+        for (int i = 0; i < arguements.length; i++) {
+            query.setParameter(i+1, arguements[i]);
+        }
+        return new ArrayList(query.getResultList());
     }
     
     public List<T> findAll(){
         TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(findAllStatement(), clazz);
-        return new ArrayList<T>(query.getResultList());
+        return new ArrayList(query.getResultList());
     }
     
 }

@@ -9,6 +9,8 @@ package ch.motoloc.gestion.presentation.beans;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.business.PackDuree;
+import ch.motoloc.gestion.business.TarificationPack;
+import ch.motoloc.gestion.services.ForfaitService;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -29,6 +31,12 @@ public class ForfaitPackBean {
     public ForfaitPackBean() {
     }
 
+    public String ajouterPack(){
+        this.getfPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
+        ForfaitService.sauverForfaitPack(fPack);
+        return "success";
+    }
+    
     public ForfaitPack getfPack() {
         return fPack;
     }
