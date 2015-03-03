@@ -108,7 +108,7 @@ public abstract class Forfait implements Serializable {
     public void setFacture(FactureForfait facture) {
         this.facture = facture;
     }
-    
+
     public void addReservation(Reservation reservation) {
         this.getReservations().add(reservation);
         reservation.setForfait(this);
@@ -116,9 +116,16 @@ public abstract class Forfait implements Serializable {
 
     @Override
     public String toString() {
-        return "Forfait{" + "id=" + id + ", dateCommande=" + dateCommande + ", client=" + client + ", reservations=" + reservations + ", facture=" + facture + '}';
+        String txt = "";
+        if (this instanceof ForfaitFlexible) {
+            ForfaitFlexible flex = (ForfaitFlexible) this;
+            txt = "Date : " + flex.getDateCommande() + " / Modèle : " + flex.getTarificationFlexible().getMotoModl().getLibelle() + " / Nombre de jours : " + flex.getNbJour();
+        }
+        if (this instanceof ForfaitPack) {
+            ForfaitPack pack = (ForfaitPack) this;
+            txt = "Date : " + pack.getDateCommande() + " / Modèle : " + pack.getTarificationPack() + " / Nombre de jours : " + pack.getTarificationPack().getPackDuree() + " / Nombre de weekends : " + pack.getTarificationPack().getPackDuree().getNbWeekends();
+        }
+        return txt;
     }
-    
-    
 
 }

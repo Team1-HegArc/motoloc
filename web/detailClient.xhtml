@@ -14,7 +14,6 @@
         <!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
         <ui:composition template="/template/layout.xhtml">
 
-
             <ui:define name="content">
                 <f:view>
                     <div class="container">
@@ -30,73 +29,68 @@
                                     <h:form class="form-horizontal">
 
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-1" value="#{resrc.nom}"/>
-                                            <h:outputLabel class="col-sm-2" value="#{clientBean.client.nom}"/> <!-- Celon le bean ! -->
-                                            <h:outputLabel class="col-sm-2"  value="#{resrc.dateNaissance}"/>
-                                            <h:outputLabel class="col-sm-7" value="#{clientBean.client.dateDeNaissance}"/>
+                                            
+                                            <div class="col-sm6">
+                                                <h:outputLabel class="col-sm-3" value="#{resrc.nom}"/>
+                                                <h:outputLabel class="col-sm-3" value="#{clientBean.client.nom}"/>
+                                                
+                                                <h:outputLabel class="col-sm-3"  value="#{resrc.prenom}"/>
+                                                <h:outputLabel class="col-sm-3" value="#{clientBean.client.prenom}"/>
+                                                
+                                                <h:outputLabel class="col-sm-3"  value="#{resrc.adresse}"/>
+                                                <h:outputLabel class="col-sm-3" value="#{clientBean.client.rue}"/>
+                                                
+                                                <h:outputLabel class="col-sm-3"  value="#{resrc.npa}"/>
+                                                <h:outputLabel class="col-sm-3" value="#{clientBean.client.npa}"/>
+                                                
+                                                 <h:outputLabel class="col-sm-3"  value="#{resrc.ville}"/>
+                                                <h:outputLabel class="col-sm-3" value="#{clientBean.client.ville}"/>
+                                                
+                                            </div>
                                         
-                                            <h:outputLabel class="col-sm-1"  value="#{resrc.prenom}"/>
-                                            <h:outputLabel class="col-sm-2" value="#{clientBean.client.prenom}"/>
-                                            <h:outputLabel class="col-sm-2"  value="#{resrc.noPermis}"/>
-                                            <h:outputLabel class="col-sm-7" value="#{clientBean.client.numeroPermis}"/>
-
+                                            <div class="col-sm6">
+                                                
+                                                <h:outputLabel class="col-sm-3"  value="#{resrc.telephone}"/>
+                                                <h:outputLabel class="col-sm-3" value="#{clientBean.client.telephone}"/>
+                                                
+                                                <h:outputLabel class="col-sm-3"  value="#{resrc.email}"/>
+                                                <h:outputLabel class="col-sm-3" value="#{clientBean.client.email}"/>
+                                            
+                                                <h:outputLabel class="col-sm-3"  value="#{resrc.noPermis}"/>
+                                                <h:outputLabel class="col-sm-3" value="#{clientBean.client.numeroPermis}"/>
+                                                
+                                                <h:outputLabel class="col-sm-3"  value="#{resrc.dateNaissance}"/>
+                                                <h:outputLabel class="col-sm-3" value="#{clientBean.client.dateDeNaissance}"/>
+                                                
+                                                <h:outputLabel class="col-sm-6"  value="#{resrc.remarque}"/>
+                                                <h:outputLabel class="col-sm-6" value="#{clientBean.client.remarque}"/>
+                                            </div>
 
                                         </div>
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-1"  value="#{resrc.adresse}"/>
-                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.rue}"/>
-
-
-                                            <h:outputLabel class="col-sm-1"  value="#{resrc.ville}"/>
-                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.ville}"/>
-                                      
-                                            <h:outputLabel class="col-sm-1"  value="#{resrc.npa}"/>
-                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.npa}"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-1"  value="#{resrc.telephone}"/>
-                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.telephone}"/>
-
                                         
-                                            <h:outputLabel class="col-sm-1"  value="#{resrc.email}"/>
-                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.email}"/>
-
-                                        </div>
-                                        
-                                        
-                                        <div class="form-group">
-                                            <h:outputLabel class="col-sm-1"  value="#{resrc.remarque}"/>
-                                            <h:outputLabel class="col-sm-11" value="#{clientBean.client.remarque}"/>
-
-                                        </div>
+                                        <hr></hr>
 
                                         <!--Reservation courante -->
-                                        <div class="form-group">
-                                            <h:commandLink class="btn-link col-sm-4" value="#{resrc.reservationCourante}" action="#{clientBean.reservationCourante()}"/>
+                                        <div class="form-group col-sm-12">
+                                            <h:commandLink class="btn-link" value="#{resrc.reservationCourante}" action="#{clientBean.reservationCourante()}"/>
                                         </div>
                                         
                                         <!--Historique des packs et forfais-->
-                                        <div class="panel-heading form-group col-lg-12">
+                                        <div class="panel-heading form-group col-sm-12">
                                         <h:outputText class="text-left col-sm-12" value="#{resrc.listePacks}"/>
                                         
-                                        
-
                                         <!--ClientBean depend de la persistance ! ! !-->
-                                        <h:dataTable value="#{ClientBean.clients.forfais}" var="forfaits"
-                                                     styleClass="employeeTable col-sm-4"
-                                                     headerClass="employeeTableHeader"
-                                                     rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                        <h:dataTable value="#{clientBean.client.forfaits}" var="forfait"
+                                                     styleClass="table table-striped">
                                             <h:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="#{resrc.forfaitDate}"/>
+                                                    <h:outputText value="#{resrc.packs}"/>
                                                 </f:facet>
-                                                <h:outputText value="#{forfaits.dateCommande}"/>
+                                                <h:outputText value="#{forfait.toString}"/>
                                             </h:column>
-                                            
                                         </h:dataTable>
-                                        <div class="col-sm-6"><span/></div>
                                            
-                                        <h:commandButton type="submit" value="#{resrc.boutonPack}" action="ajoutPack" class="btn-sm btn-primary col-sm-2"/>
+                                        <h:commandButton type="submit" value="#{resrc.boutonPack}" action="#{forfaitPackBean.ajouterPack()}" class="btn-sm btn-primary col-sm-2"/>
                                         </div>
                                         
                                         
@@ -105,20 +99,18 @@
                                         
                                                                         
                                         <!--ClientBean depend de la persistance ! ! !-->
-                                        <h:dataTable value="#{ClientBean.clients.forfaits}" var="forfaits"
-                                                     styleClass="employeeTable col-sm-4"
-                                                     headerClass="employeeTableHeader"
-                                                     rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                        <h:dataTable value="#{clientBean.client.forfaits}" var="forfait"
+                                                     styleClass="table table-striped">
                                             <h:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="#{resrc.forfaitDate}"/>
+                                                    <h:outputText value="#{resrc.flexibles}"/>
                                                 </f:facet>
-                                                <h:outputText value="#{client.forfaits}"/>
+                                                <h:outputText value="#{forfait.toString}"/>
                                             </h:column>
                                             
                                         </h:dataTable>
                                         <div class="col-sm-6"><span/></div>
-                                        <h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="ajoutFlexible" class="btn-sm btn-primary col-sm-2"/>                                      
+                                        <h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{forfaitPackBean.ajouterFlexible()}" class="btn-sm btn-primary col-sm-2"/>                                      
                                         </div>
                                     </h:form>
                                 </div>
