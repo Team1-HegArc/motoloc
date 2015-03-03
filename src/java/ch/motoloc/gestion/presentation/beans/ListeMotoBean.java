@@ -29,7 +29,7 @@ public class ListeMotoBean {
     public ListeMotoBean() {
     }
     
-    public String rechercherClient(MotoModele motoModele, String numeroChassis){
+    public String rechercherMoto(MotoModele motoModele, String numeroChassis){
         String retour;
         motos = new ListDataModel();
         motos.setWrappedData(MotoService.rechercherMoto(motoModele, numeroChassis));

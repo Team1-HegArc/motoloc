@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="box">
                                 
-                                <h:outputText rendered="#{ListeClientBean.erreur}" value="#{resrc.erreurFiltreClient}" styleClass="text-danger" />
+                                <h:outputText rendered="#{ListeMotoBean.erreur}" value="#{resrc.erreurFiltreMoto}" styleClass="text-danger" />
                                 
                                 <h:form>
                                     <div class="panel-heading text-center text-capitalize">
@@ -36,7 +36,7 @@
                                                 <h:outputLabel class="col-sm-4" value="#{resrc.modele}"/>
                                                 <div class="controls col-sm-8">
                                                     <!--On récupère la valeur du Bean pour alimenté la lov-->                             
-                                                    <h:selectOneMenu id="lovModele" value="#{motoBean.modele.libelle}">
+                                                    <h:selectOneMenu id="lovModele" value="#{motoBean.moto.motoModele}">
                                                         <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
                                                         <f:converter converterId="modeleConverteur"/>
                                                         <f:selectItems var="modele" value="#{ManagerLovBean.modeles}"  itemLabel="#{modele.libelle}"/>
@@ -56,7 +56,7 @@
 
                                         <div class="form-group">
                                             <div class="controls text-center">
-                                                <h:commandButton type="submit" value="#{resrc.boutonRecherche}" action="#{ListeClientBean.rechercherClient(nom, prenom, email)}" class="btn btn-primary"  />
+                                                <h:commandButton type="submit" value="#{resrc.boutonRecherche}" action="#{ListeMotoBean.rechercherMoto(motoBean.moto.motoModele,numeroChassis)}" class="btn btn-primary"  />
 
                                             </div>
                                         </div>
