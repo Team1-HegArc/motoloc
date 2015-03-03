@@ -27,19 +27,19 @@ public class MotoModele implements Serializable {
     @Column(name = "PK_MOTORBIKE_MODEL")
     private Long id;
 
-    @Column(name = "LABEL")
+    @Column(name = "LABEL", nullable = false, length = 100)
     private String libelle;
 
-    @Column(name = "POWER_KW")
+    @Column(name = "POWER_KW", nullable = true)
     private int puissance;
 
-    @Column(name = "HAS_ABS")
+    @Column(name = "HAS_ABS", nullable = true)
     private Boolean abs;
 
-    @Column(name = "NB_CASES")
+    @Column(name = "NB_CASES", nullable = true)
     private int nbCoffres;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = true, length = 500)
     private String description;
 
     @OneToMany(mappedBy = "motoModele")

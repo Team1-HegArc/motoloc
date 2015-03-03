@@ -24,13 +24,13 @@ public class Supplement implements Serializable {
     @Column(name = "PK_CHARGE")
     private Long id;
 
-    @Column(name = "LABEL")
+    @Column(name = "LABEL", nullable = false, length = 100)
     private String libelle;
 
-    @Column(name = "DEFAULT_PRICE")
+    @Column(name = "DEFAULT_PRICE", nullable = true)
     private Double prix;
 
-    @Column(name = "IS_EXTRA")
+    @Column(name = "IS_EXTRA", nullable = false)
     private boolean estExtra;
 
     public Supplement() {

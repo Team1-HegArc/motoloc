@@ -38,18 +38,18 @@ public abstract class Forfait implements Serializable {
     private Long id;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "ORDER_DATE")
+    @Column(name = "ORDER_DATE", nullable = false)
     private Date dateCommande;
 
     @ManyToOne
-    @JoinColumn(name = "FK_CUSTOMER", referencedColumnName = "PK_CUSTOMER")
+    @JoinColumn(name = "FK_CUSTOMER", referencedColumnName = "PK_CUSTOMER", nullable = false)
     private Client client;
 
     @OneToMany(mappedBy = "forfait", cascade = CascadeType.ALL)
     private List<Reservation> reservations;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "FK_INVOICE_RENTAL", referencedColumnName = "PK_INVOICE")
+    @JoinColumn(name = "FK_INVOICE_RENTAL", referencedColumnName = "PK_INVOICE", nullable = true)
     private FactureForfait facture;
 
     protected Forfait() {

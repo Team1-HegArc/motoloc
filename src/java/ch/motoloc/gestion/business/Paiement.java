@@ -24,7 +24,7 @@ public class Paiement implements Serializable {
     @Column(name = "PK_PAYMENT")
     private Long id;
     
-    @Column(name = "LABEL")
+    @Column(name = "LABEL", nullable = false, length = 100)
     private String libelle;
 
     public Paiement() {

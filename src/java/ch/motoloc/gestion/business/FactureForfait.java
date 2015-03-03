@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class FactureForfait extends Facture {
 
     @ManyToOne
-    @JoinColumn(name = "FK_PAYMENT", referencedColumnName = "PK_PAYMENT")
+    @JoinColumn(name = "FK_PAYMENT", referencedColumnName = "PK_PAYMENT", nullable = true)
     private Paiement paiement;
 
     public FactureForfait() {

@@ -25,17 +25,17 @@ public class TarificationFlexible implements Serializable {
     @Column(name = "PK_FLEXIBLE_PRICE")
     private Long id;
     
-    @Column(name = "DAY_PRICE")
+    @Column(name = "DAY_PRICE", nullable = false)
     private Double prix_jour;
     
-    @Column(name = "KM_PRICE")
+    @Column(name = "KM_PRICE", nullable = false)
     private Double prix_km;
     
-    @Column(name = "DEGRESSION_PRICE")
+    @Column(name = "DEGRESSION_PRICE", nullable = false)
     private Double prix_degression;
     
     @OneToOne
-    @JoinColumn(name = "FK_MOTORBIKE_MODEL", referencedColumnName = "PK_MOTORBIKE_MODEL")
+    @JoinColumn(name = "FK_MOTORBIKE_MODEL", referencedColumnName = "PK_MOTORBIKE_MODEL", nullable = false)
     private MotoModele motoModl;
 
     public TarificationFlexible() {
