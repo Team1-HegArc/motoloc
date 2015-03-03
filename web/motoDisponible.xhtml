@@ -21,11 +21,13 @@
                         <div class="row">
                             <div class="box">
 
-                                
+                                <!-- Titre -->
+                                <div class="col-lg-12 text-center">
+                                    <hr/><h4><h:outputText value="Liste des motos disponibles"/></h4><hr/>
+                                </div>
 
                                 <div class="col-lg-12">
                                     <h:form class="form-horizontal">
-                                        <h1><h:outputText value="#{resrc.motoDisponibleListe}"/></h1>
 
                                         <h:dataTable value="#{ListeMotoBean.motos}" var="moto"
                                                      styleClass="table table-striped">

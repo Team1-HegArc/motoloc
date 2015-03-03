@@ -20,46 +20,36 @@
                         <div class="row">
                             <div class="box">
 
-                                <div class="panel-heading text-center text-capitalize">
-                                    <h2><h:outputText value="#{resrc.detailClient}"/></h2>
+                                <!-- Titre -->
+                                <div class="col-lg-12 text-center">
+                                    <hr/><h4><h:outputText value="Détails du client"/></h4><hr/>
                                 </div>
 
                                 <div class="col-lg-12">
-
                                     <h:form class="form-horizontal">
 
+                                        <!-- Infos du client -->
                                         <div class="form-group">
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.nom}"/>
                                             <h:outputLabel class="col-sm-3" value="#{clientBean.client.nom}"/>
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.prenom}"/>
                                             <h:outputLabel class="col-sm-3" value="#{clientBean.client.prenom}"/>
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.adresse}"/>
                                             <h:outputLabel class="col-sm-3" value="#{clientBean.client.rue}"/>
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.npa}"/>
                                             <h:outputLabel class="col-sm-3" value="#{clientBean.client.npa}"/>
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.ville}"/>
                                             <h:outputLabel class="col-sm-3" value="#{clientBean.client.ville}"/>
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.telephone}"/>
                                             <h:outputLabel class="col-sm-3" value="#{clientBean.client.telephone}"/>
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.email}"/>
                                             <h:outputLabel class="col-sm-3" value="#{clientBean.client.email}"/>
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.noPermis}"/>
                                             <h:outputLabel class="col-sm-3" value="#{clientBean.client.numeroPermis}"/>
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.dateNaissance}"/>
                                             <h:outputLabel class="col-sm-3" value="#{clientBean.client.dateDeNaissance}"/>
-
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.remarque}"/>
                                             <h:outputLabel class="col-sm-6" value="#{clientBean.client.remarque}"/>
-
                                         </div>
 
                                         <hr></hr>
@@ -80,6 +70,9 @@
                                                         </f:facet>
                                                         <h:outputText value="#{forfait.toString()}"/>
                                                     </h:column>
+                                                    <h:column>
+                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{clientBean.detailForfaitPack(client)}" styleClass="btn btn-info"/>
+                                                    </h:column> 
                                                 </h:dataTable>
                                             </div>
                                             <br/><h:commandButton type="submit" value="#{resrc.boutonPack}" action="#{forfaitPackBean.ajouterPack(clientBean.client)}" class="btn-sm btn-primary col-sm-2"/>

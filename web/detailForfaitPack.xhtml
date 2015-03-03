@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Détails du forfait (Flexible)</title>
+    </h:head>
+
+    <h:body>
+        <!-- Template -->
+        <ui:composition template="/template/layout.xhtml">
+
+            <ui:define name="content">
+                <f:view>
+                    <div class="container">
+                        <div class="row">
+                            <div class="box">
+
+                                <!-- Titre -->
+                                <div class="col-lg-12 text-center">
+                                    <hr/><h4><h:outputText value="Détail du forfait flexible"/></h4><hr/>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <h:form class="form-horizontal">
+
+                                        <!-- Infos du forfait -->
+                                        <div class="form-group">
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Date de commande"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.dateCommande}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Modèle de moto"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.motoModl.libelle}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Nombre de jours"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.nbJour}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Prix de base par jour"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.prix_jour}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Prix de dégression par jour"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.prix_degression}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Prix du km supplémentaire"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.prix_km}"/>
+                                            <br/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Nombre de jours restants"/>
+                                            <h:outputLabel class="col-sm-3" value="BLA BLA BLA"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Nombre de weekends restants"/>
+                                            <h:outputLabel class="col-sm-3" value="BLA BLA BLA"/>
+                                        </div>
+
+                                        <hr/>
+
+                                        <!-- Historique des réservations -->
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-10">
+                                                <h:dataTable value="#{forfaitPackBean.getfPack.reservations}" var="reservation"
+                                                             styleClass="table table-striped">
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Date de début"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{reservation.dateDebut}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Date de fin"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{reservation.dateFin}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Moto"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{reservation.moto.reference}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Est annulé"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{reservation.isEstAnnule}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitPackBean.detailReservation(forfaitPackBean.getfPack)}" styleClass="btn btn-info"/>
+                                                    </h:column> 
+                                                </h:dataTable>
+                                            </div>
+                                            
+                                            <!-- Ajout d'une réservation -->
+                                            <br/><h:commandButton type="submit" value="Ajouter une réservation" action="#{reservationBean.ajouterReservation(forfaitPackBean.getfPack)}" class="btn-sm btn-primary col-sm-2"/>
+                                        
+                                        </div>
+
+
+
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </f:view>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

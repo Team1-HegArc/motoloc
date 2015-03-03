@@ -9,25 +9,33 @@
     <body>
         <ui:composition>
             <h:form>
-                <div class="brand">#{resrc.titre}</div>
+                <div class="brand">#{resrc.titre}</div><br/>
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="container">
-                        <div class="navbar"> 
-                            <ul class="nav nav-pills">
-                                <li role="presentation"><h:commandLink action="accueilMenu" value="#{resrc.accueilMenu}">
-                                    </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{clientBean.ajouterClient()}" value="#{resrc.ajoutClient}">
-                                    </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="#{motoBean.ajouterMoto()}" value="#{resrc.ajoutMoto}">
-                                    </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="listeClientsMenu" value="#{resrc.listeClients}">
-                                    </h:commandLink></li>
-                                <li role="presentation"><h:commandLink action="listeMotosMenu" value="#{resrc.listeMotos}">
-                                    </h:commandLink></li>
-                            </ul>
-                        </div>
+                        <ul class="nav navbar-nav">
+                            <li role="presentation">
+                                <h:commandLink action="accueilMenu" value="#{resrc.accueilMenu}"></h:commandLink>
+                            </li>
+                            <li role="presentation">
+                                <h:commandLink action="#{clientBean.ajouterClient()}" value="#{resrc.ajoutClient}"></h:commandLink>
+                            </li>
+                            <li role="presentation">
+                                <h:commandLink action="listeClientsMenu" value="#{resrc.listeClients}"></h:commandLink>
+                            </li>
+                            <li role="presentation">
+                                <h:commandLink action="#{motoBean.ajouterMoto()}" value="#{resrc.ajoutMoto}"></h:commandLink>
+                            </li>
+                            <li role="presentation">
+                                <h:commandLink action="listeMotosMenu" value="#{resrc.listeMotos}"></h:commandLink>
+                            </li>
+                            <li role="presentation">
+                                <h:commandLink action="accueilMenu" value="Factures"></h:commandLink>
+                            </li>
+                        </ul>
                     </div>
                 </nav>
+
+
             </h:form>
         </ui:composition>
     </body>

@@ -21,14 +21,13 @@
                         <div class="row">
                             <div class="box">
                                 
+                                <!-- Titre -->
+                                <div class="col-lg-12 text-center">
+                                    <hr/><h4><h:outputText value="Recherche d'une moto"/></h4><hr/>
+                                </div>
+                                
                                 <h:outputText rendered="#{ListeMotoBean.erreur}" value="#{resrc.erreurFiltreMoto}" styleClass="text-danger" />
                                 
-                                <h:form>
-                                    <div class="panel-heading text-center text-capitalize">
-                                        <h:outputText   value="#{resrc.filtreMoto}"/>
-                                    </div>
-                                    
-                                </h:form>
                                 <div class="col-lg-12">
 
                                     <h:form class="form-horizontal">

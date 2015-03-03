@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,14 +48,14 @@ public abstract class Forfait implements Serializable {
     @Column(name = "ORDER_DATE", nullable = false)
     private Date dateCommande;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_CUSTOMER", referencedColumnName = "PK_CUSTOMER", nullable = false)
     private Client client;
 
-    @OneToMany(mappedBy = "forfait", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "forfait", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reservation> reservations;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_INVOICE_RENTAL", referencedColumnName = "PK_INVOICE", nullable = true)
     private FactureForfait facture;
 

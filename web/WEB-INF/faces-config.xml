@@ -176,6 +176,11 @@
             <from-outcome>succes</from-outcome>
             <to-view-id>/ajoutFlexible.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>#{clientBean.detailForfaitPack(client)}</from-action>
+            <from-outcome>detailForfaitPack</from-outcome>
+            <to-view-id>/detailForfaitPack.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -183,11 +188,7 @@
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-outcome>succes</from-outcome>
-            <to-view-id>/resumerForfait.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>erreur</from-outcome>
-            <to-view-id>/ajoutPack.xhtml</to-view-id>
+            <to-view-id>/resumerForfaitFlex.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -196,11 +197,52 @@
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-outcome>succes</from-outcome>
-            <to-view-id>/resumerForfait.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>erreur</from-outcome>
-            <to-view-id>/ajoutFlexible.xhtml</to-view-id>
+            <to-view-id>/resumerForfaitFlex.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/resumerForfaitPack.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/detailClient.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/resumerForfaitFlex.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/detailClient.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/detailForfaitPack.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{reservationBean.ajouterReservation(forfaitPackBean.fPack)}</from-action>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/choixDate.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{forfaitPackBean.detailReservation(forfaitPackBean.getfPack)}</from-action>
+            <from-outcome>detailResrvation</from-outcome>
+            <to-view-id>/detailReservation.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/detailForfaitFlexible.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{reservationBean.ajouterReservation(forfaitFlexibleBean.forfaitFlexible)}</from-action>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/choixDate.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{forfaitFlexibleBean.detailReservation(forfaitFlexibleBean.forfaitFlexible)}</from-action>
+            <from-outcome>detailResrvation</from-outcome>
+            <to-view-id>/detailReservation.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
 </faces-config>

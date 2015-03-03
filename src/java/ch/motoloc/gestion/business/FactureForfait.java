@@ -1,6 +1,7 @@
 package ch.motoloc.gestion.business;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -20,7 +21,7 @@ import javax.persistence.UniqueConstraint;
                     columnNames = {"REFERENCE"})})
 public class FactureForfait extends Facture {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_PAYMENT", referencedColumnName = "PK_PAYMENT", nullable = true)
     private Paiement paiement;
 

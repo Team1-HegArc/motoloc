@@ -21,9 +21,8 @@
                         <div class="row">
                             <div class="box">
 
-                                <!-- Titre -->
-                                <div class="col-lg-12 text-center">
-                                    <hr/><h4><h:outputText value="Résumé du forfait"/></h4><hr/>
+                                <div class="panel-heading text-center text-capitalize">
+                                    <h:outputText   value="#{resrc.factureForfait}"/>
                                 </div>
 
                                 <div class="col-lg-12">
@@ -32,27 +31,27 @@
                                         <div class="form-group col-sm-12">
                                             <h:outputLabel value="#{resrc.factureNumero}"/>
                                             <!--Facture numero-->
-                                            <h:outputLabel  value="757676757"/> <!-- selon le bean ! -->
+                                            <h:outputLabel  value="#{factureForfaitBean.factureForfait.reference}"/> <!-- selon le bean ! -->
                                           
                                             
                                         </div>
 
                                         <div class="form-group col-sm-12">
                                             <!--Nom-->
-                                            <h:outputLabel  value="Briguet"/> <!-- selon le bean ! -->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.nom}"/> <!-- selon le bean ! -->
                                             <!--prénom-->
-                                            <h:outputLabel  value="Cyril"/> <!-- selon le bean ! -->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.prenom}"/> <!-- selon le bean ! -->
                                             
                                         </div><div class="form-group col-sm-12">
                                             <!--Nom-->
-                                            <h:outputLabel  value="Rue du stand 21"/> <!-- selon le bean ! -->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.rue}"/> <!-- selon le bean ! -->
                                             
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <!--NPA-->
-                                            <h:outputLabel  value="1580"/> <!-- selon le bean ! -->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.npa}"/> <!-- selon le bean ! -->
                                             <!--Ville-->
-                                            <h:outputLabel  value="Oleyres"/> <!-- selon le bean ! -->
+                                            <h:outputLabel  value="#{forfaitPackBean.getfPack.client.ville}"/> <!-- selon le bean ! -->
                                             
                                         </div>
                                         
@@ -66,22 +65,22 @@
                                         </div>  
                                         <div class="form-group col-sm-12">
                                             <!--pack débutant-->
-                                            <h:outputLabel class="col-xs-3"  value="-Pack débutant"/> <!-- selon le bean ! -->
+                                            <h:outputLabel class="col-xs-3"  value="Forfait Pavk"/> <!-- selon le bean ! -->
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <!--catégorie-->
-                                            <h:outputLabel class="col-xs-3"  value="-CBF 250"/> <!-- selon le bean ! -->
+                                            <h:outputLabel class="col-xs-3"  value="#{forfaitPackBean.getfPack.tarificationPack.motoMod.libelle}"/> <!-- selon le bean ! -->
                                       
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <!--catégorie-->
                                             <h:outputLabel   value="#{resrc.prixFacture}"/>
-                                            <h:outputLabel   value="1000"/> <!-- selon le bean ! -->
+                                            <h:outputLabel   value="1000"/> <!-- A CALCULER !! ! -->
                                             <h:outputLabel   value="#{resrc.deviseCHF}"/> 
                                         </div>
                                         <div class="form-group">
                                             <div class="controls">
-                                                <h:commandButton class="btn btn-primary" type="submit" action="#{clientBean.sauverClient()}" styleClass="btn-primary" value="#{resrc.boutonValider}" />
+                                                <h:commandButton class="btn btn-primary" type="submit" action="#{factureForfaitBean.sauveFacture(forfaitPackBean.getfPack)}" styleClass="btn-primary" value="#{resrc.boutonValider}" />
 
                                                 <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
                                             </div>

@@ -1,19 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.business.PackDuree;
+import ch.motoloc.gestion.services.BeanService;
 import ch.motoloc.gestion.services.ForfaitService;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -23,13 +17,13 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "forfaitPackBean")
 @SessionScoped
 public class ForfaitPackBean {
+    
     private ForfaitPack fPack ;
     private PackDuree duree;
     private MotoModele modele;
+    private FactureForfaitBean factureForfaitBean = BeanService.findBean("factureForfaitBean", FactureForfaitBean.class);
     
-    /**
-     * Creates a new instance of forfaitPack
-     */
+
     public ForfaitPackBean() {
     }
 
@@ -42,8 +36,14 @@ public class ForfaitPackBean {
     
     public String sauverPack(){
         this.getfPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
-        ForfaitService.sauverForfait(fPack);
+        factureForfaitBean.ajoutFacture();
         return "succes";
+    }
+    
+    
+    public String detailReservation(ForfaitPack forfaitPack){
+        this.fPack = forfaitPack;
+        return "detailReservation";
     }
     
     public ForfaitPack getfPack() {
@@ -69,5 +69,14 @@ public class ForfaitPackBean {
     public void setModele(MotoModele modele) {
         this.modele = modele;
     }
+
+    public FactureForfaitBean getFactureForfaitBean() {
+        return factureForfaitBean;
+    }
+
+    public void setFactureForfaitBean(FactureForfaitBean factureForfaitBean) {
+        this.factureForfaitBean = factureForfaitBean;
+    }
+    
     
 }

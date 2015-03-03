@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,22 +50,22 @@ public class Reservation implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateFin;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_MOTORBIKE", nullable = false)
     private Moto moto;
 
     @Column(name = "IS_CANCELLED", nullable = true)
     private Boolean estAnnule;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_INVOICE_BOOKING", referencedColumnName = "PK_INVOICE", nullable = true)
     private FactureReservation facture;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_RENTAL", nullable = false)
     private Forfait forfait;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "GM_BOOKING_CHARGE",
             joinColumns = {

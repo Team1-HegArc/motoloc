@@ -44,12 +44,12 @@ hr {
 .navbar-brand {
     text-transform: uppercase;
     font-weight: 900;
-    letter-spacing: 2px;
+    /*letter-spacing: 2px;*/
 }
 
 .navbar-nav {
     font-weight: 400;
-    letter-spacing: 3px;
+    /*letter-spacing: 3px;*/
 }
 
 .img-full {
@@ -192,7 +192,7 @@ footer p {
         float: none;
         margin: 0 auto;
         table-layout: fixed;
-        font-size: 1.25em;
+        font-size: 1.2em;
     }
 }
 
