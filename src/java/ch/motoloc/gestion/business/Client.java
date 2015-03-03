@@ -178,6 +178,11 @@ public class Client implements Serializable {
     public void setForfaits(List<Forfait> forfaits) {
         this.forfaits = forfaits;
     }
+    
+    public void addForfait(Forfait forfait) {
+        this.getForfaits().add(forfait);
+        forfait.setClient(this);
+    }
 
     @Override
     public String toString() {
