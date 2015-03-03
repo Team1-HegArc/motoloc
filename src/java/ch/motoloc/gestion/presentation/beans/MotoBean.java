@@ -22,7 +22,7 @@ public class MotoBean implements Serializable {
 
     private Moto moto;
     private MotoModele modele;
-    private boolean erreurAjout = false;
+    private boolean erreur = false;
 
     /**
      *
@@ -30,17 +30,43 @@ public class MotoBean implements Serializable {
     public MotoBean() {
     }
 
+        public String ajouterMoto (){
+        this.moto = new Moto();
+        return "editMoto";
+    }
+    
+    /**
+     *
+     * @param moto
+     * @return
+     */
+    public String editerClient (Moto moto){
+        this.moto = moto;
+        return "editMoto";
+    }
+    
     /**
      *
      * @return
      */
-    public String ajouterMoto() {
+    public String sauverMoto() {
         boolean checkAjout = MotoService.sauverMoto(moto);
         if (!checkAjout) {
-            erreurAjout = true;
+            erreur = true;
             return "erreur";
         } else {
-            erreurAjout = false;
+            erreur = false;
+            return "succes";
+        }
+    }
+    
+        public String supprimerClient (Moto moto){
+        boolean checkSuppression = MotoService.supprimerMoto(moto);
+        if(!checkSuppression) {
+            erreur = true;
+            return "erreur"; 
+        } else {
+            erreur = false;
             return "succes";
         }
     }
@@ -73,16 +99,16 @@ public class MotoBean implements Serializable {
      *
      * @return
      */
-    public boolean isErreurAjout() {
-        return erreurAjout;
+    public boolean isErreur() {
+        return erreur;
     }
 
     /**
      *
-     * @param erreurAjout
+     * @param erreur
      */
-    public void setErreurAjout(boolean erreurAjout) {
-        this.erreurAjout = erreurAjout;
+    public void setErreurAjout(boolean erreur) {
+        this.erreur = erreur;
     }
 
 }

@@ -10,6 +10,9 @@
             <!--variable qui permet d'accéder aux couples clé/valeur des fichiers de langue-->
             <var>resrc</var>
         </resource-bundle>
+        <message-bundle>
+            <base-name>ch.motoloc.gestion.presentation.bundle.Messages</base-name>
+        </message-bundle>
         
         <!--indique la langue par défaut et les langues supportées par l'application-->
         <locale-config>
@@ -29,7 +32,8 @@
             <to-view-id>/editClient.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>editMotoMenu</from-outcome>
+            <from-action>#{motoBean.ajouterMoto()}</from-action>
+            <from-outcome>editMoto</from-outcome>
             <to-view-id>/editMoto.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
