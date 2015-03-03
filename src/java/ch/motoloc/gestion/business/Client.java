@@ -136,7 +136,7 @@ public class Client implements Serializable {
     }
 
     public void setDateDeNaissance(String dateDeNaissance) {
-        this.dateDeNaissance = ConvertisseurDate.formatterDate(dateDeNaissance) ;
+        this.dateDeNaissance = ConvertisseurDate.formatterDate(dateDeNaissance);
     }
 
     public String getEmail() {
