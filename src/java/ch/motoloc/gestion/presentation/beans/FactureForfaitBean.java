@@ -29,16 +29,14 @@ public class FactureForfaitBean {
 
     public FactureForfaitBean() {
     }
-    public String ajoutFacture(){
+    public void ajoutFacture(){
         factureForfait = new FactureForfait();
-        String typeForfait = null;
         factureForfait.setReference(Long.toString(new Date().getTime()));
-        return typeForfait;
     }
     
     public String sauveFacture(Forfait forfait){
-        forfait.setFacture(factureForfait);
         FactureService.sauverFacture(factureForfait);
+        forfait.setFacture(factureForfait);
         ForfaitService.sauverForfait(forfait);
         return "succes";
     }
