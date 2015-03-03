@@ -149,11 +149,6 @@
             <to-view-id>/editClient.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{clientBean.supprimerClient(client)}</from-action>
-            <from-outcome>suppression</from-outcome>
-            <to-view-id>/listeClients.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-action>#{clientBean.detailClient(client)}</from-action>
             <from-outcome>detailClient</from-outcome>
             <to-view-id>/detailClient.xhtml</to-view-id>
