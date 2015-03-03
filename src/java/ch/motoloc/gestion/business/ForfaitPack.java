@@ -39,7 +39,7 @@ public class ForfaitPack extends Forfait {
 
     @Override
     public String toString() {
-        return "ForfaitPack{" + "tarificationPack=" + tarificationPack + '}';
+        return super.toString();
     }
 
 }

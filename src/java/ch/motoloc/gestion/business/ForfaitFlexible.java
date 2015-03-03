@@ -53,7 +53,7 @@ public class ForfaitFlexible extends Forfait {
 
     @Override
     public String toString() {
-        return "ForfaitFlexible{" + "nbJour=" + nbJour + ", tarificationFlexible=" + tarificationFlexible + '}';
+        return super.toString();
     }
 
     
