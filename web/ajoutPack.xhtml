@@ -34,11 +34,11 @@
                                             <div class="controls col-sm-12">
                                                 <!--On récupère la valeur du Bean pour alimenté la lov-->    
                                                 <!--value jsuis pas sur a voir avec chef lov -->
-                                                <h:selectOneRadio id="lovModele" value="#{tarificationPack.id}" layout="pageDirection">
+                                                <h:selectOneRadio id="lovModele" value="#{forfaitPackBean.getfPack.tarificationPack.packDuree}" layout="pageDirection">
 
                                                     <!--On récupère la valeur du converterDepartement pour alimenté la lov-->
                                                     <f:converter converterId="forfaitPackConverteur"/>
-                                                    <f:selectItems var="pack" value="#{ManagerLovBean.getTarifiactionPacks()}"  itemLabel="#{pack.nbJours}"/>
+                                                    <f:selectItems var="duree" value="#{ManagerLovBean.packDuree}"  itemLabel="#{duree.nbJours}"/>
                                                 </h:selectOneRadio>
                                             </div>
                                         </div>
