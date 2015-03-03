@@ -36,7 +36,7 @@
                                                 <h:outputLabel class="col-sm-4" value="#{resrc.modele}"/>
                                                 <div class="controls col-sm-8">
                                                     <!--On récupère la valeur du Bean pour alimenté la lov-->                             
-                                                    <h:selectOneMenu id="lovModele" value="#{motoBean.moto.motoModele}">
+                                                    <h:selectOneMenu id="lovModele" value="#{motoBean.modele}">
                                                         <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
                                                         <f:converter converterId="modeleConverteur"/>
                                                         <f:selectItems var="modele" value="#{ManagerLovBean.modeles}"  itemLabel="#{modele.libelle}"/>
@@ -56,7 +56,7 @@
 
                                         <div class="form-group">
                                             <div class="controls text-center">
-                                                <h:commandButton type="submit" value="#{resrc.boutonRecherche}" action="#{ListeMotoBean.rechercherMoto(motoBean.moto.motoModele,numeroChassis)}" class="btn btn-primary"  />
+                                                <h:commandButton type="submit" value="#{resrc.boutonRecherche}" action="#{ListeMotoBean.rechercherMoto(motoBean.modele,numeroChassis)}" class="btn btn-primary"  />
 
                                             </div>
                                         </div>

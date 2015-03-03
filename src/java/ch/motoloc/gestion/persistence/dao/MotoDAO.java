@@ -27,7 +27,7 @@ public class MotoDAO extends AbstractDAO<Moto>{
 
     
     public List<Moto> findByFiltre(MotoModele motoModele, String numeroChassis) {
-        String request = "SELECT mot FROM Moto mot WHERE LOWER(mot.MotoModele.libelle) LIKE LOWER (?1) AND LOWER(mot.reference) LIKE LOWER(?2)";
+        String request = "SELECT mot FROM Moto mot WHERE LOWER(mot.motoModele.libelle) LIKE LOWER (?1) AND LOWER(mot.reference) LIKE LOWER(?2)";
         return super.findByParameter(request, motoModele.getLibelle(), numeroChassis);
     }
     
