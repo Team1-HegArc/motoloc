@@ -23,9 +23,9 @@
                                     <h:form class="form-horizontal">
                                         <h1><h:outputText value="#{resrc.listeMotos}"/></h1>
 
-                                        <h:outputText rendered="#{clientBean.erreur}" value="#{resrc.erreurSuppressionClient}" styleClass="text-danger" />
+                                        <h:outputText rendered="#{motoBean.erreur}" value="#{resrc.erreurSuppressionMoto}" styleClass="text-danger" />
                                         <!--Modifier en fonction-->
-                                        <h:dataTable value="#{ListeClientBean.clients}" var="client"
+                                        <h:dataTable value="#{ListeMotoBean.motoBean}" var="moto"
                                                      styleClass="employeeTable"
                                                      headerClass="employeeTableHeader"
                                                      rowClasses="employeeTableOddRow,employeeTableEvenRow">
@@ -33,23 +33,23 @@
                                                 <f:facet name="header">
                                                     <h:outputText value="#{resrc.modele}"/>
                                                 </f:facet>
-                                                <h:outputText value="#{client.nom}"/>
+                                                <h:outputText value="#{moto}"/>
                                             </h:column>
                                             <h:column>
                                                 <f:facet name="header">
                                                     <h:outputText value="#{resrc.numeroChassis}"/>
                                                 </f:facet>
-                                                <h:outputText value="#{client.prenom}"/>
+                                                <h:outputText value="#{moto.prenom}"/>
                                             </h:column>
                                                                                    
                                             <h:column>
-                                                <h:commandButton value="#{resrc.visualisationBouton}" action="#{clientBean.detailClient(client)}" styleClass="btn btn-info"/>
+                                                <h:commandButton value="#{resrc.visualisationBouton}" action="#{motoBean.detailMoto(moto)}" styleClass="btn btn-info"/>
                                             </h:column> 
                                             <h:column>
-                                                <h:commandButton value="#{resrc.editionBouton}" action="#{clientBean.editerClient(client)}" styleClass="btn btn-primary"/>
+                                                <h:commandButton value="#{resrc.editionBouton}" action="#{motoBean.editerMoto(moto)}" styleClass="btn btn-primary"/>
                                             </h:column>
                                             <h:column>
-                                                <h:commandButton value="#{resrc.supprimerBouton}" action="#{clientBean.supprimerClient(client)}" styleClass="btn btn-primary"/>
+                                                <h:commandButton value="#{resrc.supprimerBouton}" action="#{motoBean.supprimerMoto(moto)}" styleClass="btn btn-primary"/>
                                             </h:column> 
                                             
                                         </h:dataTable>

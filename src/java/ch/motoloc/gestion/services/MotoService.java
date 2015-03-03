@@ -55,4 +55,8 @@ public class MotoService {
     public static List<Moto> rechercherMoto(MotoModele motoModele, String numeroChassis) {
         return new MotoDAO().findByFiltre(motoModele, numeroChassis);
     }
+
+    public static boolean supprimerMoto(Moto moto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

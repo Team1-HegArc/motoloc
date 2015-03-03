@@ -17,7 +17,7 @@ import javax.faces.model.ListDataModel;
  * @author vincentrobatel
  */
 
-@ManagedBean(name = "ListeClientBean")
+@ManagedBean(name = "ListeMotoBean")
 @SessionScoped
 public class ListeMotoBean {
     
@@ -43,4 +43,31 @@ public class ListeMotoBean {
         }
         return retour;
     }
+
+    public ListDataModel<Moto> getMotos() {
+        return motos;
+    }
+
+    public void setMotos(ListDataModel<Moto> motos) {
+        this.motos = motos;
+    }
+
+    public MotoBean getMotoBean() {
+        return motoBean;
+    }
+
+    public void setMotoBean(MotoBean motoBean) {
+        this.motoBean = motoBean;
+    }
+
+    public boolean isErreur() {
+        return erreur;
+    }
+
+    public void setErreur(boolean erreur) {
+        this.erreur = erreur;
+    }
+    
+    
+    
 }
