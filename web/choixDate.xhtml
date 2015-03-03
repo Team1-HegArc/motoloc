@@ -8,53 +8,41 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
         <title>#{resrc.choixDate}</title>
     </h:head>
-
     <h:body>
         <!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
         <ui:composition template="/template/layout.xhtml">
-
-
             <ui:define name="content">
                 <f:view>
                     <div class="container">
                         <div class="row">
                             <div class="box">
-
                                 <div class="panel-heading text-center text-capitalize">
                                     <h:outputText   value="#{resrc.choixDate}"/>
                                 </div>
-
-
-                                <div class="col-lg-12">
-
+                                <div class="col-lg-12">                                
                                     <h:form class="form-horizontal box"> 
-                                        <div class="form-group col-sm-3">
-                                            <h:outputLabel value="#{resrc.dateDepart}" />  
+                                        <div class="form-group">
+                                            <h:outputLabel value="#{resrc.dateDepart}" class="col-sm-2 col-sm-offset-3"/>  
+                                                <div class="controls">
+                                                    <h:inputText id="dateDepart"  class="col-sm-3" maxlength="10" required="true" value="" validatorMessage="#{resrc.msgDateDebutInvalide}">
+                                                        <f:validateRegex pattern="^((0[1-9])||(([1-2][0-9])||30||31))\.((0[1-9])||(1[0-2]))\.((19[0-9]{2})||(20[0-9]{2}))$" />
+                                                    </h:inputText>
+                                                    <h:message for="dateDepart" showSummary="true" showDetail="false"/>
+                                                </div>
+                                        </div>
+                                        
+                                        <div class="form-group">   
+                                            <h:outputLabel value="#{resrc.dateFin}" class="col-sm-2 col-sm-offset-3"/>
                                             <div class="controls">
-                                                <h:inputText id="dateDepart"  class="form-control input-md" maxlength="10" required="true" value="" validatorMessage="#{resrc.msgDateDebutInvalide}">
+                                                <h:inputText id="dateFin"  class="col-sm-3" maxlength="10" required="true" value="" validatorMessage="#{resrc.msgDateFinInvalide}">
                                                     <f:validateRegex pattern="^((0[1-9])||(([1-2][0-9])||30||31))\.((0[1-9])||(1[0-2]))\.((19[0-9]{2})||(20[0-9]{2}))$" />
                                                 </h:inputText>
-
-                                                <h:message for="dateDepart" showSummary="true" showDetail="false"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-sm-1">
-
-                                        </div>
-                                        <div class="form-group col-sm-3">   
-                                            <h:outputLabel value="#{resrc.dateFin}"/>
-                                            <div class="controls">
-                                                <h:inputText id="dateFin"  class="form-control input-md" maxlength="10" required="true" value="" validatorMessage="#{resrc.msgDateFinInvalide}">
-                                                    <f:validateRegex pattern="^((0[1-9])||(([1-2][0-9])||30||31))\.((0[1-9])||(1[0-2]))\.((19[0-9]{2})||(20[0-9]{2}))$" />
-                                                </h:inputText>
-
                                                 <h:message for="dateFin" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-12 ">
-                                            <h:commandButton type="submit" value="#{resrc.boutonRecherche}" action="rechercheDate" class="btn-sm btn-primary"/>                                      
+                                            <h:commandButton type="submit" value="#{resrc.boutonRecherche}" action="rechercheDate" class="btn-sm btn-primary col-sm-offset-3"/>                                      
                                         </div>
-
                                     </h:form>
                                 </div>
                             </div>
