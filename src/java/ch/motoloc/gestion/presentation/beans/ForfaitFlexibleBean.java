@@ -10,7 +10,7 @@ import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.services.ForfaitService;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
@@ -18,7 +18,7 @@ import javax.faces.bean.RequestScoped;
  */
 
 @ManagedBean(name = "forfaitFlexBean")
-@RequestScoped
+@SessionScoped
 public class ForfaitFlexibleBean {
     
     private ForfaitFlexible forfaitFlexible;
