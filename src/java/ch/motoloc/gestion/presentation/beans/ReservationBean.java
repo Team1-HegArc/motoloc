@@ -29,9 +29,10 @@ public class ReservationBean {
         return "choixDate";
     }
     
-    public String rechercherDispoMoto() {
+    public String rechercherDispoMoto(Reservation reservation) {
         this.reservation.setDateDebut(ConvertisseurDate.formatterDate(this.dateDebut));
         this.reservation.setDateFin(ConvertisseurDate.formatterDate(this.dateFin));
+        
         return "rechercherDispoMoto";
     }
     
