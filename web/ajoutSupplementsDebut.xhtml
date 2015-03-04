@@ -31,10 +31,10 @@
 
                                         <div class="form-group col-lg-6 col-lg-offset-6">
                                             <!--check box static-->
-                                            <h:selectManyCheckbox value="" layout="pageDirection">
-                                                <f:selectItem itemValue="1" itemLabel="#{resrc.placeParc}" />
-                                                <f:selectItem itemValue="2" itemLabel="#{resrc.autreAgence}" />
-                                                <f:selectItem itemValue="3" itemLabel="#{resrc.departTardifCon}" />
+                                            <h:selectManyCheckbox value="#{supplementBean.supplementSelect}">
+                                                <f:selectItems value="#{supplementBean.supplements}" var="supp" itemValue="#{supp.id}" itemLabel="#{supp.libelle}">
+                                                    
+                                                </f:selectItems>
                                             </h:selectManyCheckbox>
  
                                             <br/><h:commandButton type="submit" value="#{resrc.boutonValider}" action="detailReservation" class="btn-sm btn-primary col-sm-2"/>                                      
