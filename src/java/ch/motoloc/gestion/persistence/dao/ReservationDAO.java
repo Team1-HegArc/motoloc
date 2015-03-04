@@ -5,8 +5,10 @@
  */
 package ch.motoloc.gestion.persistence.dao;
 
+import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.persistence.AbstractDAO;
+import java.util.List;
 
 /**
  *
@@ -21,6 +23,23 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
     @Override
     protected String findAllStatement() {
         return "SELECT res FROM Reservation res";
+    }
+    
+    public List<Reservation> findAllMotoAvailable(Reservation reservation, Moto moto ){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("SELECT res FROM Reservation WHERE moto.Id = reservation.moto.Id ")
+           .append("AND TO_CHAR(reservation.dateDebut, DD.MM.YYYY) = TO_CHAR(res.dateDebut, DD.MM.YYYY)")
+           .append("AND TO_CHAR(reservation.dateFin, DD.MM.YYYY) = TO_CHAR(res.dateFin, DD.MM.YYYY)")
+           .append("AND TO_CHAR(reservation.dateDebut, DD.MM.YYYY) BETWEEN TO_CHAR(res.dateDebut, DD.MM.YYYY) AND TO_CHAR(res.dateFin, DD.MM.YYYY)")
+           .append("AND TO_CHAR(reservation.dateFin, DD.MM.YYYY) BETWEEN TO_CHAR(res.dateDebut, DD.MM.YYYY) AND TO_CHAR(res.dateFin, DD.MM.YYYY) ")
+           .append("AND TO_CHAR(reservation.dateDebut, DD.MM.YYYY) >= CURRENT_DATE").toString();
+                 
+        
+        return super.findByParameter(sb.toString());
+        
+        
+        
     }
     
 }

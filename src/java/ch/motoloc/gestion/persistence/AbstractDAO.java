@@ -44,6 +44,11 @@ public abstract class AbstractDAO<T> {
         return new ArrayList(query.getResultList());
     }
     
+    protected List<T> findByParameter(String request){
+        TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(request, clazz);
+        return new ArrayList<>(query.getResultList());
+    }
+    
     public List<T> findAll(){
         TypedQuery<T> query = JpaConnection.getEntityManager().createQuery(findAllStatement(), clazz);
         return new ArrayList(query.getResultList());
