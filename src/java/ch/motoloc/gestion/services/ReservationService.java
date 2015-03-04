@@ -6,8 +6,10 @@ import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.persistence.dao.ReservationDAO;
 import ch.motoloc.gestion.business.Reservation;
+import ch.motoloc.gestion.business.Supplement;
 import ch.motoloc.gestion.persistence.JpaConnection;
 import ch.motoloc.gestion.persistence.dao.MotoDAO;
+import ch.motoloc.gestion.persistence.dao.SupplementDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -65,6 +67,14 @@ public class ReservationService {
             em.getTransaction().rollback();
         }
         return success;
+    }
+    
+        public static List<Supplement> getAllSupplementsDebut() {
+        return new SupplementDAO().findDebut();
+    }
+        
+                public static List<Supplement> getAllSupplementsFin() {
+        return new SupplementDAO().findFin();
     }
 
 }
