@@ -181,6 +181,11 @@
             <from-outcome>detailForfaitPack</from-outcome>
             <to-view-id>/detailForfaitPack.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>#{clientBean.detailForfaitFlexible(client)}</from-action>
+            <from-outcome>detailForfaitFlexible</from-outcome>
+            <to-view-id>/detailForfaitFlexible.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -220,13 +225,13 @@
     <navigation-rule>
         <from-view-id>/detailForfaitPack.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{reservationBean.ajouterReservation(forfaitPackBean.fPack)}</from-action>
+            <from-action>#{reservationBean.ajouterReservation(forfaitPackBean.forfaitPack)}</from-action>
             <from-outcome>succes</from-outcome>
             <to-view-id>/choixDate.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{forfaitPackBean.detailReservation(forfaitPackBean.getfPack)}</from-action>
-            <from-outcome>detailResrvation</from-outcome>
+            <from-action>#{forfaitPackBean.detailReservation(forfaitPackBean.forfaitPack)}</from-action>
+            <from-outcome>detailReservation</from-outcome>
             <to-view-id>/detailReservation.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
@@ -240,7 +245,7 @@
         </navigation-case>
         <navigation-case>
             <from-action>#{forfaitFlexibleBean.detailReservation(forfaitFlexibleBean.forfaitFlexible)}</from-action>
-            <from-outcome>detailResrvation</from-outcome>
+            <from-outcome>detailReservation</from-outcome>
             <to-view-id>/detailReservation.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>

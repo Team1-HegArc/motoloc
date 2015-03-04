@@ -71,7 +71,7 @@
                                                         <h:outputText value="#{forfait.toString()}"/>
                                                     </h:column>
                                                     <h:column>
-                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{clientBean.detailForfaitPack(client)}" styleClass="btn btn-info"/>
+                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{clientBean.detailForfaitPack(clientBean.client)}" styleClass="btn btn-info"/>
                                                     </h:column> 
                                                 </h:dataTable>
                                             </div>
@@ -89,6 +89,9 @@
                                                         </f:facet>
                                                         <h:outputText value="#{forfait.toString()}"/>
                                                     </h:column>
+                                                    <h:column>
+                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{clientBean.detailForfaitFlexible(clientBean.client)}" styleClass="btn btn-info"/>
+                                                    </h:column> 
                                                 </h:dataTable>
                                             </div>
                                             <br/><h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{forfaitFlexBean.ajouterFlexible(clientBean.client)}" class="btn-sm btn-primary col-sm-2"/>                                      

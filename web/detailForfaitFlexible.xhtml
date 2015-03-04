@@ -6,7 +6,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-        <title>Détails du forfait (Pack)</title>
+        <title>Détails du forfait (Flexible)</title>
     </h:head>
 
     <h:body>
@@ -21,7 +21,7 @@
 
                                 <!-- Titre -->
                                 <div class="col-lg-12 text-center">
-                                    <hr/><h4><h:outputText value="Détails du forfait pack"/></h4><hr/>
+                                    <hr/><h4><h:outputText value="Détails du forfait flexible"/></h4><hr/>
                                 </div>
 
                                 <div class="col-lg-12">
@@ -30,17 +30,17 @@
                                         <!-- Infos du forfait -->
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Date de commande"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.forfaitPack.dateCommande}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.dateCommande}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Modèle de moto"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.modele.libelle}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.modele.libelle}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Nombre de jours"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.forfaitPack.tarificationPack.packDuree.nbJours}"/>
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Nombre de weekends"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.forfaitPack.tarificationPack.packDuree.nbWeekends}"/>
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Prix de base"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitforfaitPack.getfPack.tarificationPack.prix_base}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.nbJour}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Prix par jour"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.prix_jour}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Prix de dégression par jour"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.prix_degression}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Prix du km supplémentaire"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitforfaitPack.getfPack.tarificationPack.prix_km}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.prix_km}"/>
                                             <br/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Nombre de jours restants"/>
                                             <h:outputLabel class="col-sm-3" value="BLA BLA BLA"/>
@@ -78,13 +78,13 @@
                                                         <h:outputText value="#{reservation.isEstAnnule}"/>
                                                     </h:column>
                                                     <h:column>
-                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitPackBean.detailReservation(fforfaitPackckBean.getfPack)}" styleClass="btn btn-info"/>
+                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitFlexBean.detailReservation(forfaitFlexBean.forfaitFlexible)}" styleClass="btn btn-info"/>
                                                     </h:column>
                                                 </h:dataTable>
                                             </div>
                                             
                                             <!-- Ajout d'une réservation -->
-                                            <br/><h:commandButton type="submit" value="Ajouter une réservation" action="#{reservationBean.ajouterReservation(forfaitPackBeforfaitPackack)}" class="btn-sm btn-primary col-sm-2"/>
+                                            <br/><h:commandButton type="submit" value="Ajouter une réservation" action="#{reservationBean.ajouterReservation(forfaitFlexBean.forfaitFlexible)}" class="btn-sm btn-primary col-sm-2"/>
                                         
                                         </div>
 
