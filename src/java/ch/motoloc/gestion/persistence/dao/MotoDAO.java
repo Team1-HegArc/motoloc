@@ -32,7 +32,7 @@ public class MotoDAO extends AbstractDAO<Moto>{
     }
     
       public List<Moto> findByFiltre(Long motoModeleID) {
-        String request = "SELECT mot FROM Moto mot WHERE(mot.motoModele.id) LIKE (?1)";
+        String request = "SELECT mot FROM Moto mot WHERE(mot.motoModele.id) = (?1)";
         return super.findByParameter(request, motoModeleID);
     }
     

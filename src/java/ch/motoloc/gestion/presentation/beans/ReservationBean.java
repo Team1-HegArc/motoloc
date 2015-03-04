@@ -79,4 +79,14 @@ public class ReservationBean {
         this.dateFin = dateFin;
     }
 
+    public ListDataModel<Moto> getMotos() {
+        return motos;
+    }
+
+    public void setMotos(ListDataModel<Moto> motos) {
+        this.motos = motos;
+    }
+    
+    
+
 }
