@@ -25,18 +25,18 @@ public class ReservationBean {
     
     public String ajouterReservation(Forfait forfait) {
         this.reservation = new Reservation();
-        forfait.getReservations().add(reservation);
-        return "succes";
+        forfait.addReservation(reservation);
+        return "choixDate";
     }
     
-    public String rechercherDispoMoto(Forfait forfait) {
+    public String rechercherDispoMoto() {
         this.reservation.setDateDebut(ConvertisseurDate.formatterDate(this.dateDebut));
         this.reservation.setDateFin(ConvertisseurDate.formatterDate(this.dateFin));
         return "rechercherDispoMoto";
     }
     
     public String sauverReservation() {
-        //
+        ReservationService.sauverReservation(reservation);
         return "succes";
     }
 
