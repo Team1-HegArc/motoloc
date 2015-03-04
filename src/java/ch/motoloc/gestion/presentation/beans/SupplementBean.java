@@ -6,6 +6,7 @@
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Supplement;
+import ch.motoloc.gestion.services.ReservationService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

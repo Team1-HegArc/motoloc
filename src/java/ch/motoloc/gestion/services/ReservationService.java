@@ -73,7 +73,7 @@ public class ReservationService {
         return new SupplementDAO().findDebut();
     }
         
-                public static List<Supplement> getAllSupplementsFin() {
+                public static List<Supplement> getAllSupplementsRetour() {
         return new SupplementDAO().findFin();
     }
 
