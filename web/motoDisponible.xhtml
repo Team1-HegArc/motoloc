@@ -31,11 +31,17 @@
 
                                         <h:dataTable value="#{Reservationbeans.motos}" var="moto"
                                                      styleClass="table table-striped">
+                                           <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{resrc.modele}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{moto.motoModele.libelle}"/>
+                                            </h:column>
                                             <h:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="#{resrc.motoReference}"/>
+                                                    <h:outputText value="#{resrc.numeroChassis}"/>
                                                 </f:facet>
-                                                <h:outputText value="Labelle moto"/>
+                                                <h:outputText value="#{moto.reference}"/>
                                             </h:column>
                                             <h:column>
                                                 <h:commandButton value="#{resrc.boutonValider}" action="reservationSuite" styleClass="btn btn-info"/>
