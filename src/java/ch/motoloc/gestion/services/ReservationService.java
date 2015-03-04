@@ -17,5 +17,9 @@ public class ReservationService {
     public static void sauverReservation(Reservation reservation) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public static void rechercherDispoMoto(Reservation reservation) {
+        
+    }
     
 }
