@@ -23,6 +23,10 @@
                                 <div class="col-lg-12 text-center">
                                     <hr/><h4><h:outputText value="Détail du forfait pack"/></h4><hr/>
                                 </div>
+                                
+                                <div class="col-lg-12 text-right">
+                                    <h:commandButton type="submit" value="Afficher la facture" action="#{factureForfaitBean.detailFactureForfait(forfaitPackBean.forfaitPack)}" class="btn-sm btn-primary col-sm-2"/>
+                                </div>
 
                                 <div class="col-lg-12">
                                     <h:form class="form-horizontal">
