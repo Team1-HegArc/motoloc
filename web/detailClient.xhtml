@@ -60,15 +60,36 @@
                                         </div>
 
                                         <!-- Historique des packs -->
+                                        <div class="form-group col-sm-12">
+                                            <h:inputText value="#{resrc.listePacks}"/>
+                                        </div>
                                         <div class="col-sm-12">
                                             <div class="col-sm-10">
-                                                <h:dataTable value="#{clientBean.client.forfaitsPack}" var="forfait"
+                                                <h:dataTable value="#{clientBean.client.forfaitsPack}" var="forfaitP"
                                                              styleClass="table table-striped">
                                                     <h:column>
                                                         <f:facet name="header">
-                                                            <h:outputText value="#{resrc.listePacks}"/>
+                                                            <h:outputText value="Date de commande"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfait.toString()}"/>
+                                                        <h:outputText value="#{forfaitP.dateCommande}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Modèle de moto"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{forfaitP.tarificationPack.motoMod.libelle}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Nombre de jours"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{forfaitP.tarificationPack.packDuree.nbJours}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Nombre de weekends"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{forfaitP.tarificationPack.packDuree.nbWeekends}"/>
                                                     </h:column>
                                                     <h:column>
                                                         <h:commandButton value="#{resrc.visualisationBouton}" action="#{clientBean.detailForfaitPack(clientBean.client)}" styleClass="btn btn-info"/>
@@ -79,15 +100,30 @@
                                         </div>
 
                                         <!-- Historique des flexibles -->
+                                        <div class="form-group col-sm-12">
+                                            <h:inputText value="#{resrc.listeFlexible}"/>
+                                        </div>
                                         <div class="col-sm-12">
                                             <div class="col-sm-10">
-                                                <h:dataTable value="#{clientBean.client.forfaitsFlexible}" var="forfait"
+                                                <h:dataTable value="#{clientBean.client.forfaitsFlexible}" var="forfaitF"
                                                              styleClass="table table-striped">
                                                     <h:column>
                                                         <f:facet name="header">
-                                                            <h:outputText value="#{resrc.listeFlexible}"/>
+                                                            <h:outputText value="Date de commande"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfait.toString()}"/>
+                                                        <h:outputText value="#{forfaitF.dateCommande}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Modèle de moto"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{forfaitF.tarificationFlexible.motoModl.libelle}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Nombre de jours"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{forfaitF.nbJour}"/>
                                                     </h:column>
                                                     <h:column>
                                                         <h:commandButton value="#{resrc.visualisationBouton}" action="#{clientBean.detailForfaitFlexible(clientBean.client)}" styleClass="btn btn-info"/>
