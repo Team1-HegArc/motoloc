@@ -30,15 +30,15 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
         return "SELECT res FROM Reservation res";
     }
     
-    public List<Reservation> findAllMotoAvailable(Reservation reservation, Moto moto ){
+    public List<Reservation> findAllMotoDispo(Reservation reservation, Moto moto ){
         StringBuilder sb = new StringBuilder();
         
-                  sb.append("SELECT res FROM Reservation res WHERE (?3) = res.moto.id ")
-           .append("AND (?1) = res.dateDebut ")
-           .append("AND (?2) = res.dateFin ")
-           .append("AND (?1) BETWEEN res.dateDebut AND res.dateFin ")
-           .append("AND (?2) BETWEEN res.dateDebut AND res.dateFin ")
-           .append("AND (?1) >= CURRENT_DATE").toString();
+                  sb.append("SELECT res FROM Reservation res WHERE ?3 = res.moto.id ")
+           .append("AND ?1 = res.dateDebut ")
+           .append("AND ?2 = res.dateFin ")
+           .append("AND ?1 BETWEEN res.dateDebut AND res.dateFin ")
+           .append("AND ?2 BETWEEN res.dateDebut AND res.dateFin ");
+           //.append("AND (?1) >= CURRENT_DATE");
         
          EntityManager em = JpaConnection.getEntityManager();
          

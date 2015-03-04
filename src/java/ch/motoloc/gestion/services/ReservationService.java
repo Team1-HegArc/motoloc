@@ -43,7 +43,7 @@ public class ReservationService {
         listMotosTest = new MotoDAO().findByFiltre(rechercheMotoModele(reservation));
 
         for (Moto moto : listMotosTest) {
-            if (new ReservationDAO().findAllMotoAvailable(reservation, moto).size() == 0) {
+            if (new ReservationDAO().findAllMotoDispo(reservation, moto).isEmpty()) {
                 listMotosDispo.add(moto);
 
             }
