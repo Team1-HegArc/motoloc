@@ -15,6 +15,14 @@ public class ReservationService {
     public static List<Reservation> getAllReservations() {
         return new ReservationDAO().findAll();
     }
+
+    public static void sauverReservation(Reservation reservation) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void rechercherDispoMoto(Reservation reservation) {
+        
+    }
     
     public static boolean sauverReservation (Reservation reservation){
         boolean success = false;
