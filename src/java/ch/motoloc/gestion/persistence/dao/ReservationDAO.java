@@ -5,8 +5,10 @@
  */
 package ch.motoloc.gestion.persistence.dao;
 
+import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.persistence.AbstractDAO;
+import java.util.List;
 
 /**
  *
@@ -21,6 +23,16 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
     @Override
     protected String findAllStatement() {
         return "SELECT res FROM Reservation res";
+    }
+    
+    public List<Moto> findAllMotoAvailable(Reservation reservation){
+        
+        String request =""
+        
+        return null;
+        
+        
+        
     }
     
 }
