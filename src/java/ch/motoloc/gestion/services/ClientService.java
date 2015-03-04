@@ -18,7 +18,7 @@ public class ClientService {
                 clientMAJ.setNom(client.getNom());
                 clientMAJ.setPrenom(client.getPrenom());
                 clientMAJ.setEmail(client.getEmail());
-                clientMAJ.setNpa(client.getVille());
+                clientMAJ.setVille(client.getVille());
                 clientMAJ.setTelephone(client.getTelephone());
                 clientMAJ.setRemarque(client.getRemarque());
                 clientMAJ.setDateDeNaissance(client.getDateDeNaissance());
