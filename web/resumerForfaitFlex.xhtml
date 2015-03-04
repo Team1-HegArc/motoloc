@@ -7,7 +7,7 @@
     xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-        <title>#{resrc.factureForfait}</title>
+        <title>Résumé du forfait flexible</title>
     </h:head>
 
     <h:body>
@@ -63,22 +63,23 @@
                                             <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.prix_degression}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Prix du kilomètre supplémentaire"/>
                                             <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.prix_km}"/>
-                                            <br/>
+                                            <br/><br/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Prix total"/>
-                                            <h:outputLabel class="col-sm-3" value="#{ForfaitService.}"/>
-
+                                            <h:outputLabel class="col-sm-3" value="?????????????????????"/>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="controls">
-                                                <h:commandButton class="btn btn-primary" type="submit" action="#{forfaitFlexBean.sauverFlexible()}" styleClass="btn-primary" value="#{resrc.boutonValider}" />
 
+                                        <!-- Boutons -->
+                                        <div class="form-group">
+                                            <div class="controls text-center">
+                                                <h:commandButton class="btn btn-primary" type="submit" action="#{forfaitFlexBean.sauverFlexible()}" styleClass="btn-primary" value="#{resrc.boutonValider}" />&nbsp;
                                                 <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
                                             </div>
                                         </div>
+                                    </div>
+
                                 </h:form>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </f:view>
 
