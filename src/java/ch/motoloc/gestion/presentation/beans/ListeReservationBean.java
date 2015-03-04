@@ -30,7 +30,7 @@ public class ListeReservationBean {
      public String rechercherReservationsDuJour() {
         this.reservations = new ListDataModel<>();
         this.reservations.setWrappedData(ReservationService.getAllReservations());
-        return "succes";
+        return "reservationsDuJour";
     }
     
 

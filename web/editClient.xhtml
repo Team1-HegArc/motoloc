@@ -32,7 +32,7 @@
                                         <h:outputText rendered="#{clientBean.erreur}" value="#{resrc.erreurAjoutClient}" styleClass="text-danger" />
 
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.nom}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.nom} *"/>
                                             <div class="controls col-sm-3">
                                                 <h:inputText id="nom"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.nom}" validatorMessage="#{resrc.msgNomInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפאהü -]{1,100}$" />
@@ -43,7 +43,7 @@
                                         </div>
 
                                         <div class="form-group">      
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.prenom}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.prenom} *"/>
                                             <div class="controls col-sm-3">
                                                 <h:inputText id="prenom"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.prenom}" validatorMessage="#{resrc.msgPrenomInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
@@ -52,7 +52,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.adresse}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.adresse} *"/>
                                             <div class="controls col-sm-3">
                                                 <h:inputText id="adresse"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.rue}" validatorMessage="#{resrc.msgRueInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ0-9 -]{1,100}$" />
@@ -61,7 +61,7 @@
                                             </div>
                                         </div>
                                          <div class="form-group">
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.npa}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.npa} *"/>
                                             <div class="controls col-sm-3">
                                                 <h:inputText id="npa"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.npa}" validatorMessage="#{resrc.msgNPAInvalide}">
                                                     <f:validateRegex pattern="^[0-9]{4}$" />
@@ -71,7 +71,7 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.ville}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.ville} *"/>
                                             <div class="controls col-sm-3">
                                                 <h:inputText id="ville"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.ville}" validatorMessage="#{resrc.msgVilleInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
@@ -83,14 +83,14 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.noPermis}"/>
                                             <div class="controls col-sm-3">
-                                                <h:inputText id="nopermis"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.numeroPermis}" validatorMessage="#{resrc.msgNoPermisInvalide}">
+                                                <h:inputText id="nopermis"  class="form-control input-md" maxlength="50" required="false" value="#{clientBean.client.numeroPermis}" validatorMessage="#{resrc.msgNoPermisInvalide}">
                                                     <f:validateRegex pattern="^[A-Za-zיטאצפ0-9 -]{0,50}$" />
                                                 </h:inputText>
                                                 <h:message for="nopermis" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.dateNaissance}" />
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.dateNaissance} *" />
                                             <div class="controls col-sm-3">
                                                 <h:inputText id="datenaissance"  class="form-control input-md" maxlength="10" required="true" value="#{clientBean.client.dateDeNaissance}" validatorMessage="#{resrc.msgDateNaissanceInvalide}">
                                                     <f:validateRegex pattern="^((0[1-9])||(([1-2][0-9])||30||31))\.((0[1-9])||(1[0-2]))\.((19[0-9]{2})||(20[0-9]{2}))$" />
@@ -99,7 +99,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.email}"  />
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.email} *"  />
                                             <div class="controls col-sm-3">
                                                 <h:inputText id="email"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.email}" validatorMessage="#{resrc.msgEmailInvalide}">
                                                     <f:validateRegex pattern="^([\.\_:A-Za-z0-9יטאצ-]{1,50}@[\.\_A-Za-z0-9יטאצ-]{1,30}\.[a-z]{2,3})?$" />
@@ -111,7 +111,7 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.telephone}" />
                                             <div class="controls col-sm-3">
-                                                <h:inputText id="telephone"  class="form-control input-md" maxlength="50" required="true" value="#{clientBean.client.telephone}" validatorMessage="#{resrc.msgTelephoneInvalide}">
+                                                <h:inputText id="telephone"  class="form-control input-md" maxlength="50" required="false" value="#{clientBean.client.telephone}" validatorMessage="#{resrc.msgTelephoneInvalide}">
                                                     <f:validateRegex pattern="^([0-9]{10})?$" />
                                                 </h:inputText>
                                                 <h:message for="telephone" showSummary="true" showDetail="false"/>

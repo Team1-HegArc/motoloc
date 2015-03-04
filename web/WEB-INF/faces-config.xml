@@ -4,7 +4,7 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <application>
-        <!--indique le package avec les fichiers de langue (chargement global)-->
+        <!-- Package avec les fichiers de langue (chargement global)-->
         <resource-bundle>
             <base-name>ch.motoloc.gestion.presentation.bundle.Resources</base-name>
             <!--variable qui permet d'accéder aux couples clé/valeur des fichiers de langue-->
@@ -13,17 +13,18 @@
         <message-bundle>
             <base-name>ch.motoloc.gestion.presentation.bundle.Messages</base-name>
         </message-bundle>
-        
-        <!--indique la langue par défaut et les langues supportées par l'application-->
+        <!-- Langue par défaut et langues supportées par l'application-->
         <locale-config>
             <default-locale>fr</default-locale>
             <supported-locale>fr</supported-locale>
         </locale-config>
     </application>
     
+    <!-- NAVIGATION GLOBALE ************************************************ -->
     <navigation-rule>
         <navigation-case>
-            <from-outcome>accueilMenu</from-outcome>
+            <from-action>#{listeReservationBean.rechercherReservationsDuJour()}</from-action>
+            <from-outcome>reservationsDuJour</from-outcome>
             <to-view-id>/accueil.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
@@ -46,6 +47,7 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE ACCUEIL ****************************************************** -->
     <navigation-rule>
         <from-view-id>/accueil.xhtml</from-view-id>
         <navigation-case>
@@ -55,94 +57,85 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE FILTRECLIENT ************************************************* -->
     <navigation-rule>
         <from-view-id>/filtreClient.xhtml</from-view-id>
-        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-action>#{ListeClientBean.rechercherClient(nom, prenom, email)}</from-action>
             <from-outcome>succes</from-outcome>
             <to-view-id>/listeClients.xhtml</to-view-id>
         </navigation-case>
-        <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
         <navigation-case>
             <from-action>#{ListeClientBean.rechercherClient(nom, prenom, email)}</from-action>
             <from-outcome>erreur</from-outcome>
             <to-view-id>/filtreClient.xhtml</to-view-id>
         </navigation-case>
-        
         <navigation-case>
             <from-outcome>annuler</from-outcome>
             <to-view-id>/accueil.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE FILTREMOTO *************************************************** -->
     <navigation-rule>
         <from-view-id>/filtreMoto.xhtml</from-view-id>
-        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-action>#{ListeMotoBean.rechercherMoto(motoBean.modele,numeroChassis)}</from-action>
             <from-outcome>succes</from-outcome>
             <to-view-id>/listeMotos.xhtml</to-view-id>
         </navigation-case>
-        <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
         <navigation-case>
             <from-action>#{ListeMotoBean.rechercherMoto(motoBean.modele,numeroChassis)}</from-action>
             <from-outcome>erreur</from-outcome>
             <to-view-id>/filtreMoto.xhtml</to-view-id>
         </navigation-case>
-        
         <navigation-case>
             <from-outcome>annuler</from-outcome>
             <to-view-id>/accueil.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE EDITCLIENT *************************************************** -->
     <navigation-rule>
         <from-view-id>/editClient.xhtml</from-view-id>
-        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-outcome>succes</from-outcome>
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
-        <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
         <navigation-case>
             <from-outcome>erreur</from-outcome>
             <to-view-id>/editClient.xhtml</to-view-id>
         </navigation-case>
-        
         <navigation-case>
             <from-outcome>annuler</from-outcome>
             <to-view-id>/accueil.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE EDITMOTO ***************************************************** -->
     <navigation-rule>
         <from-view-id>/editMoto.xhtml</from-view-id>
-        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-outcome>succes</from-outcome>
             <to-view-id>/listeMotos.xhtml</to-view-id>
         </navigation-case>
-        <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
         <navigation-case>
             <from-outcome>erreur</from-outcome>
             <to-view-id>/editMoto.xhtml</to-view-id>
         </navigation-case>
-        
         <navigation-case>
             <from-outcome>annuler</from-outcome>
             <to-view-id>/accueil.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
-
+    <!-- PAGE LISTECLIENTS ************************************************* -->
     <navigation-rule>
         <from-view-id>/listeClients.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>succes</from-outcome>
             <to-view-id>/listeClients.xhtml</to-view-id>
         </navigation-case>
-        <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
         <navigation-case>
             <from-outcome>erreur</from-outcome>
             <to-view-id>/listeClients.xhtml</to-view-id>
@@ -163,6 +156,8 @@
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>  
+    
+    <!-- PAGE AJOUTPACK **************************************************** -->
     <navigation-rule>
         <from-view-id>/ajoutPack.xhtml</from-view-id>
         <!-- Cas de navigation :  retour a l'accueil  -->
@@ -172,9 +167,9 @@
         </navigation-case>
     </navigation-rule>  
     
+    <!-- PAGE DETAILCLIENT ************************************************* -->
     <navigation-rule>
         <from-view-id>/detailClient.xhtml</from-view-id>
-        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-action>#{forfaitPackBean.ajouterPack(clientBean.client)}</from-action>
             <from-outcome>succes</from-outcome>
@@ -191,15 +186,15 @@
             <to-view-id>/detailForfaitPack.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{forfaitFlexibleBean.detailForfaitFlexible(forfaitF)}</from-action>
+            <from-action>#{forfaitFlexBean.detailForfaitFlexible(forfaitF)}</from-action>
             <from-outcome>detailForfaitFlexible</from-outcome>
             <to-view-id>/detailForfaitFlexible.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE AJOUTPACK **************************************************** -->
     <navigation-rule>
         <from-view-id>/ajoutPack.xhtml</from-view-id>
-        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-action>#{forfaitPackBean.resumer()}</from-action>
             <from-outcome>succes</from-outcome>
@@ -207,9 +202,9 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE AJOUTFLEXIBLE ************************************************ -->
     <navigation-rule>
         <from-view-id>/ajoutFlexible.xhtml</from-view-id>
-        <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
             <from-action>#{forfaitFlexBean.resumer()}</from-action>
             <from-outcome>succes</from-outcome>
@@ -217,6 +212,7 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE RESUMERFORFAITPACK ******************************************* -->
     <navigation-rule>
         <from-view-id>/resumerForfaitPack.xhtml</from-view-id>
         <navigation-case>
@@ -225,6 +221,7 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE RESUMERFORFAITFLEX ******************************************* -->
     <navigation-rule>
         <from-view-id>/resumerForfaitFlex.xhtml</from-view-id>
         <navigation-case>
@@ -233,6 +230,7 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE DETAILFORFAITPACK ******************************************** -->
     <navigation-rule>
         <from-view-id>/detailForfaitPack.xhtml</from-view-id>
         <navigation-case>
@@ -252,6 +250,7 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE DETAILFORFAITFLEXIBLE ***************************************** -->
     <navigation-rule>
         <from-view-id>/detailForfaitFlexible.xhtml</from-view-id>
         <navigation-case>
@@ -271,6 +270,7 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE CHOIXDATE **************************************************** -->
     <navigation-rule>
         <from-view-id>/choixDate.xhtml</from-view-id>
         <navigation-case>
@@ -280,6 +280,7 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE MOTODISPONIBLE *********************************************** -->
     <navigation-rule>
         <from-view-id>/motoDisponible.xhtml</from-view-id>
         <navigation-case>
@@ -288,6 +289,7 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE AJOUTSUPPLEMENTSDEPART *************************************** -->
     <navigation-rule>
         <from-view-id>/ajoutSupplementsDepart.xhtml</from-view-id>
         <navigation-case>

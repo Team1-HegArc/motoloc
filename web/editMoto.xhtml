@@ -32,7 +32,7 @@
                                         <h:outputText rendered="#{motoBean.erreur}" value="#{resrc.erreurAjoutMoto}" styleClass="text-danger" />
 
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.reference}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.reference} *"/>
                                             <div class="controls col-sm-3">
                                                 <h:inputText id="reference" value="#{motoBean.moto.reference}" class="form-control input-md" maxlength="100" required="true" validatorMessage="#{resrc.erreurMotoReference}">
                                                     <f:validateRegex pattern="^[A-Za-zéèàöô0-9 -]{1,100}$" />
@@ -48,7 +48,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel class="col-sm-3  col-sm-offset-3" value="#{resrc.modele}"/>
+                                            <h:outputLabel class="col-sm-3  col-sm-offset-3" value="#{resrc.modele} *"/>
                                             <div class="controls col-sm-3">
                                                 <!--On récupère la valeur du Bean pour alimenté la lov-->                             
                                                 <h:selectOneMenu id="lovModele" value="#{motoBean.moto.motoModele}">
