@@ -22,7 +22,7 @@ import javax.faces.bean.SessionScoped;
 public class ForfaitFlexibleBean {
 
     private ForfaitFlexible forfaitFlexible;
-    private FactureForfaitBean factureForfaitBean = BeanService.findBean("factureForfaitBean", FactureForfaitBean.class);
+    private FactureForfaitBean factureForfaitBean;
 
     public ForfaitFlexibleBean() {
     }
@@ -35,6 +35,7 @@ public class ForfaitFlexibleBean {
     }
 
     public String sauverFlexible() {
+        this.factureForfaitBean = BeanService.findBean("factureForfaitBean", FactureForfaitBean.class);
         factureForfaitBean.ajoutFacture();
         return "succes";
     }

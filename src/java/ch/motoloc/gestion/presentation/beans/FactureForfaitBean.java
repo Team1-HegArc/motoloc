@@ -12,9 +12,7 @@ import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.services.FactureService;
 import ch.motoloc.gestion.services.ForfaitService;
 import java.util.Date;
-import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -37,14 +35,12 @@ public class FactureForfaitBean {
     }
     
     public String sauveFacture(ForfaitPack forfait){
-        FactureService.sauverFacture(factureForfait);
         forfait.setFacture(factureForfait);
         ForfaitService.sauverForfait(forfait);
         return "succes";
     }
     
     public String sauveFacture(ForfaitFlexible forfait){
-        FactureService.sauverFacture(factureForfait);
         forfait.setFacture(factureForfait);
         ForfaitService.sauverForfait(forfait);
         return "succes";

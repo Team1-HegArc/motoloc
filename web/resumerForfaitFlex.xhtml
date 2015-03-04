@@ -31,7 +31,7 @@
                                         <div class="form-group col-sm-12">
                                             <h:outputLabel value="#{resrc.factureNumero}"/>
                                             <!--Facture numero-->
-                                            <h:outputLabel  value="#{factureForfaitBean.factureForfait.reference}"/> <!-- selon le bean ! -->
+                                            <h:outputLabel  value="#{forfaitFlexBean.factureForfaitBean.factureForfait.reference}"/> <!-- selon le bean ! -->
                                           
                                             
                                         </div>
@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="controls">
-                                                <h:commandButton class="btn btn-primary" type="submit" action="#{factureForfaitBean.sauveFacture(forfaitFlexBean.forfaitFlexible)}" styleClass="btn-primary" value="#{resrc.boutonValider}" />
+                                                <h:commandButton class="btn btn-primary" type="submit" action="#{forfaitFlexBean.factureForfaitBean.sauveFacture(forfaitFlexBean.forfaitFlexible)}" styleClass="btn-primary" value="#{resrc.boutonValider}" />
 
                                                 <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
                                             </div>
