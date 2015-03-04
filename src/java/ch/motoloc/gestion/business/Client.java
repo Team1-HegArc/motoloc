@@ -181,6 +181,26 @@ public class Client implements Serializable {
     public List<Forfait> getForfaits() {
         return forfaits;
     }
+    
+    public List<ForfaitPack> getForfaitsPack() {
+        List<ForfaitPack> forfaitsPack = new ArrayList<>();
+        for(Forfait f : this.forfaits) {
+            if(f instanceof ForfaitPack) {
+                forfaitsPack.add((ForfaitPack)f);
+            }
+        }
+        return forfaitsPack;
+    }
+    
+    public List<ForfaitFlexible> getForfaitsFlexible() {
+        List<ForfaitFlexible> forfaitsFlexible = new ArrayList<>();
+        for(Forfait f : this.forfaits) {
+            if(f instanceof ForfaitFlexible) {
+                forfaitsFlexible.add((ForfaitFlexible)f);
+            }
+        }
+        return forfaitsFlexible;
+    }
 
     public void setForfaits(List<Forfait> forfaits) {
         this.forfaits = forfaits;
