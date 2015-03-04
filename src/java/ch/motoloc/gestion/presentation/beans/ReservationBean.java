@@ -39,13 +39,20 @@ public class ReservationBean {
         motos = new ListDataModel();
         motos.setWrappedData(ReservationService.rechercherDispoMoto(reservation));
         
-
         return "rechercherDispoMoto";
     }
 
     public String sauverReservation() {
         ReservationService.sauverReservation(reservation);
         return "succes";
+    }
+    
+    public String annulerReservation() {
+        throw new UnsupportedOperationException();
+    }
+    
+    public String checkinReservation() {
+        throw new UnsupportedOperationException();
     }
 
     public Reservation getReservation() {
