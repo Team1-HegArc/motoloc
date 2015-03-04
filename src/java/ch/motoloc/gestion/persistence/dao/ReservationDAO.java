@@ -8,7 +8,12 @@ package ch.motoloc.gestion.persistence.dao;
 import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.persistence.AbstractDAO;
+import ch.motoloc.gestion.persistence.JpaConnection;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -29,13 +34,18 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
         StringBuilder sb = new StringBuilder();
         
                   sb.append("SELECT res FROM Reservation res WHERE (?3) = res.moto.id ")
-           .append("AND TO_CHAR((?1), 'DD.MM.YYYY') = TO_CHAR(res.dateDebut, 'DD.MM.YYYY')")
-           .append("AND TO_CHAR((?2), 'DD.MM.YYYY') = TO_CHAR(res.dateFin, 'DD.MM.YYYY')")
-           .append("AND TO_CHAR((?1), 'DD.MM.YYYY') BETWEEN TO_CHAR(res.dateDebut, 'DD.MM.YYYY') AND TO_CHAR(res.dateFin, 'DD.MM.YYYY')")
-           .append("AND TO_CHAR((?2), 'DD.MM.YYYY') BETWEEN TO_CHAR(res.dateDebut, 'DD.MM.YYYY') AND TO_CHAR(res.dateFin, 'DD.MM.YYYY') ")
-           .append("AND TO_CHAR((?1), 'DD.MM.YYYY') >= CURRENT_DATE").toString();
+           .append("AND (?1) = res.dateDebut ")
+           .append("AND (?2) = res.dateFin ")
+           .append("AND (?1) BETWEEN res.dateDebut AND res.dateFin ")
+           .append("AND (?2) BETWEEN res.dateDebut AND res.dateFin ")
+           .append("AND (?1) >= CURRENT_DATE").toString();
         
-        
+         EntityManager em = JpaConnection.getEntityManager();
+         
+        Query tp = em.createQuery(sb.toString())
+                .setParameter(1,reservation.getDateDebut(), TemporalType.DATE)
+                .setParameter(2,reservation.getDateFin(), TemporalType.DATE)
+                .setParameter(3,moto.getId());
         
 //          sb.append("SELECT res FROM Reservation res WHERE moto.id = reservation.moto.id ")
 //           .append("AND TO_CHAR(reservation.dateDebut, 'DD.MM.YYYY') = TO_CHAR(res.dateDebut, 'DD.MM.YYYY')")
@@ -44,8 +54,8 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
 //           .append("AND TO_CHAR(reservation.dateFin, 'DD.MM.YYYY') BETWEEN TO_CHAR(res.dateDebut, 'DD.MM.YYYY') AND TO_CHAR(res.dateFin, 'DD.MM.YYYY') ")
 //           .append("AND TO_CHAR(reservation.dateDebut, 'DD.MM.YYYY') >= CURRENT_DATE").toString();
                  
-        
-        return super.findByParameter(sb.toString(), reservation.getDateDebut(), reservation.getDateFin(), moto.getId());
+        return new ArrayList(tp.getResultList());
+        //return super.findByParameter(sb.toString(), reservation.getDateDebut(), reservation.getDateFin(), moto.getId());
         
         
         
