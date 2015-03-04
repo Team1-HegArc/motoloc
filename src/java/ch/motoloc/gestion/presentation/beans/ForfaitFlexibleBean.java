@@ -28,7 +28,7 @@ public class ForfaitFlexibleBean {
 
     public String ajouterFlexible(Client client) {
         forfaitFlexible = new ForfaitFlexible();
-        client.addForfait(forfaitFlexible);
+        //client.addForfait(forfaitFlexible);
         forfaitFlexible.setDateCommande(new Date());
         return "succes";
     }

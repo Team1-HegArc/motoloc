@@ -25,6 +25,7 @@ public class ClientService {
                 clientMAJ.setRue(client.getRue());
                 clientMAJ.setNpa(client.getNpa());
                 clientMAJ.setNumeroPermis(client.getNumeroPermis());
+                clientMAJ.setForfaits(client.getForfaits());
            } else {
                 em.persist(client);
             }

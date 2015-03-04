@@ -27,7 +27,7 @@ public class ForfaitPackBean {
 
     public String ajouterPack(Client client){
         this.forfaitPack = new ForfaitPack();
-        client.addForfait(forfaitPack);
+        //client.addForfait(forfaitPack);
         forfaitPack.setDateCommande(new Date());
         return "succes";
     }
