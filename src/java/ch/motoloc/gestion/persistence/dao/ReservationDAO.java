@@ -30,7 +30,7 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
         return "SELECT res FROM Reservation res";
     }
     
-    public List<Reservation> findAllMotoAvailable(Reservation reservation, Moto moto ){
+    public List<Reservation> findAllMotoDispo(Reservation reservation, Moto moto ){
         StringBuilder sb = new StringBuilder();
         
                   sb.append("SELECT res FROM Reservation res WHERE ?3 = res.moto.id ")
