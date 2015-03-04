@@ -4,6 +4,7 @@ import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.business.PackDuree;
+import ch.motoloc.gestion.services.ClientService;
 import ch.motoloc.gestion.services.ForfaitService;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
@@ -27,7 +28,8 @@ public class ForfaitPackBean {
 
     public String ajouterPack(Client client){
         this.forfaitPack = new ForfaitPack();
-        //client.addForfait(forfaitPack);
+        this.forfaitPack.setClient(client);
+        client.addForfait(forfaitPack);
         forfaitPack.setDateCommande(new Date());
         return "succes";
     }
@@ -35,6 +37,8 @@ public class ForfaitPackBean {
     public String sauverPack(){
         this.getForfaitPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
         ForfaitService.sauverForfait(forfaitPack);
+        ClientService.sauverClient(this.forfaitPack.getClient());
+        //ForfaitService.sauverForfait(forfaitPack);
         return "succes";
     }
     

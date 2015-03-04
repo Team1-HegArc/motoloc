@@ -73,7 +73,6 @@ public class Client implements Serializable {
     private List<Forfait> forfaits;
 
     public Client() {
-        forfaits = new ArrayList<>();
     }
 
     public Client(String nom, String prenom, String rue, String npa, String ville, Date dateDeNaissance, String email, String telephone, String remarque, String numeroPermis) {
