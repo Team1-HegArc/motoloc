@@ -35,7 +35,7 @@
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.nom}"/>
                                             <div class="controls col-sm-3">
                                                 <h:inputText id="nom"  class="form-control input-md" maxlength="100" required="true" value="#{clientBean.client.nom}" validatorMessage="#{resrc.msgNomInvalide}">
-                                                    <f:validateRegex pattern="^[A-Za-zיטאצפ -]{1,100}$" />
+                                                    <f:validateRegex pattern="^[A-Za-zיטאצפאהü -]{1,100}$" />
                                                 </h:inputText>
                                                 <h:message for="nom" showSummary="true" showDetail="false"/>
                                             </div>
