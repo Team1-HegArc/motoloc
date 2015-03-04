@@ -28,15 +28,24 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
     public List<Reservation> findAllMotoAvailable(Reservation reservation, Moto moto ){
         StringBuilder sb = new StringBuilder();
         
-        sb.append("SELECT res FROM Reservation WHERE moto.Id = reservation.moto.Id ")
-           .append("AND TO_CHAR(reservation.dateDebut, DD.MM.YYYY) = TO_CHAR(res.dateDebut, DD.MM.YYYY)")
-           .append("AND TO_CHAR(reservation.dateFin, DD.MM.YYYY) = TO_CHAR(res.dateFin, DD.MM.YYYY)")
-           .append("AND TO_CHAR(reservation.dateDebut, DD.MM.YYYY) BETWEEN TO_CHAR(res.dateDebut, DD.MM.YYYY) AND TO_CHAR(res.dateFin, DD.MM.YYYY)")
-           .append("AND TO_CHAR(reservation.dateFin, DD.MM.YYYY) BETWEEN TO_CHAR(res.dateDebut, DD.MM.YYYY) AND TO_CHAR(res.dateFin, DD.MM.YYYY) ")
-           .append("AND TO_CHAR(reservation.dateDebut, DD.MM.YYYY) >= CURRENT_DATE").toString();
+                  sb.append("SELECT res FROM Reservation res WHERE (?3) = res.moto.id ")
+           .append("AND TO_CHAR((?1), 'DD.MM.YYYY') = TO_CHAR(res.dateDebut, 'DD.MM.YYYY')")
+           .append("AND TO_CHAR((?2), 'DD.MM.YYYY') = TO_CHAR(res.dateFin, 'DD.MM.YYYY')")
+           .append("AND TO_CHAR((?1), 'DD.MM.YYYY') BETWEEN TO_CHAR(res.dateDebut, 'DD.MM.YYYY') AND TO_CHAR(res.dateFin, 'DD.MM.YYYY')")
+           .append("AND TO_CHAR((?2), 'DD.MM.YYYY') BETWEEN TO_CHAR(res.dateDebut, 'DD.MM.YYYY') AND TO_CHAR(res.dateFin, 'DD.MM.YYYY') ")
+           .append("AND TO_CHAR((?1), 'DD.MM.YYYY') >= CURRENT_DATE").toString();
+        
+        
+        
+//          sb.append("SELECT res FROM Reservation res WHERE moto.id = reservation.moto.id ")
+//           .append("AND TO_CHAR(reservation.dateDebut, 'DD.MM.YYYY') = TO_CHAR(res.dateDebut, 'DD.MM.YYYY')")
+//           .append("AND TO_CHAR(reservation.dateFin, 'DD.MM.YYYY') = TO_CHAR(res.dateFin, 'DD.MM.YYYY')")
+//           .append("AND TO_CHAR(reservation.dateDebut, 'DD.MM.YYYY') BETWEEN TO_CHAR(res.dateDebut, 'DD.MM.YYYY') AND TO_CHAR(res.dateFin, 'DD.MM.YYYY')")
+//           .append("AND TO_CHAR(reservation.dateFin, 'DD.MM.YYYY') BETWEEN TO_CHAR(res.dateDebut, 'DD.MM.YYYY') AND TO_CHAR(res.dateFin, 'DD.MM.YYYY') ")
+//           .append("AND TO_CHAR(reservation.dateDebut, 'DD.MM.YYYY') >= CURRENT_DATE").toString();
                  
         
-        return super.findByParameter(sb.toString());
+        return super.findByParameter(sb.toString(), reservation.getDateDebut(), reservation.getDateFin(), moto.getId());
         
         
         
