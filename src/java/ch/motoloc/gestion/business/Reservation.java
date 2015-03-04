@@ -121,7 +121,7 @@ public class Reservation implements Serializable {
         this.moto = moto;
     }
 
-    public Boolean isEstAnnule() {
+    public Boolean getEstAnnule() {
         return estAnnule;
     }
 
