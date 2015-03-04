@@ -18,7 +18,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ForfaitPackBean {
     
-    private ForfaitPack fPack ;
+    private ForfaitPack forfaitPack ;
     private PackDuree duree;
     private MotoModele modele;
     private FactureForfaitBean factureForfaitBean = BeanService.findBean("factureForfaitBean", FactureForfaitBean.class);
@@ -28,30 +28,30 @@ public class ForfaitPackBean {
     }
 
     public String ajouterPack(Client client){
-        this.fPack = new ForfaitPack();
-        client.addForfait(fPack);
-        fPack.setDateCommande(new Date());
+        this.forfaitPack = new ForfaitPack();
+        client.addForfait(forfaitPack);
+        forfaitPack.setDateCommande(new Date());
         return "succes";
     }
     
     public String sauverPack(){
-        this.getfPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
+        this.getForfaitPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
         factureForfaitBean.ajoutFacture();
         return "succes";
     }
     
     
     public String detailReservation(ForfaitPack forfaitPack){
-        this.fPack = forfaitPack;
+        this.forfaitPack = forfaitPack;
         return "detailReservation";
     }
     
-    public ForfaitPack getfPack() {
-        return fPack;
+    public ForfaitPack getForfaitPack() {
+        return forfaitPack;
     }
 
-    public void setfPack(ForfaitPack fPack) {
-        this.fPack = fPack;
+    public void setForfaitPack(ForfaitPack forfaitPack) {
+        this.forfaitPack = forfaitPack;
     }
 
     public PackDuree getDuree() {

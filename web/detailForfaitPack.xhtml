@@ -53,7 +53,7 @@
                                         <!-- Historique des réservations -->
                                         <div class="col-sm-12">
                                             <div class="col-sm-10">
-                                                <h:dataTable value="#{forfaitPackBean.getfPack.reservations}" var="reservation"
+                                                <h:dataTable value="#{forfaitPackBean.forfaitPack.reservations}" var="reservation"
                                                              styleClass="table table-striped">
                                                     <h:column>
                                                         <f:facet name="header">
@@ -80,13 +80,13 @@
                                                         <h:outputText value="#{reservation.isEstAnnule}"/>
                                                     </h:column>
                                                     <h:column>
-                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitPackBean.detailReservation(forfaitPackBean.getfPack)}" styleClass="btn btn-info"/>
+                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitPackBean.detailReservation(forfaitPackBean.forfaitPack)}" styleClass="btn btn-info"/>
                                                     </h:column> 
                                                 </h:dataTable>
                                             </div>
                                             
                                             <!-- Ajout d'une réservation -->
-                                            <br/><h:commandButton type="submit" value="Ajouter une réservation" action="#{reservationBean.ajouterReservation(forfaitPackBean.getfPack)}" class="btn-sm btn-primary col-sm-2"/>
+                                            <br/><h:commandButton type="submit" value="Ajouter une réservation" action="#{reservationBean.ajouterReservation(forfaitPackBean.forfaitPack)}" class="btn-sm btn-primary col-sm-2"/>
                                         
                                         </div>
 

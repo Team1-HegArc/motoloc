@@ -30,17 +30,17 @@
                                         <!-- Infos du forfait -->
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Date de commande"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.getfPack.dateCommande}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.forfaitPack.dateCommande}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Modèle de moto"/>
                                             <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.modele.libelle}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Nombre de jours"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.getfPack.tarificationPack.packDuree.nbJours}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.forfaitPack.tarificationPack.packDuree.nbJours}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Nombre de weekends"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.getfPack.tarificationPack.packDuree.nbWeekends}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.forfaitPack.tarificationPack.packDuree.nbWeekends}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Prix de base"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.getfPack.tarificationPack.prix_base}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitforfaitPack.getfPack.tarificationPack.prix_base}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Prix du km supplémentaire"/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitPackBean.getfPack.tarificationPack.prix_km}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{forfaitforfaitPack.getfPack.tarificationPack.prix_km}"/>
                                             <br/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="Nombre de jours restants"/>
                                             <h:outputLabel class="col-sm-3" value="BLA BLA BLA"/>
@@ -78,13 +78,13 @@
                                                         <h:outputText value="#{reservation.isEstAnnule}"/>
                                                     </h:column>
                                                     <h:column>
-                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitPackBean.detailReservation(forfaitPackBean.getfPack)}" styleClass="btn btn-info"/>
+                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitPackBean.detailReservation(fforfaitPackckBean.getfPack)}" styleClass="btn btn-info"/>
                                                     </h:column>
                                                 </h:dataTable>
                                             </div>
                                             
                                             <!-- Ajout d'une réservation -->
-                                            <br/><h:commandButton type="submit" value="Ajouter une réservation" action="#{reservationBean.ajouterReservation(forfaitPackBean.getfPack)}" class="btn-sm btn-primary col-sm-2"/>
+                                            <br/><h:commandButton type="submit" value="Ajouter une réservation" action="#{reservationBean.ajouterReservation(forfaitPackBeforfaitPackack)}" class="btn-sm btn-primary col-sm-2"/>
                                         
                                         </div>
 
