@@ -24,6 +24,7 @@ import javax.faces.bean.SessionScoped;
 public class ForfaitFlexibleBean {
 
     private ForfaitFlexible forfaitFlexible;
+    private FactureForfait factureForfait;
     private Double total;
 
     public ForfaitFlexibleBean() {
@@ -39,8 +40,11 @@ public class ForfaitFlexibleBean {
     }
 
     public String sauverFlexible() {
+        factureForfait = new FactureForfait();
+        factureForfait.setReference(Long.toString(new Date().getTime()));
+        forfaitFlexible.setFacture(factureForfait);
+        FactureService.sauverFactureForfait(factureForfait);
         ForfaitService.sauverForfait(forfaitFlexible);
-        FactureService.sauverFactureForfait(forfaitFlexible);
         return "succes";
     }
 
@@ -64,5 +68,12 @@ public class ForfaitFlexibleBean {
     public void setTotal(Double total) {
         this.total = total;
     }
-    
+
+    public FactureForfait getFactureForfait() {
+        return factureForfait;
+    }
+
+    public void setFactureForfait(FactureForfait factureForfait) {
+        this.factureForfait = factureForfait;
+    }
 }
