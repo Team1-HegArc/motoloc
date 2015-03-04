@@ -52,10 +52,5 @@ public class ForfaitFlexible extends Forfait {
         this.tarificationFlexible = tarificationFlexible;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-
     
 }

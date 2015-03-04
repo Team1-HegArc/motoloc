@@ -19,9 +19,10 @@ public class FactureService {
         boolean success = false;
         EntityManager em = JpaConnection.getEntityManager();
         try {
-            em.getTransaction().begin();
+            System.out.println(factureForfait);
+            /*em.getTransaction().begin();
             em.persist(factureForfait);
-            em.getTransaction().commit();
+            em.getTransaction().commit();*/
             success = true;
         } catch (Exception e) {
             em.getTransaction().rollback();

@@ -21,7 +21,7 @@ public class ForfaitPackBean {
     private ForfaitPack forfaitPack ;
     private PackDuree duree;
     private MotoModele modele;
-    private FactureForfaitBean factureForfaitBean = BeanService.findBean("factureForfaitBean", FactureForfaitBean.class);
+    private FactureForfaitBean factureForfaitBean;
     
 
     public ForfaitPackBean() {
@@ -36,6 +36,7 @@ public class ForfaitPackBean {
     
     public String sauverPack(){
         this.getForfaitPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
+        this.factureForfaitBean = BeanService.findBean("factureForfaitBean", FactureForfaitBean.class);
         factureForfaitBean.ajoutFacture();
         return "succes";
     }
@@ -77,6 +78,8 @@ public class ForfaitPackBean {
     public void setFactureForfaitBean(FactureForfaitBean factureForfaitBean) {
         this.factureForfaitBean = factureForfaitBean;
     }
+    
+    
     
     
 }

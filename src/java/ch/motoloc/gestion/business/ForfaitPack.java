@@ -38,9 +38,4 @@ public class ForfaitPack extends Forfait {
         this.tarificationPack = tarificationPack;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-
 }

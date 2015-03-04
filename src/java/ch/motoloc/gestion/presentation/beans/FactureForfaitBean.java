@@ -28,13 +28,22 @@ public class FactureForfaitBean {
     private FactureForfait factureForfait;
 
     public FactureForfaitBean() {
+        factureForfait = new FactureForfait();
+        factureForfait.setReference(Long.toString(new Date().getTime()));
     }
     public void ajoutFacture(){
         factureForfait = new FactureForfait();
         factureForfait.setReference(Long.toString(new Date().getTime()));
     }
     
-    public String sauveFacture(Forfait forfait){
+    public String sauveFacture(ForfaitPack forfait){
+        FactureService.sauverFacture(factureForfait);
+        forfait.setFacture(factureForfait);
+        ForfaitService.sauverForfait(forfait);
+        return "succes";
+    }
+    
+    public String sauveFacture(ForfaitFlexible forfait){
         FactureService.sauverFacture(factureForfait);
         forfait.setFacture(factureForfait);
         ForfaitService.sauverForfait(forfait);

@@ -115,18 +115,4 @@ public abstract class Forfait implements Serializable {
         reservation.setForfait(this);
     }
 
-    @Override
-    public String toString() {
-        String txt = "";
-        if (this instanceof ForfaitFlexible) {
-            ForfaitFlexible flex = (ForfaitFlexible) this;
-            txt = "Date : " + flex.getDateCommande() + " / Modèle : " + flex.getTarificationFlexible().getMotoModl().getLibelle() + " / Nombre de jours : " + flex.getNbJour();
-        }
-        if (this instanceof ForfaitPack) {
-            ForfaitPack pack = (ForfaitPack) this;
-            txt = "Date : " + pack.getDateCommande() + " / Modèle : " + pack.getTarificationPack() + " / Nombre de jours : " + pack.getTarificationPack().getPackDuree() + " / Nombre de weekends : " + pack.getTarificationPack().getPackDuree().getNbWeekends();
-        }
-        return txt;
-    }
-
 }
