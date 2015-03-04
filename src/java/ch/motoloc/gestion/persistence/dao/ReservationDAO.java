@@ -25,11 +25,18 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
         return "SELECT res FROM Reservation res";
     }
     
-    public List<Moto> findAllMotoAvailable(Reservation reservation){
+    public List<Reservation> findAllMotoAvailable(Reservation reservation, Moto moto ){
+        StringBuilder sb = new StringBuilder();
         
-        String request =""
+        sb.append("SELECT res FROM Reservation WHERE moto.Id = reservation.moto.Id ")
+           .append("AND TO_CHAR(reservation.dateDebut, DD.MM.YYYY) = TO_CHAR(res.dateDebut, DD.MM.YYYY)")
+           .append("AND TO_CHAR(reservation.dateFin, DD.MM.YYYY) = TO_CHAR(res.dateFin, DD.MM.YYYY)")
+           .append("AND TO_CHAR(reservation.dateDebut, DD.MM.YYYY) BETWEEN TO_CHAR(res.dateDebut, DD.MM.YYYY) AND TO_CHAR(res.dateFin, DD.MM.YYYY)")
+           .append("AND TO_CHAR(reservation.dateFin, DD.MM.YYYY) BETWEEN TO_CHAR(res.dateDebut, DD.MM.YYYY) AND TO_CHAR(res.dateFin, DD.MM.YYYY) ")
+           .append("AND TO_CHAR(reservation.dateDebut, DD.MM.YYYY) >= CURRENT_DATE").toString();
+                 
         
-        return null;
+        return super.findByParameter(sb.toString());
         
         
         

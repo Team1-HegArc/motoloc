@@ -31,4 +31,10 @@ public class MotoDAO extends AbstractDAO<Moto>{
         return super.findByParameter(request, motoModele.getLibelle(), numeroChassis);
     }
     
+      public List<Moto> findByFiltre(Long motoModeleID) {
+        String request = "SELECT mot FROM Moto mot WHERE(mot.motoModele.Id) LIKE (?1)";
+        return super.findByParameter(request, motoModeleID);
+    }
+    
+    
 }
