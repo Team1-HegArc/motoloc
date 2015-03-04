@@ -19,7 +19,7 @@
     <class>ch.motoloc.gestion.business.Supplement</class>
     <class>ch.motoloc.gestion.business.TarificationFlexible</class>
     <class>ch.motoloc.gestion.business.TarificationPack</class>
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@ne-ege-leto.ig.he-arc.ch:1521:ens2"/>

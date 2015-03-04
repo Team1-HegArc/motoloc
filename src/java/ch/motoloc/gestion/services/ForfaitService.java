@@ -21,6 +21,7 @@ import ch.motoloc.gestion.persistence.dao.TarificationFlexibleDAO;
 import ch.motoloc.gestion.persistence.dao.TarificationPackDAO;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 /**
  *
@@ -83,11 +84,11 @@ public class ForfaitService {
     public static boolean sauverForfait(Forfait forfait) {
         boolean success = false;
         EntityManager em = JpaConnection.getEntityManager();
-        
+        EntityTransaction et = em.getTransaction();
         try {
-             em.getTransaction().begin();
+             et.begin();
              em.persist(forfait);
-             em.getTransaction().commit();
+             et.commit();
              success = true;
         } catch (Exception e) {
             em.getTransaction().rollback();
@@ -95,7 +96,7 @@ public class ForfaitService {
         return success;     
     }
     
-    public static boolean sauverForfait(ForfaitPack fPack) {
+    /*public static boolean sauverForfait(ForfaitPack fPack) {
         boolean success = false;
         EntityManager em = JpaConnection.getEntityManager();
         
@@ -125,6 +126,6 @@ public class ForfaitService {
         }
         return success;   
         
-    }
+    }*/
     
 }
