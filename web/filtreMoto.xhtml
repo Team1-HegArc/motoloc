@@ -45,10 +45,10 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.numeroChassis}"/>
                                             <div class="controls col-sm-3">
-                                                <h:inputText id="numerpChassis"  class="form-control input-md" maxlength="100" value="#{numeroChassis}" validatorMessage="Veuillez entrer un numero de chassis valide">
+                                                <h:inputText id="numerpChassis"  class="form-control input-md" maxlength="100" value="#{numeroChassis}" validatorMessage="#{resrc.erreurChassis}">
                                                     <f:validateRegex pattern="^[A-Za-z0-9יטאצפ -]{0,100}$" />
                                                 </h:inputText>
-
+                                                <h:message for="numerpChassis" showSummary="true" showDetail="false"/>                                        
                                             </div>
 
                                         </div>
