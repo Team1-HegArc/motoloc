@@ -39,7 +39,7 @@
 
                                                     <!--On récupère la valeur du converterDepartement pour alimenté la lov-->
                                                     <f:converter converterId="packDureeConverter"/>
-                                                    <f:selectItems var="duree" value="#{ManagerLovBean.packDuree}"  itemLabel="#{duree.nbJours}"/>
+                                                    <f:selectItems var="duree" value="#{ManagerLovBean.packDuree}"  itemLabel="#{duree.nbJours} jours / #{duree.nbJours} weekends"/>
                                                 </h:selectOneRadio>
                                             </div>
                                         </div>
