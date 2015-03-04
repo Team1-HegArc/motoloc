@@ -35,10 +35,12 @@ public class ForfaitPackBean {
     }
     
     public String sauverPack(){
-        this.getForfaitPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
         ForfaitService.sauverForfait(forfaitPack);
-        ClientService.sauverClient(this.forfaitPack.getClient());
-        //ForfaitService.sauverForfait(forfaitPack);
+        return "succes";
+    }
+    
+    public String resumer() {
+        this.getForfaitPack().setTarificationPack(ForfaitService.getForfaitPackByAjout(duree, modele));
         return "succes";
     }
     

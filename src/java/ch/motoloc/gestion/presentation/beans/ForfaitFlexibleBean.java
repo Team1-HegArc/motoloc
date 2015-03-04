@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.FactureForfait;
 import ch.motoloc.gestion.business.ForfaitFlexible;
-import ch.motoloc.gestion.services.BeanService;
 import ch.motoloc.gestion.services.FactureService;
 import ch.motoloc.gestion.services.ForfaitService;
 import java.util.Date;
@@ -35,7 +29,12 @@ public class ForfaitFlexibleBean {
         client.addForfait(forfaitFlexible);
         forfaitFlexible.setDateCommande(new Date());
         
-        total = FactureService.getTotalFactureForfait(forfaitFlexible);
+        return "succes";
+    }
+    
+    public String resumer() {
+        
+        total = new Double(FactureService.getTotalFactureForfait(forfaitFlexible));
         return "succes";
     }
 
