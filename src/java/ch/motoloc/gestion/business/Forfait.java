@@ -44,7 +44,7 @@ public abstract class Forfait implements Serializable {
     @Column(name = "PK_RENTAL")
     private Long id;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIME)
     @Column(name = "ORDER_DATE", nullable = false)
     private Date dateCommande;
 
