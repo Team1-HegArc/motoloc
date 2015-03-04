@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
         <title>Détails de la réservation</title>
@@ -27,8 +28,17 @@
                                 <div class="col-lg-12">
                                     <h:form class="form-horizontal">
 
+                                        <c:set var="fact" scope="session" value="#{reservationBean.reservation.facture}"/>
+                                        <!-- Bouton de checkin -->
+                                        <c:if test="${empty fact}">
+                                            <h:commandButton type="submit" value="Checkin" action="#{reservationBean.checkinReservation()}" class="btn-sm btn-default col-sm-2 col-sm-offset-10"/>
+                                        </c:if>
+                                        <!-- Bouton d'accès à la facture -->
+                                        <c:if test="${not empty fact}">
+                                            <h:commandButton type="submit" value="Facture" action="" class="btn-sm btn-default col-sm-2 col-sm-offset-10"/>
+                                        </c:if>
                                         <!-- Bouton d'annulation -->
-                                        <h:commandButton type="submit" value="Annuler" action="" class="btn-sm btn-primary col-sm-2 col-sm-offset-10"/>
+                                        <h:commandButton type="submit" value="Annuler" action="#{reservationBean.annulerReservation()}" class="btn-sm btn-danger col-sm-2 col-sm-offset-10"/>
 
                                         <!-- Infos de la réservation -->
                                         <div class="form-group">
@@ -40,7 +50,7 @@
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Moto"/>
                                             <h:outputLabel class="col-sm-3" value="#{reservationBean.reservation.moto.reference}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Est annulé"/>
-                                            <h:outputLabel class="col-sm-3" value="#{reservationBean.reservation.isEstAnnule}"/>
+                                            <h:outputLabel class="col-sm-3" value="#{reservationBean.reservation.estAnnule}"/>
                                             <br/>
                                             <!-- Suppléments -->
                                             <div class="col-sm-12">
