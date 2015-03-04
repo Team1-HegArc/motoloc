@@ -56,11 +56,6 @@ public class ForfaitPackBean {
         return "detailForfaitPack";
     }
     
-    public String detailReservation(ForfaitPack forfaitPack){
-        this.forfaitPack = forfaitPack;
-        return "detailReservation";
-    }
-    
     public ForfaitPack getForfaitPack() {
         return forfaitPack;
     }

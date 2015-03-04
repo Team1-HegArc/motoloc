@@ -52,11 +52,6 @@ public class ForfaitFlexibleBean {
         return "detailForfaitFlexible";
     }
 
-    public String detailReservation(ForfaitFlexible forfaitFlexible) {
-        this.forfaitFlexible = forfaitFlexible;
-        return "detailReservation";
-    }
-
     public ForfaitFlexible getForfaitFlexible() {
         return forfaitFlexible;
     }

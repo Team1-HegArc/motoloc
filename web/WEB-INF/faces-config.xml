@@ -239,7 +239,7 @@
             <to-view-id>/choixDate.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{forfaitPackBean.detailReservation(forfaitPackBean.forfaitPack)}</from-action>
+            <from-action>#{reservationBean.detailReservation(reservation)}</from-action>
             <from-outcome>detailReservation</from-outcome>
             <to-view-id>/detailReservation.xhtml</to-view-id>
         </navigation-case>
@@ -259,7 +259,7 @@
             <to-view-id>/choixDate.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{forfaitFlexibleBean.detailReservation(forfaitFlexBean.forfaitFlexible)}</from-action>
+            <from-action>#{reservationBean.detailReservation(reservation)}</from-action>
             <from-outcome>detailReservation</from-outcome>
             <to-view-id>/detailReservation.xhtml</to-view-id>
         </navigation-case>

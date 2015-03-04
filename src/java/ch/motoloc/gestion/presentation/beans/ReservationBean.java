@@ -41,6 +41,11 @@ public class ReservationBean {
         
         return "rechercherDispoMoto";
     }
+    
+    public String detailReservation(Reservation reservation) {
+        this.reservation = reservation;
+        return "detailReservation";
+    }
 
     public String sauverReservation() {
         ReservationService.sauverReservation(reservation);
