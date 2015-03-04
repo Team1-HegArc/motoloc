@@ -186,12 +186,12 @@
             <to-view-id>/ajoutFlexible.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{clientBean.detailForfaitPack(client)}</from-action>
+            <from-action>#{forfaitPackBean.detailForfaitPack(forfaitP)}</from-action>
             <from-outcome>detailForfaitPack</from-outcome>
             <to-view-id>/detailForfaitPack.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{clientBean.detailForfaitFlexible(client)}</from-action>
+            <from-action>#{forfaitFlexibleBean.detailForfaitFlexible(forfaitF)}</from-action>
             <from-outcome>detailForfaitFlexible</from-outcome>
             <to-view-id>/detailForfaitFlexible.xhtml</to-view-id>
         </navigation-case>

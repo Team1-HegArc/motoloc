@@ -5,7 +5,6 @@ import ch.motoloc.gestion.business.FactureForfait;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.business.PackDuree;
-import ch.motoloc.gestion.services.ClientService;
 import ch.motoloc.gestion.services.FactureService;
 import ch.motoloc.gestion.services.ForfaitService;
 import java.util.Date;
@@ -51,6 +50,11 @@ public class ForfaitPackBean {
         return "succes";
     }
     
+    
+    public String detailForfaitPack(ForfaitPack forfaitPack) {
+        this.forfaitPack = forfaitPack;
+        return "detailForfaitPack";
+    }
     
     public String detailReservation(ForfaitPack forfaitPack){
         this.forfaitPack = forfaitPack;

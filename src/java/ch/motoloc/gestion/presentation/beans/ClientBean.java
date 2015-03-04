@@ -57,15 +57,6 @@ public class ClientBean implements Serializable {
         return "detailClient";
     }
 
-    public String detailForfaitPack(Client client) {
-        this.client = client;
-        return "detailForfaitPack";
-    }
-    
-    public String detailForfaitFlexible(Client client) {
-        this.client = client;
-        return "detailForfaitFlexible";
-    }
 
     public Client getClient() {
         return client;

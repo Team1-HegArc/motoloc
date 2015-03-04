@@ -28,12 +28,12 @@ public class ForfaitFlexibleBean {
         forfaitFlexible = new ForfaitFlexible();
         client.addForfait(forfaitFlexible);
         forfaitFlexible.setDateCommande(new Date());
-        
+
         return "succes";
     }
-    
+
     public String resumer() {
-        
+
         total = new Double(FactureService.getTotalFactureForfait(forfaitFlexible));
         return "succes";
     }
@@ -45,6 +45,11 @@ public class ForfaitFlexibleBean {
         FactureService.sauverFactureForfait(factureForfait);
         ForfaitService.sauverForfait(forfaitFlexible);
         return "succes";
+    }
+
+    public String detailForfaitFlexible(ForfaitFlexible forfaitFlexible) {
+        this.forfaitFlexible = forfaitFlexible;
+        return "detailForfaitFlexible";
     }
 
     public String detailReservation(ForfaitFlexible forfaitFlexible) {

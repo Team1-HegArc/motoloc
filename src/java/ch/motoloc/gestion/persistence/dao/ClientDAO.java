@@ -6,6 +6,7 @@
 package ch.motoloc.gestion.persistence.dao;
 
 import ch.motoloc.gestion.business.Client;
+import ch.motoloc.gestion.business.Facture;
 import ch.motoloc.gestion.persistence.AbstractDAO;
 import java.util.List;
 
@@ -23,6 +24,11 @@ public class ClientDAO extends AbstractDAO<Client>{
     public List<Client> findByFiltre(final String nom, final String prenom, final String email){
         String request = "SELECT cli FROM Client cli WHERE LOWER(cli.nom) LIKE LOWER(?1) AND LOWER(cli.prenom) LIKE LOWER(?2) AND LOWER(cli.email) LIKE LOWER(?3) ORDER BY cli.nom";
         return super.findByParameter(request, nom, prenom, email);
+    }
+    
+    public List<Client> findByFacture(Facture facture) {
+        String request = "SELECT cli FROM Client cli WHERE LOWER(cli.forfaits.facture.reference) LIKE LOWER(?1)";
+        return super.findByParameter(request, facture.getReference().toString());
     }
                 
 
