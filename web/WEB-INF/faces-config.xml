@@ -47,6 +47,15 @@
     </navigation-rule>
     
     <navigation-rule>
+        <from-view-id>/accueil.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{listeReservationBean.reservationsDuJour}</from-action>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/accueil.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
         <from-view-id>/filtreClient.xhtml</from-view-id>
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
@@ -55,7 +64,7 @@
             <to-view-id>/listeClients.xhtml</to-view-id>
         </navigation-case>
         <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
-         <navigation-case>
+        <navigation-case>
             <from-action>#{ListeClientBean.rechercherClient(nom, prenom, email)}</from-action>
             <from-outcome>erreur</from-outcome>
             <to-view-id>/filtreClient.xhtml</to-view-id>
@@ -76,7 +85,7 @@
             <to-view-id>/listeMotos.xhtml</to-view-id>
         </navigation-case>
         <!-- Cas de navigation : méthode d'ajout de client renvoie "erreur" -->
-         <navigation-case>
+        <navigation-case>
             <from-action>#{ListeMotoBean.rechercherMoto(motoBean.modele,numeroChassis)}</from-action>
             <from-outcome>erreur</from-outcome>
             <to-view-id>/filtreMoto.xhtml</to-view-id>
@@ -154,7 +163,7 @@
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>  
-     <navigation-rule>
+    <navigation-rule>
         <from-view-id>/ajoutPack.xhtml</from-view-id>
         <!-- Cas de navigation :  retour a l'accueil  -->
         <navigation-case>
@@ -163,7 +172,7 @@
         </navigation-case>
     </navigation-rule>  
     
-     <navigation-rule>
+    <navigation-rule>
         <from-view-id>/detailClient.xhtml</from-view-id>
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
         <navigation-case>
@@ -191,7 +200,7 @@
     <navigation-rule>
         <from-view-id>/ajoutPack.xhtml</from-view-id>
         <!-- Cas de navigation :  méthode d'ajout de client renvoie "succes" -->
-         <navigation-case>
+        <navigation-case>
             <from-action>#{forfaitPackBean.resumer()}</from-action>
             <from-outcome>succes</from-outcome>
             <to-view-id>/resumerForfaitPack.xhtml</to-view-id>

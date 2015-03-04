@@ -20,44 +20,44 @@
                         <div class="container">
                             <div class="row">
                                 <div class="box">
-                                    
+
                                     <!-- Titre -->
                                     <div class="col-lg-12 text-center">
                                         <hr/><h4><h:outputText value="Accueil"/></h4><hr/>
                                     </div>
-                                    
+
                                     <!-- Réservations du jour -->
                                     <div class="col-lg-12 text-center">
                                         <br/><h4><h:outputText value="Réservations du jour"/></h4><br/>
-                                        <h:dataTable value="#{listeReservationBean.reservations}" var="reservation" styleClass="table table-striped">
-                                                    <h:column>
-                                                        <f:facet name="header">
-                                                            <h:outputText value="Date de début"/>
-                                                        </f:facet>
-                                                        <h:outputText value="#{reservation.dateDebut}"/>
-                                                    </h:column>
-                                                    <h:column>
-                                                        <f:facet name="header">
-                                                            <h:outputText value="Date de fin"/>
-                                                        </f:facet>
-                                                        <h:outputText value="#{reservation.dateFin}"/>
-                                                    </h:column>
-                                                    <h:column>
-                                                        <f:facet name="header">
-                                                            <h:outputText value="Moto"/>
-                                                        </f:facet>
-                                                        <h:outputText value="#{reservation.moto.reference}"/>
-                                                    </h:column>
-                                                    <h:column>
-                                                        <f:facet name="header">
-                                                            <h:outputText value="Est annulé"/>
-                                                        </f:facet>
-                                                        <h:outputText value="#{reservation.isEstAnnule}"/>
-                                                    </h:column>
-                                                </h:dataTable>
-                                        
+                                        <h:dataTable value="#{listeReservationBean.reservationsDuJour}" var="reservation" styleClass="table table-striped">
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Client"/>
+                                                </f:facet>
+                                                <h:outputText value="#{reservation.forfait.client.nom} #{reservation.forfait.client.prenom}"/>
+                                            </h:column>  
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Moto"/>
+                                                </f:facet>
+                                                <h:outputText value="#{reservation.moto.reference}"/>
+                                            </h:column>        
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Date de début"/>
+                                                </f:facet>
+                                                <h:outputText value="#{reservation.dateDebut}"/>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Date de fin"/>
+                                                </f:facet>
+                                                <h:outputText value="#{reservation.dateFin}"/>
+                                            </h:column>
+                                        </h:dataTable>
+
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>

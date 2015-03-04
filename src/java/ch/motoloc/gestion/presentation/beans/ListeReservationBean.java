@@ -15,7 +15,8 @@ import javax.faces.model.ListDataModel;
 public class ListeReservationBean {
     
     private ListDataModel<Reservation> reservations;
-
+    private ListDataModel<Reservation> reservationsDuJour;
+    
     
     public ListeReservationBean() {
     }
@@ -25,6 +26,13 @@ public class ListeReservationBean {
         this.reservations.setWrappedData(ReservationService.getAllReservations());
         return "succes";
     }
+    
+     public String rechercherReservationsDuJour() {
+        this.reservations = new ListDataModel<>();
+        this.reservations.setWrappedData(ReservationService.getAllReservations());
+        return "succes";
+    }
+    
 
     public ListDataModel<Reservation> getReservations() {
         return reservations;
@@ -32,6 +40,14 @@ public class ListeReservationBean {
 
     public void setReservations(ListDataModel<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public ListDataModel<Reservation> getReservationsDuJour() {
+        return reservationsDuJour;
+    }
+
+    public void setReservationsDuJour(ListDataModel<Reservation> reservationsDuJour) {
+        this.reservationsDuJour = reservationsDuJour;
     }
     
     
