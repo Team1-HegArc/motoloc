@@ -34,13 +34,13 @@ public class FactureForfaitBean {
         factureForfait.setReference(Long.toString(new Date().getTime()));
     }
     
-    public String sauveFacture(ForfaitPack forfait){
+    public String sauveFacturePack(ForfaitPack forfait){
         forfait.setFacture(factureForfait);
         ForfaitService.sauverForfait(forfait);
         return "succes";
     }
     
-    public String sauveFacture(ForfaitFlexible forfait){
+    public String sauveFactureFlex(ForfaitFlexible forfait){
         forfait.setFacture(factureForfait);
         ForfaitService.sauverForfait(forfait);
         return "succes";
