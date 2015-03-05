@@ -11,6 +11,7 @@ import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.business.PackDuree;
+import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.business.TarificationFlexible;
 import ch.motoloc.gestion.business.TarificationPack;
 import ch.motoloc.gestion.persistence.JpaConnection;
@@ -19,7 +20,9 @@ import ch.motoloc.gestion.persistence.dao.ForfaitPackDAO;
 import ch.motoloc.gestion.persistence.dao.PackDureeDAO;
 import ch.motoloc.gestion.persistence.dao.TarificationFlexibleDAO;
 import ch.motoloc.gestion.persistence.dao.TarificationPackDAO;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -96,36 +99,19 @@ public class ForfaitService {
         return success;     
     }
     
-    /*public static boolean sauverForfait(ForfaitPack fPack) {
-        boolean success = false;
-        EntityManager em = JpaConnection.getEntityManager();
-        
-        try {
-             em.getTransaction().begin();
-             em.persist(fPack);
-             em.getTransaction().commit();
-             success = true;
-        } catch (Exception e) {
-            em.getTransaction().rollback();
+    public static int nbJourRestant(ForfaitFlexible forfait){
+        int nbJour=forfait.getNbJour();
+        for (Reservation res : forfait.getReservations()) {
+            nbJour = nbJour - (int) (res.getDateFin().getTime()-res.getDateDebut().getTime());
         }
-        return success;     
+        return nbJour;
     }
-
-    public static boolean sauverForfait(ForfaitFlexible forfaitFlexible) {
-        
-        boolean success = false;
-        EntityManager em = JpaConnection.getEntityManager();
-        
-        try {
-             em.getTransaction().begin();
-             em.persist(forfaitFlexible);
-             em.getTransaction().commit();
-             success = true;
-        } catch (Exception e) {
-            em.getTransaction().rollback();
-        }
-        return success;   
-        
-    }*/
     
+    public static int nbJourRestant(ForfaitPack forfait){
+        int nbJour=forfait.getTarificationPack().getPackDuree().getNbJours();
+        for (Reservation res : forfait.getReservations()) {
+            nbJour = nbJour - (int) (res.getDateFin().getTime()-res.getDateDebut().getTime());
+        }
+        return nbJour;
+    }
 }
