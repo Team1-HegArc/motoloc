@@ -33,7 +33,7 @@
                                             <div class="controls col-sm-3">
                                                 <h:selectOneMenu id="lovModele" value="#{factureReservationBean.ligneSupplement.supplement.libelle}">
                                                     <f:converter converterId="paiementConverteur"/>
-                                                    <f:selectItems var="supplement" value="#{ManagerLovBean.supplements}"  itemLabel="#{supplement.libelle} (CHF #{supplement.prix})"/>
+                                                    <f:selectItems var="supplement" value="#{factureReservationBean.supplement}"  itemLabel="#{supplement.libelle} (CHF #{supplement.prix})"/>
                                                 </h:selectOneMenu>
                                             </div>
                                         </div>

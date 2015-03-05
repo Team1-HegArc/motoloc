@@ -8,7 +8,9 @@ import ch.motoloc.gestion.business.Paiement;
 import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.business.Supplement;
 import ch.motoloc.gestion.services.FactureService;
+import ch.motoloc.gestion.services.ReservationService;
 import java.util.Date;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -26,6 +28,7 @@ public class FactureReservationBean {
     private Client client;
     private FactureLigneSupplement ligneSupplement;
     private FactureLignePaiement lignePaiement;
+    private List<Supplement> supplement;
 
     public FactureReservationBean() {
     }
@@ -41,6 +44,7 @@ public class FactureReservationBean {
         }
         reservation.setFacture(facture);
         FactureService.sauverFactureReservation(facture);
+        supplement = ReservationService.getAllSupplementsRetour();
         return "succes";
     }
     
@@ -114,6 +118,16 @@ public class FactureReservationBean {
     public void setLignePaiement(FactureLignePaiement lignePaiement) {
         this.lignePaiement = lignePaiement;
     }
+
+    public List<Supplement> getSupplement() {
+        return supplement;
+    }
+
+    public void setSupplement(List<Supplement> supplement) {
+        this.supplement = supplement;
+    }
+
+    
     
     
     
