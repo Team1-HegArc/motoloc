@@ -32,11 +32,12 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
         StringBuilder sb = new StringBuilder();
         
                   sb.append("SELECT res FROM Reservation res WHERE ?3 = res.moto.id ")
-           .append("AND ?1 = res.dateDebut ")
-           .append("AND ?2 = res.dateFin ")
-           .append("AND ?1 BETWEEN res.dateDebut AND res.dateFin ")
-           .append("AND ?2 BETWEEN res.dateDebut AND res.dateFin ");
-           //.append("AND (?1) >= CURRENT_DATE");
+           .append("AND (?1 = res.dateDebut ")
+           .append("OR ?2 = res.dateFin ")
+           .append("OR ?1 BETWEEN res.dateDebut AND res.dateFin ")
+           .append("OR ?2 BETWEEN res.dateDebut AND res.dateFin ")
+           .append("OR (?1 < res.dateDebut AND ?2 > res.dateFin))")
+           .append("AND (?1) >= CURRENT_DATE");
         
          EntityManager em = JpaConnection.getEntityManager();
          

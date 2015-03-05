@@ -118,4 +118,23 @@ public class ForfaitService {
         }
         return nbJour;
     }
+
+    public static void annulerForfaitPack(ForfaitPack forfaitPack) {
+       EntityManager em = JpaConnection.getEntityManager();
+        
+            em.getTransaction().begin();
+            em.remove(forfaitPack);
+            ForfaitPackDAO.nettoyerBase();
+            em.getTransaction().commit();
+        
+    }
+    public static void annulerForfaitFlexible(ForfaitFlexible forfaitFlexible) {
+       EntityManager em = JpaConnection.getEntityManager();
+        
+            em.getTransaction().begin();
+            em.remove(forfaitFlexible);
+            ForfaitPackDAO.nettoyerBase();
+            em.getTransaction().commit();
+        
+    }
 }

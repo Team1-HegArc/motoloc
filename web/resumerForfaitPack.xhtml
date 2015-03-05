@@ -22,6 +22,7 @@
                             <div class="box">
                                 <h:form class="form-horizontal box">
 
+                                    <h:outputText rendered="#{forfaitPackBean.erreur}" value="#{resrc.erreurAjoutPack}" styleClass="text-danger" />
 
                                     <!-- Titre -->
                                     <div class="col-lg-12 text-center">
@@ -73,7 +74,7 @@
                                         <div class="form-group">
                                             <div class="controls text-center">
                                                 <h:commandButton type="submit" action="#{forfaitPackBean.sauverPack()}" styleClass="btn btn-success" value="#{resrc.boutonValider}" />&nbsp;
-                                                <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler"  styleClass="btn btn-danger" />
+                                                <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="#{forfaitPackBean.annuler()}"  styleClass="btn btn-danger" />
                                             </div>
                                         </div>
                                     </div>

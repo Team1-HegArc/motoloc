@@ -224,7 +224,14 @@
             <from-outcome>succes</from-outcome>
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
+        
         <navigation-case>
+            <from-outcome>erreur</from-outcome>
+            <to-view-id>/resumerForfaitPack.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-action>#{forfaitPackBean.annuler()}</from-action>
             <from-outcome>annuler</from-outcome>
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
@@ -237,7 +244,14 @@
             <from-outcome>succes</from-outcome>
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
+        
         <navigation-case>
+            <from-outcome>erreur</from-outcome>
+            <to-view-id>/resumerForfaitPack.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-action>#{forfaitFlexibleBean.annuler()}</from-action>
             <from-outcome>annuler</from-outcome>
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
