@@ -35,7 +35,7 @@
                                             <div class="controls col-sm-3 radio">
                                                 <!--On récupère la valeur du Bean pour alimenté la lov-->    
                                                 <!--value jsuis pas sur a voir avec chef lov -->
-                                                <h:selectOneRadio id="lovModele" value="#{forfaitPackBean.duree}" layout="pageDirection">
+                                                <h:selectOneRadio id="lovModele" value="#{forfaitPackBean.duree}" layout="pageDirection" required="true">
 
                                                     <!--On récupère la valeur du converterDepartement pour alimenté la lov-->
                                                     <f:converter converterId="packDureeConverter"/>
@@ -47,7 +47,7 @@
                                                 <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.modele}"/>
                                                 <div class="controls col-sm-3 radio">
                                                     <!--On récupère la valeur du Bean pour alimenté la lov-->                             
-                                                    <h:selectOneRadio id="lovModelePack" value="#{forfaitPackBean.modele}" layout="pageDirection">
+                                                    <h:selectOneRadio id="lovModelePack" value="#{forfaitPackBean.modele}" layout="pageDirection" required="true">
                                                         <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
                                                         <f:converter converterId="modeleConverteur"/>
                                                         <f:selectItems var="modele" value="#{ManagerLovBean.modelesPacks}"  itemLabel="#{modele.libelle}"/>
