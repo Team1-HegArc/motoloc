@@ -82,7 +82,12 @@
                                                         <f:facet name="header">
                                                             <h:outputText value="Est annulé"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{reservation.estAnnule}"/>
+                                                        <c:if test="#{reservation.estAnnule}" >
+                                                            <h:outputText value="Oui"/>
+                                                        </c:if>
+                                                        <c:if test="#{!reservation.estAnnule}">
+                                                            <h:outputLabel value="Non"/>
+                                                        </c:if>
                                                     </h:column>
                                                     <h:column>
                                                         <h:commandButton value="#{resrc.visualisationBouton}" action="#{reservationBean.detailReservation(reservation)}" styleClass="btn btn-info"/>

@@ -107,7 +107,9 @@ public class ReservationBean {
      * @return
      */
     public String annulerReservation() {
-        throw new UnsupportedOperationException();
+        reservation.setEstAnnule(true);
+        
+        return "annuler";
     }
 
     /**
