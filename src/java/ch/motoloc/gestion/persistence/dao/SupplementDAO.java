@@ -5,7 +5,6 @@
  */
 package ch.motoloc.gestion.persistence.dao;
 
-import static ch.motoloc.gestion.business.FactureLigneSupplement_.supplement;
 import ch.motoloc.gestion.business.Supplement;
 import ch.motoloc.gestion.persistence.AbstractDAO;
 import java.util.List;

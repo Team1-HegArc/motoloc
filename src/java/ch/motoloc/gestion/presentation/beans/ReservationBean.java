@@ -4,7 +4,6 @@ import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
-import ch.motoloc.gestion.business.ForfaitPack_;
 import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.services.BeanService;
