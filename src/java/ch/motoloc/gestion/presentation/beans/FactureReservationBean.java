@@ -24,6 +24,8 @@ public class FactureReservationBean {
     private FactureReservation facture;
     private Reservation reservation;
     private Client client;
+    private FactureLigneSupplement ligneSupplement;
+    private FactureLignePaiement lignePaiement;
 
     public FactureReservationBean() {
     }
@@ -40,6 +42,16 @@ public class FactureReservationBean {
         reservation.setFacture(facture);
         FactureService.sauverFactureReservation(facture);
         return "succes";
+    }
+    
+    public String ajoutSupplement() {
+        this.ligneSupplement = new FactureLigneSupplement();
+        return "ajoutSupplement";
+    }
+    
+        public String ajoutPaiement() {
+        this.lignePaiement = new FactureLignePaiement();
+        return "ajoutPaiement";
     }
     
     public String sauverSupplement(FactureLigneSupplement ligneSupplement) {
@@ -86,6 +98,24 @@ public class FactureReservationBean {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    public FactureLigneSupplement getLigneSupplement() {
+        return ligneSupplement;
+    }
+
+    public void setLigneSupplement(FactureLigneSupplement ligneSupplement) {
+        this.ligneSupplement = ligneSupplement;
+    }
+
+    public FactureLignePaiement getLignePaiement() {
+        return lignePaiement;
+    }
+
+    public void setLignePaiement(FactureLignePaiement lignePaiement) {
+        this.lignePaiement = lignePaiement;
+    }
+    
+    
     
 
 }

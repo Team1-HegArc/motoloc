@@ -31,12 +31,7 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3  col-sm-offset-3" value="Type de paiement"/>
                                             <div class="controls col-sm-3">
-                                                <!--A FAIRE--> 
-                                                <!-- A FAIRE (value) -->
-                                                <!-- A FAIRE (value) -->
-                                                <!-- A FAIRE (value) -->
-                                                <!-- A FAIRE (value) -->
-                                                <h:selectOneMenu id="lovModele" value="MANQUE LA VALUE ATTENTION A FAIRE QUAND BEAN SERA CREE">
+                                                <h:selectOneMenu id="lovModele" value="#{factureReservationBean.lignePaiement.paiement.libelle}">
                                                     <f:converter converterId="paiementConverteur"/>
                                                     <f:selectItems var="paiement" value="#{ManagerLovBean.paiements}"  itemLabel="#{paiement.libelle}"/>
                                                 </h:selectOneMenu>
@@ -46,17 +41,12 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Montant *"/>
                                             <div class="controls col-sm-3">
-                                                <h:inputText value="}" class="form-control input-md" required="true"></h:inputText>
+                                                <h:inputText value="#{factureReservationBean.lignePaiement.prix}" class="form-control input-md" required="true"></h:inputText>
                                             </div>
                                         </div>
                                         <div class="form-group ">
                                             <div class="controls text-center">
-                                                <!-- A FAIRE (action) -->
-                                                <!-- A FAIRE (action) -->
-                                                <!-- A FAIRE (action) -->
-                                                <!-- A FAIRE (action) -->
-                                                <!-- A FAIRE (action) -->
-                                                <h:commandButton  value="#{resrc.boutonAjouter}" type="submit" action="MANQUE L ACTION ATTENTION A FAIRE QUAND BEAN SERA CREE" class="btn btn-primary" styleClass="btn-primary" />  &nbsp;                                              
+                                                <h:commandButton  value="#{resrc.boutonAjouter}" type="submit" action="#{factureReservationBean.sauverPaiement(lignePaiement)}" class="btn btn-primary" styleClass="btn-primary" />  &nbsp;                                              
                                                 <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
                                             </div>
                                         </div>
