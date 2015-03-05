@@ -21,7 +21,8 @@
                                 <div class="col-lg-12 text-center">
                                     <hr/><h4><h:outputText value="Choix des dates de réservation"/></h4><hr/>
                                 </div>
-                                
+                                <h:outputText rendered="#{reservationBean.erreur}" value="#{resrc.erreurNombreJourPack}" styleClass="text-danger" />
+
                                 <div class="col-lg-12">                                
                                     <h:form class="form-horizontal box"> 
                                         <div class="form-group">
