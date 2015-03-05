@@ -8,7 +8,7 @@
     xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-        <title>Facture du forfait</title>
+        <title>Facture de réservation</title>
     </h:head>
 
     <h:body>
@@ -24,7 +24,7 @@
 
                                     <!-- Titre -->
                                     <div class="col-lg-12 text-center">
-                                        <hr/><h4><h:outputText value="Facture du forfait"/></h4><hr/>
+                                        <hr/><h4><h:outputText value="Facture de reservation"/></h4><hr/>
                                     </div>
 
                                     <div class="col-lg-12">
@@ -37,34 +37,16 @@
 
                                         <!-- Infos du client -->
                                         <div class="col-sm-3">
-                                            <h:outputLabel value="#{factureForfaitBean.client.nom} #{factureForfaitBean.client.prenom}"/><br/>
-                                            <h:outputLabel value="#{factureForfaitBean.client.rue}"/><br/>
-                                            <h:outputLabel value="#{factureForfaitBean.client.npa} #{factureForfaitBean.client.ville}"/><br/>
+                                            <h:outputLabel value="#{factureReservationBean.client.nom} #{factureReservationBean.client.prenom}"/><br/>
+                                            <h:outputLabel value="#{factureReservationBean.client.rue}"/><br/>
+                                            <h:outputLabel value="#{factureReservationBean.client.npa} #{factureReservationBean.client.ville}"/><br/>
                                         </div>
 
                                         <!-- Données de la facture -->
                                         <div class="col-sm-12">
-                                            <h:outputLabel value="Facture n° #{factureForfaitBean.facture.reference}"/>
+                                            <h:outputLabel value="Facture n° #{factureReservationBean.facture.reference}"/>
                                         </div>
-                                        <div class="table-bordered col-sm-12">
-                                            <tr>
-                                                <th><h:outputLabel value="Libellé"/></th>
-                                                <th><h:outputLabel value="Prix"/></th>
-                                            </tr>
-                                            <!-- Facturation -->
-                                                <tr>
-                                                    <td><h:outputLabel value="#{factureForfaitBean.forfait.dateCommande} - Forfait"/></td>
-                                                    <td><h:outputLabel value="CHF PRIX"/></td>
-                                                </tr>
-                                            <!-- Paiement -->
-                                            <c:set var="paiement" scope="session" value="#{factureForfaitBean.facture.paiement}"/>
-                                            <c:if test="${not empty paiement}">
-                                                <tr>
-                                                    <td><h:outputLabel value="#{factureForfaitBean.facture.paiement.libelle}"/></td>
-                                                    <td><h:outputLabel value="CHF PRIX"/></td>
-                                                </tr>
-                                            </c:if>
-                                        </div>
+                                        
 
                                     </div>
 
