@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
         <title>Détails du forfait (Pack)</title>
@@ -83,7 +84,13 @@
                                                         <f:facet name="header">
                                                             <h:outputText value="Est annulé"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{reservation.estAnnule}"/>
+                                                        
+                                                        <c:if test="#{reservation.estAnnule}" >
+                                                            <h:outputText value="Oui"/>
+                                                        </c:if>
+                                                        <c:if test="#{!reservation.estAnnule}">
+                                                            <h:outputLabel value="Non"/>
+                                                        </c:if>
                                                     </h:column>
                                                     <h:column>
                                                         <h:commandButton value="#{resrc.visualisationBouton}" action="#{reservationBean.detailReservation(reservation)}" styleClass="btn btn-info"/>
