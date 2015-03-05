@@ -6,6 +6,7 @@ import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.services.BeanService;
 import ch.motoloc.gestion.services.ConvertisseurDate;
 import ch.motoloc.gestion.services.ReservationService;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.ListDataModel;
@@ -21,8 +22,8 @@ public class ReservationBean {
 
     private Reservation reservation;
     private ListDataModel<Moto> motos;
-    private String dateDebut;
-    private String dateFin;
+    private Date dateDebut;
+    private Date dateFin;
     private FactureReservationBean factureReservationBean;
 
     public ReservationBean() {
@@ -35,8 +36,8 @@ public class ReservationBean {
     }
 
     public String rechercherDispoMoto() {
-        this.reservation.setDateDebut(ConvertisseurDate.formatterDate(this.dateDebut));
-        this.reservation.setDateFin(ConvertisseurDate.formatterDate(this.dateFin));
+        this.reservation.setDateDebut(this.dateDebut);
+        this.reservation.setDateFin(this.dateFin);
 
         motos = new ListDataModel();
         motos.setWrappedData(ReservationService.rechercherDispoMoto(reservation));
@@ -71,21 +72,23 @@ public class ReservationBean {
         this.reservation = reservation;
     }
 
-    public String getDateDebut() {
+    public Date getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(String dateDebut) {
+    public void setDateDebut(Date dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public String getDateFin() {
+    public Date getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(String dateFin) {
+    public void setDateFin(Date dateFin) {
         this.dateFin = dateFin;
     }
+
+   
 
     public ListDataModel<Moto> getMotos() {
         return motos;

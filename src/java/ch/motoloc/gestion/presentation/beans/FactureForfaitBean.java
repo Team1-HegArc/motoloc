@@ -26,12 +26,14 @@ public class FactureForfaitBean {
     }
     
     public String detailFactureForfaitFlex(ForfaitFlexible forfait) {
+        this.forfaitPack = null;
         this.forfaitFlexible=forfait;
         this.facture = forfait.getFacture();
         return "succes";
     }
     
     public String detailFactureForfaitPack(ForfaitPack forfait) {
+        this.forfaitFlexible = null;
         this.forfaitPack=forfait;
         this.facture = forfait.getFacture();
         return "succes";
