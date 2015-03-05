@@ -30,7 +30,7 @@
                                     <div class="col-lg-12">
 
                                         <!-- Infos du client -->
-                                        <div class="form-group  col-sm-12">
+                                        <div class="form-group  col-sm-12 well">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.nom}"/>
                                             <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.client.nom}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3"  value="#{resrc.prenom}"/>
@@ -52,7 +52,7 @@
                                         </div>
 
                                         <!-- Données du forfait -->
-                                        <div class="form-group col-sm-12">
+                                        <div class="form-group col-sm-12 well">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Modèle de moto"/>
                                             <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.motoModl.libelle}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Durée (jours)"/>
@@ -71,8 +71,8 @@
                                         <!-- Boutons -->
                                         <div class="form-group">
                                             <div class="controls text-center">
-                                                <h:commandButton class="btn btn-primary" type="submit" action="#{forfaitFlexBean.sauverFlexible()}" styleClass="btn-primary" value="#{resrc.boutonValider}" />&nbsp;
-                                                <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
+                                                <h:commandButton type="submit" action="#{forfaitFlexBean.sauverFlexible()}" styleClass="btn btn-primary" value="#{resrc.boutonValider}" />&nbsp;
+                                                <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" styleClass="btn btn-danger" />
                                             </div>
                                         </div>
                                     </div>

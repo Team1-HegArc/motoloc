@@ -32,10 +32,10 @@
 
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.duree}"/>
-                                            <div class="controls col-sm-3">
+                                            <div class="controls col-sm-3 radio">
                                                 <!--On récupère la valeur du Bean pour alimenté la lov-->    
                                                 <!--value jsuis pas sur a voir avec chef lov -->
-                                                <h:selectOneRadio id="lovModele" value="#{forfaitPackBean.duree}" layout="pageDirection">
+                                                <h:selectOneRadio id="lovModele" value="#{forfaitPackBean.duree}" layout="pageDirection" required="true">
 
                                                     <!--On récupère la valeur du converterDepartement pour alimenté la lov-->
                                                     <f:converter converterId="packDureeConverter"/>
@@ -45,9 +45,9 @@
                                         </div>
                                         <div class="form-group">
                                                 <h:outputLabel class="col-sm-3 col-sm-offset-3" value="#{resrc.modele}"/>
-                                                <div class="controls col-sm-3">
+                                                <div class="controls col-sm-3 radio">
                                                     <!--On récupère la valeur du Bean pour alimenté la lov-->                             
-                                                    <h:selectOneRadio id="lovModelePack" value="#{forfaitPackBean.modele}" layout="pageDirection">
+                                                    <h:selectOneRadio id="lovModelePack" value="#{forfaitPackBean.modele}" layout="pageDirection" required="true">
                                                         <!--On récupère la valeur du converterDepartement pour alimenté la lov--> 
                                                         <f:converter converterId="modeleConverteur"/>
                                                         <f:selectItems var="modele" value="#{ManagerLovBean.modelesPacks}"  itemLabel="#{modele.libelle}"/>
@@ -56,8 +56,8 @@
                                         </div>
                                         <div class="form-group col-sm-12">
                                                 <div class="controls text-center">
-                                                    <h:commandButton type="submit" value="#{resrc.boutonAjouter}" action="#{forfaitPackBean.resumer()}" class="btn btn-primary" styleClass="btn-primary" />&nbsp;
-                                                    <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
+                                                    <h:commandButton type="submit" value="#{resrc.boutonAjouter}" action="#{forfaitPackBean.resumer()}" styleClass="btn btn-success" />&nbsp;
+                                                    <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" styleClass="btn btn-danger" />
                                                 </div>
                                             </div>
                                     </h:form>

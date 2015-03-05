@@ -60,9 +60,20 @@ public class ReservationService {
         EntityManager em = JpaConnection.getEntityManager();
         try {
             em.getTransaction().begin();
+            if(reservation.getId() != null){
+                Reservation reservationMAJ = new ReservationDAO().findById(reservation.getId());
+                reservationMAJ.setDateDebut(reservation.getDateDebut());
+                reservationMAJ.setDateFin(reservation.getDateFin());
+                reservationMAJ.setEstAnnule(reservation.getEstAnnule());
+                reservationMAJ.setFacture(reservation.getFacture());
+                reservationMAJ.setForfait(reservation.getForfait());
+                reservationMAJ.setId(reservation.getId());
+                reservationMAJ.setMoto(reservation.getMoto());
+                reservationMAJ.setSupplements(reservation.getSupplements());
+            }else{
             em.persist(reservation);
+            }
             em.getTransaction().commit();
-
             success = true;
         } catch (Exception e) {
             em.getTransaction().rollback();

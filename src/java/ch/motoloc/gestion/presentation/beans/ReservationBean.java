@@ -108,7 +108,7 @@ public class ReservationBean {
      */
     public String annulerReservation() {
         reservation.setEstAnnule(true);
-        
+        ReservationService.sauverReservation(reservation);
         return "annuler";
     }
 

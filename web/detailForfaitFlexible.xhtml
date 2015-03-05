@@ -94,10 +94,13 @@
                                                     </h:column>
                                                 </h:dataTable>
                                             </div>
-
+                                            
                                             <!-- Ajout d'une réservation -->
-                                            <br/><h:commandButton type="submit" value="Ajouter une réservation" action="#{reservationBean.ajouterReservation(forfaitFlexBean.forfaitFlexible)}" class="btn-sm btn-success col-sm-2"/>
-
+                                            <br/>
+                                            <c:set var="active" scope="session" value="#{reservationActiveBean.reservation}"/>
+                                            <c:if test="${empty active}">
+                                            <h:commandButton type="submit" value="Ajouter une réservation" action="#{reservationBean.ajouterReservation(forfaitFlexBean.forfaitFlexible)}" class="btn-sm btn-success col-sm-2"/>
+                                            </c:if>
                                         </div>
 
 
