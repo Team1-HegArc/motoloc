@@ -31,7 +31,7 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3  col-sm-offset-3" value="Type de paiement"/>
                                             <div class="controls col-sm-3">
-                                                <h:selectOneMenu id="lovModele" value="#{factureReservationBean.lignePaiement.paiement.libelle}">
+                                                <h:selectOneMenu id="lovModele" value="#{factureReservationBean.lignePaiement.paiement}">
                                                     <f:converter converterId="paiementConverteur"/>
                                                     <f:selectItems var="paiement" value="#{ManagerLovBean.paiements}"  itemLabel="#{paiement.libelle}"/>
                                                 </h:selectOneMenu>
