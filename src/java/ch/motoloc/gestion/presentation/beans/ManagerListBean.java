@@ -29,7 +29,9 @@ public class ManagerListBean {
     }
     
     public  List<ForfaitFlexible> getForfaitFlex(Client client){
-        return new ForfaitFlexibleDAO().getForfaitByClient(client);
+        List<ForfaitFlexible> test;
+        test = new ForfaitFlexibleDAO().getForfaitByClient(client);
+        return test;
     }
     
     public  List<ForfaitPack> getForfaitPack(Client client){
