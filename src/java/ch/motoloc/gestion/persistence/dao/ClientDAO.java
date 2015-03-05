@@ -26,8 +26,13 @@ public class ClientDAO extends AbstractDAO<Client>{
         return super.findByParameter(request, nom, prenom, email);
     }
     
-    public List<Client> findByFacture(Facture facture) {
-        String request = "SELECT cli FROM Client cli WHERE LOWER(cli.forfaits.facture.reference) LIKE LOWER(?1)";
+    public List<Client> findByFactureForfait(Facture facture) {
+        String request = "SELECT cli FROM Client cli INNER JOIN cli.forfaits forf WHERE LOWER(forf.facture.reference) LIKE LOWER(?1)";
+        return super.findByParameter(request, facture.getReference().toString());
+    }
+    
+        public List<Client> findByFactureReservation(Facture facture) {
+        String request = "SELECT cli FROM Client cli INNER JOIN cli.forfaits forf INNER JOIN forfaits.reservations res WHERE LOWER(res.facture.reference) LIKE LOWER(?1)";
         return super.findByParameter(request, facture.getReference().toString());
     }
                 

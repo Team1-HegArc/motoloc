@@ -12,9 +12,8 @@
     </h:head>
 
     <h:body>
-        <!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
+        <!-- Template -->
         <ui:composition template="/template/layout.xhtml">
-
 
             <ui:define name="content">
                 <f:view>
@@ -32,7 +31,8 @@
 
                                         <!-- Infos de l'entreprise -->
                                         <div class="col-sm-9">
-                                            <h:outputLabel value="Entreprise Motoloc"/>
+                                            <h:outputLabel value="Entreprise"/><br/>
+                                            <h:outputLabel value="MOTOLOC"/>
                                         </div>
 
                                         <!-- Infos du client -->
@@ -47,14 +47,16 @@
                                             <h:outputLabel value="Facture n° #{factureForfaitBean.facture.reference}"/>
                                         </div>
                                         <div class="table-bordered col-sm-12">
-                                            <th>
-                                                <td><h:outputLabel value="Libellé"/></td>
-                                                <td><h:outputLabel value="Prix"/></td>
-                                            </th>
                                             <tr>
-                                                <td><h:outputLabel value="#{factureForfaitBean.facture.paiement.libelle}"/></td>
-                                                <td><h:outputLabel value="CHF PRIX"/></td>
+                                                <th><h:outputLabel value="Libellé"/></th>
+                                                <th><h:outputLabel value="Prix"/></th>
                                             </tr>
+                                            <!-- Facturation -->
+                                                <tr>
+                                                    <td><h:outputLabel value="#{factureForfaitBean.forfait.dateCommande} - Forfait"/></td>
+                                                    <td><h:outputLabel value="CHF PRIX"/></td>
+                                                </tr>
+                                            <!-- Paiement -->
                                             <c:set var="paiement" scope="session" value="#{factureForfaitBean.facture.paiement}"/>
                                             <c:if test="${not empty paiement}">
                                                 <tr>

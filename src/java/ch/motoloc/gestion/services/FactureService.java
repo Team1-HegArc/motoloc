@@ -4,7 +4,6 @@ package ch.motoloc.gestion.services;
 import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.Facture;
 import ch.motoloc.gestion.business.FactureForfait;
-import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.persistence.JpaConnection;
@@ -13,7 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 /**
- * 
+ * Classe FactureService
  * @author irina.fessemaz
  */
 public class FactureService {
@@ -28,7 +27,12 @@ public class FactureService {
     }
     
     public static Client getClientFactureForfait(Facture facture) {
-        Client client = (new ClientDAO().findByFacture(facture)).get(1);
+        Client client = (new ClientDAO().findByFactureForfait(facture)).iterator().next();
+        return client;
+    }
+    
+        public static Client getClientFactureReservation(Facture facture) {
+        Client client = (new ClientDAO().findByFactureReservation(facture)).iterator().next();
         return client;
     }
     

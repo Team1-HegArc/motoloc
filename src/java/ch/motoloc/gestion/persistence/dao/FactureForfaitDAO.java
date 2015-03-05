@@ -5,10 +5,8 @@
  */
 package ch.motoloc.gestion.persistence.dao;
 
-import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.FactureForfait;
 import ch.motoloc.gestion.persistence.AbstractDAO;
-import java.util.List;
 
 /**
  *
