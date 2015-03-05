@@ -85,12 +85,20 @@ public class ReservationService {
         return new ReservationDAO().findActive(client);
     }
     
-        public static List<Supplement> getAllSupplementsDebut() {
+    public static List<Supplement> getAllSupplementsDebut() {
         return new SupplementDAO().findDebut();
     }
         
-                public static List<Supplement> getAllSupplementsRetour() {
+    public static List<Supplement> getAllSupplementsRetour() {
         return new SupplementDAO().findFin();
+    }
+    
+    public static double getTotalReservation(Reservation reservation){
+        double sousTotal=0;
+        for(Supplement sup : reservation.getSupplements()){
+            sousTotal = sousTotal + sup.getPrix();
+        }
+        return sousTotal;
     }
 
 }
