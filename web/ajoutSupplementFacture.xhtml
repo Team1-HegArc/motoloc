@@ -41,7 +41,8 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Montant *"/>
                                             <div class="controls col-sm-3">
-                                                <h:inputText value="#{factureReservationBean.ligneSupplement.prix}" class="form-control input-md" required="true"></h:inputText>
+                                                <h:inputText value="#{factureReservationBean.ligneSupplement.prix}" class="form-control input-md" required="true" id="montant" validatorMessage="Veuillez entrer un chiffre valide"></h:inputText>
+                                                <h:message for="montant" showSummary="true" showDetail="false"/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
