@@ -1,5 +1,6 @@
 package ch.motoloc.gestion.persistence.dao;
 
+import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.persistence.AbstractDAO;
@@ -9,6 +10,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TemporalType;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -51,9 +53,13 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
                  
         return new ArrayList(tp.getResultList());
         //return super.findByParameter(sb.toString(), reservation.getDateDebut(), reservation.getDateFin(), moto.getId());
-        
-        
-        
+  
     }
     
+    public Reservation findActive(Client client){
+        String request = "SELECT MAX(res) FROM Reservation res WHERE res.forfait.client = ?1";
+        TypedQuery<Reservation> query = JpaConnection.getEntityManager().createQuery(request, Reservation.class);
+        query.setParameter(1, client);
+        return query.getSingleResult();
+    }
 }
