@@ -56,10 +56,11 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
   
     }
     
-    public Reservation findActive(Client client){
-        String request = "SELECT MAX(res) FROM Reservation res WHERE res.forfait.client = ?1";
+    public List<Reservation> findActive(Client client){
+        String request = "SELECT res FROM Reservation res WHERE res.forfait.client = ?1 ORDER BY res.dateFin DESC ";
         TypedQuery<Reservation> query = JpaConnection.getEntityManager().createQuery(request, Reservation.class);
         query.setParameter(1, client);
-        return query.getSingleResult();
+        List<Reservation> listRes = query.getResultList();
+        return listRes;
     }
 }
