@@ -270,6 +270,16 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE DETAILRESERVATION ******************************************** -->
+    <navigation-rule>
+        <from-view-id>/detailReservation.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{factureReservationBean.detailFactureReservation(reservationBean.reservation)}</from-action>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/detailFactureReservation.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
     <!-- PAGE CHOIXDATE **************************************************** -->
     <navigation-rule>
         <from-view-id>/choixDate.xhtml</from-view-id>

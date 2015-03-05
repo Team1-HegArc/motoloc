@@ -37,7 +37,7 @@
                                         </c:if>
                                         <!-- Bouton d'accès à la facture -->
                                         <c:if test="${not empty fact}">
-                                            <h:commandButton type="submit" value="Facture" action="" class="btn-sm btn-primary col-sm-2 col-sm-offset-10"/><br/><br/>
+                                            <h:commandButton type="submit" value="Facture" action="#{factureReservationBean.detailFactureReservation(reservationBean.reservation)}" class="btn-sm btn-primary col-sm-2 col-sm-offset-10"/><br/><br/>
                                         </c:if>
                                         <!-- Bouton d'annulation -->
                                         <c:if test="${not annule}">
