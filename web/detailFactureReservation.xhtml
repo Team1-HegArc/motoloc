@@ -46,8 +46,47 @@
                                         <div class="col-sm-12">
                                             <h:outputLabel value="Facture n° #{factureReservationBean.facture.reference}"/>
                                         </div>
+                                        <!-- Facturations -->
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-10">
+                                                <h:dataTable value="#{factureReservationBean.facture.lignesSupplements}" var="ligneSupplement" styleClass="table table-striped">
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Libellé"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{ligneSupplement.supplement.libelle}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Prix"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{ligneSupplement.prix}"/>
+                                                    </h:column>
+                                                </h:dataTable>
+                                            </div>
+                                            <br/><h:commandButton type="submit" value="Ajouter" action="" class="btn-sm btn-success col-sm-2"/>
+                                        </div>
+                                        <!-- Paiements -->
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-10">
+                                                <h:dataTable value="#{factureReservationBean.facture.lignesPaiements}" var="lignePaiement" styleClass="table table-striped">
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Libellé"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{lignePaiement.paiement.libelle}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Prix"/>
+                                                        </f:facet>
+                                                        <h:outputText value="- #{lignePaiement.prix}"/>
+                                                    </h:column>
+                                                </h:dataTable>
+                                            </div>
+                                            <br/><h:commandButton type="submit" value="Ajouter" action="" class="btn-sm btn-success col-sm-2"/>
+                                        </div>
                                         
-
                                     </div>
 
                                 </h:form>
