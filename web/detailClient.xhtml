@@ -54,7 +54,7 @@
 
                                         <!--Reservation courante -->
                                         <div class="form-group col-sm-12 text-center">
-                                            <h:commandLink class="btn-link text-capitalize" value="#{resrc.reservationCourante}" action="#{clientBean.reservationCourante()}"/>
+                                            <h:commandLink class="btn-link text-capitalize" value="#{resrc.reservationCourante}" action="#{reservationActiveBean.reservationCourante(clientBean.client)}"/>
                                         </div>
 
                                         <!-- Historique des packs -->

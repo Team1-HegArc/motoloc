@@ -1,6 +1,8 @@
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Client;
+import ch.motoloc.gestion.business.Forfait;
+import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.services.ClientService;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
