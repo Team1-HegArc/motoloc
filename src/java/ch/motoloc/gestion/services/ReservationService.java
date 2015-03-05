@@ -1,5 +1,6 @@
 package ch.motoloc.gestion.services;
 
+import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.Moto;
@@ -67,6 +68,10 @@ public class ReservationService {
             em.getTransaction().rollback();
         }
         return success;
+    }
+    
+    public static Reservation getReservationActive(Client client){
+        return new ReservationDAO().findActive(client);
     }
     
         public static List<Supplement> getAllSupplementsDebut() {

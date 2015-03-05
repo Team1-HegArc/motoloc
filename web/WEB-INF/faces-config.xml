@@ -190,6 +190,11 @@
             <from-outcome>detailForfaitFlexible</from-outcome>
             <to-view-id>/detailForfaitFlexible.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>#{reservationBean.reservationCourante(clientBean.client)}</from-action>
+            <from-outcome>detailReservation</from-outcome>
+            <to-view-id>/detailReservation.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <!-- PAGE AJOUTPACK **************************************************** -->

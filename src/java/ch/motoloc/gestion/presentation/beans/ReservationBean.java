@@ -1,5 +1,6 @@
 package ch.motoloc.gestion.presentation.beans;
 
+import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
@@ -117,6 +118,13 @@ public class ReservationBean {
         this.getFactureReservationBean();
         this.factureReservationBean.sauverFacture(this.reservation);
         return "checkin";
+    }
+    
+    public String reservationCourante(Client client){
+        
+       reservation = ReservationService.getReservationActive(client);
+        
+        return "detailReservation";
     }
 
     /**
