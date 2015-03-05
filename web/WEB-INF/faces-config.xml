@@ -251,7 +251,7 @@
         </navigation-case>
         
         <navigation-case>
-            <from-action>#{forfaitFlexibleBean.annuler()}</from-action>
+            <from-action>#{forfaitFlexBean.annuler()}</from-action>
             <from-outcome>annuler</from-outcome>
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>

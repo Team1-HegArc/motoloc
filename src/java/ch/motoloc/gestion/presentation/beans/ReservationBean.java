@@ -129,6 +129,11 @@ public class ReservationBean {
         
         return "detailReservation";
     }
+    
+    public String annuler(){
+        ReservationService.annulerReservation(reservation);
+        return "annuler";
+    }
 
     /**
      *
