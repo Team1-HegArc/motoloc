@@ -58,7 +58,7 @@
                                         <!-- Historique des réservations -->
                                         <div class="col-sm-12">
                                             <div class="col-sm-10">
-                                                <h:dataTable value="#{forfaitFlexBean.forfaitFlexible.reservations}" var="reservation"
+                                                <h:dataTable value="#{managerListBean.getReservation(forfaitFlexBean.forfaitFlexible)}" var="reservation"
                                                              styleClass="table table-striped">
                                                     <h:column>
                                                         <f:facet name="header">

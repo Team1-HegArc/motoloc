@@ -1,6 +1,7 @@
 package ch.motoloc.gestion.persistence.dao;
 
 import ch.motoloc.gestion.business.Client;
+import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.Reservation;
 import ch.motoloc.gestion.persistence.AbstractDAO;
@@ -65,5 +66,15 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
         
 
         return query.getResultList();
+    }
+    
+     public List<Reservation> getReservationByForfait(Forfait forfait) {
+        String request = "SELECT res FROM Reservation res WHERE res.forfait = ?1";
+        return super.findByParameter(request, forfait);
+    }
+    
+    public static void nettoyerBase() {
+        EntityManager em = JpaConnection.getEntityManager();
+       em.createQuery("DELETE FROM Reservation r WHERE r.forfait IS NULL ").executeUpdate();
     }
 }

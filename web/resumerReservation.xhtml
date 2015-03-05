@@ -65,7 +65,7 @@
                                         <div class="form-group">
                                             <div class="controls text-center">
                                                 <h:commandButton class="btn btn-primary" type="submit" action="#{reservationBean.sauverReservation()}" styleClass="btn-primary" value="#{resrc.boutonValider}" />&nbsp;
-                                                <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="annuler" class="btn btn-danger" styleClass="btn-primary" />
+                                                <h:commandButton value="#{resrc.boutonAnnuler}" immediate="true" action="#{reservationBean.annuler()}" class="btn btn-danger" styleClass="btn-primary" />
                                             </div>
                                         </div>
                                     </div>

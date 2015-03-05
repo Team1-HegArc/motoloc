@@ -251,7 +251,7 @@
         </navigation-case>
         
         <navigation-case>
-            <from-action>#{forfaitFlexibleBean.annuler()}</from-action>
+            <from-action>#{forfaitFlexBean.annuler()}</from-action>
             <from-outcome>annuler</from-outcome>
             <to-view-id>/detailClient.xhtml</to-view-id>
         </navigation-case>
@@ -301,13 +301,13 @@
     <navigation-rule>
         <from-view-id>/detailReservation.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{factureReservationBean.detailFactureReservation(reservationBean.reservation)}</from-action>
+            <from-action>#{reservationBean.factureReservationBean.ajouterFacture(reservationBean.reservation)}</from-action>
             <from-outcome>succes</from-outcome>
             <to-view-id>/detailFactureReservation.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{reservationBean.checkinReservation()}</from-action>
-            <from-outcome>checkin</from-outcome>
+            <from-action>#{reservationBean.factureReservationBean.editerFacture(reservationBean.reservation)}</from-action>
+            <from-outcome>succes</from-outcome>
             <to-view-id>/detailFactureReservation.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
@@ -336,7 +336,7 @@
     <navigation-rule>
         <from-view-id>/ajoutSupplementFacture.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{factureReservationBean.sauverSupplement(ligneSupplement)}</from-action>
+            <from-action>#{factureReservationBean.sauverSupplement()}</from-action>
             <from-outcome>succesAjoutSupplement</from-outcome>
             <to-view-id>/detailFactureReservation.xhtml</to-view-id>
         </navigation-case>
@@ -346,7 +346,7 @@
     <navigation-rule>
         <from-view-id>/ajoutPaiementFacture.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{factureReservationBean.sauverPaiement(lignePaiement)}</from-action>
+            <from-action>#{factureReservationBean.sauverPaiement()}</from-action>
             <from-outcome>succesAjoutPaiement</from-outcome>
             <to-view-id>/detailFactureReservation.xhtml</to-view-id>
         </navigation-case>

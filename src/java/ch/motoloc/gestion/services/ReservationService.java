@@ -1,6 +1,7 @@
 package ch.motoloc.gestion.services;
 
 import ch.motoloc.gestion.business.Client;
+import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.Moto;
@@ -99,6 +100,16 @@ public class ReservationService {
             sousTotal = sousTotal + sup.getPrix();
         }
         return sousTotal;
+    }
+    
+    public static void annulerReservation(Reservation reservation) {
+       EntityManager em = JpaConnection.getEntityManager();
+        
+            em.getTransaction().begin();
+            em.remove(reservation);
+            ReservationDAO.nettoyerBase();
+            em.getTransaction().commit();
+        
     }
 
 }
