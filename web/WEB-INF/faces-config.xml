@@ -294,14 +294,15 @@
     <navigation-rule>
         <from-view-id>/motoDisponible.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>ajoutSupp</from-outcome>
-            <to-view-id>/ajoutSupplementsDepart.xhtml</to-view-id>
+             <from-action>#{supplementBean.rechercherSupplementDebut()}</from-action>
+            <from-outcome>rechercherSuppDebut</from-outcome>
+            <to-view-id>/ajoutSupplementsDebut.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
     <!-- PAGE AJOUTSUPPLEMENTSDEPART *************************************** -->
     <navigation-rule>
-        <from-view-id>/ajoutSupplementsDepart.xhtml</from-view-id>
+        <from-view-id>/ajoutSupplementsDebut.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>detailReservation</from-outcome>
             <to-view-id>/detailReservation.xhtml</to-view-id>

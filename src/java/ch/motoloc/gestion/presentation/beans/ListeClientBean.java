@@ -36,6 +36,7 @@ public class ListeClientBean {
      * @param nom
      * @param prenom
      * @param email
+     * @return 
      */
     public String rechercherClient(String nom, String prenom, String email ){
         String retour;
