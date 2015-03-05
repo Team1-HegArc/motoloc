@@ -20,6 +20,7 @@ public class ForfaitFlexibleBean {
     private ForfaitFlexible forfaitFlexible;
     private FactureForfait factureForfait;
     private Double total;
+     private boolean erreur = false;
 
     public ForfaitFlexibleBean() {
     }
@@ -43,8 +44,21 @@ public class ForfaitFlexibleBean {
         factureForfait.setReference(Long.toString(new Date().getTime()));
         forfaitFlexible.setFacture(factureForfait);
         FactureService.sauverFactureForfait(factureForfait);
-        ForfaitService.sauverForfait(forfaitFlexible);
-        return "succes";
+        Boolean check = ForfaitService.sauverForfait(forfaitFlexible);
+        
+        if(!check){
+            erreur = true;
+            return "erreur";
+        }
+        else{
+            erreur = false;
+            return"succes";
+        }
+    }
+    
+    public String annuler(){
+        ForfaitService.annulerForfaitFlexible(forfaitFlexible);
+        return "annuler";
     }
 
     public String detailForfaitFlexible(ForfaitFlexible forfaitFlexible) {
@@ -74,5 +88,12 @@ public class ForfaitFlexibleBean {
 
     public void setFactureForfait(FactureForfait factureForfait) {
         this.factureForfait = factureForfait;
+    }
+    public boolean isErreur() {
+        return erreur;
+    }
+
+    public void setErreur(boolean erreur) {
+        this.erreur = erreur;
     }
 }

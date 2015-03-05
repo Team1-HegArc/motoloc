@@ -23,6 +23,7 @@ public class ForfaitPackBean {
     private PackDuree duree;
     private MotoModele modele;
     private FactureForfait factureForfait;
+    private boolean erreur = false;
     
 
     public ForfaitPackBean() {
@@ -37,12 +38,27 @@ public class ForfaitPackBean {
     }
     
     public String sauverPack(){
+        
         factureForfait = new FactureForfait();
         factureForfait.setReference(Long.toString(new Date().getTime()));
         forfaitPack.setFacture(factureForfait);
-        FactureService.sauverFactureForfait(factureForfait);
-        ForfaitService.sauverForfait(forfaitPack);
-        return "succes";
+       FactureService.sauverFactureForfait(factureForfait);
+        Boolean check = ForfaitService.sauverForfait(forfaitPack);
+        
+        if(!check){
+            erreur = true;
+            return "erreur";
+        }
+        else{
+            erreur = false;
+            return"succes";
+        }
+        
+    }
+    
+    public String annuler(){
+        ForfaitService.annulerForfaitPack(forfaitPack);
+        return "annuler";
     }
     
     public String resumer() {
@@ -86,6 +102,14 @@ public class ForfaitPackBean {
 
     public void setFactureForfait(FactureForfait factureForfait) {
         this.factureForfait = factureForfait;
+    }
+
+    public boolean isErreur() {
+        return erreur;
+    }
+
+    public void setErreur(boolean erreur) {
+        this.erreur = erreur;
     }
     
     

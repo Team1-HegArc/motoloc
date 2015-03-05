@@ -1,0 +1,42 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package ch.motoloc.gestion.presentation.beans;
+
+import ch.motoloc.gestion.business.Client;
+import ch.motoloc.gestion.business.ForfaitFlexible;
+import ch.motoloc.gestion.business.ForfaitPack;
+import ch.motoloc.gestion.persistence.dao.ForfaitFlexibleDAO;
+import ch.motoloc.gestion.persistence.dao.ForfaitPackDAO;
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+/**
+ *
+ * @author lucas.hornisbe
+ */
+@ManagedBean(name = "managerListBean")
+@SessionScoped
+public class ManagerListBean {
+
+    
+    
+    public ManagerListBean() {
+    }
+    
+    public  List<ForfaitFlexible> getForfaitFlex(Client client){
+        return new ForfaitFlexibleDAO().getForfaitByClient(client);
+    }
+    
+    public  List<ForfaitPack> getForfaitPack(Client client){
+        return new ForfaitPackDAO().getForfaitByClient(client);
+    }
+
+//    public getReservation(){
+//        
+//    }
+}
