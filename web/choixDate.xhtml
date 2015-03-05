@@ -37,9 +37,10 @@
                                         <div class="form-group">   
                                             <h:outputLabel value="#{resrc.dateFin}" class="col-sm-2 col-sm-offset-3"/>
                                             <div class="controls">
-                                                <h:inputText id="dateFin"  class="col-sm-3" maxlength="10" required="true" value="#{reservationBean.dateFin}" validator="dateValidatorSmaller">
+                                                <h:inputText id="dateFin"  class="col-sm-3" maxlength="10" required="true" value="#{reservationBean.dateFin}" >
                                                     <f:attribute name="firstDate" value="#{firstDate}" />
                                                     <f:convertDateTime pattern="dd.mm.yyyy" />
+                                                   
                                                 </h:inputText>
                                                 
                                             </div>
