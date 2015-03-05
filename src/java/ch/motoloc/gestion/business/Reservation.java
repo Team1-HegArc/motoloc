@@ -55,7 +55,7 @@ public class Reservation implements Serializable {
     private Moto moto;
 
     @Column(name = "IS_CANCELLED", nullable = true)
-    private Boolean estAnnule;
+    private boolean estAnnule;
 
     @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_INVOICE_BOOKING", referencedColumnName = "PK_INVOICE", nullable = true)
@@ -121,11 +121,11 @@ public class Reservation implements Serializable {
         this.moto = moto;
     }
 
-    public Boolean getEstAnnule() {
+    public boolean getEstAnnule() {
         return estAnnule;
     }
 
-    public void setEstAnnule(Boolean estAnnule) {
+    public void setEstAnnule(boolean estAnnule) {
         this.estAnnule = estAnnule;
     }
 

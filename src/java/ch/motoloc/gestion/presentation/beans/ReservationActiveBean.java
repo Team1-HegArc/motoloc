@@ -26,6 +26,7 @@ import javax.faces.model.ListDataModel;
 public class ReservationActiveBean {
 
     private Reservation reservation;
+    
 
     /**
      *
@@ -33,18 +34,18 @@ public class ReservationActiveBean {
     public ReservationActiveBean() {
     }
 
-    public Reservation reservationCourante(Client client) {
-   
-         reservation = ReservationService.getReservationActive(client);
-
-        return reservation;
-    }
-
     /**
      *
      * @return
      */
     public Reservation getReservation() {
+        List<Reservation> listRes = ReservationService.getReservationActive(BeanService.findBean("clientBean", ClientBean.class).getClient());
+
+        if(listRes.isEmpty()){
+            reservation = null;
+        }else{
+            reservation = listRes.get(0);
+        }
         return reservation;
     }
 

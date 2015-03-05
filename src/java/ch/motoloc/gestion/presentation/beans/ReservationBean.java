@@ -122,7 +122,7 @@ public class ReservationBean {
     
     public String reservationCourante(Client client){
         
-       reservation = BeanService.findBean("reservationActiveBean", ReservationActiveBean.class ).reservationCourante(client);
+       reservation = BeanService.findBean("reservationActiveBean", ReservationActiveBean.class ).getReservation();
         
         return "detailReservation";
     }
