@@ -118,8 +118,6 @@ public class ReservationBean {
      * @return
      */
     public String checkinReservation() {
-        this.getFactureReservationBean();
-        this.factureReservationBean.sauverFacture(this.reservation);
         return "checkin";
     }
     

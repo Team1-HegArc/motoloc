@@ -31,8 +31,8 @@
                                         <div class="form-group">
                                             <h:outputLabel class="col-sm-3  col-sm-offset-3" value="Supplément"/>
                                             <div class="controls col-sm-3">
-                                                <h:selectOneMenu id="lovModele" value="#{factureReservationBean.ligneSupplement.supplement.libelle}">
-                                                    <f:converter converterId="paiementConverteur"/>
+                                                <h:selectOneMenu id="lovModele" value="#{factureReservationBean.ligneSupplement.supplement}">
+                                                    <f:converter converterId="supplementFactureConverteur"/>
                                                     <f:selectItems var="supplement" value="#{factureReservationBean.supplement}"  itemLabel="#{supplement.libelle} (CHF #{supplement.prix})"/>
                                                 </h:selectOneMenu>
                                             </div>

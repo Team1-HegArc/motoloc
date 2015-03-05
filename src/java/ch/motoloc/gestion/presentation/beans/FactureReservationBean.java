@@ -32,8 +32,8 @@ public class FactureReservationBean {
 
     public FactureReservationBean() {
     }
-
-    public String sauverFacture(Reservation reservation) {
+    
+    public String ajouterFacture(Reservation reservation){
         facture = new FactureReservation();
         facture.setReference(Long.toString(new Date().getTime()));
         for (Supplement supp : reservation.getSupplements()) {
@@ -44,12 +44,16 @@ public class FactureReservationBean {
         }
         reservation.setFacture(facture);
         FactureService.sauverFactureReservation(facture);
-        supplement = ReservationService.getAllSupplementsRetour();
         return "succes";
     }
     
+    public String editerFacture(Reservation reservation){
+        this.facture=reservation.getFacture();
+        return "succes";
+    }
     public String ajoutSupplement() {
         this.ligneSupplement = new FactureLigneSupplement();
+        supplement = ReservationService.getAllSupplementsRetour();
         return "ajoutSupplement";
     }
     
