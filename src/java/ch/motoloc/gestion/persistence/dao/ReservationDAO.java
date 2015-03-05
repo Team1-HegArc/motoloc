@@ -58,7 +58,7 @@ public class ReservationDAO extends AbstractDAO<Reservation>{
     }
     
     public List<Reservation> findActive(Client client){
-        String request = "SELECT res FROM Reservation res WHERE res.forfait.client = ?1 AND estAnnule = FALSE AND res.dateFin > CURRENT_DATE ORDER BY res.dateFin DESC ";
+        String request = "SELECT res FROM Reservation res WHERE res.forfait.client = ?1 AND res.estAnnule = FALSE AND res.dateFin > CURRENT_DATE ORDER BY res.dateFin DESC ";
         TypedQuery<Reservation> query = JpaConnection.getEntityManager().createQuery(request, Reservation.class);
         query.setParameter(1, client);
         
