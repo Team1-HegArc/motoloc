@@ -5,7 +5,9 @@
  */
 package ch.motoloc.gestion.presentation.beans;
 
+import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.Supplement;
+import ch.motoloc.gestion.services.BeanService;
 import ch.motoloc.gestion.services.ReservationService;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,13 +26,16 @@ import javax.faces.model.ListDataModel;
 public class SupplementBean {
 
     private List<Supplement> supplements;
-    private List<String> supplementSelect;
+    private List<Supplement> supplementSelect;
+    
 
     public SupplementBean() {
     }
 
-    public String rechercherSupplementDebut() {
+    public String rechercherSupplementDebut(Moto moto) {
 
+        BeanService.findBean("reservationBean", ReservationBean.class).getReservation().setMoto(moto);
+        
         supplements = ReservationService.getAllSupplementsDebut();
         supplementSelect = new ArrayList<>();
 
@@ -44,6 +49,13 @@ public class SupplementBean {
 
         return "rechercherSuppRetour";
     }
+    
+    public String lierSupplements(){
+        
+        BeanService.findBean("reservationBean", ReservationBean.class).getReservation().setSupplements(supplementSelect);
+        
+        return "resumerReservation";
+    }
 
     public List<Supplement> getSupplements() {
         return supplements;
@@ -53,11 +65,11 @@ public class SupplementBean {
         this.supplements = supplements;
     }
 
-    public List<String> getSupplementSelect() {
+    public List<Supplement> getSupplementSelect() {
         return supplementSelect;
     }
 
-    public void setSupplementSelect(List<String> supplementSelect) {
+    public void setSupplementSelect(List<Supplement> supplementSelect) {
         this.supplementSelect = supplementSelect;
     }
 
