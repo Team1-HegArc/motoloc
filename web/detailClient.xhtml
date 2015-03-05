@@ -72,28 +72,28 @@
                                                         <f:facet name="header">
                                                             <h:outputText value="Date de commande"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfaitP.dateCommande}" rendered="#{forfaitF.id.longValue()==0}"/>
+                                                        <h:outputText value="#{forfaitP.dateCommande}"/>
                                                     </h:column>
                                                     <h:column>
                                                         <f:facet name="header">
                                                             <h:outputText value="Modèle de moto"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfaitP.tarificationPack.motoMod.libelle}" rendered="#{forfaitF.id.longValue()==0}"/>
+                                                        <h:outputText value="#{forfaitP.tarificationPack.motoMod.libelle}"/>
                                                     </h:column>
                                                     <h:column>
                                                         <f:facet name="header">
                                                             <h:outputText value="Nombre de jours"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfaitP.tarificationPack.packDuree.nbJours}" rendered="#{forfaitF.id.longValue()==0}"/>
+                                                        <h:outputText value="#{forfaitP.tarificationPack.packDuree.nbJours}"/>
                                                     </h:column>
                                                     <h:column>
                                                         <f:facet name="header">
                                                             <h:outputText value="Nombre de weekends"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfaitP.tarificationPack.packDuree.nbWeekends}" rendered="#{forfaitF.id.longValue()==0}"/>
+                                                        <h:outputText value="#{forfaitP.tarificationPack.packDuree.nbWeekends}"/>
                                                     </h:column>
                                                     <h:column>
-                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitPackBean.detailForfaitPack(forfaitP)}" styleClass="btn btn-info" rendered="#{forfaitF.id.longValue()==0}"/>
+                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitPackBean.detailForfaitPack(forfaitP)}" styleClass="btn btn-info"/>
                                                     </h:column> 
                                                 </h:dataTable>
                                             </div>
@@ -114,22 +114,22 @@
                                                         <f:facet name="header">
                                                             <h:outputText value="Date de commande"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfaitF.dateCommande}" rendered="#{forfaitF.id.longValue()==0}"/>
+                                                        <h:outputText value="#{forfaitF.dateCommande}"/>
                                                     </h:column>
                                                     <h:column>
                                                         <f:facet name="header">
                                                             <h:outputText value="Modèle de moto"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfaitF.tarificationFlexible.motoModl.libelle}" rendered="#{forfaitF.id.longValue()==0}"/>
+                                                        <h:outputText value="#{forfaitF.tarificationFlexible.motoModl.libelle}"/>
                                                     </h:column>
                                                     <h:column>
                                                         <f:facet name="header">
                                                             <h:outputText value="Nombre de jours"/>
                                                         </f:facet>
-                                                        <h:outputText value="#{forfaitF.nbJour}" rendered="#{forfaitF.id.longValue()==0}"/>
+                                                        <h:outputText value="#{forfaitF.nbJour}"/>
                                                     </h:column>
                                                     <h:column>
-                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitFlexBean.detailForfaitFlexible(forfaitF)}" styleClass="btn btn-info" rendered="#{forfaitF.id.longValue()==0}"/>
+                                                        <h:commandButton value="#{resrc.visualisationBouton}" action="#{forfaitFlexBean.detailForfaitFlexible(forfaitF)}" styleClass="btn btn-info"/>
                                                     </h:column> 
                                                 </h:dataTable>
                                             </div>
