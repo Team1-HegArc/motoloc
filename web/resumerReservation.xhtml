@@ -59,13 +59,27 @@
                                             <h:outputLabel class="col-sm-3" value="#{reservationBean.reservation.dateFin}"/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Modèle de la moto"/>
                                             <h:outputLabel class="col-sm-3" value="#{reservationBean.reservation.moto.motoModele.libelle}"/>
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value=""/>
-                                            <h:outputLabel class="col-sm-3" value="#{}"/>
-                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value=""/>
-                                            <h:outputLabel class="col-sm-3" value="#{forfaitFlexBean.forfaitFlexible.tarificationFlexible.prix_km}"/>
+                                            <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Motos"/>
+                                            <h:outputLabel class="col-sm-3" value="#{reservationBean.reservation.moto.reference}"/>
+                                            <div class="col-sm-10">
+                                                <h:dataTable value="#{reservationBean.reservation.supplements}" var="supplements" styleClass="table table-striped">
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Libellé"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{supplements.libelle}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Prix"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{supplements.prix}"/>
+                                                    </h:column>
+                                                </h:dataTable>
+                                            </div>
                                             <br/><br/>
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Prix total"/>
-                                            <h:outputLabel class="col-sm-3" value="#{reservationBean.factureReservationBean.facture.}"/>
+                                            <h:outputLabel class="col-sm-3" value="???Beaucoup d'argent !!!"/>
                                         </div>
 
                                         <!-- Boutons -->

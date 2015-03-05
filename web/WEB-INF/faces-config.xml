@@ -339,4 +339,13 @@
         </navigation-case>
     </navigation-rule>
     
+    <!-- PAGE RESUMERRESERVATION *************************************** -->
+    <navigation-rule>
+        <from-view-id>/resumerReservation.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>succes</from-outcome>
+            <to-view-id>/detailClient.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
 </faces-config>
