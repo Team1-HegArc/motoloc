@@ -26,12 +26,12 @@ public class SupplementDAO extends AbstractDAO<Supplement> {
     }
 
     public List<Supplement> findDebut() {
-        String request = "SELECT sup from Supplement sup WHERE sup.estExtra is true";
+        String request = "SELECT sup from Supplement sup WHERE sup.estExtra = TRUE";
         return super.findByParameter(request);
     }
 
     public List<Supplement> findFin() {
-        String request = "SELECT sup from Supplement sup WHERE sup.estExtra is false";
+        String request = "SELECT sup from Supplement sup WHERE sup.estExtra = FALSE";
         return super.findByParameter(request);
 
     }

@@ -46,6 +46,9 @@
                                         <div class="col-sm-12">
                                             <h:outputLabel value="Facture n° #{factureForfaitBean.facture.reference}"/>
                                         </div>
+                                        
+                                        <!-- Données du forfait flexible -->
+                                        <c:if test="${empty factureForfaitBean.forfaitFlexible}">
                                         <div class="table-bordered col-sm-12">
                                             <tr>
                                                 <th><h:outputLabel value="Libellé"/></th>
@@ -53,7 +56,7 @@
                                             </tr>
                                             <!-- Facturation -->
                                                 <tr>
-                                                    <td><h:outputLabel value="#{factureForfaitBean.forfait.dateCommande} - Forfait"/></td>
+                                                    <td><h:outputLabel value="#{factureForfaitBean.forfaitFlexible.dateCommande} - Forfait"/></td>
                                                     <td><h:outputLabel value="CHF PRIX"/></td>
                                                 </tr>
                                             <!-- Paiement -->
@@ -65,7 +68,13 @@
                                                 </tr>
                                             </c:if>
                                         </div>
+                                        </c:if>
 
+                                        
+                                        
+                                        
+                                        
+                                        
                                     </div>
 
                                 </h:form>
