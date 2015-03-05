@@ -324,18 +324,18 @@
     <navigation-rule>
         <from-view-id>/motoDisponible.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{supplementBean.rechercherSupplementDebut()}</from-action>
+            <from-action>#{supplementBean.rechercherSupplementDebut(moto)}</from-action>
             <from-outcome>rechercherSuppDebut</from-outcome>
             <to-view-id>/ajoutSupplementsDebut.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
-    <!-- PAGE AJOUTSUPPLEMENTSDEPART *************************************** -->
+    <!-- PAGE AJOUTSUPPLEMENTSDEBUT *************************************** -->
     <navigation-rule>
         <from-view-id>/ajoutSupplementsDebut.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>detailReservation</from-outcome>
-            <to-view-id>/detailReservation.xhtml</to-view-id>
+            <from-outcome>resumerReservation</from-outcome>
+            <to-view-id>/resumerReservation.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -352,6 +352,7 @@
     <navigation-rule>
         <from-view-id>/choixDate.xhtml</from-view-id>
         <navigation-case>
+            <from-action>#{reservationBean.rechercherDispoMoto()}</from-action>
             <from-outcome>rechercherDispoMoto</from-outcome>
             <to-view-id>/motoDisponible.xhtml</to-view-id>
         </navigation-case>
