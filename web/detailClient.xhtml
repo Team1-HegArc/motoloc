@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -53,10 +54,12 @@
                                         </div>
 
                                         <!--Reservation courante -->
+                                        <c:set var="active" scope="session" value="#{reservationActiveBean.reservation}"/>
+                                        <c:if test="${not empty active}">
                                         <div class="form-group col-sm-12 text-center">
                                             <h:commandLink class="btn-link text-capitalize" value="#{resrc.reservationCourante}" action="#{reservationBean.reservationCourante(clientBean.client)}"/>
                                         </div>
-
+                                        </c:if>
                                         <!-- Historique des packs -->
                                         <div class="form-group col-sm-12 text-center">
                                             <hr/><h5><h:outputText value="#{resrc.listePacks}"/></h5><hr/>
