@@ -28,18 +28,23 @@
                                 <div class="col-lg-12">
                                     <h:form class="form-horizontal">
 
+                                        <!-- Variables pour les tests d'affichage -->
                                         <c:set var="fact" scope="session" value="#{reservationBean.reservation.facture}"/>
+                                        <c:set var="annule" scope="session" value="#{reservationBean.reservation.estAnnule}"/>
                                         <!-- Bouton de checkin -->
                                         <c:if test="${empty fact}">
-                                            <h:commandButton type="submit" value="Checkin" action="#{reservationBean.checkinReservation()}" class="btn-sm btn-default col-sm-2 col-sm-offset-10"/>
+                                            <h:commandButton type="submit" value="Checkin" action="#{reservationBean.checkinReservation()}" class="btn-sm btn-info col-sm-2 col-sm-offset-10"/><br/><br/>
                                         </c:if>
                                         <!-- Bouton d'accès à la facture -->
                                         <c:if test="${not empty fact}">
-                                            <h:commandButton type="submit" value="Facture" action="" class="btn-sm btn-default col-sm-2 col-sm-offset-10"/>
+                                            <h:commandButton type="submit" value="Facture" action="" class="btn-sm btn-info col-sm-2 col-sm-offset-10"/><br/><br/>
                                         </c:if>
                                         <!-- Bouton d'annulation -->
-                                        <h:commandButton type="submit" value="Annuler" action="#{reservationBean.annulerReservation()}" class="btn-sm btn-danger col-sm-2 col-sm-offset-10"/>
-
+                                        <c:if test="${not annule}">
+                                            <h:commandButton type="submit" value="Annuler" action="#{reservationBean.annulerReservation()}" class="btn-sm btn-danger col-sm-2 col-sm-offset-10"/><br/><br/>
+                                        </c:if>
+                                        
+                                        
                                         <!-- Infos de la réservation -->
                                         <div class="form-group">
                                             <!-- Réservation -->
@@ -52,8 +57,10 @@
                                             <h:outputLabel class="col-sm-3 col-sm-offset-3" value="Est annulé"/>
                                             <h:outputLabel class="col-sm-3" value="#{reservationBean.reservation.estAnnule}"/>
                                             <br/>
+                                            
                                             <!-- Suppléments -->
                                             <div class="col-sm-12">
+                                                <u><h5><h:outputLabel class="text-center" value="Liste des suppléments"/></h5></u>
                                                 <h:dataTable value="#{reservationBean.reservation.supplements}" var="supplement" styleClass="table table-striped">
                                                     <h:column>
                                                         <f:facet name="header">
