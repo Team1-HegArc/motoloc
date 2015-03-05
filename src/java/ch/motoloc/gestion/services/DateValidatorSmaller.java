@@ -27,8 +27,14 @@ public class DateValidatorSmaller implements Validator {
         UIInput sd = (UIInput)component.getAttributes().get("firstDate");
         Date firstDate = (Date)sd.getValue();
         Date secondDate = (Date)value;
+        Date jourDate = new Date();
         if(!firstDate.before(secondDate)){
-            FacesMessage msg = new FacesMessage("Entered dates are invalid: first date must be before second date");
+            FacesMessage msg = new FacesMessage("Dates non-valides : la date de début doit être inférieur à la date de fin");
+            throw new ValidatorException(msg);
+        }
+        
+        if(!firstDate.before(jourDate)){
+            FacesMessage msg = new FacesMessage("La date de début doit être supérieur à la date du jour");
             throw new ValidatorException(msg);
         }
     }
