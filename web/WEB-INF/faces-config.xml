@@ -244,7 +244,7 @@
             <to-view-id>/detailReservation.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{factureForfaitBean.detailFactureForfait(forfaitPackBean.forfaitPack)}</from-action>
+            <from-action>#{factureForfaitBean.detailFactureForfaitPack(forfaitPackBean.forfaitPack)}</from-action>
             <from-outcome>succes</from-outcome>
             <to-view-id>/detailFactureForfait.xhtml</to-view-id>
         </navigation-case>
@@ -264,7 +264,7 @@
             <to-view-id>/detailReservation.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{factureForfaitBean.detailFactureForfait(forfaitFlexBean.forfaitFlexible)}</from-action>
+            <from-action>#{factureForfaitBean.detailFactureForfaitFlex(forfaitFlexBean.forfaitFlexible)}</from-action>
             <from-outcome>succes</from-outcome>
             <to-view-id>/detailFactureForfait.xhtml</to-view-id>
         </navigation-case>

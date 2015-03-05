@@ -2,7 +2,6 @@ package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.FactureForfait;
-import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.services.FactureService;
@@ -26,13 +25,13 @@ public class FactureForfaitBean {
     public FactureForfaitBean() {
     }
     
-    public String detailFactureForfait(ForfaitFlexible forfait) {
+    public String detailFactureForfaitFlex(ForfaitFlexible forfait) {
         this.forfaitFlexible=forfait;
         this.facture = forfait.getFacture();
         return "succes";
     }
     
-    public String detailFactureForfait(ForfaitPack forfait) {
+    public String detailFactureForfaitPack(ForfaitPack forfait) {
         this.forfaitPack=forfait;
         this.facture = forfait.getFacture();
         return "succes";
