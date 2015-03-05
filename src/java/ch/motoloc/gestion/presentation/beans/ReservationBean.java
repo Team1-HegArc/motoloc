@@ -60,6 +60,7 @@ public class ReservationBean {
     }
     
     public String checkinReservation() {
+        this.getFactureReservationBean();
         this.factureReservationBean.sauverFacture(this.reservation);
         return "checkin";
     }
