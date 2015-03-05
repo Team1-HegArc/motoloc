@@ -7,6 +7,7 @@ package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.Supplement;
+import ch.motoloc.gestion.persistence.dao.SupplementDAO;
 import ch.motoloc.gestion.services.BeanService;
 import ch.motoloc.gestion.services.ReservationService;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ import javax.faces.model.ListDataModel;
 public class SupplementBean {
 
     private List<Supplement> supplements;
-    private List<Supplement> supplementSelect;
+    private List<String> supplementSelect;
     
 
     public SupplementBean() {
@@ -51,8 +52,12 @@ public class SupplementBean {
     }
     
     public String lierSupplements(){
-        
-        BeanService.findBean("reservationBean", ReservationBean.class).getReservation().setSupplements(supplementSelect);
+        List<Supplement> supp = new  ArrayList();
+        SupplementDAO suppDAO = new SupplementDAO();
+        for (String s : supplementSelect) {
+            supp.add(suppDAO.findById(Long.valueOf(s)));
+        }
+        BeanService.findBean("reservationBean", ReservationBean.class).getReservation().setSupplements(supp);
         
         return "resumerReservation";
     }
@@ -65,12 +70,14 @@ public class SupplementBean {
         this.supplements = supplements;
     }
 
-    public List<Supplement> getSupplementSelect() {
+    public List<String> getSupplementSelect() {
         return supplementSelect;
     }
 
-    public void setSupplementSelect(List<Supplement> supplementSelect) {
+    public void setSupplementSelect(List<String> supplementSelect) {
         this.supplementSelect = supplementSelect;
     }
+
+    
 
 }

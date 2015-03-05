@@ -32,7 +32,7 @@
                                         <div class="form-group col-lg-6 col-lg-offset-6">
                                             <!--check box static-->
                                             <h:selectManyCheckbox value="#{supplementBean.supplementSelect}">
-                                                <f:selectItems value="#{supplementBean.supplements}" var="supp" itemValue="#{supp}" itemLabel="#{supp.libelle}">
+                                                <f:selectItems value="#{supplementBean.supplements}" var="supp" itemValue="#{supp.id}" itemLabel="#{supp.libelle}">
                                                     
                                                 </f:selectItems>
                                             </h:selectManyCheckbox>
