@@ -338,6 +338,11 @@
             <from-outcome>rechercherSuppDebut</from-outcome>
             <to-view-id>/ajoutSupplementsDebut.xhtml</to-view-id>
         </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>annuler</from-outcome>
+            <to-view-id>/accueil.xhtml</to-view-id>  
+        </navigation-case>         
     </navigation-rule>
     
     <!-- PAGE AJOUTSUPPLEMENTSDEBUT *************************************** -->
