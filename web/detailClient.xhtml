@@ -57,7 +57,7 @@
                                         <c:set var="active" scope="session" value="#{reservationActiveBean.reservation}"/>
                                         <c:if test="${not empty active}">
                                         <div class="form-group col-sm-12 text-center">
-                                            <h:commandLink class="btn-link text-capitalize" value="#{resrc.reservationCourante}" action="#{reservationBean.reservationCourante(clientBean.client)}"/>
+                                            <h:commandButton class="text-capitalize" styleClass="btn btn-warning" value="#{resrc.reservationCourante}" action="#{reservationBean.reservationCourante(clientBean.client)}"/>
                                         </div>
                                         </c:if>
                                         <!-- Historique des packs -->

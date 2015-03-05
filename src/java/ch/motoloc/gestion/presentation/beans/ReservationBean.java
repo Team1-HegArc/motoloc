@@ -30,6 +30,7 @@ public class ReservationBean {
     private Date dateFin;
     private FactureReservationBean factureReservationBean;
     private boolean erreur = false;
+    private double total;
 
     /**
      *
@@ -217,5 +218,14 @@ public class ReservationBean {
     public void setErreur(boolean erreur) {
         this.erreur = erreur;
     }
+
+    public double getTotal() {
+        return ReservationService.getTotalReservation(reservation);
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    
     
 }
