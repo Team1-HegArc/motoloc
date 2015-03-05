@@ -33,7 +33,7 @@ public class DateValidatorSmaller implements Validator {
             throw new ValidatorException(msg);
         }
         
-        if(!firstDate.before(jourDate)){
+        else if(firstDate.before(jourDate)){
             FacesMessage msg = new FacesMessage("La date de début doit être supérieur à la date du jour");
             throw new ValidatorException(msg);
         }
