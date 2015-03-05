@@ -3,6 +3,7 @@ package ch.motoloc.gestion.presentation.beans;
 import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.business.Moto;
 import ch.motoloc.gestion.business.Reservation;
+import ch.motoloc.gestion.services.BeanService;
 import ch.motoloc.gestion.services.ConvertisseurDate;
 import ch.motoloc.gestion.services.ReservationService;
 import javax.faces.bean.ManagedBean;
@@ -22,6 +23,7 @@ public class ReservationBean {
     private ListDataModel<Moto> motos;
     private String dateDebut;
     private String dateFin;
+    private FactureReservationBean factureReservationBean;
 
     public ReservationBean() {
     }
@@ -57,7 +59,8 @@ public class ReservationBean {
     }
     
     public String checkinReservation() {
-        throw new UnsupportedOperationException();
+        this.factureReservationBean.sauverFacture(this.reservation);
+        return "checkin";
     }
 
     public Reservation getReservation() {
@@ -91,7 +94,14 @@ public class ReservationBean {
     public void setMotos(ListDataModel<Moto> motos) {
         this.motos = motos;
     }
-    
-    
 
+    public FactureReservationBean getFactureReservationBean() {
+        this.factureReservationBean = BeanService.findBean("factureReservationBean", FactureReservationBean.class);
+        return factureReservationBean;
+    }
+
+    public void setFactureReservationBean(FactureReservationBean factureReservationBean) {
+        this.factureReservationBean = factureReservationBean;
+    }
+    
 }

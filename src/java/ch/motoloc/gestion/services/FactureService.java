@@ -3,6 +3,9 @@ package ch.motoloc.gestion.services;
 import ch.motoloc.gestion.business.Client;
 import ch.motoloc.gestion.business.Facture;
 import ch.motoloc.gestion.business.FactureForfait;
+import ch.motoloc.gestion.business.FactureLignePaiement;
+import ch.motoloc.gestion.business.FactureLigneSupplement;
+import ch.motoloc.gestion.business.FactureReservation;
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.Paiement;
@@ -40,21 +43,21 @@ public class FactureService {
         Client client = (new ClientDAO().findByFactureReservation(facture)).iterator().next();
         return client;
     }
-    
+
     public static Paiement getPaiementById(Long id) {
         Paiement paiement = new PaiementDAO().findById(id);
         return paiement;
     }
-    
+
     public static List<Paiement> getAllPaiements() {
         return new PaiementDAO().findAll();
     }
-    
-       public static Supplement getSupplementById(Long id) {
+
+    public static Supplement getSupplementById(Long id) {
         Supplement supplement = new SupplementDAO().findById(id);
         return supplement;
     }
-    
+
     public static List<Supplement> getAllSupplements() {
         return new SupplementDAO().findAll();
     }
@@ -66,6 +69,51 @@ public class FactureService {
         try {
             et.begin();
             em.persist(factureForfait);
+            et.commit();
+            success = true;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        }
+        return success;
+    }
+
+    public static boolean sauverFactureReservation(FactureReservation factureReservation) {
+        boolean success = false;
+        EntityManager em = JpaConnection.getEntityManager();
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            em.persist(factureReservation);
+            et.commit();
+            success = true;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        }
+        return success;
+    }
+
+    public static boolean sauverFactureLigneSupplement(FactureLigneSupplement factureLigneSupplement) {
+        boolean success = false;
+        EntityManager em = JpaConnection.getEntityManager();
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            em.persist(factureLigneSupplement);
+            et.commit();
+            success = true;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        }
+        return success;
+    }
+    
+        public static boolean sauverFactureLignePaiement(FactureLignePaiement factureLignePaiement) {
+        boolean success = false;
+        EntityManager em = JpaConnection.getEntityManager();
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            em.persist(factureLignePaiement);
             et.commit();
             success = true;
         } catch (Exception e) {
