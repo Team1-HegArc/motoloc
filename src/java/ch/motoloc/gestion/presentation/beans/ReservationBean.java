@@ -71,6 +71,7 @@ public class ReservationBean {
         test si le nombre de jours disponible est suffisant
         */
         int joursReserves = (int) (reservation.getDateFin().getTime() - reservation.getDateDebut().getTime());
+        joursReserves = joursReserves /(1000*60*60*24);
         if (joursReserves > joursRestants) {
             erreur = true;
             return "erreur";

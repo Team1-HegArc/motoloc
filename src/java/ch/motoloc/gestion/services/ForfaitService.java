@@ -102,7 +102,9 @@ public class ForfaitService {
     public static int nbJourRestant(ForfaitFlexible forfait){
         int nbJour=forfait.getNbJour();
         for (Reservation res : forfait.getReservations()) {
-            nbJour = nbJour - (int) (res.getDateFin().getTime()-res.getDateDebut().getTime());
+            if(res.getId()!=null){
+            nbJour = nbJour - (int) ((res.getDateFin().getTime()-res.getDateDebut().getTime())/ (1000*60*60*24));
+            }
         }
         return nbJour;
     }
@@ -110,8 +112,8 @@ public class ForfaitService {
     public static int nbJourRestant(ForfaitPack forfait){
         int nbJour=forfait.getTarificationPack().getPackDuree().getNbJours();
         for (Reservation res : forfait.getReservations()) {
-            if(res.getId()==null){
-                nbJour = nbJour - (int) (res.getDateFin().getTime()-res.getDateDebut().getTime());
+            if(res.getId()!=null){
+                nbJour = nbJour - (int) ((res.getDateFin().getTime()-res.getDateDebut().getTime())/ (1000*60*60*24));
             }
         }
         return nbJour;
