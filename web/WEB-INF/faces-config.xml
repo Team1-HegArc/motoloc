@@ -356,6 +356,11 @@
             <from-outcome>rechercherDispoMoto</from-outcome>
             <to-view-id>/motoDisponible.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>#{reservationBean.rechercherDispoMoto()}</from-action>
+            <from-outcome>erreur</from-outcome>
+            <to-view-id>/choixDate.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
 </faces-config>
