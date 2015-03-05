@@ -48,7 +48,7 @@
                                         </div>
 
                                         <!-- Données du forfait flexible -->
-                                        <c:set var="flex" scope="session" value="#{factureForfaitBean.forfaitFlexible.id}"/>
+                                        <c:set var="flex" scope="session" value="#{factureForfaitBean.forfaitFlexible}"/>
                                         <c:if test="${not empty flex}">
                                             <table class="table-bordered col-sm-12">
                                                 <tr>
@@ -72,7 +72,7 @@
                                         </c:if>
 
                                         <!-- Données du forfait pack -->
-                                        <c:set var="pack" scope="session" value="#{factureForfaitBean.forfaitPack.id}"/>
+                                        <c:set var="pack" scope="session" value="#{factureForfaitBean.forfaitPack}"/>
                                         <c:if test="${not empty pack}">
                                             <table class="table-bordered col-sm-12">
                                                 <tr>
@@ -100,15 +100,15 @@
                                             <!-- Non payé -->
                                             <c:if test="${empty factureForfaitBean.facture.paiement}">
                                                 <c:if test="${not empty factureForfaitBean.forfaitFlexible}">
-                                                    <h:outputLabel value="Total : #{forfaitFlexBean.total} CHF"/>
+                                                     <br/><h:outputLabel value="Total : #{forfaitFlexBean.total} CHF"/>
                                                 </c:if>
                                                 <c:if test="${not empty factureForfaitBean.forfaitPack}">
-                                                    <h:outputLabel value="Total : #{factureForfaitBean.forfaitPack.tarificationPack.prix_base} CHF"/>
+                                                     <br/><h:outputLabel value="Total : #{factureForfaitBean.forfaitPack.tarificationPack.prix_base} CHF"/>
                                                 </c:if>
                                             </c:if>
                                             <!-- Payé -->
                                             <c:if test="${not empty factureForfaitBean.facture.paiement}">
-                                                <h:outputLabel value="Total : 0.00 CHF"/>
+                                                 <br/><h:outputLabel value="Total : 0.00 CHF"/>
                                             </c:if>
 
                                         </div>
