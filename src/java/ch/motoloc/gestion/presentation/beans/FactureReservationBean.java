@@ -62,14 +62,14 @@ public class FactureReservationBean {
         return "ajoutPaiement";
     }
     
-    public String sauverSupplement(FactureLigneSupplement ligneSupplement) {
+    public String sauverSupplement() {
         facture.addFactureLigneSupplement(ligneSupplement);
         FactureService.sauverFactureLigneSupplement(ligneSupplement);
         return "succesAjoutSupplement";
         
     }
     
-    public String sauverPaiement(FactureLignePaiement lignePaiement) {
+    public String sauverPaiement() {
         facture.addFactureLignePaiement(lignePaiement);
         FactureService.sauverFactureLignePaiement(lignePaiement);
         return "succesAjoutPaiement";

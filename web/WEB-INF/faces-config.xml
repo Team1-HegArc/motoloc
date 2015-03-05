@@ -336,7 +336,7 @@
     <navigation-rule>
         <from-view-id>/ajoutSupplementFacture.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{factureReservationBean.sauverSupplement(ligneSupplement)}</from-action>
+            <from-action>#{factureReservationBean.sauverSupplement()}</from-action>
             <from-outcome>succesAjoutSupplement</from-outcome>
             <to-view-id>/detailFactureReservation.xhtml</to-view-id>
         </navigation-case>
@@ -346,7 +346,7 @@
     <navigation-rule>
         <from-view-id>/ajoutPaiementFacture.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{factureReservationBean.sauverPaiement(lignePaiement)}</from-action>
+            <from-action>#{factureReservationBean.sauverPaiement()}</from-action>
             <from-outcome>succesAjoutPaiement</from-outcome>
             <to-view-id>/detailFactureReservation.xhtml</to-view-id>
         </navigation-case>
