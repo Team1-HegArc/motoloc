@@ -5,8 +5,13 @@ import ch.motoloc.gestion.business.Facture;
 import ch.motoloc.gestion.business.FactureForfait;
 import ch.motoloc.gestion.business.ForfaitFlexible;
 import ch.motoloc.gestion.business.ForfaitPack;
+import ch.motoloc.gestion.business.Paiement;
+import ch.motoloc.gestion.business.Supplement;
 import ch.motoloc.gestion.persistence.JpaConnection;
 import ch.motoloc.gestion.persistence.dao.ClientDAO;
+import ch.motoloc.gestion.persistence.dao.PaiementDAO;
+import ch.motoloc.gestion.persistence.dao.SupplementDAO;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -34,6 +39,24 @@ public class FactureService {
     public static Client getClientFactureReservation(Facture facture) {
         Client client = (new ClientDAO().findByFactureReservation(facture)).iterator().next();
         return client;
+    }
+    
+    public static Paiement getPaiementById(Long id) {
+        Paiement paiement = new PaiementDAO().findById(id);
+        return paiement;
+    }
+    
+    public static List<Paiement> getAllPaiements() {
+        return new PaiementDAO().findAll();
+    }
+    
+       public static Supplement getSupplementById(Long id) {
+        Supplement supplement = new SupplementDAO().findById(id);
+        return supplement;
+    }
+    
+    public static List<Supplement> getAllSupplements() {
+        return new SupplementDAO().findAll();
     }
 
     public static boolean sauverFactureForfait(FactureForfait factureForfait) {

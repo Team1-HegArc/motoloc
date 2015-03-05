@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ch.motoloc.gestion.presentation.beans;
-
 
 import ch.motoloc.gestion.business.Forfait;
 import ch.motoloc.gestion.business.ForfaitPack;
 import ch.motoloc.gestion.business.MotoModele;
 import ch.motoloc.gestion.business.PackDuree;
+import ch.motoloc.gestion.business.Paiement;
+import ch.motoloc.gestion.business.Supplement;
 import ch.motoloc.gestion.business.TarificationFlexible;
 import ch.motoloc.gestion.business.TarificationPack;
+import ch.motoloc.gestion.services.FactureService;
 import ch.motoloc.gestion.services.MotoService;
 import ch.motoloc.gestion.services.ForfaitService;
 import java.io.Serializable;
@@ -25,9 +26,9 @@ import javax.faces.bean.SessionScoped;
  *
  * @author cyril.briguet
  */
-@ManagedBean(name="ManagerLovBean")
+@ManagedBean(name = "ManagerLovBean")
 @SessionScoped
-public class ManagerLovBean implements Serializable{
+public class ManagerLovBean implements Serializable {
 
     /**
      *
@@ -44,16 +45,26 @@ public class ManagerLovBean implements Serializable{
     public List<TarificationPack> getTarifiactionPacks() {
         return ForfaitService.getAllTarifiactionPack();
     }
-    
-    public List<TarificationFlexible> getTarificationFlexibles(){
+
+    public List<TarificationFlexible> getTarificationFlexibles() {
         return ForfaitService.getAllTarifiactionFlex();
     }
-    
-    public List<PackDuree> getPackDuree(){
+
+    public List<PackDuree> getPackDuree() {
         return ForfaitService.getAllPackDuree();
     }
-    
-    public List<MotoModele> getModelesPacks(){
+
+    public List<MotoModele> getModelesPacks() {
         return ForfaitService.getAllModelesPacks();
     }
+
+    public List<Paiement> getPaiements() {
+        return FactureService.getAllPaiements();
+    }
+    
+    public List<Supplement> getSupplements() {
+        return FactureService.getAllSupplements();
+    }
+    
+    
 }
