@@ -1,11 +1,14 @@
 package ch.motoloc.gestion.presentation.beans;
 
 import ch.motoloc.gestion.business.Client;
-import ch.motoloc.gestion.business.FactureForfait;
+import ch.motoloc.gestion.business.FactureLignePaiement;
+import ch.motoloc.gestion.business.FactureLigneSupplement;
 import ch.motoloc.gestion.business.FactureReservation;
-import ch.motoloc.gestion.business.Forfait;
+import ch.motoloc.gestion.business.Paiement;
 import ch.motoloc.gestion.business.Reservation;
+import ch.motoloc.gestion.business.Supplement;
 import ch.motoloc.gestion.services.FactureService;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -24,7 +27,35 @@ public class FactureReservationBean {
 
     public FactureReservationBean() {
     }
+
+    public String sauverFacture(Reservation reservation) {
+        facture = new FactureReservation();
+        facture.setReference(Long.toString(new Date().getTime()));
+        for (Supplement supp : reservation.getSupplements()) {
+            FactureLigneSupplement ligneSupp = new FactureLigneSupplement();
+            ligneSupp.setSupplement(supp);
+            ligneSupp.setPrix(supp.getPrix());
+            facture.addFactureLigneSupplement(ligneSupp);
+        }
+        reservation.setFacture(facture);
+        FactureService.sauverFactureReservation(facture);
+        return "succes";
+    }
     
+    public String sauverSupplement(FactureLigneSupplement ligneSupplement) {
+        facture.addFactureLigneSupplement(ligneSupplement);
+        FactureService.sauverFactureLigneSupplement(ligneSupplement);
+        return "succesAjoutSupplement";
+        
+    }
+    
+    public String sauverPaiement(FactureLignePaiement lignePaiement) {
+        facture.addFactureLignePaiement(lignePaiement);
+        FactureService.sauverFactureLignePaiement(lignePaiement);
+        return "succesAjoutPaiement";
+        
+    }
+
     public String detailFactureReservation(Reservation reservation) {
         this.reservation = reservation;
         this.facture = reservation.getFacture();
@@ -47,7 +78,6 @@ public class FactureReservationBean {
         this.reservation = reservation;
     }
 
-
     public Client getClient() {
         this.client = FactureService.getClientFactureReservation(facture);
         return this.client;
@@ -56,5 +86,6 @@ public class FactureReservationBean {
     public void setClient(Client client) {
         this.client = client;
     }
+    
 
 }
