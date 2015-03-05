@@ -59,7 +59,7 @@
 
                                         <!-- Historique des packs -->
                                         <div class="form-group col-sm-12 text-center">
-                                            <hr/><u><h5><h:outputText value="#{resrc.listePacks}"/></h5></u><hr/>
+                                            <hr/><h5><h:outputText value="#{resrc.listePacks}"/></h5><hr/>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="col-sm-10">
@@ -94,14 +94,14 @@
                                                     </h:column> 
                                                 </h:dataTable>
                                             </div>
-                                            <br/><h:commandButton type="submit" value="#{resrc.boutonPack}" action="#{forfaitPackBean.ajouterPack(clientBean.client)}" class="btn-sm btn-primary col-sm-2"/>
+                                            <br/><h:commandButton type="submit" value="#{resrc.boutonPack}" action="#{forfaitPackBean.ajouterPack(clientBean.client)}" class="btn-sm btn-success col-sm-2"/>
                                         </div>
                                         
                                         <br/><br/>
 
                                         <!-- Historique des flexibles -->
                                         <div class="form-group col-sm-12 text-center">
-                                            <hr/><u><h5><h:outputText value="#{resrc.listeFlexible}"/></h5></u><hr/>
+                                            <hr/><h5><h:outputText value="#{resrc.listeFlexible}"/></h5><hr/>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="col-sm-10">
@@ -130,7 +130,7 @@
                                                     </h:column> 
                                                 </h:dataTable>
                                             </div>
-                                            <br/><h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{forfaitFlexBean.ajouterFlexible(clientBean.client)}" class="btn-sm btn-primary col-sm-2"/>                                      
+                                            <br/><h:commandButton type="submit" value="#{resrc.boutonFlexible}" action="#{forfaitFlexBean.ajouterFlexible(clientBean.client)}" class="btn-sm btn-success col-sm-2"/>                                      
                                         </div>
                                     </h:form>
                                 </div>

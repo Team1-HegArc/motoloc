@@ -33,11 +33,11 @@
                                         <c:set var="annule" scope="session" value="#{reservationBean.reservation.estAnnule}"/>
                                         <!-- Bouton de checkin -->
                                         <c:if test="${empty fact}">
-                                            <h:commandButton type="submit" value="Checkin" action="#{reservationBean.checkinReservation()}" class="btn-sm btn-info col-sm-2 col-sm-offset-10"/><br/><br/>
+                                            <h:commandButton type="submit" value="Checkin" action="#{reservationBean.checkinReservation()}" class="btn-sm btn-primary col-sm-2 col-sm-offset-10"/><br/><br/>
                                         </c:if>
                                         <!-- Bouton d'accès à la facture -->
                                         <c:if test="${not empty fact}">
-                                            <h:commandButton type="submit" value="Facture" action="" class="btn-sm btn-info col-sm-2 col-sm-offset-10"/><br/><br/>
+                                            <h:commandButton type="submit" value="Facture" action="" class="btn-sm btn-primary col-sm-2 col-sm-offset-10"/><br/><br/>
                                         </c:if>
                                         <!-- Bouton d'annulation -->
                                         <c:if test="${not annule}">
@@ -59,8 +59,10 @@
                                             <br/>
                                             
                                             <!-- Suppléments -->
-                                            <div class="col-sm-12">
-                                                <u><h5><h:outputLabel class="text-center" value="Liste des suppléments"/></h5></u>
+                                            <div class="col-sm-12 text-center">
+                                                <hr/><h5><h:outputLabel value="Liste des suppléments"/></h5><hr/>
+                                            </div>
+                                                <div class="col-sm-12">
                                                 <h:dataTable value="#{reservationBean.reservation.supplements}" var="supplement" styleClass="table table-striped">
                                                     <h:column>
                                                         <f:facet name="header">
