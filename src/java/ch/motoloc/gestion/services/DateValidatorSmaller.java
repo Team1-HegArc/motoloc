@@ -26,6 +26,7 @@ public class DateValidatorSmaller implements Validator {
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
         UIInput sd = (UIInput)component.getAttributes().get("firstDate");
         Date firstDate = (Date)sd.getValue();
+        
         Date secondDate = (Date)value;
         Date jourDate = new Date();
         if(!firstDate.before(secondDate)){
@@ -33,7 +34,7 @@ public class DateValidatorSmaller implements Validator {
             throw new ValidatorException(msg);
         }
         
-        else if(firstDate.before(jourDate)){
+        if(firstDate.before(jourDate)){
             FacesMessage msg = new FacesMessage("La date de début doit être supérieur à la date du jour");
             throw new ValidatorException(msg);
         }

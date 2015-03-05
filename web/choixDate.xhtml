@@ -25,10 +25,10 @@
                                 <div class="col-lg-12">                                
                                     <h:form class="form-horizontal box"> 
                                         <div class="form-group">
-                                            <h:outputLabel value="#{resrc.dateDepart}" class="col-sm-2 col-sm-offset-3"/>  
+                                            <h:outputLabel value="#{resrc.dateDepart}" class="col-sm-2 col-sm-offset-3"/> 
                                                 <div class="controls">
                                                     <h:inputText id="dateDepart"  class="col-sm-3" maxlength="10" required="true" value="#{reservationBean.dateDebut}" binding="#{firstDate}">
-                                                        <f:convertDateTime pattern="dd.mm.yyyy" />
+                                                        <f:convertDateTime pattern="dd.MM.yyyy" />
                                                     </h:inputText>
                                                     <h:message for="dateDepart" showSummary="true" showDetail="false"/>
                                                 </div>
@@ -39,8 +39,8 @@
                                             <div class="controls">
                                                 <h:inputText id="dateFin"  class="col-sm-3" maxlength="10" required="true" value="#{reservationBean.dateFin}" >
                                                     <f:attribute name="firstDate" value="#{firstDate}" />
-                                                    <f:convertDateTime pattern="dd.mm.yyyy" />
-                                                   
+                                                    <f:convertDateTime pattern="dd.MM.yyyy" />
+                                                    <f:validator validatorId="dateValidatorSmaller"/>                                  
                                                 </h:inputText>
                                                 
                                             </div>
