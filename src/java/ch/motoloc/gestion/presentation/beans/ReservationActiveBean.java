@@ -26,7 +26,7 @@ import javax.faces.model.ListDataModel;
 @SessionScoped
 public class ReservationActiveBean {
 
-    private List<Reservation> reservations;
+    private Reservation reservation;
 
     /**
      *
@@ -34,27 +34,27 @@ public class ReservationActiveBean {
     public ReservationActiveBean() {
     }
 
-    public List<Reservation> reservationCourante(Client client) {
+    public Reservation reservationCourante(Client client) {
    
-         reservations = ReservationService.getReservationActive(client);
+         reservation = ReservationService.getReservationActive(client);
 
-        return reservations;
+        return reservation;
     }
 
     /**
      *
      * @return
      */
-    public List<Reservation> getReservation() {
-        return reservations;
+    public Reservation getReservation() {
+        return reservation;
     }
 
     /**
      *
      * @param reservation
      */
-    public void setReservation(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservation(Reservation reservations) {
+        this.reservation = reservation;
     }
 
 }

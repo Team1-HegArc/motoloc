@@ -70,7 +70,7 @@ public class ReservationService {
         return success;
     }
     
-    public static List<Reservation> getReservationActive(Client client){
+    public static Reservation getReservationActive(Client client){
         return new ReservationDAO().findActive(client);
     }
     
